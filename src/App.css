@@ -1,3 +1,24 @@
+/*
+======================================
+  TABLE OF CONTENTS
+======================================
+  1. Global Styles 
+  2. Typography
+  3. Layout
+  4. Components
+      4.1 Hero
+      4.2 NavBars
+  5. State Classes    
+  6. Media Queries
+      6.1 Tablet/Desktop
+  0. Quick-Hacks/Temporary
+*/
+
+/* 
+======================================
+   1. Global Styles
+====================================== 
+*/
 :root {
     --color100: #ffffff;
     --color400: #469890;
@@ -13,6 +34,7 @@
 
 html {
     color: var(--color700);
+    background-color: var(--color100);
 }
 
 a {
@@ -25,6 +47,11 @@ button {
     box-shadow: none;
 }
 
+a:hover,
+button:hover {
+    cursor: pointer;
+}
+
 input,
 textarea,
 button,
@@ -33,126 +60,69 @@ a {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-nav:first-of-type {
-    position: fixed;
-    height: 50px;
-    width: 100%;
-    border-bottom: solid 1px var(--color400);
-    background-color: var(--color100);
-    z-index: 10;
-}
-
-#socialDrawer {
-    border-right: solid 2px var(--color400);
-}
-
-#socialDrawer > * {
+/*
+====================================== 
+    2. Typography 
+======================================
+*/
+h2 {
     color: var(--color400);
 }
 
-#socialDrawer h3 {
-    padding: 1rem 0;
-    margin: 0;
-    font-size: 2rem;
-    text-transform: uppercase;
-    border-bottom: 1px solid currentColor;
-
-    text-align: center;
-
-    width: 100%;
+p {
+    overflow-wrap: break-word;
 }
 
-#socialDrawer button {
-    position: absolute;
-    right: -2rem;
-    bottom: 4rem;
-
-    width: 2rem;
-    height: 4rem;
-
-    color: var(--color100);
-    background-color: var(--color400);
-    border: solid 1px var(--color400);
-    border-left: none;
-    border-top-right-radius: 1.5rem;
-    border-bottom-right-radius: 1.5rem;
-}
-
-.sideDrawer {
-    width: calc(100% - 2rem);
-    max-width: 350px;
-    padding: 0;
-    height: 100%;
-    /* margin-top: var(--navHeight); */
-    /* height: calc(100% - var(--navHeight)); */
-    background-color: var(--color100);
-    z-index: var(--maxZ);
-
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    top: 0;
+.left {
     left: 0;
-    transform: translateX(-100%);
-    transition: 850ms;
 }
 
-.drawerInfo {
-    padding-top: 1rem;
-    overflow-y: scroll;
+.right {
+    right: 0;
 }
 
-.active {
-    left: 0;
-    transform: translateX(0);
-    transition: 350ms;
+.left .socialBtn {
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 
-.modal-open {
-    overflow: hidden;
+.right .socialBtn {
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
 }
 
-.socialLinks {
-    justify-self: center;
-
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.socialLinks i {
-    padding: 1rem;
-    padding-left: 2rem;
-}
-
-.socialLinks a {
-    padding: 0;
-    margin-top: 0.2rem;
-
-    transition: all 0.5s ease-in-out;
-
-    border-bottom: solid 1px var(--color400);
-}
-
-.socialLinks i::after {
-    content: var(--socialName);
-    color: currentColor;
-
-    padding-left: 2rem;
-    padding-right: 1rem;
-    text-transform: uppercase;
-}
-
-.fa-book-open::after {
-    font-weight: 400;
-}
-
+/*
+======================================
+    3.Layout 
+======================================
+*/
 main {
     width: 100%;
     color: var(--color700);
     overflow-x: hidden;
 }
 
+.container {
+    min-height: 100vh;
+    max-width: 1200px;
+    width: auto;
+    padding: 0 1em;
+    margin: 0 auto;
+}
+
+section {
+    padding-top: var(--navHeight);
+}
+
+/* 
+======================================
+    4. Components 
+======================================
+*/
+
+/* 
+===== 4.1 Hero =====
+*/
 .hero {
     position: relative;
     height: 100vh;
@@ -194,139 +164,85 @@ main {
     left: 50%;
     display: flex;
     align-items: center;
-    padding: 0.8rem;
     border-radius: 0.9rem;
 
     text-transform: uppercase;
     transform: translate(-50%, -50%);
 
-    background-color: var(--color100);
     z-index: 9;
 }
 
-.hero i::after {
-    content: "";
+.hero .socialBtn i {
+    padding: 0.5rem;
 }
 
-a:hover,
-button:hover {
-    cursor: pointer;
-}
-
-.hero i {
-    padding-right: 0.5rem;
-}
-
-.hero svg {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.container {
-    min-height: 100vh;
-    max-width: 1200px;
-    width: auto;
-    padding: 0 1em;
-    margin: 0 auto;
-}
-
-section {
-    padding-top: var(--navHeight);
-}
-
-h2 {
-    color: #469890;
-}
-
-p {
-    overflow-wrap: break-word;
-}
-
-@media (min-width: 45rem) {
+.hero .socialBtn i::after {
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+    padding-left: 1rem;
 }
 
 /* 
-===== Tablet/Desktop ===== 
+===== 4.1  NavBars =====
 */
-@media (min-width: 45rem) {
-    .sideDrawer {
-        width: fit-content;
 
-        margin-top: var(--navHeight);
-        height: calc(100% - var(--navHeight));
-
-        left: 0;
-
-        background-color: transparent;
-
-        color: var(--color100);
-
-        align-content: center;
-        overflow: hidden;
-    }
-
-    .drawerInfo {
-        overflow-y: hidden;
-    }
-
-    #socialDrawer {
-        border: none;
-    }
-
-    .socialLinks a {
-        color: var(--buttonColor);
-        border: solid 1px transparent;
-        width: 100px;
-    }
-
-    #socialDrawer button,
-    #socialDrawer h3 {
-        display: none;
-    }
-
-    .start .sideDrawer,
-    .active .sideDrawer {
-        transform: translateX(0);
-    }
-
-    .sideDrawer {
-        justify-content: center;
-    }
-
-    .sideDrawer a {
-        color: var(--color100);
-        border-top-right-radius: 1rem;
-        border-bottom-right-radius: 1rem;
-        transition: 400ms;
-    }
-
-    .sideDrawer i::after {
-        display: none;
-    }
-
-    .sideDrawer a:hover i::after {
-        display: inline;
-        content: var(--socialName);
-        transition: 200ms;
-    }
-
-    .sideDrawer a:hover {
-        background-color: var(--color100);
-        color: var(--buttonColor);
-        width: 275px;
-    }
-
-    .active a {
-        background-color: var(--buttonColor);
-    }
-
-    .active a:hover {
-        /* background-color: var(--buttonColor);
-        color: var(--color100); */
-        background-color: var(--color100);
-        color: var(--buttonColor);
-        border: solid 1px var(--buttonColor);
-        border-left: none;
-    }
+/*
+==  4.11 Top NavBar ==
+*/
+.navBar {
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    border-bottom: solid 1px var(--color400);
+    background-color: var(--color100);
+    z-index: 10;
 }
+
+/*
+==  4.12 SideDrawers ==
+*/
+
+/*
+==  4.12a SocialDrawer ==
+*/
+
+.fa-book-open::after {
+    font-weight: 400;
+}
+
+/*
+==  4.12b ShortcutDrawer ==
+*/
+
+/* 
+======================================
+    5. State Classes 
+======================================
+*/
+.modal-open {
+    overflow: hidden;
+}
+
+/* 
+======================================
+   6. Media Queries
+====================================== 
+*/
+
+/* 
+===== 6.1 Tablet/Desktop ===== 
+*/
+/* @media (min-width: 1000px) {
+    @media (min-height: 700px) {
+        /* #socialDrawer {
+            border: none;
+        }
+
+        #socialDrawer button,
+        #socialDrawer h3 {
+            display: none;
+        } */
+
+/* .active a {
+            background-color: var(--buttonColor);
+        } */

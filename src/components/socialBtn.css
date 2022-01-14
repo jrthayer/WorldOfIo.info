@@ -1,0 +1,38 @@
+.socialBtn {
+    background-color: var(--color100);
+    color: var(--buttonColor);
+    border: 1px solid var(--buttonColor);
+
+    transition: all 0.5s ease-in-out;
+}
+
+.socialBtn:hover {
+    background-color: var(--buttonColor);
+    color: var(--color100);
+    border-color: var(--color100);
+}
+
+.socialBtn i {
+    padding: 1rem 1.5rem;
+    display: flex;
+}
+
+.socialBtn i::after {
+    padding-right: 1rem;
+
+    padding-left: 1.5rem;
+    text-transform: uppercase;
+    color: currentColor;
+
+    content: var(--socialName);
+
+    align-self: center;
+}
+
+.right .socialBtn i {
+    flex-direction: row-reverse;
+}
+
+.right .socialBtn i::after {
+    text-align: right;
+}

@@ -1,4 +1,6 @@
-import React, { CSSProperties } from "react";
+import React from "react";
+
+import "./socialBtn.css";
 
 const SocialBtn = (props) => {
     return (
@@ -7,6 +9,7 @@ const SocialBtn = (props) => {
             href={props.link}
             target="_blank"
             rel="noopener noreferrer"
+            className="socialBtn"
         >
             <i
                 style={{ "--socialName": `\"${props.name}\"` }}
