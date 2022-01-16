@@ -1,5 +1,5 @@
 import React from "react";
-import "./socialLinks.css";
+import "./socialLinks.scss";
 
 import { useEffect } from "react";
 import SocialBtn from "./socialBtn";

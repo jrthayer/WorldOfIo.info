@@ -75,20 +75,20 @@ p {
 
 .left {
     left: 0;
+
+    a {
+        border-bottom-right-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
 }
 
 .right {
     right: 0;
-}
 
-.left .socialBtn {
-    border-bottom-right-radius: 1rem;
-    border-top-right-radius: 1rem;
-}
-
-.right .socialBtn {
-    border-bottom-left-radius: 1rem;
-    border-top-left-radius: 1rem;
+    a {
+        border-bottom-left-radius: 1rem;
+        border-top-left-radius: 1rem;
+    }
 }
 
 /*
@@ -128,7 +128,7 @@ section {
     height: 100vh;
 
     text-align: center;
-    background-image: url("images/galaxy_2.jpg");
+    background-image: url("../images/galaxy_2.jpg");
     background-size: cover;
 }
 
@@ -197,52 +197,3 @@ section {
     background-color: var(--color100);
     z-index: 10;
 }
-
-/*
-==  4.12 SideDrawers ==
-*/
-
-/*
-==  4.12a SocialDrawer ==
-*/
-
-.fa-book-open::after {
-    font-weight: 400;
-}
-
-/*
-==  4.12b ShortcutDrawer ==
-*/
-
-/* 
-======================================
-    5. State Classes 
-======================================
-*/
-.modal-open {
-    overflow: hidden;
-}
-
-/* 
-======================================
-   6. Media Queries
-====================================== 
-*/
-
-/* 
-===== 6.1 Tablet/Desktop ===== 
-*/
-/* @media (min-width: 1000px) {
-    @media (min-height: 700px) {
-        /* #socialDrawer {
-            border: none;
-        }
-
-        #socialDrawer button,
-        #socialDrawer h3 {
-            display: none;
-        } */
-
-/* .active a {
-            background-color: var(--buttonColor);
-        } */

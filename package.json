@@ -6,7 +6,8 @@
         "csstype": "^3.0.10",
         "react": "^16.6.1",
         "react-dom": "^16.6.1",
-        "react-scripts": "^4.0.3"
+        "react-scripts": "^4.0.3",
+        "sass": "^1.48.0"
     },
     "scripts": {
         "dev": "react-scripts start",

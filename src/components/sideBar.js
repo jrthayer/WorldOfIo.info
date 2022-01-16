@@ -6,7 +6,7 @@ import { useViewport } from "./providers/viewportProvider";
 
 const Sidebar = (props) => {
     let classesDefault = `sidebar ${props.classes} ${props.orientation} sidebar-${props.orientation}`;
-    let initialClasses = ` sidebar-hide-${props.orientation}`;
+    let initialClasses = ` hide-${props.orientation}`;
     if (props.sidebarAction === "heroHide") {
         initialClasses += " onHero";
     }
@@ -23,7 +23,7 @@ const Sidebar = (props) => {
             if (yOffset < height) {
                 extraClasses += "onHero";
                 if (yOffset > 0) {
-                    extraClasses += ` sidebar-hide-${props.orientation}`;
+                    extraClasses += ` hide-${props.orientation}`;
                 }
             }
 

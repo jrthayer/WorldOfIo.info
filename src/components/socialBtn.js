@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./socialBtn.css";
+import "./socialBtn.scss";
 
 const SocialBtn = (props) => {
     return (

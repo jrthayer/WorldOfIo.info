@@ -1,0 +1,28 @@
+/* 
+======================================
+    State Classes 
+======================================
+*/
+.modal-open {
+    overflow: hidden;
+}
+
+.hide-left {
+    transform: translateX(-100%);
+}
+
+.hide-right {
+    transform: translateX(100%);
+}
+
+.active-left {
+    left: 0;
+    transform: translateX(0);
+    transition: 350ms;
+}
+
+.active-right {
+    right: 0;
+    transform: translateX(0);
+    transition: 350ms;
+}

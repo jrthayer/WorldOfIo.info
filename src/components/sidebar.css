@@ -8,15 +8,7 @@
     background-color: none;
 
     transition: 850ms;
-    z-index: 1;
-}
-
-.sidebar-hide-left {
-    transform: translateX(-100%);
-}
-
-.sidebar-hide-right {
-    transform: translateX(100%);
+    z-index: var(--maxZ);
 }
 
 .sidebar-vertical {

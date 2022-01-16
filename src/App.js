@@ -1,22 +1,14 @@
 import React from "react";
-import "./App.css";
 
 import Home from "./pages/home";
 
+import "./styles/main.scss";
+
 import { ViewportProvider } from "./components/providers/viewportProvider";
 import { ScrollProvider } from "./components/providers/scrollProvider";
-import {
-    ModalStateProvider,
-    useModalState,
-} from "./components/providers/modalStateProvider";
+import { ModalStateProvider } from "./components/providers/modalStateProvider";
 
 function App() {
-    const { modalState } = useModalState();
-
-    function setModalState(state) {
-        setModalOpen(state);
-    }
-
     return (
         <ViewportProvider>
             <ScrollProvider>
