@@ -19,10 +19,12 @@
     left: 0;
     transform: translateX(0);
     transition: 350ms;
+    z-index: var(--maxZ);
 }
 
 .active-right {
     right: 0;
     transform: translateX(0);
     transition: 350ms;
+    z-index: var(--maxZ);
 }
