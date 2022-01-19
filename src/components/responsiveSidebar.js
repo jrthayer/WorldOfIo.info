@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import { useViewport } from "./providers/viewportProvider";
 
-import Drawer from "../components/drawers/drawer";
+import Drawer from "./drawer";
 import Sidebar from "./sideBar";
 
 function appendClasses(name, classes) {

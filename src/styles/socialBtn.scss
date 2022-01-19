@@ -1,0 +1,60 @@
+.socialBtn {
+    border: 1px solid var(--buttonColor);
+    background-color: var(--color-background);
+    color: var(--buttonColor);
+
+    transition: all 0.5s ease-in-out;
+
+    border-radius: 0.9rem;
+    display: inline-block;
+    padding: 1rem;
+
+    i {
+        display: flex;
+    }
+
+    i::after {
+        content: var(--socialName);
+
+        align-self: center;
+        padding-right: 1rem;
+
+        padding-left: 1.5rem;
+        text-transform: uppercase;
+        color: currentColor;
+    }
+}
+
+.socialBtn:hover {
+    background-color: var(--buttonColor);
+    border-color: var(--color-background);
+    color: var(--color-background);
+}
+
+.fa-book-open::after {
+    font-weight: 400;
+}
+
+.right {
+    .socialBtn {
+        border-right: none;
+        place-self: self-end;
+
+        i {
+            flex-direction: row-reverse;
+        }
+
+        i::after {
+            padding-right: 1.5rem;
+
+            padding-left: 1rem;
+            text-align: right;
+        }
+    }
+}
+
+.left {
+    .socialBtn {
+        border-left: none;
+    }
+}

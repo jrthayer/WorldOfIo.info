@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./sidebar.css";
+import "../styles/sidebar.scss";
 
 import { useScroll } from "./providers/scrollProvider";
 import { useViewport } from "./providers/viewportProvider";

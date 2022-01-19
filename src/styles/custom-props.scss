@@ -1,0 +1,31 @@
+:root {
+    /* Colors */
+    --color-white: 0, 0%, 100%;
+    --color-black: 0, 0%, 0%;
+
+    --color-light-400: 174, 37%, 45%;
+    --color-light-700: 174, 37%, 15%;
+
+    /* Palette */
+    --color-background: hsl(var(--color-white));
+    --color-primary: hsl(var(--color-light-400));
+    --color-primary-accent: hsl(var(--color-light-700));
+    --color-text: hsl(var(--color-black));
+
+    --navHeight: 50px;
+
+    --buttonColor: var(--color-primary);
+
+    --youtube: #c4302b;
+
+    --maxZ: 100;
+
+    /* font-sizes */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+}

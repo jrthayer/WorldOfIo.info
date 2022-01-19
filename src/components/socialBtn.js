@@ -1,11 +1,15 @@
 import React from "react";
 
-import "./socialBtn.scss";
+import "../styles/socialBtn.scss";
 
 const SocialBtn = (props) => {
     return (
         <a
-            style={{ "--buttonColor": props.color }}
+            style={
+                props.color != "undefined"
+                    ? { "--buttonColor": props.color }
+                    : {}
+            }
             href={props.link}
             target="_blank"
             rel="noopener noreferrer"
