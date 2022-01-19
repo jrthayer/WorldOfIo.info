@@ -34,27 +34,3 @@
 .fa-book-open::after {
     font-weight: 400;
 }
-
-.right {
-    .socialBtn {
-        border-right: none;
-        place-self: self-end;
-
-        i {
-            flex-direction: row-reverse;
-        }
-
-        i::after {
-            padding-right: 1.5rem;
-
-            padding-left: 1rem;
-            text-align: right;
-        }
-    }
-}
-
-.left {
-    .socialBtn {
-        border-left: none;
-    }
-}
