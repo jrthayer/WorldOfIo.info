@@ -18,8 +18,6 @@ const Section = (props) => {
         return styleProperties;
     }, []);
 
-    console.log(styles);
-
     return (
         <section className="section" style={styles}>
             <div className="section-content">{props.children}</div>

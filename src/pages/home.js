@@ -10,6 +10,7 @@ import SocialBtn from "../components/socialBtn";
 import links from "../data/links.js";
 import Hero from "../components/hero";
 import Section from "../components/section";
+import Footer from "../components/footer";
 
 let introLink = links.find((link) => link.name === "Intro Video");
 
@@ -172,6 +173,31 @@ const Home = (props) => {
                     Eum, ipsum tempora!
                 </p>
             </Section>
+            <Section>
+                <h2>This is a different section</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Ullam facere, tempora quisquam fugiat illo quas provident,
+                    accusamus debitis harum tenetur magnam voluptatem nemo
+                    soluta molestias. Tempore quisquam illum similique illo?
+                    Nihil ratione earum assumenda, aliquam non omnis facere amet
+                    possimus libero unde provident nobis. Minima dolorum
+                    doloribus commodi quas error voluptas, ut dolores voluptatum
+                    eius esse ipsum repellendus molestias temporibus. Voluptatem
+                    quos excepturi ipsa cumque expedita hic ullam ab?
+                    Consectetur, obcaecati quis exercitationem explicabo, cumque
+                    consequuntur architecto autem animi culpa, ipsum optio quas
+                    expedita rerum iusto dignissimos maxime a harum? Commodi,
+                    magni mollitia doloremque velit tenetur alias magnam eaque
+                    harum quasi hic soluta nobis laborum at ea quae adipisci
+                    animi expedita, iusto non optio reprehenderit id reiciendis.
+                    Eum, ipsum tempora!
+                </p>
+            </Section>
+            <Footer
+                className="color-white"
+                style={{ backgroundImage: `url(${backgroundImage})` }}
+            ></Footer>
         </Fragment>
     );
 };
