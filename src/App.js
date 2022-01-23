@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Home from "./pages/home";
 
@@ -9,6 +9,16 @@ import { ScrollProvider } from "./components/providers/scrollProvider";
 import { ModalStateProvider } from "./components/providers/modalStateProvider";
 
 function App() {
+    useEffect(() => {
+        if (history.scrollRestoration) {
+            history.scrollRestoration = "manual";
+        } else {
+            window.onbeforeunload = function () {
+                window.scrollTo(0, 0);
+            };
+        }
+    }, []);
+
     return (
         <ViewportProvider>
             <ScrollProvider>

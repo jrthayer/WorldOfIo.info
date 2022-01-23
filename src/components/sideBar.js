@@ -41,7 +41,7 @@ const Sidebar = (props) => {
         } else {
             setClasses(classesDefault);
         }
-    }, [yOffset, offsetHeight]);
+    }, [yOffset, height]);
 
     return <div className={classes}>{props.children}</div>;
 };
