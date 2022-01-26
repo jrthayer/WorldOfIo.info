@@ -1,16 +1,20 @@
 :root {
-    /* Colors */
-    --color-white: 0, 0%, 100%;
-    --color-black: 0, 0%, 0%;
+    // decent void
+    // hsl(244deg 46% 46%)
 
-    --color-light-400: 174, 37%, 45%;
-    --color-light-700: 174, 37%, 15%;
+    /* Colors */
+    --color-white: 0, 0%;
+    --color-black: 0, 0%;
+    --color-light: 174, 37%;
 
     /* Palette */
-    --color-background: hsl(var(--color-white));
-    --color-primary: hsl(var(--color-light-400));
-    --color-primary-accent: hsl(var(--color-light-700));
-    --color-text: hsl(var(--color-black));
+    --color-white-always: hsl(var(--color-white), 100%);
+    --color-background: hsl(var(--color-white), 100%);
+    --color-primary: hsl(var(--color-light), 45%);
+    --color-primary-dark: hsl(var(--color-light), 15%);
+    --color-primary-light: hsl(var(--color-light), 75%);
+    --color-text: hsl(var(--color-black), 0%);
+    --color-text-light: hsl(var(--color-black), 20%);
 
     --navHeight: 50px;
 

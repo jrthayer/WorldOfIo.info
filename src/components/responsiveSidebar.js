@@ -18,6 +18,16 @@ function appendClasses(name, classes) {
     return returnClasses;
 }
 
+function determineBreakpoints(width, height) {
+    let breakpoints = { width: 700, height: 700 };
+
+    if (width !== undefined) breakpoints.width = width;
+    if (height !== undefined) breakpoints.height = height;
+
+    console.log(breakpoints);
+    return breakpoints;
+}
+
 const ResponsiveSidebar = (props) => {
     const [isDrawer, setIsDrawer] = useState(false);
     const { width, height } = useViewport();
@@ -26,9 +36,11 @@ const ResponsiveSidebar = (props) => {
     let drawerClasses = useMemo(() => appendClasses("drawer", props.drawer),[]);
     // prettier-ignore
     let sidebarClasses = useMemo(() => appendClasses("sidebar", props.sidebar),[]);
+    // prettier-ignore
+    let breakpoints = useMemo(() => determineBreakpoints(props.width, props.height), []);
 
     useEffect(() => {
-        if (width > 700 && height > 700) {
+        if (width > breakpoints.width && height > breakpoints.height) {
             setIsDrawer(false);
         } else {
             setIsDrawer(true);
@@ -37,7 +49,9 @@ const ResponsiveSidebar = (props) => {
 
     if (isDrawer) {
         return (
-            <Drawer orientation={props.orientation}>{props.children}</Drawer>
+            <Drawer className={drawerClasses} orientation={props.orientation}>
+                {props.children}
+            </Drawer>
         );
     } else {
         return (

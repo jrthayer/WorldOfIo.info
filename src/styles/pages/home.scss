@@ -1,0 +1,74 @@
+#aboutIO {
+    h2 {
+        padding: 2rem 0;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .section-content > p:first-of-type {
+        font-weight: 700;
+    }
+
+    .stat-group {
+        display: block;
+
+        width: 100%;
+        // border: solid 1px black;
+        padding: 3rem 0;
+        text-align: center;
+    }
+
+    .stat-single {
+        display: inline-flex;
+        flex-direction: column;
+
+        flex: 1;
+        height: 300px;
+
+        width: 220px;
+
+        margin: 10px;
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            text-align: center;
+            background-color: var(--color-primary);
+            color: var(--color-white-always);
+        }
+
+        .text {
+            text-align: center;
+
+            flex: 1.5;
+            background-color: var(--color-primary-light);
+            padding: 0.5rem;
+
+            h3 {
+                padding: 0.5rem 0;
+                text-transform: uppercase;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+#historyOfIO {
+    h2 {
+        padding: 2rem 0;
+        text-align: center;
+        font-weight: 700;
+    }
+}
+
+@media (max-width: 1000px) {
+    #aboutIO {
+        .stat-group {
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+        }
+    }
+}

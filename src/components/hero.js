@@ -7,6 +7,7 @@ const Hero = (props) => {
         <div
             className="hero"
             style={{ backgroundImage: `url(${props.background})` }}
+            id={props.id}
         >
             {props.children}
         </div>

@@ -1,9 +1,19 @@
 .section {
     padding: var(--navHeight) 0;
     width: 100%;
+    min-height: 100vh;
 }
 
 .section-content {
     margin: 0 auto;
-    max-width: 1000px;
+    width: 100%;
+    padding: 3rem;
+}
+
+@media all and (min-width: 700px) {
+    .section-content {
+        padding: 1rem;
+        width: calc(100% - 100px * 2);
+        max-width: 1000px;
+    }
 }

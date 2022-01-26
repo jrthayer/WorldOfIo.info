@@ -12,28 +12,12 @@
 
         overflow: hidden;
 
-        border: solid 1px transparent;
-
-        margin-bottom: 2px;
-        background-color: var(--buttonColor);
-        color: var(--color-background);
-
         border-radius: 0;
     }
 
     a:hover {
-        width: 260px;
-
-        background-color: var(--color-background);
-        color: var(--buttonColor);
-        border-color: var(--buttonColor);
+        width: var(--component-width, 80px);
     }
-}
-
-.onHero .socialBtn {
-    border: 1px solid transparent;
-    background-color: transparent;
-    color: var(--color-background);
 }
 
 .right {

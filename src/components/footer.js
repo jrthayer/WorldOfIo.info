@@ -3,7 +3,11 @@ import "../styles/footer.scss";
 
 const Footer = (props) => {
     return (
-        <footer className={`footer ${props.className}`} style={props.style}>
+        <footer
+            id={props.id}
+            className={`footer ${props.className}`}
+            style={props.style}
+        >
             <div className="footer-content">
                 <p>This is a fan created site</p>
 

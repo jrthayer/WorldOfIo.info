@@ -1,5 +1,5 @@
 .color-white {
-    color: hsl(var(--color-white));
+    color: hsl(var(--color-white), 100%);
 }
 
 .fs-900 {
@@ -32,4 +32,12 @@
 .fs-700,
 .fs-600 {
     line-height: 1.1;
+}
+
+.margin-small {
+    margin: 1px 0;
+}
+
+.margin-medium {
+    margin: 0.5rem 0;
 }

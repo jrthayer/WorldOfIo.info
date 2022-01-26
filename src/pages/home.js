@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 
+import "../styles/pages/home.scss";
+
 import logo from "../images/IO-Logo.png";
 import backgroundImage from "../images/galaxy_2.jpg";
 
@@ -14,35 +16,36 @@ import Footer from "../components/footer";
 
 let introLink = links.find((link) => link.name === "Intro Video");
 
-const Home = (props) => {
-    let dummySections = [];
-    for (let x = 0; x < 5; x++) {
-        dummySections.push(
-            <Section>
-                <h2>The date according to Go is:</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Perferendis laborum quasi temporibus obcaecati doloremque!
-                    Temporibus possimus ut animi voluptatibus minus nobis
-                    quisquam voluptatem vero repellat. Consequuntur alias
-                    deleniti neque reprehenderit? Lorem ipsum dolor sit, amet
-                    consectetur adipisicing elit. Doloremque incidunt iure atque
-                    labore quia in quod aut sed ad voluptatum, facilis corporis
-                    magnam fuga asperiores ipsum eveniet autem eum tempore.
-                    Dolorem optio quas nisi enim blanditiis at, aut quasi
-                    doloribus odio esse adipisci. Corrupti excepturi error
-                    dolores harum suscipit quae sequi fugiat dolor quos cum?
-                    Cupiditate possimus ipsum eos voluptatem? Impedit nostrum
-                    qui fugit reiciendis perspiciatis quo hic repellat
-                    blanditiis provident praesentium quam, at modi porro
-                    perferendis reprehenderit quidem maiores pariatur
-                    voluptatibus laboriosam deleniti placeat quos ex. Illo,
-                    eaque quos.
-                </p>
-            </Section>
-        );
-    }
+let navigationData = [
+    {
+        name: "Top Of Page",
+        link: "#hero",
+    },
+    {
+        name: "About IO",
+        link: "#aboutIO",
+    },
+    {
+        name: "History Of IO",
+        link: "#historyOfIO",
+    },
+    {
+        name: "How To Support",
+        link: "#howToSupport",
+    },
+    {
+        name: "About This Site",
+        link: "#whatIsThisSite",
+    },
+    {
+        name: "Footer",
+        link: "#footer",
+    },
+];
 
+import socialData from "../data/social.js";
+
+const Home = (props) => {
     useEffect(() => {
         document.title = "World Of IO";
     }, []);
@@ -51,129 +54,141 @@ const Home = (props) => {
         <Fragment>
             <ResponsiveSidebar
                 orientation="left"
-                drawer={[]}
+                drawer={["uppercase"]}
                 sidebar={["vertical", "noHeader"]}
                 sidebarAction="heroHide"
             >
                 <h3 className="fs-600">Social Links</h3>
-                <SocialLinks></SocialLinks>
+                <SocialLinks
+                    data={socialData}
+                    width={"260px"}
+                    classes_button="socialBtn-inverse margin-small"
+                ></SocialLinks>
             </ResponsiveSidebar>
             <ResponsiveSidebar
                 orientation="right"
-                drawer={[]}
+                drawer={["uppercase"]}
                 sidebar={["vertical", "noHeader"]}
                 sidebarAction="heroHide"
             >
-                <h3 className="fs-600">Social Links</h3>
-                <SocialLinks></SocialLinks>
+                <h3 className="fs-600">Navigation Links</h3>
+                <SocialLinks
+                    data={navigationData}
+                    samePage={true}
+                    width={"400px"}
+                    classes_button={
+                        "socialBtn-iconOnly socialBtn-inverse-hover margin-medium"
+                    }
+                    classes_text={"far fa-circle fa-2x"}
+                ></SocialLinks>
             </ResponsiveSidebar>
 
-            <Hero background={backgroundImage}>
+            <Hero id="hero" background={backgroundImage}>
                 <h1 className="fs-700 color-white">World Of IO</h1>
                 <img src={logo} alt="" />
                 <SocialBtn
                     link={introLink.link}
-                    classes={`${introLink.classes} fs-400`}
+                    classes_text={`${introLink.classes_text} fs-400`}
                     name={introLink.name}
                     key={introLink.name}
                 ></SocialBtn>
             </Hero>
-            <Section>
-                <SocialBtn
-                    link={introLink.link}
-                    classes={`${introLink.classes} fs-400`}
-                    name={introLink.name}
-                    key={introLink.name}
-                ></SocialBtn>
-                <h2>History Of IO</h2>
-            </Section>
-            {dummySections}
+            <Section id="aboutIO">
+                <h2 className="fs-700">About IO</h2>
+                <p>
+                    World of IO is a a homebrew D&D setting made by BrettUltimus
+                    that has been developing for over 2 years now. The world is
+                    heavily influenced by the player's action shaping the
+                </p>
+                <div className="stat-group">
+                    <div className="stat-single">
+                        <div className="header fs-700">660</div>
+                        <div className="text">
+                            <h3 className="text-header">Hours Of Content</h3>
+                            <p>
+                                Spanning across 245 videos with an average
+                                length of <span>2 hours 40 mins</span>
+                            </p>
+                        </div>
+                    </div>
 
-            <Section bgType="image" bgData={backgroundImage}>
-                <h2>This is a different section</h2>
+                    <div className="stat-single">
+                        <div className="header fs-700">16</div>
+                        <div className="text">
+                            <h3 className="text-header">Campaigns</h3>
+                            <p>
+                                With 8 one shots/special events including 2
+                                major boss fights that spanned over 9 hours with
+                                3 separate parties!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="stat-single">
+                        <div className="header fs-700">90+</div>
+                        <div className="text">
+                            <h3 className="text-header">Player Characters</h3>
+                            <p>Across 71 unique players!</p>
+                        </div>
+                    </div>
+
+                    <div className="stat-single">
+                        <div className="header fs-700">3</div>
+                        <div className="text">
+                            <h3 className="text-header"></h3>
+                        </div>
+                    </div>
+                    <div className="stat-single">
+                        <div className="header fs-700">3</div>
+                        <div className="text">
+                            <h3 className="text-header"></h3>
+                        </div>
+                    </div>
+                    <div className="stat-single">
+                        <div className="header fs-700">3</div>
+                        <div className="text">
+                            <h3 className="text-header"></h3>
+                        </div>
+                    </div>
+                    <div className="stat-single">
+                        <div className="header fs-700">3</div>
+                        <div className="text">
+                            <h3 className="text-header"></h3>
+                        </div>
+                    </div>
+                </div>
+            </Section>
+            <Section
+                id="historyOfIO"
+                bgType="color"
+                bgData="var(--color-primary-light)"
+            >
+                <h2 className="fs-700">The History Of IO</h2>
+
+                <h3>Phase 1</h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Ullam facere, tempora quisquam fugiat illo quas provident,
-                    accusamus debitis harum tenetur magnam voluptatem nemo
-                    soluta molestias. Tempore quisquam illum similique illo?
-                    Nihil ratione earum assumenda, aliquam non omnis facere amet
-                    possimus libero unde provident nobis. Minima dolorum
-                    doloribus commodi quas error voluptas, ut dolores voluptatum
-                    eius esse ipsum repellendus molestias temporibus. Voluptatem
-                    quos excepturi ipsa cumque expedita hic ullam ab?
-                    Consectetur, obcaecati quis exercitationem explicabo, cumque
-                    consequuntur architecto autem animi culpa, ipsum optio quas
-                    expedita rerum iusto dignissimos maxime a harum? Commodi,
-                    magni mollitia doloremque velit tenetur alias magnam eaque
-                    harum quasi hic soluta nobis laborum at ea quae adipisci
-                    animi expedita, iusto non optio reprehenderit id reiciendis.
-                    Eum, ipsum tempora!
+                    Phase 1 was completely offline and featured two groups
+                    playing in different parts of the same world.
+                </p>
+                <h3>Phase 2</h3>
+                <p>
+                    Phase 1 was completely offline and featured two groups
+                    playing in different parts of the same world.
                 </p>
             </Section>
-            <Section bgType="color" bgData="var(--color-primary)">
-                <h2>This is a different section</h2>
+            {/* bgType="image" bgData={backgroundImage} */}
+            <Section id="howToSupport">
+                <h2>What is the World of IO?</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Ullam facere, tempora quisquam fugiat illo quas provident,
-                    accusamus debitis harum tenetur magnam voluptatem nemo
-                    soluta molestias. Tempore quisquam illum similique illo?
-                    Nihil ratione earum assumenda, aliquam non omnis facere amet
-                    possimus libero unde provident nobis. Minima dolorum
-                    doloribus commodi quas error voluptas, ut dolores voluptatum
-                    eius esse ipsum repellendus molestias temporibus. Voluptatem
-                    quos excepturi ipsa cumque expedita hic ullam ab?
-                    Consectetur, obcaecati quis exercitationem explicabo, cumque
-                    consequuntur architecto autem animi culpa, ipsum optio quas
-                    expedita rerum iusto dignissimos maxime a harum? Commodi,
-                    magni mollitia doloremque velit tenetur alias magnam eaque
-                    harum quasi hic soluta nobis laborum at ea quae adipisci
-                    animi expedita, iusto non optio reprehenderit id reiciendis.
-                    Eum, ipsum tempora!
+                    World of IO is a a homebrew D&D setting made by
+                    BrettUltimus.
                 </p>
             </Section>
-            <Section bgType="color" bgData="blue">
-                <h2>This is a different section</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Ullam facere, tempora quisquam fugiat illo quas provident,
-                    accusamus debitis harum tenetur magnam voluptatem nemo
-                    soluta molestias. Tempore quisquam illum similique illo?
-                    Nihil ratione earum assumenda, aliquam non omnis facere amet
-                    possimus libero unde provident nobis. Minima dolorum
-                    doloribus commodi quas error voluptas, ut dolores voluptatum
-                    eius esse ipsum repellendus molestias temporibus. Voluptatem
-                    quos excepturi ipsa cumque expedita hic ullam ab?
-                    Consectetur, obcaecati quis exercitationem explicabo, cumque
-                    consequuntur architecto autem animi culpa, ipsum optio quas
-                    expedita rerum iusto dignissimos maxime a harum? Commodi,
-                    magni mollitia doloremque velit tenetur alias magnam eaque
-                    harum quasi hic soluta nobis laborum at ea quae adipisci
-                    animi expedita, iusto non optio reprehenderit id reiciendis.
-                    Eum, ipsum tempora!
-                </p>
-            </Section>
-            <Section bgType="image" bgData={backgroundImage}>
-                <h2>This is a different section</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Ullam facere, tempora quisquam fugiat illo quas provident,
-                    accusamus debitis harum tenetur magnam voluptatem nemo
-                    soluta molestias. Tempore quisquam illum similique illo?
-                    Nihil ratione earum assumenda, aliquam non omnis facere amet
-                    possimus libero unde provident nobis. Minima dolorum
-                    doloribus commodi quas error voluptas, ut dolores voluptatum
-                    eius esse ipsum repellendus molestias temporibus. Voluptatem
-                    quos excepturi ipsa cumque expedita hic ullam ab?
-                    Consectetur, obcaecati quis exercitationem explicabo, cumque
-                    consequuntur architecto autem animi culpa, ipsum optio quas
-                    expedita rerum iusto dignissimos maxime a harum? Commodi,
-                    magni mollitia doloremque velit tenetur alias magnam eaque
-                    harum quasi hic soluta nobis laborum at ea quae adipisci
-                    animi expedita, iusto non optio reprehenderit id reiciendis.
-                    Eum, ipsum tempora!
-                </p>
-            </Section>
-            <Section>
+            <Section
+                id="whatIsThisSite"
+                bgType="color"
+                bgData="var(--color-primary-light)"
+            >
                 <h2>This is a different section</h2>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -197,6 +212,7 @@ const Home = (props) => {
             <Footer
                 className="color-white"
                 style={{ backgroundImage: `url(${backgroundImage})` }}
+                id="footer"
             ></Footer>
         </Fragment>
     );

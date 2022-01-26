@@ -13,6 +13,8 @@
 
     background-color: var(--color-background);
 
+    font-size: 2rem;
+
     button {
         position: absolute;
         bottom: 4rem;
@@ -32,10 +34,14 @@
 
         margin-bottom: 2px;
         text-align: center;
-        text-transform: uppercase;
     }
 
     .socialBtn {
+        font-size: 1rem;
+    }
+
+    .socialBtn {
+        display: block;
         width: 100%;
         border: none;
         border-top: 2px solid var(--color-primary);
@@ -43,12 +49,17 @@
         border-radius: 0;
         background-color: var(--color-background);
         color: var(--color-primary);
+        margin: 2px 0;
     }
 
     .socialBtn:hover {
         width: 100%;
         background-color: var(--buttonColor);
-        color: hsl(var(--color-white));
+        color: var(--color-background);
+    }
+
+    .socialBtn i {
+        white-space: normal;
     }
 
     .socialLinks {
@@ -58,6 +69,8 @@
 
 .drawerContent {
     overflow: auto;
+    height: 100%;
+    width: 100%;
 }
 
 .drawer-left {
@@ -86,4 +99,8 @@
         border-bottom-left-radius: 1.5rem;
         border-top-left-radius: 1.5rem;
     }
+}
+
+.drawer-uppercase {
+    text-transform: uppercase;
 }

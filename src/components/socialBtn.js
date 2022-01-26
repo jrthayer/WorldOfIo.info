@@ -11,13 +11,13 @@ const SocialBtn = (props) => {
                     : {}
             }
             href={props.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="socialBtn"
+            target={props.samePage === true ? "" : "_blank"}
+            rel={props.samePage === true ? "" : "noopener noreferrer"}
+            className={`socialBtn ${props.classes_button}`}
         >
             <i
                 style={{ "--socialName": `\"${props.name}\"` }}
-                className={props.classes}
+                className={props.classes_text}
                 aria-hidden="true"
             ></i>
         </a>

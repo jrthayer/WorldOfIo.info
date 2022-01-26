@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-    width: 1em;
+    width: 1rem;
     padding: 5px;
 }
 
@@ -10,8 +10,12 @@
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--color-primary);
-    border: 2px solid hsl(var(--color-white));
+    border: 2px solid var(--color-background);
     border-radius: 1rem;
+}
+
+span {
+    display: block;
 }
 
 body {
@@ -35,6 +39,7 @@ h5 {
 html {
     color: var(--color700);
     background-color: var(--color100);
+    scroll-behavior: smooth;
 }
 
 a {

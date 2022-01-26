@@ -12,7 +12,7 @@ const Drawer = (props) => {
 
     const { setModalState, modalState } = useModalState(false);
 
-    let classes = `drawer drawer-${props.orientation} ${props.orientation}`;
+    let classes = `drawer drawer-${props.orientation} ${props.orientation} ${props.className}`;
 
     const toggleDrawer = () => {
         setDrawerOpen(!drawerOpen);
@@ -35,6 +35,7 @@ const Drawer = (props) => {
     return (
         <Fragment>
             <nav
+                onClick={toggleDrawer}
                 id={props.id}
                 className={
                     drawerOpen
