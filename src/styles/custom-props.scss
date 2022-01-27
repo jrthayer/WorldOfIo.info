@@ -9,12 +9,13 @@
 
     /* Palette */
     --color-white-always: hsl(var(--color-white), 100%);
+    --color-black-always: hsl(var(--color-black), 0%);
     --color-background: hsl(var(--color-white), 100%);
     --color-primary: hsl(var(--color-light), 45%);
     --color-primary-dark: hsl(var(--color-light), 15%);
     --color-primary-light: hsl(var(--color-light), 75%);
-    --color-text: hsl(var(--color-black), 0%);
-    --color-text-light: hsl(var(--color-black), 20%);
+
+    --color-text: var(--color-primary-dark);
 
     --navHeight: 50px;
 

@@ -17,7 +17,7 @@
         text-transform: uppercase;
         transform: translateX(-50%);
 
-        text-shadow: 2px 4px 3px hsl(var(--color-black));
+        text-shadow: 2px 4px 3px var(--color-black-always);
 
         font-weight: 700;
 

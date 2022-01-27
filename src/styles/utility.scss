@@ -1,5 +1,28 @@
 .color-white {
-    color: hsl(var(--color-white), 100%);
+    color: var(--color-white-always);
+}
+
+.color-black {
+    color: var(--color-black-always);
+}
+
+.color-primary-dark {
+    color: var(--color-primary-dark);
+}
+
+.shadow-box {
+    -moz-box-shadow: inset 0 0 10px var(--color-primary-dark, black);
+    -webkit-box-shadow: inset 0 0 10px var(--color-primary-dark, black);
+    box-shadow: inset 0 0 10px var(--color-primary-dark, black);
+}
+
+.shadow-text {
+    text-shadow: 2px 2px 2px var(--color-primary-dark, black);
+}
+
+.shadow-text-outline {
+    -webkit-text-stroke: 2px var(--color-primary-dark, black);
+    text-stroke: 2px var(--color-primary-dark, black);
 }
 
 .fs-900 {
@@ -40,4 +63,10 @@
 
 .margin-medium {
     margin: 0.5rem 0;
+}
+
+.header-default {
+    padding: 2rem 0;
+    text-align: center;
+    font-weight: 700;
 }
