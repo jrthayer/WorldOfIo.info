@@ -1,9 +1,8 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 
 import "../styles/statCard.scss";
 
 import { InView } from "react-intersection-observer";
-import { useEffect } from "react/cjs/react.development";
 
 function setStartValue(value) {
     let startValue = value - 10;
@@ -20,7 +19,6 @@ const StatCard = (props) => {
         let intervalID = null;
         if (animating) {
             intervalID = setInterval(() => {
-                // console.log(`value: ${value}, props:${props.value}`);
                 if (value === props.value) {
                     clearInterval(intervalID);
                     setSymbol(props.symbol !== undefined && props.symbol);
