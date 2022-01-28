@@ -9,7 +9,12 @@ const IconPanel = (props) => {
     }, []);
 
     return (
-        <a href={data.link} rel="noopener noreferrer" target="_blank">
+        <a
+            href={data.link}
+            rel="noopener noreferrer"
+            target="_blank"
+            className="iconPanel"
+        >
             <div className="iconPanel-container">
                 <div className="iconPanel-icon">
                     <i

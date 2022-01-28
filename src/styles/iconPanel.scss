@@ -1,11 +1,14 @@
+.iconPanel:last-of-type .iconPanel-container {
+    border: none;
+}
+
 .iconPanel-container {
-    padding: 1rem;
-    margin: 2rem;
+    padding: 2rem 1rem;
     display: inline-flex;
 
     width: 100%;
-    max-width: 300px;
-    max-height: 300px;
+    height: 100%;
+    border-bottom: solid 1px var(--color-primary-dark);
 }
 
 .iconPanel-icon {
@@ -26,5 +29,16 @@
         text-transform: uppercase;
         line-height: 0.8;
         text-align: left;
+    }
+}
+
+@media (min-width: 1000px) {
+    .iconPanel-container {
+        max-height: 300px;
+        max-width: 300px;
+        padding: 1rem;
+        margin: 2rem;
+
+        border: none;
     }
 }
