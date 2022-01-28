@@ -9,7 +9,12 @@ import ResponsiveSidebar from "../components/responsiveSidebar";
 
 import SocialLinks from "../components/socialLinks";
 import SocialBtn from "../components/socialBtn";
+
+import StatCard from "../components/statCard";
+import IconPanel from "../components/iconPanel";
+
 import links from "../data/links.js";
+
 import Hero from "../components/hero";
 import Section from "../components/section";
 import Footer from "../components/footer";
@@ -75,7 +80,7 @@ const Home = (props) => {
                     classes_button={
                         "socialBtn-iconOnly socialBtn-inverse-hover margin-medium"
                     }
-                    classes_text={"far fa-circle fa-2x"}
+                    classes_text={"fas fa-dot-circle fa-2x"}
                 ></SocialLinks>
             </ResponsiveSidebar>
 
@@ -97,47 +102,27 @@ const Home = (props) => {
                     heavily influenced by the player's action shaping the
                 </p>
                 <div className="stat-group">
-                    <div className="stat-single">
-                        <div className="header fs-700">660</div>
-                        <div className="text">
-                            <h3 className="text-header">Hours Of Content</h3>
-                            <p className="color-primary-dark">
-                                Spanning across 245 videos with an average
-                                length of <span>2 hours 40 mins</span>
-                            </p>
-                        </div>
-                    </div>
+                    <StatCard stat="Hours Of Content" value={660}>
+                        Spanning across 245 videos with an average length of{" "}
+                        <span>2 hours 40 mins</span>
+                    </StatCard>
 
-                    <div className="stat-single">
-                        <div className="header fs-700">90+</div>
-                        <div className="text">
-                            <h3 className="text-header">Player Characters</h3>
-                            <p>Across 71 unique players!</p>
-                        </div>
-                    </div>
+                    <StatCard stat="Player Characters" value={90} symbol="+">
+                        {/* + */}
+                        Across 71 unique players!
+                    </StatCard>
 
-                    <div className="stat-single">
-                        <div className="header fs-700">16</div>
-                        <div className="text">
-                            <h3 className="text-header">Campaigns</h3>
-                            <p>
-                                With 8 one shots/special events including 2
-                                major boss fights that spanned over 9 hours with
-                                3 separate parties!
-                            </p>
-                        </div>
-                    </div>
+                    <StatCard stat="Campaigns" value={16}>
+                        With 8 one shots/special events including 2 major boss
+                        fights that spanned over 9 hours with 3 separate
+                        parties!
+                    </StatCard>
 
-                    <div className="stat-single">
-                        <div className="header fs-700">12+</div>
-                        <div className="text">
-                            <h3 className="text-header">Diverse Regions</h3>
-                            <p>
-                                Ranging from the wide open seas to the Astral
-                                plane itself!
-                            </p>
-                        </div>
-                    </div>
+                    <StatCard stat="Diverse Regions" value={12} symbol="+">
+                        {/* + */}
+                        Ranging from the wide open seas to the Astral plane
+                        itself!
+                    </StatCard>
                 </div>
             </Section>
             <Section
@@ -164,113 +149,70 @@ const Home = (props) => {
             <Section id="howToSupport">
                 <h2 className="fs-700">How To Support The World of IO</h2>
                 <div className="support-group">
-                    <a
-                        href="https://www.patreon.com/worldofio"
-                        rel="noopener noreferrer"
-                        target="_blank"
+                    <IconPanel
+                        data={socialData.find((obj) => obj.name === "Patreon")}
                     >
-                        <div className="support-single">
-                            <div className="icon">
-                                <i
-                                    class="fab fa-patreon fa-2x"
-                                    style={{ color: "#f96854" }}
-                                ></i>
-                            </div>
-                            <div className="description">
-                                <h3 className="color-black">Patreon</h3>
-                                <p>
-                                    Not only does brett get the largest cut from
-                                    patreon support but you get the most bang
-                                    for your buck.
-                                </p>
-                                <br />
-                                <p>
-                                    Patreon members get many exclusive features
-                                    including:
-                                    <ul>
-                                        <li>Session MP3s</li>
-                                        <li>DM Notes</li>
-                                        <li>Sneak Peaks</li>
-                                    </ul>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <div className="support-single">
-                        <div className="icon">
-                            <i class="fas fa-shopping-cart fa-2x"></i>
-                        </div>
-                        <div className="description">
-                            <h3 className="color-black">Merch Store</h3>
-                            <p>Purchase merch of the wholesome Racc himself.</p>
-                            <br />
-                            <p>
-                                Currently the main focus of the merchandise is a
-                                dnd class series that so far includes fighter
-                                and wizard.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="support-single">
-                        <div className="icon">
-                            <i
-                                class="fab fa-twitch fa-2x"
-                                style={{ color: "#6441a5" }}
-                            ></i>
-                        </div>
-                        <div className="description">
-                            <h3 className="color-black">Twitch</h3>
-                            <p>
-                                Watch the sessions live on twitch! Subscribe,
-                                donate, and participate in the chat.
-                            </p>
-                            <br />
-                            <p>
-                                Weekly stream times can be found in the discord!
-                            </p>
-                        </div>
-                    </div>
-                    <div className="support-single">
-                        <div className="icon">
-                            <i
-                                class="fab fa-youtube fa-2x"
-                                style={{ color: "#c4302b" }}
-                            ></i>
-                        </div>
-                        <div className="description">
-                            <h3 className="color-black">Youtube</h3>
-                            <p>
-                                Watching the previous campaigns on the youtube
-                                channel provides ad revenue and helps spread IO
-                                to new viewers.
-                            </p>
-                            <br />
-                            <p>
-                                A master playlist containing all 245 sessions of
-                                Phase 2 is available for your convenience!
-                            </p>
-                        </div>
-                    </div>
-                    <div className="support-single">
-                        <div className="icon">
-                            <i
-                                class="fab fa-discord fa-2x"
-                                style={{ color: "#7289da" }}
-                            ></i>
-                        </div>
-                        <div className="description">
-                            <h3 className="color-black">Discord</h3>
-                            <p>Join and interact with the amazing discord!</p>
-                            <br />
-                            <p>
-                                Wether you're looking for campaign fanart, a
-                                bingo board to fill out during the game, or just
-                                a place to talk about all things IO you can find
-                                it here!
-                            </p>
-                        </div>
-                    </div>
+                        <p>
+                            Not only does brett get the largest cut from patreon
+                            but you get the most bang for your buck.
+                        </p>
+                        <br />
+                        <p>
+                            Patreon members get many exclusive features
+                            including:
+                        </p>
+                        <ul>
+                            <li>Session MP3s</li>
+                            <li>DM Notes</li>
+                            <li>Sneak Peaks</li>
+                        </ul>
+                    </IconPanel>
+                    <IconPanel
+                        data={socialData.find((obj) => obj.name === "Merch")}
+                    >
+                        <p>Purchase merch of the wholesome Racc himself.</p>
+                        <br />
+                        <p>
+                            Currently the main focus of the merchandise is a dnd
+                            class series that so far includes fighter and
+                            wizard.
+                        </p>
+                    </IconPanel>
+                    <IconPanel
+                        data={socialData.find((obj) => obj.name === "Twitch")}
+                    >
+                        <p>
+                            Watch the sessions live on twitch! Subscribe,
+                            donate, and participate in the chat.
+                        </p>
+                        <br />
+                        <p>Weekly stream times can be found in the discord!</p>
+                    </IconPanel>
+                    <IconPanel
+                        data={socialData.find((obj) => obj.name === "YouTube")}
+                    >
+                        <p>
+                            Watching the previous campaigns on the youtube
+                            channel provides ad revenue and helps spread IO to
+                            new viewers.
+                        </p>
+                        <br />
+                        <p>
+                            A master playlist containing all 245 sessions of
+                            Phase 2 is available for your convenience!
+                        </p>
+                    </IconPanel>
+                    <IconPanel
+                        data={socialData.find((obj) => obj.name === "Discord")}
+                    >
+                        <p>Join and interact with the amazing discord!</p>
+                        <br />
+                        <p>
+                            Whether you're looking for campaign fanart, a bingo
+                            board to fill out during the game, or just a place
+                            to talk about all things IO you can find it here!
+                        </p>
+                    </IconPanel>
                 </div>
             </Section>
             <Footer

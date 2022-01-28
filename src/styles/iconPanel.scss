@@ -1,0 +1,30 @@
+.iconPanel-container {
+    padding: 1rem;
+    margin: 2rem;
+    display: inline-flex;
+
+    width: 100%;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.iconPanel-icon {
+    color: var(--color-primary, black);
+    height: 100%;
+    display: inline;
+    margin-right: 2rem;
+    align-self: flex-start;
+}
+
+.iconPanel-description {
+    display: inline-block;
+    text-align: left;
+
+    h3 {
+        padding-bottom: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 0.8;
+        text-align: left;
+    }
+}
