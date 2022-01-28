@@ -7,8 +7,6 @@ import { useState, useEffect } from "react";
 
 import { useModalState } from "./providers/modalStateProvider";
 
-import Swipe from "swipejs";
-
 const Drawer = (props) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
 
