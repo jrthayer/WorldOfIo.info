@@ -21,8 +21,11 @@
 }
 
 .shadow-text-outline {
-    -webkit-text-stroke: 2px var(--color-primary-dark, black);
-    text-stroke: 2px var(--color-primary-dark, black);
+    text-shadow: 1.5px 1.5px 0 var(--color-primary-dark, black),
+        -1.5px -1.5px 0 var(--color-primary-dark, black),
+        1.5px -1.5px 0 var(--color-primary-dark, black),
+        -1.5px 1.5px 0 var(--color-primary-dark, black),
+        1.5px 1.5px 0 var(--color-primary-dark, black);
 }
 
 .fs-900 {

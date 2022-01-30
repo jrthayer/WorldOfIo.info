@@ -39,6 +39,7 @@ const StatCard = (props) => {
             className="statCard"
             onChange={(inView, entry) => (inView ? setAnimating(true) : null)}
             triggerOnce={true}
+            threshold={0.5}
         >
             <div className="statCard-header fs-700">{value + symbol}</div>
             <div className="statCard-text">

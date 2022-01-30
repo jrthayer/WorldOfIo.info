@@ -4,6 +4,7 @@ import "../styles/pages/home.scss";
 
 import logo from "../images/IO-Logo.png";
 import backgroundImage from "../images/galaxy_2.jpg";
+import testImage from "../images/theArcaneAcademy.jpg";
 
 import ResponsiveSidebar from "../components/responsiveSidebar";
 
@@ -19,7 +20,7 @@ import Hero from "../components/hero";
 import Section from "../components/section";
 import Footer from "../components/footer";
 
-let introLink = links.find((link) => link.name === "Intro Video");
+let phase2Intro = links.find((link) => link.name === "Intro Video");
 
 let navigationData = [
     {
@@ -27,17 +28,22 @@ let navigationData = [
         link: "#hero",
     },
     {
-        name: "About IO",
+        name: "Stats",
         link: "#aboutIO",
     },
+
     {
-        name: "History Of IO",
+        name: "Summary",
         link: "#historyOfIO",
     },
-    {
-        name: "How To Support",
-        link: "#howToSupport",
-    },
+    // {
+    //     name: "Campaigns",
+    //     link: "#campaigns",
+    // },
+    // {
+    //     name: "How To Support",
+    //     link: "#howToSupport",
+    // },
     // {
     //     name: "Footer",
     //     link: "#footer",
@@ -46,13 +52,14 @@ let navigationData = [
 
 import socialData from "../data/social.js";
 
-const Home = (props) => {
+const Home = () => {
     useEffect(() => {
-        document.title = "World Of IO";
+        document.title = "Phase 2";
     }, []);
 
     return (
         <Fragment>
+            <nav></nav>
             <ResponsiveSidebar
                 orientation="left"
                 drawer={["uppercase"]}
@@ -68,7 +75,7 @@ const Home = (props) => {
             </ResponsiveSidebar>
             <ResponsiveSidebar
                 orientation="right"
-                drawer={["uppercase"]}
+                drawer={["uppercase", "icons-none"]}
                 sidebar={["vertical", "noHeader"]}
                 sidebarAction="heroHide"
             >
@@ -85,21 +92,21 @@ const Home = (props) => {
             </ResponsiveSidebar>
 
             <Hero id="hero" background={backgroundImage}>
-                <h1 className="fs-700 color-white shadow-text">World Of IO</h1>
+                <h1 className="fs-700 color-white shadow-text">Phase 2</h1>
                 <img src={logo} alt="" />
                 <SocialBtn
-                    link={introLink.link}
-                    classes_text={`${introLink.classes_text} fs-400`}
-                    name={introLink.name}
-                    key={introLink.name}
+                    link={phase2Intro.link}
+                    classes_text={`${phase2Intro.classes_text} fs-400`}
+                    name={phase2Intro.name}
+                    key={phase2Intro.name}
                 ></SocialBtn>
             </Hero>
-            <Section id="aboutIO">
-                <h2 className="fs-700">About IO</h2>
+            <Section id="aboutIO" className="">
+                <h2 className="fs-700">Phase 2 Stats</h2>
                 <p className="color-primary-dark">
-                    World of IO is a a homebrew D&D setting made by BrettUltimus
-                    that has been developing for over 2 years now. The world is
-                    heavily influenced by the player's action shaping the
+                    World of IO phase 2 lasted a little over a year and a half,
+                    below are some interesting stats of the events that occurred
+                    during this time frame:
                 </p>
                 <div className="stat-group">
                     <StatCard stat="Hours Of Content" value={660}>
@@ -107,21 +114,40 @@ const Home = (props) => {
                         <span>2 hours 40 mins</span>
                     </StatCard>
 
-                    <StatCard stat="Player Characters" value={90} symbol="+">
+                    <StatCard stat="Player Characters" value={70} symbol="+">
                         {/* + */}
-                        Across 71 unique players!
+                        Across 50+ unique players!
                     </StatCard>
 
                     <StatCard stat="Campaigns" value={16}>
-                        With 8 one shots/special events including 2 major boss
-                        fights that spanned over 9 hours with 3 separate
-                        parties!
+                        With the average number of sessions being 15 and the
+                        most sessions for a single campaign being 64, which was
+                        The Miss Demeanor!
                     </StatCard>
 
-                    <StatCard stat="Diverse Regions" value={12} symbol="+">
+                    <StatCard
+                        stat="Diverse Regions Explored"
+                        value={10}
+                        symbol="+"
+                    >
                         {/* + */}
                         Ranging from the wide open seas to the Astral plane
                         itself!
+                    </StatCard>
+
+                    <StatCard stat="Players Ascended To Godhood" value={4}>
+                        Starting as mere adventures their adventures in phase 2
+                        lead them to this role.
+                    </StatCard>
+
+                    <StatCard stat="Major Boss Events" value={2}>
+                        Each of which spanned over 9 hours and involved 3
+                        separate parties working in stages!
+                    </StatCard>
+
+                    <StatCard stat="Amazing DM" value={1}>
+                        Who supported the players in telling the story they
+                        wanted and brought us this amazing world!
                     </StatCard>
                 </div>
             </Section>
@@ -131,7 +157,7 @@ const Home = (props) => {
                 bgData="var(--color-primary-light)"
             >
                 <h2 className="fs-700 color-white shadow-text-outline">
-                    The History Of IO
+                    A Brief Summary Of Phase 2
                 </h2>
 
                 <h3>Phase 1</h3>
@@ -146,7 +172,7 @@ const Home = (props) => {
                 </p>
             </Section>
             {/* bgType="image" bgData={backgroundImage} */}
-            <Section id="howToSupport">
+            {/* <Section id="howToSupport">
                 <h2 className="fs-700">How To Support The World of IO</h2>
                 <div className="support-group">
                     <IconPanel
@@ -214,10 +240,9 @@ const Home = (props) => {
                         </p>
                     </IconPanel>
                 </div>
-            </Section>
+            </Section> */}
             <Footer
-                // className="color-white"
-                style={{ backgroundColor: `var(--color-primary-light)` }}
+                // style={{ backgroundColor: `var(--color-primary-light)` }}
                 id="footer"
             ></Footer>
         </Fragment>

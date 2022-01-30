@@ -1,6 +1,38 @@
+.cardContainer {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-primary);
+    border-radius: 1rem;
+}
+
+.campaignCard {
+    width: 25%;
+    max-width: 500px;
+    border: 5px solid var(--color-primary);
+    display: inline-block;
+}
+
+nav:first-of-type {
+    height: var(--navHeight);
+    width: 100%;
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    position: fixed;
+    z-index: var(--maxZ);
+
+    border-bottom: solid 1px var(--color-primary);
+}
+
 #aboutIO {
+    h2 {
+        padding-top: 0;
+    }
+
     .section-content > p:first-of-type {
         font-weight: 700;
+        max-width: 700px;
+        text-align: center;
+        margin: 0 auto;
     }
 
     .stat-group {
@@ -8,7 +40,7 @@
 
         width: 100%;
         // border: solid 1px black;
-        padding: 3rem 0;
+        padding-top: 2rem;
         text-align: center;
 
         flex-direction: column;

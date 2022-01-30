@@ -17,14 +17,24 @@
 
     button {
         position: absolute;
-        bottom: 4rem;
+        bottom: 0.5rem;
         height: 4rem;
 
         width: 2rem;
-        border: solid 1px var(--color-background);
+        border: none;
         background-color: var(--color-primary);
 
         color: var(--color-background);
+
+        i {
+            position: absolute;
+            transition: 0.4s transform;
+            top: 50%;
+            transform: translate(0%, -50%) rotate(0);
+        }
+        i::after {
+            transform-origin: center;
+        }
     }
 
     h3 {
@@ -84,6 +94,10 @@
         transform: translateX(calc(100% + 2px));
         border-bottom-right-radius: 1.5rem;
         border-top-right-radius: 1.5rem;
+
+        i {
+            left: 0;
+        }
     }
 }
 
@@ -98,9 +112,25 @@
         transform: translateX(calc(-100% - 2px));
         border-bottom-left-radius: 1.5rem;
         border-top-left-radius: 1.5rem;
+
+        i {
+            right: 0;
+        }
     }
 }
 
 .drawer-uppercase {
     text-transform: uppercase;
+}
+
+.drawer-icons-none {
+    .drawerContent i::before {
+        display: none;
+    }
+}
+
+.button-flip {
+    i {
+        transform: translate(0%, -50%) rotate(180deg) !important;
+    }
 }

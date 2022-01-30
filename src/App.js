@@ -24,7 +24,6 @@ function App() {
             <ScrollProvider>
                 <ModalStateProvider>
                     <main>
-                        <nav className="navBar"></nav>
                         <Home></Home>
                     </main>
                 </ModalStateProvider>

@@ -1,16 +1,20 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useMemo, useState, useEffect } from "react";
 import "../styles/drawer.scss";
 
 import Screen from "./screen";
-
-import { useState, useEffect } from "react";
 
 import { useModalState } from "./providers/modalStateProvider";
 
 const Drawer = (props) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
-
     const { setModalState, modalState } = useModalState(false);
+    const buttonClasses = useMemo(() => {
+        if (props.orientation === "left") {
+            return "fas fa-angle-double-right";
+        } else {
+            return "fas fa-angle-double-left";
+        }
+    }, []);
 
     let classes = `drawer drawer-${props.orientation} ${props.orientation} ${props.className}`;
 
@@ -40,7 +44,12 @@ const Drawer = (props) => {
             >
                 <div className="drawerContent">{props.children}</div>
 
-                <button onClick={toggleDrawer}>X</button>
+                <button
+                    onClick={toggleDrawer}
+                    className={drawerOpen ? "button-flip" : ""}
+                >
+                    <i className={`${buttonClasses}`}></i>
+                </button>
             </nav>
             {drawerOpen ? <Screen></Screen> : ""}
         </Fragment>
