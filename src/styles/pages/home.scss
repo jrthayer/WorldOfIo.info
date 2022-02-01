@@ -12,16 +12,16 @@
     display: inline-block;
 }
 
-nav:first-of-type {
-    height: var(--navHeight);
-    width: 100%;
-    background-color: var(--color-background);
-    color: var(--color-primary);
-    position: fixed;
-    z-index: var(--maxZ);
+// nav:first-of-type {
+//     height: var(--navHeight);
+//     width: 100%;
+//     background-color: var(--color-background);
+//     color: var(--color-primary);
+//     position: fixed;
+//     z-index: var(--maxZ);
 
-    border-bottom: solid 1px var(--color-primary);
-}
+//     border-bottom: solid 1px var(--color-primary);
+// }
 
 #aboutIO {
     h2 {
@@ -49,7 +49,22 @@ nav:first-of-type {
     }
 }
 
-#historyOfIO {
+#originOfIO {
+    p {
+        padding: 1rem 0;
+        font-weight: 500;
+    }
+
+    h3 {
+        text-transform: uppercase;
+        font-style: italic;
+        padding-bottom: 0.5rem;
+
+        a {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+    }
 }
 
 #howToSupport {
@@ -57,5 +72,23 @@ nav:first-of-type {
         margin-top: 1rem;
         width: 100%;
         text-align: center;
+    }
+}
+
+#majorEvents {
+    h2 {
+        background-color: var(--color-primary);
+        color: var(--color-white-always);
+        padding: 2rem;
+    }
+
+    h3 {
+        padding-bottom: 0.5rem;
+    }
+
+    div > div {
+        padding: 1rem;
+        border: solid 2px var(--color-primary);
+        border-top: none;
     }
 }

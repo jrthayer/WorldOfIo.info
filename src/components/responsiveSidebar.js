@@ -24,7 +24,6 @@ function determineBreakpoints(width, height) {
     if (width !== undefined) breakpoints.width = width;
     if (height !== undefined) breakpoints.height = height;
 
-    console.log(breakpoints);
     return breakpoints;
 }
 

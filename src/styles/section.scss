@@ -1,7 +1,8 @@
 .section {
-    padding: calc(var(--navHeight) + 2rem) 0;
+    padding: 1rem 0;
     width: 100%;
     min-height: 100vh;
+    border-top: solid 2px var(--color-primary);
 }
 
 .section-content {

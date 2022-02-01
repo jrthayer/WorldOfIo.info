@@ -11,8 +11,8 @@ const SocialBtn = (props) => {
                     : {}
             }
             href={props.link}
-            target={props.samePage === true ? "" : "_blank"}
-            rel={props.samePage === true ? "" : "noopener noreferrer"}
+            target={props.samePage ? "" : "_blank"}
+            rel={props.samePage ? "" : "noopener noreferrer"}
             className={`socialBtn ${props.classes_button}`}
         >
             <i

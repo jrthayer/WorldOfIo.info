@@ -35,19 +35,36 @@
     }
 
     a {
-        position: absolute;
-        top: 75%;
-        left: 50%;
-        display: flex;
-        align-items: center;
-
         text-transform: uppercase;
-        transform: translate(-50%, -50%);
-        z-index: calc(var(--maxZ) - 3);
     }
 
     i::after {
         padding: 0;
         padding-left: 1rem;
+    }
+}
+
+.hero-links {
+    display: flex;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    z-index: calc(var(--maxZ) - 3);
+
+    flex-direction: column;
+
+    a {
+        margin: 0.3rem;
+        flex: 1;
+        width: 200px;
+    }
+}
+
+@media all and (min-width: 600px) {
+    .hero-links {
+        flex-direction: row;
     }
 }

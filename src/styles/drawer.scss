@@ -112,10 +112,10 @@
         transform: translateX(calc(-100% - 2px));
         border-bottom-left-radius: 1.5rem;
         border-top-left-radius: 1.5rem;
+    }
 
-        i {
-            right: 0;
-        }
+    i {
+        right: 0;
     }
 }
 
@@ -132,5 +132,16 @@
 .button-flip {
     i {
         transform: translate(0%, -50%) rotate(180deg) !important;
+    }
+}
+
+.drawer-centered {
+    i {
+        justify-content: center !important;
+    }
+
+    i::after {
+        padding: 0 !important;
+        text-align: center;
     }
 }
