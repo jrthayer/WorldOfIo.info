@@ -1,0 +1,54 @@
+.socialDrawer {
+    h2 {
+        font-size: 2.25rem;
+        padding: 1rem;
+    }
+
+    a {
+        width: 100%;
+        border-radius: 0;
+        margin-top: 6px;
+        border: none;
+        border-top: solid 2px var(--color-primary);
+        border-bottom: solid 2px var(--color-primary);
+    }
+
+    a:last-of-type {
+        border-bottom: solid 2px var(--color-primary);
+    }
+
+    a:hover {
+        border: none;
+        border-top: solid 2px var(--color-secondary);
+        border-bottom: solid 2px var(--color-secondary);
+    }
+
+    i {
+        justify-content: flex-start;
+        font-size: 1.5rem;
+    }
+}
+
+.linkContainer {
+    padding-bottom: 6px;
+    border-top: solid 2px var(--color-primary);
+    border-bottom: solid 2px var(--color-primary);
+
+    i {
+        padding-left: 4rem;
+    }
+}
+
+@media all and (max-width: 330px) {
+    .socialDrawer {
+        h2 {
+            text-align: left;
+        }
+    }
+
+    .linkContainer {
+        i {
+            padding-left: 0;
+        }
+    }
+}

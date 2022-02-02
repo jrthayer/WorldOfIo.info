@@ -13,24 +13,24 @@ import SocialLinks from "components/socialLinks";
 
 let navigationData = [
     {
-        name: "Top Of Page",
+        text: "Top Of Page",
         link: "#hero",
     },
     {
-        name: "Stats",
+        text: "Stats",
         link: "#aboutIO",
     },
 
     {
-        name: "Origin Of IO",
+        text: "Origin Of IO",
         link: "#originOfIO",
     },
     {
-        name: "Major Events",
+        text: "Major Events",
         link: "#majorEvents",
     },
     {
-        name: "How To Support",
+        text: "How To Support",
         link: "#howToSupport",
     },
     // {
@@ -40,6 +40,9 @@ let navigationData = [
 ];
 
 import socialData from "data/social.js";
+
+import SwitchComponents from "components/switchComponents";
+import LinkDrawer from "./components/linkDrawer";
 
 const Home = () => {
     useEffect(() => {
@@ -52,7 +55,7 @@ const Home = () => {
             {/* {
                 mediaQuery? (<div></div>) : (<p></p>)
             } */}
-            <ResponsiveSidebar
+            {/* <ResponsiveSidebar
                 orientation="left"
                 drawer={["uppercase"]}
                 sidebar={["vertical", "noHeader"]}
@@ -64,8 +67,8 @@ const Home = () => {
                     width={"260px"}
                     classes_button="socialBtn-inverse margin-small"
                 ></SocialLinks>
-            </ResponsiveSidebar>
-            <ResponsiveSidebar
+            </ResponsiveSidebar> */}
+            {/* <ResponsiveSidebar
                 orientation="right"
                 drawer={["uppercase", "icons-none", "centered"]}
                 sidebar={["vertical", "noHeader"]}
@@ -81,7 +84,30 @@ const Home = () => {
                     }
                     classes_text={"fas fa-dot-circle fa-2x"}
                 ></SocialLinks>
-            </ResponsiveSidebar>
+            </ResponsiveSidebar> */}
+            <SwitchComponents
+                object1={<div>This is object 1</div>}
+                object2={
+                    <LinkDrawer
+                        header="Social Links"
+                        orientation="left"
+                        data={socialData}
+                    />
+                }
+                mediaQuery="(min-width: 700px) and (min-height: 700px)"
+            ></SwitchComponents>
+            <SwitchComponents
+                object1={<div>This is object 1</div>}
+                object2={
+                    <LinkDrawer
+                        header="Navigation Links"
+                        orientation="right"
+                        data={navigationData}
+                        samePage
+                    />
+                }
+                mediaQuery="(min-width: 700px) and (min-height: 700px)"
+            ></SwitchComponents>
 
             {/* Page Sections */}
             <HeroSection id="hero" />

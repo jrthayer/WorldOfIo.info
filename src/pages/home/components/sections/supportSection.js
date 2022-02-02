@@ -11,7 +11,7 @@ const SupportSection = (props) => {
             <h2 className="fs-700">How To Support The World of IO</h2>
             <div className={styles.supportGroup}>
                 <IconPanel
-                    data={socialData.find((obj) => obj.name === "Patreon")}
+                    data={socialData.find((obj) => obj.text === "Patreon")}
                 >
                     <p>
                         Not only does brett get the largest cut from patreon but
@@ -28,7 +28,7 @@ const SupportSection = (props) => {
                     </ul>
                 </IconPanel>
                 <IconPanel
-                    data={socialData.find((obj) => obj.name === "Merch")}
+                    data={socialData.find((obj) => obj.text === "Merch")}
                 >
                     <p>Purchase merch of the wholesome Racc himself.</p>
                     <br />
@@ -38,7 +38,7 @@ const SupportSection = (props) => {
                     </p>
                 </IconPanel>
                 <IconPanel
-                    data={socialData.find((obj) => obj.name === "Twitch")}
+                    data={socialData.find((obj) => obj.text === "Twitch")}
                 >
                     <p>
                         Watch the sessions live on twitch! Subscribe, donate,
@@ -48,7 +48,7 @@ const SupportSection = (props) => {
                     <p>Weekly stream times can be found in the discord!</p>
                 </IconPanel>
                 <IconPanel
-                    data={socialData.find((obj) => obj.name === "YouTube")}
+                    data={socialData.find((obj) => obj.text === "YouTube")}
                 >
                     <p>
                         Watching the previous campaigns on the youtube channel
@@ -61,7 +61,7 @@ const SupportSection = (props) => {
                     </p>
                 </IconPanel>
                 <IconPanel
-                    data={socialData.find((obj) => obj.name === "Discord")}
+                    data={socialData.find((obj) => obj.text === "Discord")}
                 >
                     <p>Join and interact with the amazing discord!</p>
                     <br />

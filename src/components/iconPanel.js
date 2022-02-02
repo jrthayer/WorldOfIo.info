@@ -18,12 +18,12 @@ const IconPanel = (props) => {
             <div className="iconPanel-container">
                 <div className="iconPanel-icon">
                     <i
-                        className={data.classes_text}
+                        className={data.iconClasses}
                         style={{ color: data.color }}
                     ></i>
                 </div>
                 <div className="iconPanel-description">
-                    <h3 className="color-black">{data.name}</h3>
+                    <h3 className="color-black">{data.text}</h3>
                     {props.children}
                 </div>
             </div>

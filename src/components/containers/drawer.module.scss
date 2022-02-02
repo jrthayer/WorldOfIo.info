@@ -1,0 +1,89 @@
+.drawer {
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 350px;
+    width: calc(100% - 2rem);
+    padding: 0;
+
+    transition: 750ms;
+    z-index: calc(var(--maxZ) - 2);
+
+    background-color: var(--color-background);
+
+    font-size: 2rem;
+}
+
+.content {
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.button {
+    position: absolute;
+    bottom: 0.5rem;
+    height: 4rem;
+
+    width: 2rem;
+    border: none;
+    background-color: var(--color-primary);
+
+    color: var(--color-background);
+}
+
+.buttonIcon {
+    position: absolute;
+    transition: 0.4s transform;
+    top: 50%;
+    transform: translate(0%, -50%) rotate(0);
+}
+.buttonIcon::after {
+    transform-origin: center;
+}
+
+.buttonFlip {
+    i {
+        transform: translate(0%, -50%) rotate(180deg);
+    }
+}
+
+.drawer-left {
+    border-right: solid 2px var(--color-primary);
+    transform: translateX(-100%);
+    left: 0;
+
+    button {
+        right: 0rem;
+
+        border-left: none;
+        transform: translateX(calc(100% + 2px));
+        border-bottom-right-radius: 1.5rem;
+        border-top-right-radius: 1.5rem;
+    }
+
+    i {
+        left: 0;
+    }
+}
+
+.drawer-right {
+    border-left: solid 2px var(--color-primary);
+    transform: translateX(100%);
+    right: 0;
+
+    button {
+        left: 0;
+
+        border-right: none;
+        transform: translateX(calc(-100% - 2px));
+        border-bottom-left-radius: 1.5rem;
+        border-top-left-radius: 1.5rem;
+    }
+
+    i {
+        right: 0;
+    }
+}

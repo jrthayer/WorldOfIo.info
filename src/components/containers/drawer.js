@@ -1,13 +1,14 @@
 import React, { Fragment, useMemo, useState, useEffect } from "react";
-import "../styles/drawer.scss";
+import styles from "./drawer.module.scss";
 
-import Screen from "./screen";
+import Screen from "../screen";
 
-import { useModalState } from "./providers/modalStateProvider";
+import { useModalState } from "../providers/modalStateProvider";
 
 const Drawer = (props) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const { setModalState, modalState } = useModalState(false);
+
     const buttonClasses = useMemo(() => {
         if (props.orientation === "left") {
             return "fas fa-angle-double-right";
@@ -16,7 +17,9 @@ const Drawer = (props) => {
         }
     }, []);
 
-    let classes = `drawer drawer-${props.orientation} ${props.orientation} ${props.className}`;
+    let classes = `${styles.drawer} ${styles[`drawer-${props.orientation}`]} ${
+        props.className
+    }`;
 
     const toggleDrawer = () => {
         setDrawerOpen(!drawerOpen);
@@ -42,13 +45,14 @@ const Drawer = (props) => {
                         : `${classes}`
                 }
             >
-                <div className="drawerContent">{props.children}</div>
+                <div className={styles.content}>{props.children}</div>
 
                 <button
                     onClick={toggleDrawer}
-                    className={drawerOpen ? "button-flip" : ""}
+                    // prettier-ignore
+                    className={`${styles.button} ${drawerOpen ? styles.buttonFlip : ""}`}
                 >
-                    <i className={`${buttonClasses}`}></i>
+                    <i className={`${styles.buttonIcon} ${buttonClasses}`}></i>
                 </button>
             </nav>
             {drawerOpen ? <Screen></Screen> : ""}

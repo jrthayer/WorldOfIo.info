@@ -3,6 +3,8 @@ import React from "react";
 import "../styles/socialBtn.scss";
 
 const SocialBtn = (props) => {
+    console.log(`samePag: ${props.samePage}`);
+
     return (
         <a
             style={

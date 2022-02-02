@@ -5,6 +5,18 @@ import style from "./iconBtn.module.scss";
 const IconBtn = (props) => {
     const { link, text, iconClasses } = props.data;
 
+    const iconClassesFinal = useMemo(() => {
+        if (iconClasses === "undefined") {
+            if (props.iconClasses != "undefined") {
+                return props.iconClasses;
+            } else {
+                return "";
+            }
+        } else {
+            return iconClasses;
+        }
+    }, []);
+
     const inlineStyle = useMemo(() => {
         let styleObject = {};
         // prettier-ignore
@@ -23,7 +35,7 @@ const IconBtn = (props) => {
             rel={props.samePage ? "" : "noopener noreferrer"}
             className={style.container}
         >
-            <i className={`${iconClasses} ${style.content}`}>{text}</i>
+            <i className={`${iconClassesFinal} ${style.content}`}>{text}</i>
         </a>
     );
 };
