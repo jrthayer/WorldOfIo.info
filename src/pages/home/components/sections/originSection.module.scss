@@ -1,0 +1,17 @@
+.section {
+    p {
+        padding: 1rem 0;
+        font-weight: 500;
+    }
+
+    h3 {
+        text-transform: uppercase;
+        font-style: italic;
+        padding-bottom: 0.5rem;
+
+        a {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+    }
+}

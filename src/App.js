@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 
-import Home from "./pages/home";
+import Home from "./pages/home/home";
 
 import "./styles/main.scss";
 
-import { ViewportProvider } from "./components/providers/viewportProvider";
-import { ScrollProvider } from "./components/providers/scrollProvider";
-import { ModalStateProvider } from "./components/providers/modalStateProvider";
+import { ViewportProvider } from "components/providers/viewportProvider";
+import { ScrollProvider } from "components/providers/scrollProvider";
+import { ModalStateProvider } from "components/providers/modalStateProvider";
 
 function App() {
     useEffect(() => {

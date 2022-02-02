@@ -1,0 +1,25 @@
+.section {
+    h2 {
+        padding-top: 0;
+    }
+
+    div:first-of-type > p:first-of-type {
+        font-weight: 700;
+        max-width: 700px;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+.statGroup {
+    display: block;
+
+    width: 100%;
+    // border: solid 1px black;
+    padding-top: 2rem;
+    text-align: center;
+
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}

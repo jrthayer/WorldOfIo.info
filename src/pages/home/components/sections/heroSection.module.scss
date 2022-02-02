@@ -6,6 +6,8 @@
 
     background-size: cover;
 
+    border-top: none;
+
     h1 {
         position: absolute;
         top: 20%;
@@ -44,7 +46,7 @@
     }
 }
 
-.hero-links {
+.heroLinks {
     display: flex;
     position: absolute;
     top: 75%;
@@ -64,7 +66,7 @@
 }
 
 @media all and (min-width: 600px) {
-    .hero-links {
+    .heroLinks {
         flex-direction: row;
     }
 }

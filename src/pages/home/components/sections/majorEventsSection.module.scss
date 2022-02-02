@@ -1,0 +1,17 @@
+.section {
+    h2 {
+        background-color: var(--color-primary);
+        color: var(--color-white-always);
+        padding: 2rem;
+    }
+
+    h3 {
+        padding-bottom: 0.5rem;
+    }
+
+    div > div {
+        padding: 1rem;
+        border: solid 2px var(--color-primary);
+        border-top: none;
+    }
+}

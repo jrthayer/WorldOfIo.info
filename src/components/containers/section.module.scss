@@ -1,0 +1,23 @@
+.section:first-of-type {
+    border-top: none;
+}
+
+.section {
+    padding: 1rem 0;
+    width: 100%;
+    min-height: 100vh;
+    border-top: solid 2px var(--color-primary);
+}
+
+.sectionContent {
+    margin: 0 auto;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+@media all and (min-width: 700px) {
+    .sectionContent {
+        width: calc(100% - 100px * 2);
+        max-width: 1200px;
+    }
+}
