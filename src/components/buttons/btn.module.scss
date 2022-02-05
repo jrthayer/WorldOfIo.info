@@ -1,4 +1,4 @@
-.container {
+.button {
     display: block;
     padding: 1rem;
     border: solid 2px var(--color-primary, black);
@@ -8,25 +8,8 @@
     border-radius: 1rem;
 }
 
-.container:hover {
+.button:hover {
     border: solid 2px var(--color-secondary, white);
     background-color: var(--color-primary, black);
     color: var(--color-secondary, white);
-}
-
-.content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-
-    text-transform: uppercase;
-    font-style: normal;
-
-    font-size: 1.25rem;
-    font-weight: 400;
-}
-
-.content::before {
-    padding-right: 1rem;
 }

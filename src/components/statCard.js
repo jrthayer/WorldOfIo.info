@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import "../styles/statCard.scss";
+import styles from "./statCard.module.scss";
 
 import { InView } from "react-intersection-observer";
 
@@ -17,8 +17,6 @@ const StatCard = (props) => {
         const [animating, setAnimating] = useState(false);
 
         useEffect(() => {
-            // let intervalID = null;
-
             if (animating) {
                 if (value === props.value) {
                     // This set symbol to prop.symbol if it is not undefined
@@ -28,20 +26,7 @@ const StatCard = (props) => {
                         setValue((prev) => prev + 1);
                     }, 100);
                 }
-
-                // intervalID = setInterval(() => {
-                //     if (value === props.value) {
-                //         clearInterval(intervalID);
-                //         setSymbol(props.symbol !== undefined && props.symbol);
-                //     } else {
-                //         setValue((prev) => prev + 1);
-                //     }
-                // }, 100);
             }
-
-            // return () => {
-            //     clearInterval(intervalID);
-            // };
         }, [animating, value]);
 
         return { value, animating, setAnimating, symbol };
@@ -52,14 +37,14 @@ const StatCard = (props) => {
     return (
         <InView
             as="div"
-            className="statCard"
+            className={styles.statCard}
             onChange={(inView) => (inView ? setAnimating(true) : null)}
             // triggerOnce={true}
             threshold={0.7}
         >
-            <div className="statCard-header fs-700">{value + symbol}</div>
-            <div className="statCard-text">
-                <h3>{props.stat}</h3>
+            <div className={`${styles.header} fs-700`}>{value + symbol}</div>
+            <div className={styles.text}>
+                <h3 className={styles["text-header"]}>{props.stat}</h3>
                 <p className="color-primary-dark">{props.children}</p>
             </div>
         </InView>

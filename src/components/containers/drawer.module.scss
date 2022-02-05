@@ -9,7 +9,7 @@
     padding: 0;
 
     transition: 750ms;
-    z-index: calc(var(--maxZ) - 2);
+    z-index: var(--maxZ);
 
     background-color: var(--color-background);
 
@@ -40,12 +40,14 @@
     top: 50%;
     transform: translate(0%, -50%) rotate(0);
 }
-.buttonIcon::after {
+
+.buttonIcon::before {
     transform-origin: center;
+    font-size: 1.8rem;
 }
 
-.buttonFlip {
-    i {
+.button.flip {
+    .buttonIcon {
         transform: translate(0%, -50%) rotate(180deg);
     }
 }
@@ -55,7 +57,7 @@
     transform: translateX(-100%);
     left: 0;
 
-    button {
+    .button {
         right: 0rem;
 
         border-left: none;
@@ -64,7 +66,8 @@
         border-top-right-radius: 1.5rem;
     }
 
-    i {
+    .buttonIcon {
+        padding-left: 3px;
         left: 0;
     }
 }
@@ -74,7 +77,7 @@
     transform: translateX(100%);
     right: 0;
 
-    button {
+    .button {
         left: 0;
 
         border-right: none;
@@ -83,7 +86,18 @@
         border-top-left-radius: 1.5rem;
     }
 
-    i {
+    .buttonIcon {
+        padding-right: 3px;
         right: 0;
     }
+}
+
+.active-left {
+    left: 0;
+    transform: translateX(0);
+}
+
+.active-right {
+    right: 0;
+    transform: translateX(0);
 }

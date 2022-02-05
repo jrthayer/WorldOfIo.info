@@ -1,8 +1,4 @@
-// .iconPanel:last-of-type .iconPanel-container {
-//     border: none;
-// }
-
-.iconPanel-container {
+.container {
     padding: 2rem 1rem;
     display: inline-flex;
 
@@ -11,7 +7,7 @@
     border-top: solid 1px var(--color-primary);
 }
 
-.iconPanel-icon {
+.icon {
     color: var(--color-primary, black);
     height: 100%;
     display: inline;
@@ -19,21 +15,23 @@
     align-self: flex-start;
 }
 
-.iconPanel-description {
+.description {
     display: inline-block;
     text-align: left;
+    color: var(--color-text, black);
+}
 
-    h3 {
-        padding-bottom: 1rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        line-height: 0.8;
-        text-align: left;
-    }
+.description-header {
+    padding-bottom: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 0.8;
+    text-align: left;
+    color: var(--color-text, black);
 }
 
 @media (min-width: 1000px) {
-    .iconPanel-container {
+    .container {
         max-height: 300px;
         max-width: 300px;
         padding: 1rem;

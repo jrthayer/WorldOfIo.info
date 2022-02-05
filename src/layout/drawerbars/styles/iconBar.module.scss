@@ -1,0 +1,72 @@
+.iconBar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: calc(var(--maxZ) - 1);
+    justify-content: center;
+
+    a:not(:first-of-type) {
+        margin-top: var(--margin, 1px);
+    }
+
+    a {
+        width: 80px;
+        overflow: hidden;
+        transition: all 0.4s ease-in-out;
+    }
+
+    a:hover {
+        width: var(--width, 275px);
+    }
+
+    i {
+        font-size: 2rem;
+        justify-content: flex-start;
+    }
+}
+
+.left {
+    left: 0;
+
+    a {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: none;
+        padding-left: 1.5rem;
+    }
+
+    a:hover {
+        border-left: none;
+    }
+
+    i::before {
+        padding-right: 1.5rem;
+    }
+}
+
+.right {
+    right: 0;
+
+    a {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: none;
+        padding-right: 1.5rem;
+        place-self: self-end;
+    }
+
+    a:hover {
+        border-right: none;
+    }
+
+    i {
+        flex-direction: row-reverse;
+    }
+
+    i::before {
+        padding-left: 1.5rem;
+        padding-right: 0;
+    }
+}

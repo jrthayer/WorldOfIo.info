@@ -1,9 +1,9 @@
 import React from "react";
 
-import "../styles/screen.scss";
+import styles from "./screen.module.scss";
 
 const Screen = (props) => {
-    return <div className="screen"></div>;
+    return <div className={styles.screen}></div>;
 };
 
 export default Screen;

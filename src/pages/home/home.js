@@ -1,16 +1,19 @@
 import React, { Fragment, useEffect } from "react";
 
-import HeroSection from "./components/sections/heroSection";
-import StatSection from "./components/sections/statSection";
-import OriginSection from "./components/sections/originSection";
-import MajorEventsSection from "./components/sections/majorEventsSection";
-import SupportSection from "./components/sections/supportSection";
-import Footer from "components/footer";
+//====== Layout Components
+// local
+import HeroSection from "./layout/heroSection";
+import StatSection from "./layout/statSection";
+import OriginSection from "./layout/originSection";
+import MajorEventsSection from "./layout/majorEventsSection";
+import SupportSection from "./layout/supportSection";
 
-import ResponsiveSidebar from "components/responsiveSidebar";
+// shared
+import Footer from "layout/footer";
+import NavigationBar from "layout/drawerbars/navigationDrawerBar";
+import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
 
-import SocialLinks from "components/socialLinks";
-
+//====== Data
 let navigationData = [
     {
         text: "Top Of Page",
@@ -41,9 +44,6 @@ let navigationData = [
 
 import socialData from "data/social.js";
 
-import SwitchComponents from "components/switchComponents";
-import LinkDrawer from "./components/linkDrawer";
-
 const Home = () => {
     useEffect(() => {
         document.title = "Phase 2";
@@ -51,63 +51,19 @@ const Home = () => {
 
     return (
         <Fragment>
-            {/* <nav></nav> */}
-            {/* {
-                mediaQuery? (<div></div>) : (<p></p>)
-            } */}
-            {/* <ResponsiveSidebar
+            <SocialDrawerBar
+                mediaQuery="(min-width: 700px) and (min-height: 700px)"
+                data={socialData}
+                width="225px"
                 orientation="left"
-                drawer={["uppercase"]}
-                sidebar={["vertical", "noHeader"]}
-                sidebarAction="heroHide"
-            >
-                <h3 className="fs-600">Social Links</h3>
-                <SocialLinks
-                    data={socialData}
-                    width={"260px"}
-                    classes_button="socialBtn-inverse margin-small"
-                ></SocialLinks>
-            </ResponsiveSidebar> */}
-            {/* <ResponsiveSidebar
+            ></SocialDrawerBar>
+            <NavigationBar
+                mediaQuery="(min-width: 700px) and (min-height: 700px)"
+                data={navigationData}
+                width="320px"
+                margin="30px"
                 orientation="right"
-                drawer={["uppercase", "icons-none", "centered"]}
-                sidebar={["vertical", "noHeader"]}
-                sidebarAction="heroHide"
-            >
-                <h3 className="fs-600">Navigation Links</h3>
-                <SocialLinks
-                    data={navigationData}
-                    samePage={true}
-                    width={"400px"}
-                    classes_button={
-                        "socialBtn-iconOnly socialBtn-inverse-hover margin-medium"
-                    }
-                    classes_text={"fas fa-dot-circle fa-2x"}
-                ></SocialLinks>
-            </ResponsiveSidebar> */}
-            <SwitchComponents
-                object1={<div>This is object 1</div>}
-                object2={
-                    <LinkDrawer
-                        header="Social Links"
-                        orientation="left"
-                        data={socialData}
-                    />
-                }
-                mediaQuery="(min-width: 700px) and (min-height: 700px)"
-            ></SwitchComponents>
-            <SwitchComponents
-                object1={<div>This is object 1</div>}
-                object2={
-                    <LinkDrawer
-                        header="Navigation Links"
-                        orientation="right"
-                        data={navigationData}
-                        samePage
-                    />
-                }
-                mediaQuery="(min-width: 700px) and (min-height: 700px)"
-            ></SwitchComponents>
+            ></NavigationBar>
 
             {/* Page Sections */}
             <HeroSection id="hero" />

@@ -1,0 +1,13 @@
+.container {
+    a {
+        background-color: transparent;
+        color: var(--color-primary);
+        border-color: transparent;
+    }
+
+    a:hover {
+        border-color: var(--color-primary);
+        background-color: var(--color-secondary);
+        color: var(--color-primary);
+    }
+}

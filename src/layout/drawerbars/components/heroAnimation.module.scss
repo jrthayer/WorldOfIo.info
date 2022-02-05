@@ -1,0 +1,30 @@
+.container {
+    position: fixed;
+    z-index: var(--maxZ);
+    width: var(--width, 100px);
+    transition: 0.5s;
+}
+
+.hide-left {
+    transform: translateX(-100%);
+}
+
+.hide-right {
+    transform: translateX(100%);
+}
+
+.onHero {
+    & > div:first-of-type {
+        a {
+            background-color: transparent;
+            border-color: transparent;
+            color: var(--color-white-always);
+        }
+
+        a:hover {
+            background-color: var(--color-white-always);
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+    }
+}

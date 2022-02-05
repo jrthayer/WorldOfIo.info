@@ -7,7 +7,7 @@ const StatSection = (props) => {
     return (
         <Section id={props.id} className={styles.section}>
             <h2 className="fs-700">Phase 2 Stats</h2>
-            <p className="color-primary-dark">
+            <p className="color-text">
                 World of IO phase 2 lasted a little over a year and a half,
                 below are some interesting stats of the events that occurred
                 during this time frame:

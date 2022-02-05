@@ -4,9 +4,8 @@ import Home from "./pages/home/home";
 
 import "./styles/main.scss";
 
-import { ViewportProvider } from "components/providers/viewportProvider";
 import { ScrollProvider } from "components/providers/scrollProvider";
-import { ModalStateProvider } from "components/providers/modalStateProvider";
+import { ViewportProvider } from "components/providers/viewportProvider";
 
 function App() {
     useEffect(() => {
@@ -22,11 +21,9 @@ function App() {
     return (
         <ViewportProvider>
             <ScrollProvider>
-                <ModalStateProvider>
-                    <main>
-                        <Home></Home>
-                    </main>
-                </ModalStateProvider>
+                <main>
+                    <Home></Home>
+                </main>
             </ScrollProvider>
         </ViewportProvider>
     );

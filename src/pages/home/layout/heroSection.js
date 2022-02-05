@@ -1,8 +1,7 @@
 import styles from "./heroSection.module.scss";
 
 import Section from "components/containers/section";
-import SocialBtn from "components/socialBtn";
-import IconBtn from "components/iconBtn";
+import IconBtn from "components/buttons/iconBtn";
 
 import backgroundImage from "images/galaxy_2.jpg";
 import logo from "images/IO-Logo.png";
@@ -22,8 +21,10 @@ const HeroSection = (props) => {
             <h1 className="fs-700 color-white shadow-text">Phase 2</h1>
             <img src={logo} alt="" />
             <div className={styles.heroLinks}>
-                <IconBtn data={phase2Intro}></IconBtn>
-                <IconBtn data={phase2Playlist}></IconBtn>
+                <IconBtn link={phase2Intro.link}>{phase2Intro.text}</IconBtn>
+                <IconBtn link={phase2Playlist.link}>
+                    {phase2Playlist.text}
+                </IconBtn>
             </div>
         </Section>
     );

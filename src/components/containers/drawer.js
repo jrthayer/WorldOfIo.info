@@ -3,11 +3,8 @@ import styles from "./drawer.module.scss";
 
 import Screen from "../screen";
 
-import { useModalState } from "../providers/modalStateProvider";
-
 const Drawer = (props) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const { setModalState, modalState } = useModalState(false);
 
     const buttonClasses = useMemo(() => {
         if (props.orientation === "left") {
@@ -29,7 +26,6 @@ const Drawer = (props) => {
         document.body.style.overflow = drawerOpen ? "hidden" : "auto";
 
         return () => {
-            setModalState(false);
             document.body.style.overflow = "auto";
         };
     });
@@ -41,7 +37,7 @@ const Drawer = (props) => {
                 id={props.id}
                 className={
                     drawerOpen
-                        ? `${classes} active-${props.orientation}`
+                        ? `${classes} ${styles[`active-${props.orientation}`]}`
                         : `${classes}`
                 }
             >
@@ -50,7 +46,7 @@ const Drawer = (props) => {
                 <button
                     onClick={toggleDrawer}
                     // prettier-ignore
-                    className={`${styles.button} ${drawerOpen ? styles.buttonFlip : ""}`}
+                    className={`${styles.button} ${drawerOpen ? styles.flip : ""}`}
                 >
                     <i className={`${styles.buttonIcon} ${buttonClasses}`}></i>
                 </button>

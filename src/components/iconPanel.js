@@ -1,7 +1,7 @@
 import React from "react";
 import { useMemo } from "react";
 
-import "../styles/iconPanel.scss";
+import styles from "./iconPanel.module.scss";
 
 const IconPanel = (props) => {
     let data = useMemo(() => {
@@ -15,15 +15,17 @@ const IconPanel = (props) => {
             target="_blank"
             className="iconPanel"
         >
-            <div className="iconPanel-container">
-                <div className="iconPanel-icon">
+            <div className={styles.container}>
+                <div className={styles.icon}>
                     <i
                         className={data.iconClasses}
-                        style={{ color: data.color }}
+                        style={{ color: data.primaryColor }}
                     ></i>
                 </div>
-                <div className="iconPanel-description">
-                    <h3 className="color-black">{data.text}</h3>
+                <div className={styles.description}>
+                    <h3 className={`${styles["description-header"]}`}>
+                        {data.text}
+                    </h3>
                     {props.children}
                 </div>
             </div>
