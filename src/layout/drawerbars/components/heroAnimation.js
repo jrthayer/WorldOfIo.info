@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import styles from "./heroAnimation.module.scss";
 
@@ -8,29 +8,42 @@ import { useViewport } from "components/providers/viewportProvider";
 const HeroAnimation = (props) => {
     const { yOffset, offsetHeight } = useScroll();
     const { height } = useViewport();
+    // Static Value is bad practice
     const footerHeight = 100;
-    const [classes, setClasses] = useState("");
+    const [classes, setClasses] = useState(
+        `${styles.onHero} ${styles[`hide-${props.orientation}`]}`
+    );
+
+    const initialRender = useRef(true);
 
     useEffect(() => {
-        let extraClasses = "";
+        setTimeout(() => {
+            setClasses(styles.onHero);
+        }, 300);
+    }, []);
 
-        if (yOffset < height - 50) {
-            extraClasses += `${styles.onHero}`;
-            if (yOffset > 0) {
-                extraClasses += ` ${styles[`hide-${props.orientation}`]}`;
+    useEffect(() => {
+        //Skip first render
+        if (initialRender.current) {
+            initialRender.current = false;
+        } else {
+            let extraClasses = "";
+
+            // Hide between 1 and screen height
+            if (yOffset < height - 50) {
+                extraClasses += `${styles.onHero}`;
+                if (yOffset > 0) {
+                    extraClasses += ` ${styles[`hide-${props.orientation}`]}`;
+                }
             }
-        }
 
-        //First condition is need because the scroll height is zero on first render
-        //Second condition determines if the footer is visible
-        if (
-            offsetHeight !== 0 &&
-            yOffset + height >= offsetHeight - (footerHeight - 1)
-        ) {
-            extraClasses += ` hide-${props.orientation}`;
-        }
+            // Hide sidebars at footer
+            if (yOffset >= offsetHeight - (height + footerHeight - 1)) {
+                extraClasses += styles[`hide-${props.orientation}`];
+            }
 
-        setClasses(`${extraClasses}`);
+            setClasses(`${extraClasses}`);
+        }
     }, [yOffset, height]);
 
     return (

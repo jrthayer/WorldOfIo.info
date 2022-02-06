@@ -1,14 +1,18 @@
-import { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 
+//====== Layout Components
+// local
 import HeroSection from "./layout/heroSection";
-import SupportSection from "./layout/supportSection";
+import StatSection from "./layout/statSection";
+import OriginSection from "./layout/originSection";
+import MajorEventsSection from "./layout/majorEventsSection";
 
 // shared
 import Footer from "layout/footer";
 import NavigationBar from "layout/drawerbars/navigationDrawerBar";
 import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
 
-// data
+//====== Data
 let navigationData = [
     {
         text: "Top Of Page",
@@ -31,7 +35,11 @@ let navigationData = [
 
 import socialData from "data/social.js";
 
-const Home = () => {
+const Phase2 = () => {
+    useEffect(() => {
+        document.title = "Phase 2";
+    }, []);
+
     return (
         <Fragment>
             <SocialDrawerBar
@@ -48,8 +56,11 @@ const Home = () => {
                 orientation="right"
             ></NavigationBar>
 
-            <HeroSection></HeroSection>
-            <SupportSection id="howToSupport" />
+            {/* Page Sections */}
+            <HeroSection id="hero" />
+            <StatSection id="aboutIO" />
+            <OriginSection id="originOfIO" />
+            <MajorEventsSection id="majorEvents" />
             <Footer
                 style={{ backgroundColor: `var(--color-primary-light)` }}
                 id="footer"
@@ -58,4 +69,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Phase2;

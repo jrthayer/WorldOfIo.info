@@ -2,12 +2,16 @@
     "name": "create-react-app",
     "version": "0.1.0",
     "private": true,
+    "resolutions": {
+        "react-error-overlay": "6.0.9"
+    },
     "dependencies": {
         "csstype": "^3.0.10",
         "react": "^16.6.1",
         "react-dom": "^16.6.1",
         "react-intersection-observer": "^8.33.1",
-        "react-scripts": "^4.0.3",
+        "react-router-dom": "^6.2.1",
+        "react-scripts": "^5.0.0",
         "sass": "^1.48.0"
     },
     "scripts": {

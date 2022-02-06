@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 
-import Home from "./pages/home/home";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+import Home from "pages/home/home";
+import Phase2 from "pages/phase2/phase2";
 
 import "./styles/main.scss";
 
@@ -19,13 +22,18 @@ function App() {
     }, []);
 
     return (
-        <ViewportProvider>
-            <ScrollProvider>
-                <main>
-                    <Home></Home>
-                </main>
-            </ScrollProvider>
-        </ViewportProvider>
+        <Router>
+            <ViewportProvider>
+                <ScrollProvider>
+                    <main>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/phase2" element={<Phase2 />} />
+                        </Routes>
+                    </main>
+                </ScrollProvider>
+            </ViewportProvider>
+        </Router>
     );
 }
 

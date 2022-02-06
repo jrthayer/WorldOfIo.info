@@ -34,7 +34,7 @@ const NavigationDrawerBar = (props) => {
 
     if (switchState) {
         return (
-            <HeroAnimation orientation={orientation}>
+            <HeroAnimation orientation={orientation} width="80px">
                 <div
                     // prettier-ignore
                     className={sidebarClasses}

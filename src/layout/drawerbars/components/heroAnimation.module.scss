@@ -14,7 +14,7 @@
 }
 
 .onHero {
-    & > div:first-of-type {
+    & > :first-child {
         a {
             background-color: transparent;
             border-color: transparent;
