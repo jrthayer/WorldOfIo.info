@@ -1,6 +1,6 @@
 .container {
     position: fixed;
-    z-index: var(--maxZ);
+    z-index: calc(var(--maxZ) - 3);
     width: var(--width, 100px);
     transition: 0.5s;
 }

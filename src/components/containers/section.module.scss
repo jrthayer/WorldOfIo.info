@@ -4,10 +4,13 @@
 
 .section {
     padding: 1rem 0;
+    padding-top: var(--navHeight);
     width: 100%;
     min-height: 100vh;
     border-top: solid 2px var(--color-primary);
     background-color: var(--color-secondary);
+
+    scroll-snap-align: center;
 }
 
 .sectionContent {

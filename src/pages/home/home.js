@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 
 import HeroSection from "./layout/heroSection";
 import SupportSection from "./layout/supportSection";
@@ -12,46 +12,40 @@ import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
 let navigationData = [
     {
         text: "Top Of Page",
-        link: "#hero",
+        link: "#heroSection",
     },
     {
-        text: "Stats",
-        link: "#aboutIO",
-    },
-
-    {
-        text: "Origin Of IO",
-        link: "#originOfIO",
-    },
-    {
-        text: "Major Events",
-        link: "#majorEvents",
+        text: "Support",
+        link: "#howToSupport",
     },
 ];
 
 import socialData from "data/social.js";
 
+import backgroundImage from "images/ioverse-background.png";
+
 const Home = () => {
     return (
         <Fragment>
             <SocialDrawerBar
-                mediaQuery="(min-width: 700px) and (min-height: 700px)"
+                mediaQuery="(min-width: 1100px) and (min-height: 700px)"
                 data={socialData}
                 width="225px"
                 orientation="left"
             ></SocialDrawerBar>
             <NavigationBar
-                mediaQuery="(min-width: 700px) and (min-height: 700px)"
+                mediaQuery="(min-width: 1100px) and (min-height: 700px)"
                 data={navigationData}
                 width="320px"
                 margin="50px"
                 orientation="right"
             ></NavigationBar>
 
-            <HeroSection></HeroSection>
+            <HeroSection id="heroSection"></HeroSection>
             <SupportSection id="howToSupport" />
+            {/* { backgroundColor: `var(--color-primary-light)` } */}
             <Footer
-                style={{ backgroundColor: `var(--color-primary-light)` }}
+                style={{ backgroundImage: `url(${backgroundImage})` }}
                 id="footer"
             ></Footer>
         </Fragment>

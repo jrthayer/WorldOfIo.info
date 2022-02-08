@@ -1,0 +1,15 @@
+.navBar {
+    height: var(--navHeight);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: calc(var(--maxZ) - 2);
+
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.activeLink {
+    color: pink;
+}

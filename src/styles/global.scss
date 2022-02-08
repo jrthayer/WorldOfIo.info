@@ -7,9 +7,19 @@ span {
     display: block;
 }
 
+html {
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
 body {
     background-color: var(--color-background);
     color: var(--color-text);
+    scroll-behavior: smooth;
 }
 
 h1,
@@ -29,7 +39,6 @@ h2 {
 }
 
 html {
-    scroll-behavior: smooth;
 }
 
 a {

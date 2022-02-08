@@ -9,7 +9,7 @@
     padding: 0;
 
     transition: 750ms;
-    z-index: var(--maxZ);
+    z-index: calc(var(--maxZ) - 3);
 
     background-color: var(--color-background);
 
@@ -95,9 +95,11 @@
 .active-left {
     left: 0;
     transform: translateX(0);
+    z-index: var(--maxZ);
 }
 
 .active-right {
     right: 0;
     transform: translateX(0);
+    z-index: var(--maxZ);
 }

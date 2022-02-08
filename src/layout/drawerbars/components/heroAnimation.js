@@ -6,7 +6,7 @@ import { useScroll } from "components/providers/scrollProvider";
 import { useViewport } from "components/providers/viewportProvider";
 
 const HeroAnimation = (props) => {
-    const { yOffset, offsetHeight } = useScroll();
+    const { yOffset, scrollHeight } = useScroll();
     const { height } = useViewport();
     // Static Value is bad practice
     const footerHeight = 100;
@@ -23,6 +23,9 @@ const HeroAnimation = (props) => {
     }, []);
 
     useEffect(() => {
+        console.log(
+            `yOffset: ${yOffset}, scrollHeight: ${scrollHeight}, height: ${height}`
+        );
         //Skip first render
         if (initialRender.current) {
             initialRender.current = false;
@@ -38,7 +41,7 @@ const HeroAnimation = (props) => {
             }
 
             // Hide sidebars at footer
-            if (yOffset >= offsetHeight - (height + footerHeight - 1)) {
+            if (yOffset >= scrollHeight - (height + footerHeight - 1)) {
                 extraClasses += styles[`hide-${props.orientation}`];
             }
 

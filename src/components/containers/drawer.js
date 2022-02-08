@@ -23,10 +23,10 @@ const Drawer = (props) => {
     };
 
     useEffect(() => {
-        document.body.style.overflow = drawerOpen ? "hidden" : "auto";
+        document.body.style.overflowY = drawerOpen ? "hidden" : "scroll";
 
         return () => {
-            document.body.style.overflow = "auto";
+            document.body.style.overflowY = "scroll";
         };
     });
 
