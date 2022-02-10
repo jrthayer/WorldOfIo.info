@@ -1,5 +1,8 @@
 import React, { Fragment, useEffect } from "react";
 
+//hooks
+import useHashLinkOnStart from "hooks/useHashLinkOnStart";
+
 //====== Layout Components
 // local
 import HeroSection from "./layout/heroSection";
@@ -36,6 +39,8 @@ let navigationData = [
 import socialData from "data/social.js";
 
 const Phase2 = () => {
+    useHashLinkOnStart();
+
     useEffect(() => {
         document.title = "Phase 2";
     }, []);

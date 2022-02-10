@@ -1,5 +1,10 @@
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 
+//hooks
+import useHashLinkOnStart from "hooks/useHashLinkOnStart";
+
+//====== Layout Components
+//local
 import HeroSection from "./layout/heroSection";
 import SupportSection from "./layout/supportSection";
 
@@ -8,7 +13,8 @@ import Footer from "layout/footer";
 import NavigationBar from "layout/drawerbars/navigationDrawerBar";
 import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
 
-// data
+//====== Data
+// arrays
 let navigationData = [
     {
         text: "Top Of Page",
@@ -22,9 +28,12 @@ let navigationData = [
 
 import socialData from "data/social.js";
 
+//images
 import backgroundImage from "images/ioverse-background.png";
 
 const Home = () => {
+    // useHashLinkOnStart();
+
     return (
         <Fragment>
             <SocialDrawerBar

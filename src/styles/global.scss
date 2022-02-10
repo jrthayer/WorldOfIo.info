@@ -15,7 +15,6 @@ html {
 
 html,
 body {
-    height: 100%;
     width: 100%;
 }
 
@@ -39,9 +38,6 @@ h2 {
     padding-bottom: 1rem;
     text-align: center;
     font-weight: 700;
-}
-
-html {
 }
 
 a {
@@ -73,6 +69,7 @@ p {
 
 main {
     width: 100%;
+    overflow-x: hidden;
 }
 
 // Scrollbar

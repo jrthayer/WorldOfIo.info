@@ -23,9 +23,6 @@ const HeroAnimation = (props) => {
     }, []);
 
     useEffect(() => {
-        console.log(
-            `yOffset: ${yOffset}, scrollHeight: ${scrollHeight}, height: ${height}`
-        );
         //Skip first render
         if (initialRender.current) {
             initialRender.current = false;

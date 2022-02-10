@@ -11,7 +11,6 @@ const ViewportProvider = ({ children }) => {
     const handleWindowResize = () => {
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
-        console.log(`resize fired, height: ${height}`);
     };
 
     React.useEffect(() => {
