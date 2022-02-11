@@ -8,8 +8,33 @@
     color: var(--color-primary);
     background-color: var(--color-secondary);
     border-bottom: 2px solid var(--color-primary);
+
+    font-weight: 700;
 }
 
 .activeLink {
-    color: pink;
+    color: var(--color-primary-light);
+    border-bottom: var(--color-primary-light) 1px solid;
+}
+
+.linkContainer {
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    margin: 0.5rem 0;
+
+    align-items: stretch;
+
+    li {
+        list-style-type: none;
+        border: solid 2px transparent;
+    }
+}
+
+.navLink {
+    display: flex;
+    align-items: center;
+
+    margin-left: 1rem;
+    text-align: center;
 }
