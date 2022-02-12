@@ -26,7 +26,7 @@ function App() {
             <ViewportProvider>
                 <ScrollProvider>
                     <main>
-                        <NavBar />
+                        {/* <NavBar /> */}
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/phase2" element={<Phase2 />} />

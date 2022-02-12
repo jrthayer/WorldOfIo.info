@@ -9,6 +9,8 @@ import HeroSection from "./layout/heroSection";
 import SupportSection from "./layout/supportSection";
 
 // shared
+import NavBar from "layout/navBar/navBar";
+import HeroAnimation from "layout/drawerbars/components/heroAnimation";
 import Footer from "layout/footer";
 import NavigationBar from "layout/drawerbars/navigationDrawerBar";
 import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
@@ -36,6 +38,10 @@ const Home = () => {
 
     return (
         <Fragment>
+            <HeroAnimation height="100px" orientation="top">
+                <NavBar />
+            </HeroAnimation>
+
             <SocialDrawerBar
                 mediaQuery="(min-width: 1100px) and (min-height: 700px)"
                 data={socialData}

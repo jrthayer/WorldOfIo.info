@@ -11,6 +11,8 @@ import OriginSection from "./layout/originSection";
 import MajorEventsSection from "./layout/majorEventsSection";
 
 // shared
+import NavBar from "layout/navBar/navBar";
+import HeroAnimation from "layout/drawerbars/components/heroAnimation";
 import Footer from "layout/footer";
 import NavigationBar from "layout/drawerbars/navigationDrawerBar";
 import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
@@ -47,6 +49,9 @@ const Phase2 = () => {
 
     return (
         <Fragment>
+            <HeroAnimation height="100px" orientation="top">
+                <NavBar />
+            </HeroAnimation>
             <SocialDrawerBar
                 mediaQuery="(min-width: 700px) and (min-height: 700px)"
                 data={socialData}

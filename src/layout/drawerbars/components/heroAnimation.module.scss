@@ -1,7 +1,8 @@
 .container {
     position: fixed;
-    z-index: calc(var(--maxZ) - 3);
-    width: var(--width, 100px);
+    z-index: calc(var(--maxZ) - 6);
+    width: var(--width, 100%);
+    height: var(--height, 100%);
     transition: 0.5s;
 }
 
@@ -13,18 +14,25 @@
     transform: translateX(100%);
 }
 
+.hide-top {
+    transform: translateY(-100%);
+}
+
 .onHero {
+    a:hover {
+        background-color: var(--color-white-always);
+        border-color: var(--color-primary);
+        color: var(--color-primary);
+    }
+
     & > :first-child {
+        background-color: transparent;
+        border: none;
+
         a {
             background-color: transparent;
             border-color: transparent;
             color: var(--color-white-always);
-        }
-
-        a:hover {
-            background-color: var(--color-white-always);
-            border-color: var(--color-primary);
-            color: var(--color-primary);
         }
     }
 }

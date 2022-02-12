@@ -14,7 +14,7 @@
 
 .activeLink {
     color: var(--color-primary-light);
-    border-bottom: var(--color-primary-light) 1px solid;
+    border-bottom: currentColor 1px solid !important;
 }
 
 .linkContainer {

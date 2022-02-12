@@ -1,20 +1,34 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useRef, useMemo } from "react";
 
 import styles from "./heroAnimation.module.scss";
 
 import { useScroll } from "components/providers/scrollProvider";
 import { useViewport } from "components/providers/viewportProvider";
 
+import useCheckNull from "hooks/useCheckNull";
+
 const HeroAnimation = (props) => {
     const { yOffset, scrollHeight } = useScroll();
     const { height } = useViewport();
     // Static Value is bad practice
     const footerHeight = 100;
+
     const [classes, setClasses] = useState(
         `${styles.onHero} ${styles[`hide-${props.orientation}`]}`
     );
-
     const initialRender = useRef(true);
+
+    const widthProp = useCheckNull(props.width);
+    const heightProp = useCheckNull(props.height);
+
+    const inlineStyles = useMemo(() => {
+        let styleObject = {};
+
+        styleObject["--width"] = widthProp;
+        styleObject["--height"] = heightProp;
+
+        return styleObject;
+    }, [widthProp, heightProp]);
 
     useEffect(() => {
         setTimeout(() => {
@@ -22,7 +36,7 @@ const HeroAnimation = (props) => {
         }, 300);
     }, []);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         //Skip first render
         if (initialRender.current) {
             initialRender.current = false;
@@ -47,7 +61,10 @@ const HeroAnimation = (props) => {
     }, [yOffset, height]);
 
     return (
-        <div className={`${styles.container} ${props.orientation} ${classes}`}>
+        <div
+            className={`${styles.container} ${props.orientation} ${classes}`}
+            style={inlineStyles}
+        >
             {props.children}
         </div>
     );

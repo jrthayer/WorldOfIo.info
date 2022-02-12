@@ -2,9 +2,6 @@ import { NavLink } from "react-router-dom";
 
 import styles from "./navBar.module.scss";
 
-import { useScroll } from "components/providers/scrollProvider";
-import { useViewport } from "components/providers/viewportProvider";
-
 function isActive({ isActive }) {
     let classes = styles.navLink;
     if (isActive) {
