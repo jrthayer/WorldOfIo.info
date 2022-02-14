@@ -14,6 +14,7 @@ import HeroAnimation from "layout/drawerbars/components/heroAnimation";
 import Footer from "layout/footer";
 import NavigationBar from "layout/drawerbars/navigationDrawerBar";
 import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
+import Section from "components/containers/section";
 
 //====== Data
 // arrays
@@ -21,6 +22,14 @@ let navigationData = [
     {
         text: "Top Of Page",
         link: "#heroSection",
+    },
+    {
+        text: "Schedule",
+        link: "#schedule",
+    },
+    {
+        text: "News",
+        link: "#news",
     },
     {
         text: "Support",
@@ -57,6 +66,12 @@ const Home = () => {
             ></NavigationBar>
 
             <HeroSection id="heroSection"></HeroSection>
+            <Section id="schedule">
+                <h2>Schedule Section</h2>
+            </Section>
+            <Section id="news">
+                <h2>News Section</h2>
+            </Section>
             <SupportSection id="howToSupport" />
             {/* { backgroundColor: `var(--color-primary-light)` } */}
             <Footer
