@@ -12,6 +12,7 @@ const HeroAnimation = (props) => {
     const { height } = useViewport();
     // Static Value is bad practice
     const footerHeight = 100;
+    const zIndex = useCheckNull(props.zIndex);
 
     const [classes, setClasses] = useState(
         `${styles.onHero} ${styles[`hide-${props.orientation}`]}`
@@ -26,6 +27,8 @@ const HeroAnimation = (props) => {
 
         styleObject["--width"] = widthProp;
         styleObject["--height"] = heightProp;
+        // Needed to keep navBar above sidebars
+        styleObject["zIndex"] = zIndex;
 
         return styleObject;
     }, [widthProp, heightProp]);

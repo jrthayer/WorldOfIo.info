@@ -1,40 +1,124 @@
 .navBar {
-    height: var(--navHeight);
-    width: 100%;
+    display: flex;
     position: fixed;
     top: 0;
-    z-index: calc(var(--maxZ) - 2);
-
-    color: var(--color-primary);
-    background-color: var(--color-secondary);
+    height: var(--navHeight);
+    width: 100%;
     border-bottom: 2px solid var(--color-primary);
 
     font-weight: 700;
+    background-color: var(--color-secondary);
+
+    color: var(--color-primary);
+    z-index: calc(var(--maxZ) - 2);
 }
 
 .activeLink {
-    color: var(--color-primary-light);
     border-bottom: currentColor 1px solid !important;
+    color: var(--color-primary-light);
 }
 
 .linkContainer {
-    width: 100%;
-    max-width: 200px;
     display: flex;
-    margin: 0.5rem 0;
 
     align-items: stretch;
 
-    li {
-        list-style-type: none;
-        border: solid 2px transparent;
-    }
+    width: 100%;
+    margin: 0.5rem 0;
+}
+
+.link {
+    border: solid 2px transparent;
+    list-style-type: none;
+    margin-left: 1rem;
+    line-height: 1.1;
+    max-width: 100px;
 }
 
 .navLink {
     display: flex;
     align-items: center;
+    justify-content: center;
 
-    margin-left: 1rem;
     text-align: center;
+
+    height: 100%;
+}
+
+.button {
+    // display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 1.5rem;
+    width: 3rem;
+
+    .buttonBar {
+        height: 3px;
+        width: 100%;
+        border-radius: 5px;
+        background-color: currentColor;
+        transition: all 0.5s ease;
+    }
+}
+
+@media (max-width: 1100px) {
+    .button {
+        display: flex;
+    }
+
+    .navBar {
+        flex-direction: column;
+        height: auto;
+        min-height: var(--navHeight);
+    }
+
+    .linkContainer {
+        display: none;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        margin-top: var(--navHeight);
+
+        background-color: var(--color-primary-light);
+        color: var(--color-primary);
+    }
+
+    .link {
+        border: 2px solid var(--color-primary);
+        border-left: none;
+        border-right: none;
+        max-width: initial;
+        height: 50px;
+        margin: 0;
+    }
+
+    .activeLink {
+        background-color: var(--color-primary);
+        color: var(--color-white-always);
+        border: none !important;
+    }
+
+    .linkContainer.active {
+        display: flex;
+    }
+
+    .button.active {
+        .buttonBar:first-of-type {
+            transform: rotate(45deg) translate(33%);
+        }
+
+        .buttonBar:nth-of-type(2) {
+            transform: translateX(200%);
+        }
+
+        .buttonBar:last-of-type {
+            transform: rotate(-45deg) translate(33%);
+        }
+    }
 }

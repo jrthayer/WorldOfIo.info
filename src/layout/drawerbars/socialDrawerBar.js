@@ -10,7 +10,7 @@ import useCheckNull from "hooks/useCheckNull";
 import IconBtn from "components/buttons/iconBtn";
 import Drawer from "components/containers/drawer";
 
-import HeroAnimation from "./components/heroAnimation";
+import HeroAnimation from "layout/components/heroAnimation";
 
 const SocialDrawerBar = (props) => {
     const switchState = useMediaQuery(props.mediaQuery);

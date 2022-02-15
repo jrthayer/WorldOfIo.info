@@ -11,8 +11,7 @@ import OriginSection from "./layout/originSection";
 import MajorEventsSection from "./layout/majorEventsSection";
 
 // shared
-import NavBar from "layout/navBar/navBar";
-import HeroAnimation from "layout/drawerbars/components/heroAnimation";
+import HeroNavBar from "layout/navBar/heroNavBar";
 import Footer from "layout/footer";
 import NavigationBar from "layout/drawerbars/navigationDrawerBar";
 import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
@@ -49,17 +48,15 @@ const Phase2 = () => {
 
     return (
         <Fragment>
-            <HeroAnimation height="100px" orientation="top">
-                <NavBar />
-            </HeroAnimation>
+            <HeroNavBar />
             <SocialDrawerBar
-                mediaQuery="(min-width: 700px) and (min-height: 700px)"
+                mediaQuery="(min-width: 1100px) and (min-height: 700px)"
                 data={socialData}
                 width="225px"
                 orientation="left"
             ></SocialDrawerBar>
             <NavigationBar
-                mediaQuery="(min-width: 700px) and (min-height: 700px)"
+                mediaQuery="(min-width: 1100px) and (min-height: 700px)"
                 data={navigationData}
                 width="320px"
                 margin="50px"

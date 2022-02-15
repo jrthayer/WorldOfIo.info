@@ -11,7 +11,7 @@ import Btn from "components/buttons/btn";
 import IconBtn from "components/buttons/iconBtn";
 import Drawer from "components/containers/drawer";
 
-import HeroAnimation from "./components/heroAnimation";
+import HeroAnimation from "layout/components/heroAnimation";
 
 const NavigationDrawerBar = (props) => {
     const switchState = useMediaQuery(props.mediaQuery);
