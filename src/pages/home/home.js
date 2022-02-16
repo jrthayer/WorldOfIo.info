@@ -7,6 +7,7 @@ import useHashLinkOnStart from "hooks/useHashLinkOnStart";
 //local
 import HeroSection from "./layout/heroSection";
 import SupportSection from "./layout/supportSection";
+import NewsSection from "./layout/newsSection";
 
 // shared
 import HeroNavBar from "layout/navBar/heroNavBar";
@@ -67,11 +68,8 @@ const Home = () => {
             <Section id="schedule">
                 <h2>Schedule Section</h2>
             </Section>
-            <Section id="news">
-                <h2>News Section</h2>
-            </Section>
+            <NewsSection id="news" />
             <SupportSection id="howToSupport" />
-            {/* { backgroundColor: `var(--color-primary-light)` } */}
             <Footer
                 style={{ backgroundImage: `url(${backgroundImage})` }}
                 id="footer"

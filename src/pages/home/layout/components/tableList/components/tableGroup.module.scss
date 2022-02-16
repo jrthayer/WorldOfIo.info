@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+
+    font-size: 0.9rem;
+}
+
+.header {
+    font-weight: 700;
+    padding: 0.5rem 0;
+    text-align: center;
+    width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+    .header {
+        max-width: 175px;
+        padding: 0.25rem;
+        text-align: initial;
+    }
+
+    .container {
+        flex-direction: row;
+        font-size: 1rem;
+    }
+}
