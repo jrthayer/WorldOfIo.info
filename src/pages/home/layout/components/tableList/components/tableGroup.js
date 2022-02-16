@@ -2,8 +2,11 @@ import styles from "./tableGroup.module.scss";
 
 import ParagraphArray from "./ParagraphArray";
 
+import useCheckNull from "hooks/useCheckNull";
+
 const TableGroup = (props) => {
     const data = props.data;
+    const paragraphData = useCheckNull(data.info);
 
     return (
         <div className={styles.container}>
@@ -12,7 +15,7 @@ const TableGroup = (props) => {
             ) : null}
 
             <div className={styles.info}>
-                <ParagraphArray data={data.info} />
+                <ParagraphArray data={paragraphData} />
             </div>
         </div>
     );
