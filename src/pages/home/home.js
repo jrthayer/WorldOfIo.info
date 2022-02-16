@@ -72,7 +72,7 @@ const Home = () => {
             <Section id="schedule">
                 <h2>Schedule Section</h2>
             </Section>
-            {/* <NewsSection id="news" /> */}
+            <NewsSection id="news" />
             <SupportSection id="howToSupport" />
             <Footer
                 style={{ backgroundImage: `url(${backgroundImage})` }}
