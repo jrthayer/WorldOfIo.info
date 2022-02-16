@@ -15,9 +15,9 @@ const TableGroup = (props) => {
                 <div className={styles.header}>{data.header}</div>
             ) : null}
 
-            <div className={styles.info}>
+            {/* <div className={styles.info}>
                 <ParagraphArray data={paragraphData} />
-            </div>
+            </div> */}
         </div>
     );
 };
