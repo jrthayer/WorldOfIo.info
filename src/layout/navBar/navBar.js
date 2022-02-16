@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, Fragment, useEffect } from "react";
 
 import styles from "./navBar.module.scss";
+
+import Screen from "components/screen";
 
 function isActive({ isActive }) {
     let classes = styles.navLink;
@@ -14,59 +16,67 @@ function isActive({ isActive }) {
 const NavBar = (props) => {
     const [active, setActive] = useState(false);
     const toggleActive = () => {
-        setActive((prevState) => {
-            return !prevState;
-        });
+        setActive(!active);
     };
 
+    useEffect(() => {
+        document.body.style.overflowY = active ? "hidden" : "scroll";
+
+        return () => {
+            document.body.style.overflowY = "scroll";
+        };
+    });
+
     return (
-        <nav className={styles.navBar}>
-            <ul
+        <Fragment>
+            <nav
                 className={
                     active
-                        ? `${styles.active} ${styles.linkContainer}`
-                        : `${styles.linkContainer}`
+                        ? `${styles.active} ${styles.navBar}`
+                        : `${styles.navBar}`
                 }
             >
-                <li className={styles.link}>
-                    <NavLink
-                        to="/"
-                        className={isActive}
-                        onClick={() => {
-                            window.scrollTo(0, 0);
-                        }}
-                    >
-                        Home
-                    </NavLink>
-                </li>
+                <ul className={styles.linkContainer}>
+                    <li className={styles.link}>
+                        <NavLink
+                            to="/"
+                            className={isActive}
+                            onClick={() => {
+                                window.scrollTo(0, 0);
+                            }}
+                        >
+                            Home
+                        </NavLink>
+                    </li>
 
-                <li className={styles.link}>
-                    <NavLink
-                        to="/phase2"
-                        className={isActive}
-                        onClick={() => {
-                            window.scrollTo(0, 0);
-                        }}
-                    >
-                        Phase 2 Summary
-                    </NavLink>
-                </li>
-            </ul>
+                    <li className={styles.link}>
+                        <NavLink
+                            to="/phase2"
+                            className={isActive}
+                            onClick={() => {
+                                window.scrollTo(0, 0);
+                            }}
+                        >
+                            Phase 2 Summary
+                        </NavLink>
+                    </li>
+                </ul>
 
-            <a
-                href="#"
-                className={
-                    active
-                        ? `${styles.active} ${styles.button}`
-                        : `${styles.button}`
-                }
-                onClick={toggleActive}
-            >
-                <span className={styles.buttonBar}></span>
-                <span className={styles.buttonBar}></span>
-                <span className={styles.buttonBar}></span>
-            </a>
-        </nav>
+                <a
+                    className={
+                        active
+                            ? `${styles.active} ${styles.button}`
+                            : `${styles.button}`
+                    }
+                    onClick={toggleActive}
+                >
+                    <span className={styles.buttonBar}></span>
+                    <span className={styles.buttonBar}></span>
+                    <span className={styles.buttonBar}></span>
+                </a>
+            </nav>
+            {active ? <Screen></Screen> : null}
+        </Fragment>
     );
 };
 

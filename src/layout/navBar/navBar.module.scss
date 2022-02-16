@@ -10,7 +10,7 @@
     background-color: var(--color-secondary);
 
     color: var(--color-primary);
-    z-index: calc(var(--maxZ) - 2);
+    z-index: calc(var(--maxZ) - 3);
 }
 
 .activeLink {
@@ -108,7 +108,12 @@
         display: flex;
     }
 
-    .button.active {
+    .navBar.active {
+        z-index: var(--maxZ);
+        .linkContainer {
+            display: flex;
+        }
+
         .buttonBar:first-of-type {
             transform: rotate(45deg) translate(33%);
         }

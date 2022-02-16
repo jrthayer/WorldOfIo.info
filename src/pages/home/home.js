@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 
 //hooks
 import useHashLinkOnStart from "hooks/useHashLinkOnStart";
@@ -44,7 +44,11 @@ import socialData from "data/social.js";
 import backgroundImage from "images/ioverse-background.png";
 
 const Home = () => {
-    // useHashLinkOnStart();
+    useHashLinkOnStart();
+
+    useEffect(() => {
+        document.title = "World Of IO";
+    }, []);
 
     return (
         <Fragment>

@@ -3,8 +3,8 @@
 }
 
 .section {
-    padding: 1rem 0;
-    padding-top: var(--navHeight);
+    padding: 4rem 0;
+    padding-top: calc(var(--navHeight) + 1.5rem);
     width: 100%;
     min-height: 100vh;
     border-top: solid 2px var(--color-primary);
