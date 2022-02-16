@@ -14,11 +14,11 @@ const TableSection = (props) => {
                 <div className={`${styles.header} fs-500`}>{data.header}</div>
             ) : null}
 
-            {data.sections != undefined
+            {/* {data.sections != undefined
                 ? data.sections.map((singleEntry, index) => {
                       return <TableGroup data={singleEntry} key={index} />;
                   })
-                : null}
+                : null} */}
         </div>
     );
 };

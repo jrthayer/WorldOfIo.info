@@ -7,9 +7,9 @@ const TableList = (props) => {
     console.log("TableList");
     return (
         <div className={styles.container}>
-            {/* {data.map((singleEntry, index) => {
+            {data.map((singleEntry, index) => {
                 return <TableSection data={singleEntry} key={index} />;
-            })} */}
+            })}
         </div>
     );
 };
