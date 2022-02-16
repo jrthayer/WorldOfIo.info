@@ -42,10 +42,3 @@ export default [
     //     sections: [{ header: "single header" }],
     // },
 ];
-
-// {
-//     header: "0",
-//     sections: [
-//         {title: "", info: ["","",""]}
-//     ]
-// }
