@@ -1,6 +1,6 @@
 import styles from "./paragraphArray.module.scss";
 
-import { Fragment } from "react/cjs/react.development";
+import { Fragment } from "react";
 
 import useCheckNull from "hooks/useCheckNull";
 
@@ -11,13 +11,13 @@ const ParagraphArray = (props) => {
     if (Array.isArray(data)) {
         return (
             <Fragment>
-                {/* {data.map((singleEntry, index) => {
+                {data.map((singleEntry, index) => {
                     return (
                         <p key={index} className={styles.paragraph}>
                             {singleEntry}
                         </p>
                     );
-                })} */}
+                })}
             </Fragment>
         );
     } else {
