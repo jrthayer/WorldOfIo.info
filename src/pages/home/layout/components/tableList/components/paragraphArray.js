@@ -1,4 +1,4 @@
-import styles from "./ParagraphArray.module.scss";
+import styles from "./paragraphArray.module.scss";
 
 import { Fragment } from "react/cjs/react.development";
 

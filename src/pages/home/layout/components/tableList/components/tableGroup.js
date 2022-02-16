@@ -1,6 +1,6 @@
 import styles from "./tableGroup.module.scss";
 
-import ParagraphArray from "./ParagraphArray";
+import ParagraphArray from "./paragraphArray";
 
 import useCheckNull from "hooks/useCheckNull";
 
