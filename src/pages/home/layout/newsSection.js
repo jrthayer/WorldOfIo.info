@@ -12,7 +12,6 @@ import Section from "components/containers/section";
 import newsData from "data/news.js";
 
 const NewsSection = (props) => {
-    console.log(newsData);
     return (
         <Section
             id={props.id}

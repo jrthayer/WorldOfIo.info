@@ -6,6 +6,7 @@ import useCheckNull from "hooks/useCheckNull";
 
 const ParagraphArray = (props) => {
     const data = useCheckNull(props.data);
+    console.log("ParagraphArray");
 
     if (Array.isArray(data)) {
         return (
