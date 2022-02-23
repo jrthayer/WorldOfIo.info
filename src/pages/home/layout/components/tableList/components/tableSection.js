@@ -6,7 +6,6 @@ import TableGroup from "./tableGroup";
 
 const TableSection = (props) => {
     const data = props.data;
-    console.log("TableSection");
 
     return (
         <div className={styles.section}>

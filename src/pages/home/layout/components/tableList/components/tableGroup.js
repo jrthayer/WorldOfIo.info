@@ -8,7 +8,6 @@ const TableGroup = (props) => {
     const data = props.data;
     const paragraphData = useCheckNull(data.info);
 
-    console.log("TableGroup");
     return (
         <div className={styles.container}>
             {data.header != undefined ? (

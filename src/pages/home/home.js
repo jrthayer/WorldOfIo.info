@@ -6,8 +6,9 @@ import useHashLinkOnStart from "hooks/useHashLinkOnStart";
 //====== Layout Components
 //local
 import HeroSection from "./layout/heroSection";
-import SupportSection from "./layout/supportSection";
+import ScheduleSection from "./layout/scheduleSection";
 import NewsSection from "./layout/newsSection";
+import SupportSection from "./layout/supportSection";
 
 // shared
 import HeroNavBar from "layout/navBar/heroNavBar";
@@ -69,9 +70,7 @@ const Home = () => {
             ></NavigationBar>
 
             <HeroSection id="heroSection"></HeroSection>
-            <Section id="schedule">
-                <h2>Schedule Section</h2>
-            </Section>
+            <ScheduleSection />
             <NewsSection id="news" />
             <SupportSection id="howToSupport" />
             <Footer

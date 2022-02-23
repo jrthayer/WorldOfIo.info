@@ -10,7 +10,6 @@ import "./styles/main.scss";
 import { ScrollProvider } from "components/providers/scrollProvider";
 import { ViewportProvider } from "components/providers/viewportProvider";
 
-import NavBar from "layout/navBar/navBar";
 import ScrollToTop from "layout/scrollToTop";
 
 function App() {

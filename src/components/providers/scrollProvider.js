@@ -32,9 +32,10 @@ const ScrollProvider = ({ children }) => {
 
     React.useEffect(() => {
         resizeObserver.observe(document.documentElement);
-        document.addEventListener("scroll", handleOffset);
+        window.addEventListener("scroll", handleOffset);
+
         return () => {
-            document.removeEventListener("scroll", handleOffset);
+            window.removeEventListener("scroll", handleOffset);
         };
     }, []);
 

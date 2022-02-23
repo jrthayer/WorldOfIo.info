@@ -34,13 +34,11 @@ const HeroAnimation = (props) => {
     }, [widthProp, heightProp]);
 
     useEffect(() => {
-        setTimeout(() => {
-            if (yOffset < height - 50) {
-                setClasses(styles.onHero);
-            } else {
-                setClasses();
-            }
-        }, 300);
+        setClasses(styles.onHero);
+
+        if (yOffset > height - 50) {
+            setClasses();
+        }
     }, []);
 
     useLayoutEffect(() => {
