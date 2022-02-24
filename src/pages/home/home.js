@@ -16,7 +16,6 @@ import HeroNavBar from "layout/navBar/heroNavBar";
 import Footer from "layout/footer";
 import NavigationBar from "layout/drawerbars/navigationDrawerBar";
 import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
-import Section from "components/containers/section";
 
 //====== Data
 // arrays

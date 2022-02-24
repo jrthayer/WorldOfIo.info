@@ -1,7 +1,7 @@
 import styles from "./scheduleDay.module.scss";
 
 // utility
-import convertMinutes from "utils/minutesToAMPM.js";
+import convertMinutes from "pages/home/utils/minutesToAMPM";
 
 const ScheduleDay = (props) => {
     const data = props.data;

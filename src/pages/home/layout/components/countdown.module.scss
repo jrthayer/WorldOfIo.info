@@ -1,0 +1,23 @@
+.container {
+    text-align: center;
+    position: relative;
+    padding: 1rem;
+    max-width: 600px;
+}
+
+.nextShow {
+    line-height: 0.9;
+}
+
+.header {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+
+    color: var(--color-white-always);
+}
+
+.image {
+    border: solid 2px var(--color-primary);
+}
