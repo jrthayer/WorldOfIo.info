@@ -16,7 +16,7 @@ const ScheduleDay = (props) => {
 
                     return (
                         <div className={styles.info} key={index}>
-                            <div>{name}</div>
+                            <div className={styles.description}>{name}</div>
                             <div className={styles.time}>{time}</div>
                         </div>
                     );

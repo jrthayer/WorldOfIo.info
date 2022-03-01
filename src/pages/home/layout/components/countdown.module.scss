@@ -1,23 +1,54 @@
 .container {
     text-align: center;
-    position: relative;
+
     padding: 1rem;
+    padding-top: 0;
     max-width: 600px;
 }
 
+.imgContainer {
+    position: relative;
+}
+
 .nextShow {
-    line-height: 0.9;
 }
 
 .header {
     position: absolute;
     left: 50%;
-    top: 40%;
+    top: 50%;
     transform: translate(-50%, -50%);
 
+    font-size: 2rem;
+    padding: 1rem;
+
     color: var(--color-white-always);
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    border-radius: 1rem;
 }
 
 .image {
     border: solid 2px var(--color-primary);
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        margin-top: 2rem;
+        padding-top: 2rem;
+    }
+
+    .header {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .container {
+        margin-top: 2rem;
+        padding-top: 2rem;
+    }
+
+    .header {
+        font-size: 0.8rem;
+    }
 }

@@ -11,7 +11,7 @@
 
     h1 {
         position: absolute;
-        top: 20%;
+        top: 10%;
         left: 50%;
 
         padding: 0;
@@ -24,16 +24,6 @@
 
         font-weight: 700;
 
-        z-index: calc(var(--maxZ) - 4);
-    }
-
-    img {
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        height: 80%;
-        width: auto;
-        transform: translateX(-50%);
         z-index: calc(var(--maxZ) - 4);
     }
 
@@ -50,11 +40,11 @@
 .heroLinks {
     display: flex;
     position: absolute;
-    top: 75%;
+    bottom: 0%;
     left: 50%;
     display: flex;
     align-items: center;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 60%);
     z-index: calc(var(--maxZ) - 4);
 
     flex-direction: column;
@@ -66,8 +56,32 @@
     }
 }
 
+.imgContainer {
+    position: relative;
+}
+
+.contentContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    width: 100%;
+    max-width: 800px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+}
+
 @media all and (min-width: 600px) {
     .heroLinks {
         flex-direction: row;
+        bottom: 25%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media all and (max-width: 1200px) {
+    .contentContainer {
+        max-width: 800px;
     }
 }

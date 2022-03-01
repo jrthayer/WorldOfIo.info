@@ -12,7 +12,6 @@ import scheduleData from "pages/home/scripts/convertSchedule.js";
 const ScheduleSection = () => {
     return (
         <Section id="schedule">
-            <h2 className={`fs-700 ${styles.title}`}>Schedule</h2>
             <div className={styles.container}>
                 <Schedule data={scheduleData} />
                 <Countdown data={scheduleData} />

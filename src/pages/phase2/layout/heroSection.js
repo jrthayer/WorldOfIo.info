@@ -19,13 +19,17 @@ const HeroSection = (props) => {
             id={props.id}
             className={styles.hero}
         >
-            <h1 className="fs-700 color-white shadow-text">Phase 2</h1>
-            <img src={logo} alt="" />
-            <div className={styles.heroLinks}>
-                <IconBtn link={phase2Intro.link}>{phase2Intro.text}</IconBtn>
-                <IconBtn link={phase2Playlist.link}>
-                    {phase2Playlist.text}
-                </IconBtn>
+            <div className={styles.contentContainer}>
+                <h1 className="fs-700 color-white shadow-text">Phase 2</h1>
+                <img src={logo} alt="" />
+                <div className={styles.heroLinks}>
+                    <IconBtn link={phase2Intro.link}>
+                        {phase2Intro.text}
+                    </IconBtn>
+                    <IconBtn link={phase2Playlist.link}>
+                        {phase2Playlist.text}
+                    </IconBtn>
+                </div>
             </div>
         </Section>
     );

@@ -8,11 +8,13 @@ const CountdownDisplay = (props) => {
     const [minutes, setMinutes] = useState(0);
     const [display, setDisplay] = useState(countdownString(0));
 
+    // current bug if the duration between shows is the same this doesn't get updated
     useEffect(() => {
-        setMinutes(props.data);
+        setMinutes(props.data.minutesTill);
     }, [props.data]);
 
     useEffect(() => {
+        console.log(`SetMinutes: ${minutes}`);
         const id = setTimeout(() => {
             const date = new Date();
             let seconds = 59 - date.getSeconds();
@@ -33,7 +35,7 @@ const CountdownDisplay = (props) => {
         return () => {
             clearTimeout(id);
         };
-    });
+    }, [minutes, display]);
 
     return <div className={`fs-700 ${styles.display}`}>{display}</div>;
 };

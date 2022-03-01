@@ -9,11 +9,14 @@ const Schedule = (props) => {
 
     return (
         <div className={styles.container}>
-            {data.map((day, index) => {
-                if (day.events.length != 0) {
+            <h2 className={`fs-650 ${styles.header}`}>Schedule</h2>
+            <div className={styles.innerContainer}>
+                {data.map((day, index) => {
+                    // if (day.events.length != 0) {
                     return <ScheduleDay data={day} key={index} />;
-                }
-            })}
+                    // }
+                })}
+            </div>
         </div>
     );
 };

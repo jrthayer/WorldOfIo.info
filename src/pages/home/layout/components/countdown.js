@@ -5,11 +5,16 @@ import styles from "./countdown.module.scss";
 import CountdownDisplay from "./countdownDisplay";
 
 import determineNextEvent from "pages/home/utils/determineNextEvent";
-import testImage from "images/theArcaneAcademy.jpg";
+// import initialImage from "/public/images/default.png";
 
 const Countdown = (props) => {
     const [nextEvent, setNextEvent] = useState(true);
-    const [event, setEvent] = useState({ minutesTill: 0 });
+    const [event, setEvent] = useState({
+        minutesTill: 0,
+        name: "Loading Content",
+    });
+    const [imgSrc, setImgSrc] = useState();
+    const [hideTitle, setHideTitle] = useState(true);
 
     const onFocus = () => {
         setNextEvent(true);
@@ -26,21 +31,43 @@ const Countdown = (props) => {
     useEffect(() => {
         if (nextEvent === true) {
             // determine next show
-            const event = determineNextEvent(props.data);
             setEvent(determineNextEvent(props.data));
-            setNextEvent(false);
         }
     }, [nextEvent]);
+
+    useEffect(() => {
+        let fileName = event.name.replace(/ /g, "_");
+        fileName = fileName.toLowerCase();
+        console.log(fileName);
+        setImgSrc(`/image/${fileName}.png`);
+        setNextEvent(false);
+    }, [event]);
+
+    useEffect(() => {
+        setHideTitle(true);
+    }, [imgSrc]);
 
     return (
         <div className={styles.container}>
             <h2 className={`fs-650 ${styles.nextShow}`}>Next Show</h2>
-            <h3 className={`fs-600 ${styles.header}`}>{event.name}</h3>
-            <img src={testImage} className={styles.image}></img>
-            <CountdownDisplay
-                data={event.minutesTill}
-                nextEvent={setNextEvent}
-            />
+            <div className={styles.imgContainer}>
+                {hideTitle ? null : (
+                    <h3 className={`${styles.header}`}>{event.name}</h3>
+                )}
+
+                <img
+                    src={imgSrc}
+                    className={styles.image}
+                    onError={({ currentTarget }) => {
+                        currentTarget.onerror = null; // prevents looping
+                        console.error("Not a valid countdown image");
+                        currentTarget.src = "/image/default.png";
+                        setHideTitle(false);
+                    }}
+                ></img>
+            </div>
+
+            <CountdownDisplay data={event} nextEvent={setNextEvent} />
         </div>
     );
 };
