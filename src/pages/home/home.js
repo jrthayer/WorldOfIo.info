@@ -55,13 +55,13 @@ const Home = () => {
             <HeroNavBar />
 
             <SocialDrawerBar
-                mediaQuery="(min-width: 1100px) and (min-height: 700px)"
+                mediaQuery="(min-width: 1200px) and (min-height: 700px)"
                 data={socialData}
                 width="225px"
                 orientation="left"
             ></SocialDrawerBar>
             <NavigationBar
-                mediaQuery="(min-width: 1100px) and (min-height: 700px)"
+                mediaQuery="(min-width: 1200px) and (min-height: 700px)"
                 data={navigationData}
                 width="320px"
                 margin="50px"

@@ -16,13 +16,13 @@
 .sectionContent {
     margin: 0 auto;
     width: 100%;
-    padding: 35px;
+    padding: 0 35px;
 }
 
-@media all and (min-width: 700px) {
+@media all and (min-width: 1200px) {
     .sectionContent {
         width: calc(100% - 100px * 2);
         max-width: 1200px;
-        padding: 1.5rem;
+        padding: 0 1.5rem;
     }
 }

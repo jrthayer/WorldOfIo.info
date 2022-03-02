@@ -3,8 +3,8 @@
 }
 
 .innerContainer {
-    width: 100%;
-
+    max-width: 600px;
+    margin: 0 auto;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -17,6 +17,6 @@
 
 @media screen and (min-width: 1200px) {
     .innerContainer {
-        max-width: 600px;
+        margin: 0;
     }
 }

@@ -14,7 +14,6 @@ const CountdownDisplay = (props) => {
     }, [props.data]);
 
     useEffect(() => {
-        console.log(`SetMinutes: ${minutes}`);
         const id = setTimeout(() => {
             const date = new Date();
             let seconds = 59 - date.getSeconds();

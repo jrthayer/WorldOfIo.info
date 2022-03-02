@@ -1,4 +1,11 @@
 export default [
+    // {
+    //     day: "tues",
+    //     hours: 19,
+    //     minutes: 0,
+    //     timezone: "est",
+    //     name: "Curious Curios",
+    // },
     {
         day: "wed",
         hours: 16,
@@ -23,7 +30,7 @@ export default [
     {
         day: "saturday",
         hours: 14,
-        minutes: 0,
+        minutes: 10,
         timezone: "est",
         name: "Couple's Couch w/MasaeAnela: Eleden Ring!",
     },

@@ -8,6 +8,9 @@ export default function useHashLinkOnStart() {
     const id = location.hash;
 
     useEffect(() => {
-        scrollToSection(id);
+        // Temporary fix to allow page time to load before scrolling to section
+        setTimeout(() => {
+            scrollToSection(id);
+        }, 500);
     }, []);
 }

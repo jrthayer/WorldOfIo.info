@@ -8,7 +8,7 @@ import socialData from "data/social";
 const SupportSection = (props) => {
     return (
         <Section id={props.id} style={props.style}>
-            <h2 className="fs-700">How To Support The World of IO</h2>
+            <h2 className="fs-700">How To Support The IOVERSE</h2>
             <div className={styles.supportGroup}>
                 <IconPanel
                     data={socialData.find((obj) => obj.text === "Patreon")}

@@ -38,7 +38,6 @@ const Countdown = (props) => {
     useEffect(() => {
         let fileName = event.name.replace(/ /g, "_");
         fileName = fileName.toLowerCase();
-        console.log(fileName);
         setImgSrc(`/image/${fileName}.png`);
         setNextEvent(false);
     }, [event]);

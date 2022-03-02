@@ -25,6 +25,7 @@
 }
 
 .shadow-text-outline {
+    letter-spacing: 0.1rem;
     text-shadow: 1.5px 1.5px 0 var(--color-primary-dark, black),
         -1.5px -1.5px 0 var(--color-primary-dark, black),
         1.5px -1.5px 0 var(--color-primary-dark, black),

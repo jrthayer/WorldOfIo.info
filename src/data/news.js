@@ -21,12 +21,12 @@ export default [
                 ],
             },
             {
-                header: "Group 3",
+                header: "Curious Curios",
                 info: [
                     "Players: Breebunn, KingBendrick, Strippin, Arex, Gmart, Supershigi",
                     "Weekly Schedule: Tuesdays 7pm EST",
                     "Session 0: Tuesday, February 22, 2022 7:00pm EST",
-                    "Session 1: Tuesday, March 1, 2022 7:00pm EST",
+                    "Session 1: Tuesday, March 8, 2022 7:00pm EST",
                 ],
             },
         ],
