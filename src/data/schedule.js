@@ -1,24 +1,23 @@
 export default [
     {
         day: "tues",
-        hours: 19,
+        hours: 18,
         minutes: 0,
         timezone: "est",
         name: "Curious Curios",
     },
     {
         day: "thursday",
-        hours: 16,
+        hours: 15,
         minutes: 0,
         timezone: "est",
         name: "Deadbeats",
     },
     {
         day: "thursday",
-        hours: 20,
+        hours: 19,
         minutes: 0,
         timezone: "est",
         name: "Pipe Dreamers",
     },
-  
 ];
