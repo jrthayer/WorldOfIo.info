@@ -1,5 +1,8 @@
 .container {
     width: 100%;
+
+    margin-top: 2rem;
+    padding-top: 2rem;
 }
 
 .innerContainer {
@@ -16,6 +19,11 @@
 }
 
 @media screen and (min-width: 1200px) {
+    .container {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
     .innerContainer {
         margin: 0;
     }
