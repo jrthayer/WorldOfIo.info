@@ -1,24 +1,17 @@
 export default [
     {
         day: "monday",
-        hours: 12,
+        hours: 17,
         minutes: 0,
         timezone: "est",
-        name: "Raft EU Edition",
-    },
-    {
-        day: "monday",
-        hours: 15,
-        minutes: 0,
-        timezone: "est",
-        name: "Monster Hunter Rise Rush(on CouplesCouch Twitch)",
+        name: "Monster Hunter Rise : Sunbreak on Couple's Couch! ",
     },
     {
         day: "tuesday",
-        hours: 14,
+        hours: 19,
         minutes: 0,
         timezone: "est",
-        name: "Open Stream",
+        name: "Curious Curios",
     },
     {
         day: "wed",
@@ -33,13 +26,6 @@ export default [
         minutes: 0,
         timezone: "pst",
         name: "Pipe Dreamers",
-    },
-    {
-        day: "fri",
-        hours: 15,
-        minutes: 0,
-        timezone: "est",
-        name: "Monster Hunter Rise Sunbreak! (on CouplesCouch Twitch)",
     },
     {
         day: "sat",
