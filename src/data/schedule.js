@@ -25,7 +25,7 @@ export default [
         hours: 16,
         minutes: 0,
         timezone: "est",
-        name: " March on Faewunder",
+        name: "March on Faewunder",
     },
     {
         day: "thurs",
