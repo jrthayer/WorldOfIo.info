@@ -70,12 +70,21 @@ function convertToUTC(dayString, hour, minutes, timezone) {
 
     // offset is in minutes
     let timezoneOffset = 0;
+    // This has to be adjusted with daylight savings
     switch (timezone) {
         case "pst":
-            timezoneOffset = 480;
+            // not daylight
+            // timezoneOffset = 480;
+
+            // daylight savings
+            timezoneOffset = 420;
             break;
         case "est":
-            timezoneOffset = 300;
+            // not daylight
+            // timezoneOffset = 300;
+
+            // daylight savings
+            timezoneOffset = 240;
             break;
         default:
             console.error(`ERROR: ${timezone} is not a supported timezone!`);

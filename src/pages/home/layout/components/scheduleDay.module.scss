@@ -85,9 +85,11 @@
     .infoContainer {
         flex: 1;
         margin-right: 1rem;
+        justify-content: center;
     }
 
     .time {
         text-align: left;
+        align-self: flex-start;
     }
 }
