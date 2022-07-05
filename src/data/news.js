@@ -3,7 +3,7 @@ export default [
         header: "Deadbeats Season 2 currently scheduled to start July 21st!",
     },
     {
-        header: "Curious Curios is BACK this Tuesday at 7pm EST!",
+        header: "Curious Curios is BACK this Tuesday at 7:30pm EST!",
     },
     // {
     //     header: "Phase 3 Groups Announced",

@@ -9,7 +9,7 @@ export default [
     {
         day: "tuesday",
         hours: 19,
-        minutes: 0,
+        minutes: 30,
         timezone: "est",
         name: "Curious Curios",
     },
