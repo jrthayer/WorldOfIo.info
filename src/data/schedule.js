@@ -6,13 +6,13 @@ export default [
         timezone: "est",
         name: "Monster Hunter Rise : Sunbreak on Couple's Couch! ",
     },
-    {
-        day: "tuesday",
-        hours: 19,
-        minutes: 30,
-        timezone: "est",
-        name: "Curious Curios",
-    },
+    // {
+    //     day: "tuesday",
+    //     hours: 19,
+    //     minutes: 0,
+    //     timezone: "est",
+    //     name: "Curious Curios",
+    // },
     {
         day: "wed",
         hours: 16,
