@@ -9,11 +9,11 @@ const TableSection = (props) => {
 
     return (
         <div className={styles.section}>
-            {data.header != undefined ? (
+            {data != undefined && data.header != undefined ? (
                 <div className={`${styles.header} fs-500`}>{data.header}</div>
             ) : null}
 
-            {data.sections != undefined
+            {data != undefined && data.sections != undefined
                 ? data.sections.map((singleEntry, index) => {
                       return <TableGroup data={singleEntry} key={index} />;
                   })

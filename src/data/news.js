@@ -2,9 +2,6 @@ export default [
     {
         header: "Deadbeats Season 2 currently scheduled to start July 21st!",
     },
-    {
-        header: "Due to an emergency with a couple of players, along with a schedule conflict - we'll be cancelling today's session. \n Curious Curios is BACK next Tuesday at 7pm EST!",
-    },
     // {
     //     header: "Phase 3 Groups Announced",
     //     sections: [

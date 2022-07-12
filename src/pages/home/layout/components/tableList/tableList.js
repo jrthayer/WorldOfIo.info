@@ -10,6 +10,7 @@ const TableList = (props) => {
             {data.map((singleEntry, index) => {
                 return <TableSection data={singleEntry} key={index} />;
             })}
+            <TableSection></TableSection>
         </div>
     );
 };
