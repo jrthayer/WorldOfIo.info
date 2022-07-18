@@ -1,10 +1,15 @@
 .section {
     padding: 1rem;
-    min-height: 60px;
 }
 
 .section:not(:first-of-type) {
     border-top: solid 2px var(--color-primary);
+}
+
+.section:last-of-type {
+    background-color: var(--color-primary);
+    padding: 0;
+    height: 20px;
 }
 
 .header {
