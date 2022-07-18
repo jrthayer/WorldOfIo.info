@@ -2,6 +2,9 @@ export default [
     {
         header: "Deadbeats Season 2 currently scheduled to start July 21st!",
     },
+    {
+        header: "March on Faewunder and Curious Curios have been rescheduled to different days/times for this week only! Please check schedule for the rescheduled times!",
+    },
     // {
     //     header: "Phase 3 Groups Announced",
     //     sections: [
