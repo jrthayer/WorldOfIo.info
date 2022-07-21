@@ -31,14 +31,14 @@ export default [
         day: "thurs",
         hours: 16,
         minutes: 0,
-        timezone: "pst",
+        timezone: "est",
         name: "Deadbeats",
     },
     {
         day: "thurs",
         hours: 20,
         minutes: 0,
-        timezone: "pst",
+        timezone: "est",
         name: "Pipe Dreamers",
     },
     // {
