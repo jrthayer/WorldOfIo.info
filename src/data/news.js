@@ -1,9 +1,9 @@
 export default [
     {
-        header: "Deadbeats Season 2 currently scheduled to start July 21st!",
+        header: "The new Druid Subclass - Circle of Abnormality - is now out on Patreon!",
     },
     {
-        header: "March on Faewunder and Curious Curios have been rescheduled to different days/times for this week only! Please check schedule for the rescheduled times!",
+        header: "Campaign #5 announcement is happening Wed, July 27 @ 12pm est on twitter!",
     },
     // {
     //     header: "Phase 3 Groups Announced",
