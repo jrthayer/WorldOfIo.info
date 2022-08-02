@@ -3,7 +3,10 @@ export default [
         header: "The new Druid Subclass - Circle of Abnormality - is now out on Patreon!",
     },
     {
-        header: "Campaign #5 announcement is happening Wed, July 27 @ 12pm est on twitter!",
+        header: "The FREE Raccling Race has been re-released on Patreon. They've been re-adjusted to be compatible with all 5e systems and now have new art by Mariah Tekulve.",
+    },
+    {
+        header: "Sounds of IOverse Vol. 1 - 10 tracks from the IOverse soundtrack - release date planned for August 7th at 12pm EST!",
     },
     // {
     //     header: "Phase 3 Groups Announced",
