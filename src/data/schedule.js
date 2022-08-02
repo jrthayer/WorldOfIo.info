@@ -6,13 +6,13 @@ export default [
         timezone: "est",
         name: "Curious Curios",
     },
-    {
-        day: "wed",
-        hours: 16,
-        minutes: 0,
-        timezone: "est",
-        name: "March on Faewunder",
-    },
+    // {
+    //     day: "wed",
+    //     hours: 16,
+    //     minutes: 0,
+    //     timezone: "est",
+    //     name: "March on Faewunder",
+    // },
     {
         day: "thurs",
         hours: 16,
