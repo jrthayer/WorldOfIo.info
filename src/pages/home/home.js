@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 
 //hooks
 import useHashLinkOnStart from "hooks/useHashLinkOnStart";
@@ -45,10 +45,6 @@ import backgroundImage from "images/ioverse-background.png";
 
 const Home = () => {
     useHashLinkOnStart();
-
-    useEffect(() => {
-        document.title = "World Of IO";
-    }, []);
 
     return (
         <Fragment>
