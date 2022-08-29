@@ -1,18 +1,18 @@
 export default [
     {
+        day: "monday",
+        hours: 14,
+        minutes: 0,
+        timezone: "est",
+        name: "Ship of Fools! #sponsored stream with MasaeAnela!",
+    },
+    {
         day: "tuesday",
         hours: 20,
         minutes: 0,
         timezone: "est",
         name: "Curious Curios",
     },
-    // {
-    //     day: "wed",
-    //     hours: 13,
-    //     minutes: 30,
-    //     timezone: "est",
-    //     name: "Two Point Hospital #sponsored",
-    // },
     {
         day: "wed",
         hours: 16,
@@ -20,13 +20,20 @@ export default [
         timezone: "est",
         name: "March on Faewunder",
     },
-    // {
-    //     day: "wed",
-    //     hours: 20,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Into the Shadow's Breach- Session 0!",
-    // },
+    {
+        day: "wed",
+        hours: 20,
+        minutes: 0,
+        timezone: "est",
+        name: "Into The Shadow's Breach",
+    },
+    {
+        day: "thurs",
+        hours: 12,
+        minutes: 0,
+        timezone: "est",
+        name: "Birthday Subathon",
+    },
     {
         day: "thurs",
         hours: 16,
@@ -40,12 +47,5 @@ export default [
         minutes: 0,
         timezone: "est",
         name: "Pipe Dreamers",
-    },
-    {
-        day: "sat",
-        hours: 16,
-        minutes: 0,
-        timezone: "est",
-        name: "VARIETY SATURDAY w/ TomFawkes & SciFri",
     },
 ];
