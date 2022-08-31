@@ -1,5 +1,8 @@
 export default [
     {
+        header: "The premiere of Into The Shadow's Breach has been delayed till next week!",
+    },
+    {
         header: "The new Paladin Subclass - Oath of the Scholar - is now out on Patreon!",
     },
     {
@@ -11,46 +14,4 @@ export default [
     {
         header: "Sounds of IOverse Vol. 1 - 10 tracks from the IOverse soundtrack - is Now Released! Check the discord announcements for links to all major music platforms!",
     },
-    // {
-    //     header: "Phase 3 Groups Announced",
-    //     sections: [
-    //         {
-    //             header: "Deadbeats",
-    //             info: [
-    //                 "Players: Dodger, SummersSalt, MasaeAnela, Joefudge, Snake, JesseCox",
-    //                 "Weekly Schedule: Thursdays 4pm EST",
-    //                 "Session 0: Thursday, February 10th, 4:00pm EST",
-    //                 "Session 1: Thursday, February 17th, 2022 4:00pm EST",
-    //             ],
-    //         },
-    //         {
-    //             header: "Pipe Dreamers",
-    //             info: [
-    //                 "Players: Lawlman, Tomato, Layna Lazar, Shaynehawke, Juniper",
-    //                 "Weekly Schedule: Thursdays 8pm EST",
-    //                 "Session 0: Tuesday, February 15, 2022 8:00pm EST",
-    //                 "Session 1:  Thursday, March 3, 2022 4:00pm EST",
-    //             ],
-    //         },
-    //         {
-    //             header: "Curious Curios",
-    //             info: [
-    //                 "Players: Breebunn, KingBendrick, Strippin, Arex, Gmart, Supershigi",
-    //                 "Weekly Schedule: Tuesdays 7pm EST",
-    //                 "Session 0: Tuesday, February 22, 2022 7:00pm EST",
-    //                 "Session 1: Tuesday, March 8, 2022 7:00pm EST",
-    //             ],
-    //         },
-    //     ],
-    // },
-    // {
-    //     header: "this is a test",
-    //     // sections: [],
-    // },
-    // {
-    //     sections: [{ info: "This is a single line of info" }],
-    // },
-    // {
-    //     sections: [{ header: "single header" }],
-    // },
 ];
