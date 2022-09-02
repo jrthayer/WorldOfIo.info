@@ -35,6 +35,27 @@ export default [
         name: "Birthday Subathon",
     },
     {
+        day: "fri",
+        hours: 12,
+        minutes: 0,
+        timezone: "est",
+        name: "Birthday Subathon",
+    },
+    {
+        day: "sat",
+        hours: 12,
+        minutes: 0,
+        timezone: "est",
+        name: "Birthday Subathon",
+    },
+    {
+        day: "sun",
+        hours: 12,
+        minutes: 0,
+        timezone: "est",
+        name: "Birthday Subathon",
+    },
+    {
         day: "thurs",
         hours: 16,
         minutes: 0,
