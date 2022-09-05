@@ -1,12 +1,5 @@
 export default [
     {
-        day: "monday",
-        hours: 14,
-        minutes: 0,
-        timezone: "est",
-        name: "Ship of Fools! #sponsored stream with MasaeAnela!",
-    },
-    {
         day: "tuesday",
         hours: 20,
         minutes: 0,
@@ -15,45 +8,10 @@ export default [
     },
     {
         day: "wed",
-        hours: 16,
+        hours: 20,
         minutes: 0,
         timezone: "est",
-        name: "March on Faewunder",
-    },
-    // {
-    //     day: "wed",
-    //     hours: 20,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Into The Shadow's Breach",
-    // },
-    {
-        day: "thurs",
-        hours: 12,
-        minutes: 0,
-        timezone: "est",
-        name: "Birthday Subathon",
-    },
-    {
-        day: "fri",
-        hours: 12,
-        minutes: 0,
-        timezone: "est",
-        name: "Birthday Subathon",
-    },
-    {
-        day: "sat",
-        hours: 12,
-        minutes: 0,
-        timezone: "est",
-        name: "Birthday Subathon",
-    },
-    {
-        day: "sun",
-        hours: 12,
-        minutes: 0,
-        timezone: "est",
-        name: "Birthday Subathon",
+        name: "Into The Shadow's Breach",
     },
     {
         day: "thurs",
@@ -61,6 +19,20 @@ export default [
         minutes: 0,
         timezone: "est",
         name: "Deadbeats",
+    },
+    {
+        day: "fri",
+        hours: 11,
+        minutes: 0,
+        timezone: "est",
+        name: "Birthday Subathon OVERTIME!",
+    },
+    {
+        day: "sat",
+        hours: 11,
+        minutes: 0,
+        timezone: "est",
+        name: "OPEN STREAM ",
     },
     {
         day: "thurs",
