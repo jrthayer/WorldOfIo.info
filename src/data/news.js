@@ -1,6 +1,6 @@
 export default [
     {
-        header: "The premiere of Into The Shadow's Breach has been delayed till next week!",
+        header: "Into The Shadow's Breach premieres Wednesday at 8pm EST!!! Starring @bloodyfasterTV @Lobosjrgaming @MomoMischief @NaomiOop @TheCrownedDM",
     },
     {
         header: "The new Paladin Subclass - Oath of the Scholar - is now out on Patreon!",
