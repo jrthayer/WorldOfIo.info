@@ -1,10 +1,17 @@
 export default [
+    // {
+    //     day: "tuesday",
+    //     hours: 20,
+    //     minutes: 0,
+    //     timezone: "est",
+    //     name: "Curious Curios",
+    // },
     {
-        day: "tuesday",
-        hours: 20,
+        day: "wed",
+        hours: 16,
         minutes: 0,
         timezone: "est",
-        name: "Curious Curios",
+        name: "Into The Shadow's Breach- Session 1 Rerun",
     },
     {
         day: "wed",
@@ -21,24 +28,24 @@ export default [
         name: "Deadbeats",
     },
     {
-        day: "fri",
-        hours: 11,
-        minutes: 0,
-        timezone: "est",
-        name: "Birthday Subathon OVERTIME!",
-    },
-    {
-        day: "sat",
-        hours: 11,
-        minutes: 0,
-        timezone: "est",
-        name: "OPEN STREAM ",
-    },
-    {
         day: "thurs",
         hours: 20,
         minutes: 0,
         timezone: "est",
         name: "Pipe Dreamers",
+    },
+    {
+        day: "fri",
+        hours: 10,
+        minutes: 0,
+        timezone: "est",
+        name: "Morning Racc Stream",
+    },
+    {
+        day: "sat",
+        hours: 10,
+        minutes: 0,
+        timezone: "est",
+        name: "Morning Racc Stream",
     },
 ];
