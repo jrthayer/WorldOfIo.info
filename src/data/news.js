@@ -1,8 +1,5 @@
 export default [
     {
-        header: "Into The Shadow's Breach premieres Wednesday at 8pm EST!!! Starring @bloodyfasterTV @Lobosjrgaming @MomoMischief @NaomiOop @TheCrownedDM",
-    },
-    {
         header: "The new Paladin Subclass - Oath of the Scholar - is now out on Patreon!",
     },
     {
