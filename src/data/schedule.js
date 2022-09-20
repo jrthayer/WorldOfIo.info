@@ -1,25 +1,25 @@
 export default [
-    // {
-    //     day: "tuesday",
-    //     hours: 20,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Curious Curios",
-    // },
     {
-        day: "wed",
-        hours: 16,
-        minutes: 0,
-        timezone: "est",
-        name: "Into The Shadow's Breach- Session 1 Rerun",
-    },
-    {
-        day: "wed",
+        day: "tuesday",
         hours: 20,
         minutes: 0,
         timezone: "est",
-        name: "Into The Shadow's Breach",
+        name: "Curious Curios",
     },
+    {
+        day: "wed",
+        hours: 9,
+        minutes: 0,
+        timezone: "est",
+        name: "Morning Racc Stream",
+    },
+    // {
+    //     day: "wed",
+    //     hours: 20,
+    //     minutes: 0,
+    //     timezone: "est",
+    //     name: "Into The Shadow's Breach",
+    // },
     {
         day: "thurs",
         hours: 16,
@@ -36,16 +36,23 @@ export default [
     },
     {
         day: "fri",
-        hours: 10,
+        hours: 9,
         minutes: 0,
         timezone: "est",
         name: "Morning Racc Stream",
     },
     {
         day: "sat",
-        hours: 10,
+        hours: 9,
         minutes: 0,
         timezone: "est",
         name: "Morning Racc Stream",
+    },
+    {
+        day: "sat",
+        hours: 12,
+        minutes: 0,
+        timezone: "est",
+        name: "Pathfinder 2E First Look Stream",
     },
 ];
