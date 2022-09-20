@@ -5,7 +5,6 @@ import styles from "./countdown.module.scss";
 import CountdownDisplay from "./countdownDisplay";
 
 import determineNextEvent from "pages/home/utils/determineNextEvent";
-// import initialImage from "/public/images/default.png";
 
 const Countdown = (props) => {
     const [nextEvent, setNextEvent] = useState(true);
@@ -52,7 +51,9 @@ const Countdown = (props) => {
             <h2 className={`fs-650 ${styles.nextShow}`}>Next Show</h2>
             <div className={styles.imgContainer}>
                 {hideTitle ? null : (
-                    <h3 className={`${styles.header}`}>{event.name}</h3>
+                    <div className={`${styles.headerContainer}`}>
+                        <h3 className={`${styles.header}`}>{event.name}</h3>
+                    </div>
                 )}
 
                 <img
