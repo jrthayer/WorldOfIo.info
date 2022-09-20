@@ -1,30 +1,39 @@
 .container {
-    text-align: center;
-
+    max-width: 600px;
     padding: 1rem;
     padding-top: 0;
-    max-width: 600px;
+
+    text-align: center;
 }
 
 .imgContainer {
     position: relative;
 }
 
-.nextShow {
+.headerContainer {
+    position: absolute;
+    top: 26%;
+    left: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 45%;
+    width: 60%;
+
+    transform: rotate(7deg);
 }
 
 .header {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 2.2rem;
+    background: transparent;
+    color: #ea27ed;
 
-    font-size: 2rem;
-    padding: 1rem;
-
-    color: var(--color-white-always);
-    background-color: rgba($color: #000000, $alpha: 0.7);
-    border-radius: 1rem;
+    overflow: hidden;
+    text-shadow: 2px 2px 5px #ea27ed, -2px -2px 5px #ea27ed,
+        2px -2px 5px #ea27ed, -2px 2px 5px #ea27ed;
+    -webkit-text-stroke: 1px #f791f9;
 }
 
 .image {
@@ -33,22 +42,20 @@
 
 @media screen and (max-width: 1200px) {
     .container {
-        margin-top: 2rem;
         padding-top: 2rem;
+        margin-top: 2rem;
     }
+}
 
+@media screen and (max-width: 770px) {
     .header {
-        font-size: 1.5rem;
+        font-size: 5vw;
     }
 }
 
 @media screen and (max-width: 400px) {
     .container {
-        margin-top: 2rem;
         padding-top: 2rem;
-    }
-
-    .header {
-        font-size: 0.8rem;
+        margin-top: 2rem;
     }
 }
