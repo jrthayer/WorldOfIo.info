@@ -34,6 +34,7 @@ const Countdown = (props) => {
         }
     }, [nextEvent]);
 
+    /* Setting the image source based on the event name. */
     useEffect(() => {
         let fileName = event.name.replace(/ /g, "_");
         fileName = fileName.replace(/'/, "");
