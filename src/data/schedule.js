@@ -34,18 +34,18 @@ export default [
         timezone: "est",
         name: "Pipe Dreamers",
     },
-    {
-        day: "sat",
-        hours: 10,
-        minutes: 0,
-        timezone: "est",
-        name: "Morning Racc Stream - One D&D UA ",
-    },
-    {
-        day: "sat",
-        hours: 12,
-        minutes: 0,
-        timezone: "est",
-        name: "YOUTUBE STREAM : Pathfinder 2e Playing the Game (Ch. 9)",
-    },
+    // {
+    //     day: "sat",
+    //     hours: 10,
+    //     minutes: 0,
+    //     timezone: "est",
+    //     name: "Morning Racc Stream - One D&D UA ",
+    // },
+    // {
+    //     day: "sat",
+    //     hours: 12,
+    //     minutes: 0,
+    //     timezone: "est",
+    //     name: "YOUTUBE STREAM : Pathfinder 2e Playing the Game (Ch. 9)",
+    // },
 ];
