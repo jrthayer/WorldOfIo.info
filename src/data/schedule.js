@@ -1,11 +1,11 @@
 export default [
-    {
-        day: "tuesday",
-        hours: 20,
-        minutes: 0,
-        timezone: "est",
-        name: "Curious Curios",
-    },
+    // {
+    //     day: "tuesday",
+    //     hours: 20,
+    //     minutes: 0,
+    //     timezone: "est",
+    //     name: "Curious Curios",
+    // },
     // {
     //     day: "tues",
     //     hours: 9,
@@ -22,18 +22,32 @@ export default [
     },
     {
         day: "thurs",
-        hours: 16,
+        hours: 19,
         minutes: 0,
         timezone: "est",
-        name: "Deadbeats",
+        name: "Deadbeats x Pipe Dreamers CROSSOVER",
     },
     {
-        day: "thurs",
-        hours: 20,
+        day: "fri",
+        hours: 17,
         minutes: 0,
         timezone: "est",
-        name: "Pipe Dreamers",
+        name: "#sponsored Dragon Ball Breakers",
     },
+    {
+        day: "sat",
+        hours: 10,
+        minutes: 0,
+        timezone: "est",
+        name: "IO Unearthed - Angler",
+    },
+    // {
+    //     day: "thurs",
+    //     hours: 20,
+    //     minutes: 0,
+    //     timezone: "est",
+    //     name: "Pipe Dreamers",
+    // },
     // {
     //     day: "sat",
     //     hours: 10,
