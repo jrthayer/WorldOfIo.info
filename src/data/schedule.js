@@ -1,18 +1,11 @@
 export default [
-    // {
-    //     day: "tuesday",
-    //     hours: 20,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Curious Curios",
-    // },
-    // {
-    //     day: "tues",
-    //     hours: 9,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Morning Racc Stream",
-    // },
+    {
+        day: "tuesday",
+        hours: 20,
+        minutes: 0,
+        timezone: "est",
+        name: "Curious Curios",
+    },
     {
         day: "wed",
         hours: 20,
@@ -22,44 +15,24 @@ export default [
     },
     {
         day: "thurs",
-        hours: 19,
+        hours: 16,
         minutes: 0,
         timezone: "est",
-        name: "Deadbeats x Pipe Dreamers CROSSOVER",
+        name: "Deadbeats",
     },
+    {
+        day: "thurs",
+        hours: 20,
+        minutes: 0,
+        timezone: "est",
+        name: "Pipe Dreamers",
+    },
+
     {
         day: "fri",
         hours: 17,
         minutes: 0,
         timezone: "est",
-        name: "#sponsored Dragon Ball Breakers",
+        name: "#sponsored Moonbreaker",
     },
-    {
-        day: "sat",
-        hours: 10,
-        minutes: 0,
-        timezone: "est",
-        name: "IO Unearthed - Angler",
-    },
-    // {
-    //     day: "thurs",
-    //     hours: 20,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Pipe Dreamers",
-    // },
-    // {
-    //     day: "sat",
-    //     hours: 10,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Morning Racc Stream - One D&D UA ",
-    // },
-    // {
-    //     day: "sat",
-    //     hours: 12,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "YOUTUBE STREAM : Pathfinder 2e Playing the Game (Ch. 9)",
-    // },
 ];
