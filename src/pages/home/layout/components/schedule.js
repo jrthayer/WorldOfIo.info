@@ -10,7 +10,7 @@ const Schedule = (props) => {
     return (
         <div className={styles.container}>
             <h2 className={`fs-650 ${styles.header}`}>Schedule</h2>
-            <h4 className={`${styles.week}`}>Week of Oct 24th</h4>
+            <h4 className={`${styles.week}`}>Week of Oct 31st</h4>
             <div className={styles.innerContainer}>
                 {data.map((day, index) => {
                     // if (day.events.length != 0) {

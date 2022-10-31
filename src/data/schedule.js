@@ -6,13 +6,13 @@ export default [
         timezone: "est",
         name: "Curious Curios",
     },
-    {
-        day: "wed",
-        hours: 20,
-        minutes: 0,
-        timezone: "est",
-        name: "Into The Shadow's Breach",
-    },
+    // {
+    //     day: "wed",
+    //     hours: 20,
+    //     minutes: 0,
+    //     timezone: "est",
+    //     name: "Into The Shadow's Breach",
+    // },
     {
         day: "thurs",
         hours: 16,
