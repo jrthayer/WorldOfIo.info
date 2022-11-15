@@ -13,13 +13,13 @@ export default [
         timezone: "est",
         name: "Into The Shadow's Breach",
     },
-    {
-        day: "thurs",
-        hours: 19,
-        minutes: 0,
-        timezone: "est",
-        name: "Deadbeats X Pipe Dreamers Crossover (may start an hour early)",
-    },
+    // {
+    //     day: "thurs",
+    //     hours: 19,
+    //     minutes: 0,
+    //     timezone: "est",
+    //     name: "Deadbeats X Pipe Dreamers Crossover (may start an hour early)",
+    // },
     // {
     //     day: "thurs",
     //     hours: 16,
@@ -34,16 +34,8 @@ export default [
     //     timezone: "est",
     //     name: "Pipe Dreamers",
     // },
-
     {
-        day: "fri",
-        hours: 17,
-        minutes: 0,
-        timezone: "est",
-        name: "#sponsored Moonbreaker",
-    },
-    {
-        day: "sat",
+        day: "thurs",
         hours: 16,
         minutes: 0,
         timezone: "est",
