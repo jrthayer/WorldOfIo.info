@@ -13,13 +13,27 @@ export default [
         timezone: "est",
         name: "Into The Shadow's Breach",
     },
-    // {
-    //     day: "thurs",
-    //     hours: 19,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Deadbeats X Pipe Dreamers Crossover (may start an hour early)",
-    // },
+    {
+        day: "thurs",
+        hours: 19,
+        minutes: 0,
+        timezone: "est",
+        name: "Deadbeats X Pipe Dreamers Crossover",
+    },
+    {
+        day: "fri",
+        hours: 16,
+        minutes: 0,
+        timezone: "est",
+        name: "Moonbreaker (#sponsored stream)",
+    },
+    {
+        day: "fri",
+        hours: 18,
+        minutes: 0,
+        timezone: "est",
+        name: "Guest Spot on Mistletoe (Joefudge's Stream)",
+    },
     // {
     //     day: "thurs",
     //     hours: 16,
@@ -34,11 +48,11 @@ export default [
     //     timezone: "est",
     //     name: "Pipe Dreamers",
     // },
-    {
-        day: "thurs",
-        hours: 16,
-        minutes: 0,
-        timezone: "est",
-        name: "Core Keeper Desert of Beginnings w/ TomFawkes and SciFri! - NEW RUN!",
-    },
+    // {
+    //     day: "thurs",
+    //     hours: 16,
+    //     minutes: 0,
+    //     timezone: "est",
+    //     name: "Core Keeper Desert of Beginnings w/ TomFawkes and SciFri! - NEW RUN!",
+    // },
 ];
