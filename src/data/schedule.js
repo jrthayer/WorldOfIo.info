@@ -1,5 +1,12 @@
 export default [
     {
+        day: "monday",
+        hours: 9,
+        minutes: 0,
+        timezone: "est",
+        name: "Jurassic Park Evolution 2 : Dominion Malta #sponsored",
+    },
+    {
         day: "tuesday",
         hours: 20,
         minutes: 0,
@@ -12,20 +19,6 @@ export default [
         minutes: 0,
         timezone: "est",
         name: "Into The Shadow's Breach",
-    },
-    {
-        day: "fri",
-        hours: 15,
-        minutes: 50,
-        timezone: "est",
-        name: "Moonbreaker (#sponsored stream)",
-    },
-    {
-        day: "fri",
-        hours: 18,
-        minutes: 0,
-        timezone: "est",
-        name: "Guest Spot on Mistletoe (Joefudge's Stream)",
     },
     {
         day: "thurs",
@@ -41,11 +34,11 @@ export default [
         timezone: "est",
         name: "Pipe Dreamers",
     },
-    // {
-    //     day: "thurs",
-    //     hours: 16,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Core Keeper Desert of Beginnings w/ TomFawkes and SciFri! - NEW RUN!",
-    // },
+    {
+        day: "fri",
+        hours: 9,
+        minutes: 0,
+        timezone: "est",
+        name: "Moonbreaker (#sponsored stream)",
+    },
 ];
