@@ -5,9 +5,9 @@ import useHashLinkOnStart from "hooks/useHashLinkOnStart";
 
 //====== Layout Components
 //local
-import HeroSection from "./layout/heroSection";
-import ScheduleSection from "./layout/scheduleSection";
-import NewsSection from "./layout/newsSection";
+import HeroSection from "./layout/heroSection/heroSection";
+import ScheduleSection from "./layout/scheduleSection/scheduleSection";
+import NewsSection from "./layout/newsSection/newsSection";
 import SupportSection from "./layout/supportSection";
 
 // shared

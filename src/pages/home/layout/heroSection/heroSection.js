@@ -1,9 +1,9 @@
 import styles from "./heroSection.module.scss";
-import stylesPage from "../styles/style.module.scss";
+import stylesPage from "../../styles/style.module.scss";
 
 import Section from "components/containers/section";
 import IconBtn from "components/buttons/iconBtn";
-import IoverseHeader from "../components/ioverseHeader";
+import IoverseHeader from "./components/ioverseHeader";
 
 import backgroundImage from "images/ioverse-background.png";
 import logo from "images/ioverse-logo.png";
