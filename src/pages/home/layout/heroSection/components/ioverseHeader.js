@@ -10,19 +10,3 @@ const IoverseHeader = (props) => {
 };
 
 export default IoverseHeader;
-
-// const position = useCheckNull(props.position);
-// const top = useCheckNull(props.top);
-// const left = useCheckNull(props.left);
-
-// const inlineStyles = useMemo(() => {
-//     let styleObject = {};
-
-//     styleObject["--position"] = position;
-//     styleObject["--top"] = top;
-//     styleObject["--left"] = left;
-
-//     return styleObject;
-// }, [top, left]);
-
-/*style={inlineStyles}*/

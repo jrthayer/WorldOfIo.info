@@ -1,5 +1,4 @@
 import styles from "./heroSection.module.scss";
-import stylesPage from "../../styles/style.module.scss";
 
 import Section from "components/containers/section";
 import IconBtn from "components/buttons/iconBtn";
@@ -17,7 +16,7 @@ const HeroSection = (props) => {
         >
             <div className={styles["logo-container"]}>
                 <IoverseHeader>
-                    <h1 className={`fs-700 ${stylesPage.header}`}>Into The</h1>
+                    <h1>Into The</h1>
                 </IoverseHeader>
                 <img src={logo} alt="" />
                 <div className={styles.heroLinks}>

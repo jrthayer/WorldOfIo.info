@@ -11,67 +11,44 @@
 
 .logo-container {
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 50%;
-    height: auto;
-    width: 100%;
-    max-width: 800px;
-    transform: translate(-50%, -50%);
+    margin-top: var(--navHeight);
+    height: calc(100vh - var(--navHeight, 0));
+    width: auto;
+
+    transform: translate(-50%, 0%);
 
     padding: 1rem;
-}
 
-.titleContainer {
-    position: relative;
-    top: 10%;
-    left: 50%;
-    padding: 0;
-    text-align: center;
+    img {
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: auto;
 
-    text-transform: uppercase;
-
-    font-weight: 700;
-
-    letter-spacing: 1.5rem;
-
-    white-space: nowrap;
-
-    width: fit-content;
-
-    > * {
-        position: absolute;
-        transform: translateX(-50%);
+        width: min(90vw, 770px);
     }
-}
-
-.title {
-    background-color: white;
-    background: linear-gradient(#7ac0c8, white);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    z-index: calc(var(--maxZ) - 3);
-}
-
-.titleShadow {
-    text-shadow: 4px 4px 2px black;
-    // transform: translate(3px, 3px);
-    // background: black;
-    // -webkit-background-clip: text;
-    // -webkit-text-fill-color: transparent;
-    z-index: calc(var(--maxZ) - 4);
 }
 
 .heroLinks {
     display: flex;
     position: absolute;
-    top: 100%;
+    width: 200px;
     left: 50%;
+    bottom: 0%;
+
     display: flex;
     align-items: center;
-    transform: translate(-50%, -50%);
+
+    font-size: clamp(1.3rem, 3vw, 3.5rem);
+
     z-index: calc(var(--maxZ) - 3);
 
     flex-direction: column;
+
+    transform: translate(-50%, -15vh);
 
     a {
         margin: 0.3rem;
@@ -87,8 +64,21 @@
     }
 }
 
-@media all and (max-width: 1200px) {
+@media screen and (min-width: 100vh) {
+    /* The width is greater than the height */
     .logo-container {
-        max-width: 600px;
+        img {
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: min(60vh, 450px);
+
+            width: auto;
+        }
+    }
+
+    .heroLinks {
+        // transform: translate(-50%, -50vh);
     }
 }
