@@ -13,15 +13,9 @@ html {
     // scroll-snap-stop: normal;
 }
 
-html,
-body {
-    width: 100%;
-}
-
 body {
     background-color: var(--color-background);
     color: var(--color-text);
-    overflow: hidden;
 }
 
 h1,

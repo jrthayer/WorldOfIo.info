@@ -1,6 +1,7 @@
 import styles from "./heroSection.module.scss";
 
 import Section from "components/containers/section";
+import TransparentSection from "components/containers/transparentSection";
 import IconBtn from "components/buttons/iconBtn";
 import IoverseHeader from "./components/ioverseHeader";
 
@@ -10,9 +11,9 @@ import logo from "images/ioverse-logo.png";
 const HeroSection = (props) => {
     return (
         <Section
-            style={{ backgroundImage: `url(${backgroundImage})` }}
+            // style={{ backgroundImage: `url(${backgroundImage})` }}
+            type="transparent"
             id={props.id}
-            className={styles.hero}
         >
             <div className={styles["logo-container"]}>
                 <IoverseHeader>

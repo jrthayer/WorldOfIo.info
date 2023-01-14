@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { useEffect } from "react";
 
 //hooks
 import useHashLinkOnStart from "hooks/useHashLinkOnStart";
@@ -46,6 +47,18 @@ import backgroundImage from "images/ioverse-background.png";
 const Home = () => {
     useHashLinkOnStart();
 
+    useEffect(() => {
+        document.title = "World Of IO";
+        document.body.style.backgroundImage = `url(${backgroundImage})`;
+        document.body.style.backgroundAttachment = `fixed`;
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+
+        return () => {
+            document.body.style.background = null;
+        };
+    }, []);
+
     return (
         <Fragment>
             <HeroNavBar />
@@ -64,10 +77,13 @@ const Home = () => {
                 orientation="right"
             ></NavigationBar>
 
+            <div></div>
+
             <HeroSection id="heroSection"></HeroSection>
             <ScheduleSection />
             <NewsSection id="news" />
             <SupportSection id="howToSupport" />
+
             <Footer
                 style={{ backgroundImage: `url(${backgroundImage})` }}
                 id="footer"

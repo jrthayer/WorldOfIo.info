@@ -11,7 +11,7 @@ import scheduleData from "pages/home/scripts/convertSchedule.js";
 
 const ScheduleSection = () => {
     return (
-        <Section id="schedule">
+        <Section id="schedule" type="transparent">
             <div className={styles.container}>
                 <Schedule data={scheduleData} />
                 <Countdown data={scheduleData} />

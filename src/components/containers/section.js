@@ -2,20 +2,30 @@ import React from "react";
 
 import styles from "./section.module.scss";
 
-import useCheckNull from "hooks/useCheckNull";
+const Section = ({ type, style, id, children }) => {
+    let typeClass;
 
-const Section = (props) => {
-    const classes = useCheckNull(props.className);
+    if (type === "primary") {
+        typeClass = styles.primary;
+    } else if (type === "secondary") {
+        typeClass = styles.secondary;
+    } else if (type === "transparent") {
+        typeClass = styles.transparent;
+    }
 
     return (
         <section
-            className={`${styles.section} ${classes}`}
-            style={props.style}
-            id={props.id}
+            className={`${styles.section} ${typeClass}`}
+            style={style}
+            id={id}
         >
-            <div className={styles.sectionContent}>{props.children}</div>
+            <div className={styles.sectionContent}>{children}</div>
         </section>
     );
+};
+
+Section.defaultProps = {
+    type: "primary",
 };
 
 export default Section;
