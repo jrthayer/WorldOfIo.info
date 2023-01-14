@@ -1,7 +1,6 @@
 import styles from "./heroSection.module.scss";
 
 import Section from "components/containers/section";
-import TransparentSection from "components/containers/transparentSection";
 import IconBtn from "components/buttons/iconBtn";
 import IoverseHeader from "./components/ioverseHeader";
 
