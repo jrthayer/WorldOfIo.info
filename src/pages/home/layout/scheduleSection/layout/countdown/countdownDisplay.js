@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-import styles from "./countdownDisplay.module.scss";
-
 import countdownString from "pages/home/utils/minutesToCountdown.js";
 
 const CountdownDisplay = (props) => {
@@ -36,7 +34,7 @@ const CountdownDisplay = (props) => {
         };
     }, [minutes, display]);
 
-    return <div className={`fs-700 ${styles.display}`}>{display}</div>;
+    return <div className={`fs-700 header-ioverse`}>{display}</div>;
 };
 
 export default CountdownDisplay;

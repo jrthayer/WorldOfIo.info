@@ -1,0 +1,27 @@
+.header-ioverse {
+    background: linear-gradient(#7ac0c8, white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: white;
+
+    //title font styles
+    font-weight: 700;
+    white-space: nowrap;
+    text-transform: uppercase;
+
+    filter: drop-shadow(3px 3px black);
+}
+
+.header-ioverse-gradient {
+    background: linear-gradient(#7ac0c8, white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: white;
+    filter: drop-shadow(3px 3px black);
+}
+
+@media screen and (min-width: 600px) {
+    .header-ioverse {
+        letter-spacing: 1rem;
+    }
+}

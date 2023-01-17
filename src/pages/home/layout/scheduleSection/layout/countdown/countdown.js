@@ -49,7 +49,7 @@ const Countdown = (props) => {
 
     return (
         <div className={styles.container}>
-            <h2 className={`fs-650 ${styles.nextShow}`}>Next Show</h2>
+            <h2 className={`fs-650 header-ioverse`}>Next Show</h2>
             <div className={styles.imgContainer}>
                 {hideTitle ? null : (
                     <div className={`${styles.headerContainer}`}>
