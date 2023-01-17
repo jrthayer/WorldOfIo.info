@@ -5,7 +5,6 @@ import drawerStyles from "./styles/drawer.module.scss";
 import iconBarStyles from "./styles/iconBar.module.scss";
 
 import useMediaQuery from "hooks/useMediaQuery";
-import useCheckNull from "hooks/useCheckNull";
 
 import IconBtn from "components/buttons/iconBtn";
 import Drawer from "components/containers/drawer";
@@ -13,28 +12,35 @@ import Drawer from "components/containers/drawer";
 import HeroAnimation from "layout/components/heroAnimation";
 
 const SocialDrawerBar = (props) => {
-    const switchState = useMediaQuery(props.mediaQuery);
-    const orientation = useCheckNull(props.orientation, "left");
+    let themeClass;
+    if (props.type === "default") {
+        themeClass = styles.default;
+    } else if (props.type === "transparent") {
+        themeClass = styles.transparent;
+    } else if (props.type === "defaultTransparent") {
+        themeClass = styles.defaultTransparent;
+    } else {
+        console.error("invalid social drawer class type!");
+    }
 
-    const width = useCheckNull(props.width);
-    const margin = useCheckNull(props.margin);
+    const switchState = useMediaQuery(props.mediaQuery);
 
     const sidebarStyle = useMemo(() => {
         let styleObject = {};
 
-        styleObject["--width"] = width;
-        styleObject["--margin"] = margin;
+        styleObject["--width"] = props.width;
+        styleObject["--margin"] = props.margin;
 
         return styleObject;
-    }, [width, margin]);
+    }, [props.width, props.margin]);
 
     // prettier-ignore
-    const sidebarClasses = `${iconBarStyles.iconBar} ${iconBarStyles[`${orientation}`]} ${styles.container}`;
+    const sidebarClasses = `${iconBarStyles.iconBar} ${iconBarStyles[`${props.orientation}`]} ${themeClass}`;
     const drawerClasses = `${drawerStyles.drawerSection} ${drawerStyles.socialSection}`;
 
     if (switchState) {
         return (
-            <HeroAnimation orientation={orientation} width="80px">
+            <HeroAnimation orientation={props.orientation} width="80px">
                 <div
                     // prettier-ignore
                     className={sidebarClasses}
@@ -58,7 +64,10 @@ const SocialDrawerBar = (props) => {
         );
     } else {
         return (
-            <Drawer orientation={orientation} className={drawerStyles.drawer}>
+            <Drawer
+                orientation={props.orientation}
+                className={drawerStyles.drawer}
+            >
                 <h2>Social Links</h2>
                 <div className={drawerClasses}>
                     {props.data.map((singleEntry) => (
@@ -77,6 +86,13 @@ const SocialDrawerBar = (props) => {
             </Drawer>
         );
     }
+};
+
+SocialDrawerBar.defaultProps = {
+    type: "default",
+    width: "",
+    margin: "",
+    orientation: "left",
 };
 
 export default SocialDrawerBar;

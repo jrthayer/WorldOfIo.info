@@ -62,6 +62,7 @@ const Home = () => {
                 data={socialData}
                 width="225px"
                 orientation="left"
+                type="transparent"
             ></SocialDrawerBar>
             <NavigationBar
                 mediaQuery="(min-width: 1200px) and (min-height: 700px)"

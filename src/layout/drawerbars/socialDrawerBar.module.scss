@@ -1,12 +1,41 @@
-.container {
+.default {
     a {
         background-color: var(--color-primary);
         border-color: var(--color-primary);
-        color: var(--color-white-always);
+        color: white;
     }
 
     a:hover {
-        background-color: var(--color-white-always);
+        background-color: white;
+        border-color: var(--color-primary);
+        color: var(--color-primary);
+    }
+}
+
+.transparent {
+    a {
+        background-color: transparent;
+        border-color: transparent;
+        color: white;
+    }
+
+    a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        border-color: white;
+        color: white;
+    }
+}
+
+.defaultTransparent {
+    a {
+        background-color: transparent;
+        border-color: transparent;
+        color: white;
+    }
+
+    a:hover {
+        background-color: white;
         border-color: var(--color-primary);
         color: var(--color-primary);
     }
