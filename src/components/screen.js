@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./screen.module.scss";
 
-const Screen = (props) => {
+const Screen = () => {
     return <div className={styles.screen}></div>;
 };
 

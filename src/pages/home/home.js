@@ -13,10 +13,10 @@ import SupportSection from "./layout/supportSection";
 
 // shared
 import HeroNavBar from "layout/navBar/heroNavBar";
-
 import Footer from "layout/footer";
 import NavigationBar from "layout/drawerbars/navigationDrawerBar";
 import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
+import ScrollingScreen from "components/scrollingScreen";
 
 //====== Data
 // arrays
@@ -77,7 +77,7 @@ const Home = () => {
                 orientation="right"
             ></NavigationBar>
 
-            <div></div>
+            <ScrollingScreen></ScrollingScreen>
 
             <HeroSection id="heroSection"></HeroSection>
             <ScheduleSection />
