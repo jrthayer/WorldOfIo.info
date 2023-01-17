@@ -1,5 +1,5 @@
 .glass-primary {
-    background-color: rgba(122, 192, 200, 0.2);
+    background-color: rgba(var(--raw-primary), 0.2);
     backdrop-filter: blur(15px);
 }
 

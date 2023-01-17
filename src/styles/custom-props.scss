@@ -8,13 +8,10 @@
     --color-light: 174, 37%;
 
     /* Palette */
-    --color-white-always: hsl(var(--color-white), 100%);
-    --color-black-always: hsl(var(--color-black), 0%);
-    --color-background: hsl(var(--color-white), 100%);
-    --color-primary: hsl(var(--color-light), 45%);
-    --color-primary-dark: hsl(var(--color-light), 15%);
-    --color-primary-light: hsl(var(--color-light), 75%);
-    --color-secondary: hsl(var(--color-white), 100%);
+    --raw-primary: 122, 192, 200;
+    --color-primary: rgb(var(--raw-primary));
+    --raw-secondary: 255, 255, 255;
+    --color-secondary: rgb(var(--raw-secondary));
 
     --color-text: var(--color-primary-dark);
 
