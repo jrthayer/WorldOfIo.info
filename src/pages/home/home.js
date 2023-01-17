@@ -70,6 +70,7 @@ const Home = () => {
                 width="320px"
                 margin="50px"
                 orientation="right"
+                type="transparent"
             ></NavigationBar>
 
             <ScrollingScreen></ScrollingScreen>

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-import styles from "./socialDrawerBar.module.scss";
+import styles from "./drawerThemes.module.scss";
 import drawerStyles from "./styles/drawer.module.scss";
 import iconBarStyles from "./styles/iconBar.module.scss";
 
