@@ -2,20 +2,31 @@
     h2 {
         font-size: 2rem;
         padding: 1rem;
+        color: white;
+        background-color: rgba(var(--raw-primary), 0.5);
+        backdrop-filter: blur(15px);
     }
 
     a {
         width: 100%;
         border-radius: 0;
-        margin-top: 6px;
+
         border: none;
-        border-top: solid 2px var(--color-primary);
-        border-bottom: solid 2px var(--color-primary);
+        border-top: solid 2px white;
+        border-bottom: solid 2px white;
+        background-color: rgba(var(--raw-primary), 0.5);
+        backdrop-filter: blur(15px);
+        color: white;
+
         font-size: 1.5rem;
     }
 
+    a:first-of-type {
+        border-top: solid 4px white;
+    }
+
     a:last-of-type {
-        border-bottom: solid 2px var(--color-primary);
+        border-bottom: solid 4px white;
     }
 
     a:hover {
@@ -27,8 +38,7 @@
 
 .drawerSection {
     padding-bottom: 6px;
-    border-top: solid 2px var(--color-primary);
-    border-bottom: solid 2px var(--color-primary);
+
     margin-bottom: 1rem;
 }
 

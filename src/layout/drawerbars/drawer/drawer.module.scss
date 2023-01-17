@@ -11,7 +11,8 @@
     transition: 750ms;
     z-index: calc(var(--maxZ) - 3);
 
-    background-color: var(--color-background);
+    background-color: rgba(var(--raw-primary), 0.2);
+    backdrop-filter: blur(15px);
 
     font-size: 2rem;
 }
@@ -29,9 +30,9 @@
 
     width: 2rem;
     border: none;
-    background-color: var(--color-primary);
-
-    color: var(--color-background);
+    background-color: rgb(var(--raw-primary), 0.5);
+    backdrop-filter: blur(15px);
+    color: var(--color-secondary);
 }
 
 .buttonIcon {
@@ -53,7 +54,7 @@
 }
 
 .drawer-left {
-    border-right: solid 2px var(--color-primary);
+    border-right: solid 4px var(--color-secondary);
     transform: translateX(-100%);
     left: 0;
 
@@ -61,7 +62,7 @@
         right: 0rem;
 
         border-left: none;
-        transform: translateX(calc(100% + 2px));
+        transform: translateX(calc(100% + 4px));
         border-bottom-right-radius: 1.5rem;
         border-top-right-radius: 1.5rem;
     }
@@ -73,7 +74,7 @@
 }
 
 .drawer-right {
-    border-left: solid 2px var(--color-primary);
+    border-left: solid 4px var(--color-secondary);
     transform: translateX(100%);
     right: 0;
 
@@ -81,7 +82,7 @@
         left: 0;
 
         border-right: none;
-        transform: translateX(calc(-100% - 2px));
+        transform: translateX(calc(-100% - 4px));
         border-bottom-left-radius: 1.5rem;
         border-top-left-radius: 1.5rem;
     }

@@ -7,7 +7,7 @@ import iconBarStyles from "./styles/iconBar.module.scss";
 import useMediaQuery from "hooks/useMediaQuery";
 
 import IconBtn from "components/buttons/iconBtn";
-import Drawer from "components/containers/drawer";
+import Drawer from "layout/drawerbars/drawer/drawer";
 
 import HeroAnimation from "layout/components/heroAnimation";
 

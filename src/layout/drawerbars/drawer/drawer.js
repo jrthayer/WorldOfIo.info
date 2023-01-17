@@ -1,7 +1,7 @@
 import React, { Fragment, useMemo, useState, useEffect } from "react";
 import styles from "./drawer.module.scss";
 
-import Screen from "../screen";
+import Screen from "../../../components/screen";
 
 const Drawer = (props) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
