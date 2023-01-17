@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 //hooks
 import useHashLinkOnStart from "hooks/useHashLinkOnStart";
+import useSetBodyBackground from "hooks/useSetBodyBackground";
 
 //====== Layout Components
 //local
@@ -46,17 +47,10 @@ import backgroundImage from "images/ioverse-background.png";
 
 const Home = () => {
     useHashLinkOnStart();
+    useSetBodyBackground(backgroundImage);
 
     useEffect(() => {
         document.title = "World Of IO";
-        document.body.style.backgroundImage = `url(${backgroundImage})`;
-        document.body.style.backgroundAttachment = `fixed`;
-        document.body.style.backgroundSize = "cover";
-        document.body.style.backgroundPosition = "center";
-
-        return () => {
-            document.body.style.background = null;
-        };
     }, []);
 
     return (
