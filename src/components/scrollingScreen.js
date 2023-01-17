@@ -36,9 +36,7 @@ function ScrollingScreen() {
         <div
             className={styles.screen}
             style={{ backgroundColor: `rgba(0,0,0, ${transparency})` }}
-        >
-            scrollingScreen
-        </div>
+        ></div>
     );
 }
 
