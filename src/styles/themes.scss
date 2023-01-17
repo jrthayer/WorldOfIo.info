@@ -1,3 +1,13 @@
+.glass-primary {
+    background-color: rgba(122, 192, 200, 0.2);
+    backdrop-filter: blur(15px);
+}
+
+.glass-white {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+}
+
 .header-ioverse {
     background: linear-gradient(#7ac0c8, white);
     -webkit-background-clip: text;
