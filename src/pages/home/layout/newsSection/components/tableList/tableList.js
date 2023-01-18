@@ -6,11 +6,10 @@ const TableList = (props) => {
     const data = props.data;
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container}`}>
             {data.map((singleEntry, index) => {
                 return <TableSection data={singleEntry} key={index} />;
             })}
-            <TableSection></TableSection>
         </div>
     );
 };

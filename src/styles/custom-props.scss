@@ -8,12 +8,14 @@
     --color-light: 174, 37%;
 
     /* Palette */
-    --raw-primary: 122, 192, 200;
-    --color-primary: rgb(var(--raw-primary));
+    --raw-primary: 190, 43%, 63%;
+    --raw-primary-dark: 190, 43%, 43%;
+
+    --color-primary: hsl(var(--raw-primary));
+    --color-primary-dark: hsl(var(--raw-primary-dark));
+
     --raw-secondary: 255, 255, 255;
     --color-secondary: rgb(var(--raw-secondary));
-
-    --color-text: var(--color-primary-dark);
 
     --navHeight: 60px;
 

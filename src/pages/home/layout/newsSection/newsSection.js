@@ -1,6 +1,3 @@
-import { Fragment } from "react";
-import styles from "./newsSection.module.scss";
-
 //------------ Components
 // local
 import TableList from "./components/tableList/tableList";
@@ -14,7 +11,7 @@ import newsData from "data/news.js";
 const NewsSection = (props) => {
     return (
         <Section id={props.id} type="transparent">
-            <h2 className={`fs-700 color-white`}>News</h2>
+            <h2 className={`fs-700 color-white header-ioverse`}>News</h2>
             <TableList data={newsData} />
         </Section>
     );

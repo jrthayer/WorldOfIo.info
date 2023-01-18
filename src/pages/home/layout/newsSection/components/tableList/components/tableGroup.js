@@ -9,7 +9,7 @@ const TableGroup = (props) => {
     const paragraphData = useCheckNull(data.info);
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container}`}>
             {data.header != undefined ? (
                 <div className={styles.header}>{data.header}</div>
             ) : null}

@@ -1,6 +1,5 @@
 .container {
-    background-color: var(--color-white-always);
-    border: solid 2px var(--color-primary);
+    backdrop-filter: blur(15px);
 
-    // min-height: 500px;
+    // background-color: var(--color-primary-dark);
 }

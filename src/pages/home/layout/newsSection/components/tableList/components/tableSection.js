@@ -8,7 +8,7 @@ const TableSection = (props) => {
     const data = props.data;
 
     return (
-        <div className={styles.section}>
+        <div className={`${styles.section}`}>
             {data != undefined && data.header != undefined ? (
                 <div className={`${styles.header} fs-500`}>{data.header}</div>
             ) : null}

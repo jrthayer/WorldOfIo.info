@@ -7,13 +7,12 @@
 
     font-weight: 700;
 
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(15px);
+    background-color: var(--color-primary);
     color: var(--color-secondary);
 }
 
 .container:nth-of-type(2n + 1) {
-    background-color: rgba(122, 192, 200, 0.5);
+    background-color: var(--color-primary-dark);
 }
 
 .infoContainer {
