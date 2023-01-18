@@ -79,11 +79,7 @@ const Home = () => {
             <ScheduleSection />
             <NewsSection id="news" />
             <SupportSection id="howToSupport" />
-
-            <Footer
-                style={{ backgroundImage: `url(${backgroundImage})` }}
-                id="footer"
-            ></Footer>
+            <Footer id="footer"></Footer>
         </Fragment>
     );
 };
