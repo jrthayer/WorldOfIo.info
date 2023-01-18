@@ -5,39 +5,32 @@ import styles from "./heroAnimation.module.scss";
 import { useScroll } from "components/providers/scrollProvider";
 import { useViewport } from "components/providers/viewportProvider";
 
-import useCheckNull from "hooks/useCheckNull";
-
 const HeroAnimation = (props) => {
     const { yOffset, scrollHeight } = useScroll();
     const { height } = useViewport();
     // Static Value is bad practice
     const footerHeight = 100;
-    const zIndex = useCheckNull(props.zIndex);
 
     const [classes, setClasses] = useState(
         `${styles.onHero} ${styles[`hide-${props.orientation}`]}`
     );
     const initialRender = useRef(true);
-
-    const widthProp = useCheckNull(props.width);
-    const heightProp = useCheckNull(props.height);
-
     const inlineStyles = useMemo(() => {
         let styleObject = {};
 
-        styleObject["--width"] = widthProp;
-        styleObject["--height"] = heightProp;
+        styleObject["--width"] = props.width;
+        styleObject["--height"] = props.height;
         // Needed to keep navBar above sidebars
-        styleObject["zIndex"] = zIndex;
+        styleObject["zIndex"] = props.zIndex;
 
         return styleObject;
-    }, [widthProp, heightProp]);
+    }, [props.width, props.height]);
 
     useEffect(() => {
         setClasses(styles.onHero);
 
         if (yOffset > height - 50) {
-            setClasses();
+            setClasses(styles.offHero);
         }
     }, []);
 
@@ -54,6 +47,8 @@ const HeroAnimation = (props) => {
                 if (yOffset > 0) {
                     extraClasses += ` ${styles[`hide-${props.orientation}`]}`;
                 }
+            } else {
+                extraClasses += `${styles.offHero}`;
             }
 
             // Hide sidebars at footer
@@ -73,6 +68,12 @@ const HeroAnimation = (props) => {
             {props.children}
         </div>
     );
+};
+
+HeroAnimation.defaultProps = {
+    zIndex: "",
+    width: "",
+    height: "",
 };
 
 export default HeroAnimation;

@@ -4,18 +4,17 @@
     top: 0;
     height: var(--navHeight);
     width: 100%;
-    border-bottom: 2px solid var(--color-primary);
+    background-color: transparent;
 
-    font-weight: 700;
-    background-color: var(--color-secondary);
-
-    color: var(--color-primary);
+    color: white;
     z-index: calc(var(--maxZ) - 3);
+    transition: background-color 1s;
 }
 
 .activeLink {
     border-bottom: currentColor 1px solid !important;
-    color: var(--color-primary-light);
+    color: white;
+    font-weight: 700;
 }
 
 .linkContainer {

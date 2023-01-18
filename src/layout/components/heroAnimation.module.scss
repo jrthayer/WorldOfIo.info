@@ -22,20 +22,20 @@
 
 // Messy CSS
 .onHero {
-    a:hover {
-        background-color: var(--color-white-always);
-        border-color: var(--color-primary);
-        color: var(--color-primary);
-    }
+    // a:hover {
+    //     background-color: var(--color-white-always);
+    //     border-color: var(--color-primary);
+    //     color: var(--color-primary);
+    // }
 
-    & > :first-child {
-        background-color: transparent;
-        border: none;
+    // & > :first-child {
+    //     background-color: transparent;
+    //     border: none;
 
-        a {
-            background-color: transparent;
-            border-color: transparent;
-            color: var(--color-white-always);
-        }
-    }
+    //     a {
+    //         background-color: transparent;
+    //         border-color: transparent;
+    //         color: var(--color-white-always);
+    //     }
+    // }
 }

@@ -55,7 +55,7 @@ const Home = () => {
 
     return (
         <Fragment>
-            <HeroNavBar />
+            <HeroNavBar backgroundImage={backgroundImage} />
 
             <SocialDrawerBar
                 mediaQuery="(min-width: 1200px) and (min-height: 700px)"
