@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./section.module.scss";
 
-const Section = ({ type, style, id, children }) => {
+const Section = ({ type, style, id, children, features }) => {
     let typeClass;
 
     if (type === "primary") {
@@ -13,9 +13,14 @@ const Section = ({ type, style, id, children }) => {
         typeClass = styles.transparent;
     }
 
+    let featureClasses = "";
+    if (features.includes("fullscreen")) {
+        featureClasses += styles.fullscreen;
+    }
+
     return (
         <section
-            className={`${styles.section} ${typeClass}`}
+            className={`${styles.section} ${typeClass} ${featureClasses}`}
             style={style}
             id={id}
         >
@@ -26,6 +31,7 @@ const Section = ({ type, style, id, children }) => {
 
 Section.defaultProps = {
     type: "primary",
+    features: "",
 };
 
 export default Section;

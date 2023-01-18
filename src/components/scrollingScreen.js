@@ -14,10 +14,11 @@ import styles from "./scrollingScreen.module.scss";
  */
 function determineTransparency(height, scrollHeight) {
     const max = 0.5;
-    let current = scrollHeight / height - 0.5;
+    let current = scrollHeight / height - (1 - max);
 
-    if (current < 0) current = 0;
-    if (current > 0.5) current = max;
+    if (current > max) {
+        current = max;
+    }
 
     return current;
 }
@@ -26,7 +27,6 @@ function ScrollingScreen() {
     const [transparency, setTransparency] = useState(0);
     const { yOffset } = useScroll();
     const { height } = useViewport();
-    console.log(yOffset);
 
     useEffect(() => {
         setTransparency(determineTransparency(height, yOffset));

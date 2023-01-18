@@ -5,9 +5,8 @@
 .section {
     padding: 4rem 0;
     padding-top: calc(var(--navHeight) + 1.5rem);
-    min-height: 100vh;
-    // border-top: solid 2px var(--color-primary);
-    // background-color: var(--color-secondary);
+    border-top: solid 2px var(--color-primary);
+    background-color: var(--color-secondary);
 }
 
 .sectionContent {
@@ -15,8 +14,13 @@
     padding: 0 35px;
 }
 
+.fullscreen {
+    min-height: 100vh;
+}
+
 .transparent {
     background-color: transparent;
+    border: none;
 }
 
 .primary {

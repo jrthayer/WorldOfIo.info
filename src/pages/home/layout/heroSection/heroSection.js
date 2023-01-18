@@ -8,7 +8,7 @@ import logo from "images/ioverse-logo.png";
 
 const HeroSection = (props) => {
     return (
-        <Section type="transparent" id={props.id}>
+        <Section type="transparent" features="fullscreen" id={props.id}>
             <div className={styles["logo-container"]}>
                 <IoverseHeader>
                     <h1>Into The</h1>

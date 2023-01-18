@@ -10,7 +10,7 @@ import newsData from "data/news.js";
 
 const NewsSection = (props) => {
     return (
-        <Section id={props.id} type="transparent">
+        <Section id={props.id} type="transparent" features="fullscreen">
             <h2 className={`fs-700 color-white header-ioverse`}>News</h2>
             <TableList data={newsData} />
         </Section>
