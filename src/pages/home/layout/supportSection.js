@@ -8,7 +8,9 @@ import socialData from "data/social";
 const SupportSection = (props) => {
     return (
         <Section id={props.id} type="transparent">
-            <h2 className="fs-700">How To Support The IOVERSE</h2>
+            <h2 className="fs-700 header-ioverse">
+                How To Support The IOVERSE
+            </h2>
             <div className={styles.supportGroup}>
                 <IconPanel
                     data={socialData.find((obj) => obj.text === "Patreon")}

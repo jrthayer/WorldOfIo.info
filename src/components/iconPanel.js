@@ -18,12 +18,14 @@ const IconPanel = (props) => {
             <div className={styles.container}>
                 <div className={styles.icon}>
                     <i
-                        className={data.iconClasses}
+                        className={`${data.iconClasses} header-ioverse`}
                         style={{ color: data.primaryColor }}
                     ></i>
                 </div>
                 <div className={styles.description}>
-                    <h3 className={`${styles["description-header"]}`}>
+                    <h3
+                        className={`${styles["description-header"]} header-ioverse`}
+                    >
                         {data.text}
                     </h3>
                     {props.children}
