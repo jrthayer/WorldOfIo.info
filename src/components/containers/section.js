@@ -30,7 +30,7 @@ const Section = ({ type, style, id, children, features }) => {
 };
 
 Section.defaultProps = {
-    type: "primary",
+    type: "transparent",
     features: "",
 };
 

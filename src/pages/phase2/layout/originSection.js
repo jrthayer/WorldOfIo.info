@@ -6,11 +6,7 @@ import Section from "components/containers/section";
 
 const OriginSection = (props) => {
     return (
-        <Section
-            id={props.id}
-            style={{ backgroundColor: "var(--color-primary-light)" }}
-            className={styles.section}
-        >
+        <Section id={props.id} className={styles.section}>
             <h2 className="fs-700 color-white shadow-text-outline">
                 The Origin Of IO
             </h2>

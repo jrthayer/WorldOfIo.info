@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from "react";
 
 //hooks
 import useHashLinkOnStart from "hooks/useHashLinkOnStart";
+import useSetBodyBackground from "hooks/useSetBodyBackground";
 
 //====== Layout Components
 // local
@@ -38,9 +39,13 @@ let navigationData = [
 ];
 
 import socialData from "data/social.js";
+import backgroundImage from "images/galaxy_2.jpg";
+import useSetPrimaryColor from "hooks/useSetPrimaryColor";
 
 const Phase2 = () => {
     useHashLinkOnStart();
+    useSetBodyBackground(backgroundImage);
+    useSetPrimaryColor(178, 36, 60);
 
     useEffect(() => {
         document.title = "Phase 2";
@@ -54,6 +59,7 @@ const Phase2 = () => {
                 data={socialData}
                 width="225px"
                 orientation="left"
+                type="transparent"
             ></SocialDrawerBar>
             <NavigationBar
                 mediaQuery="(min-width: 1200px) and (min-height: 700px)"
@@ -61,6 +67,7 @@ const Phase2 = () => {
                 width="320px"
                 margin="50px"
                 orientation="right"
+                type="transparent"
             ></NavigationBar>
 
             {/* Page Sections */}
@@ -68,10 +75,7 @@ const Phase2 = () => {
             <StatSection id="aboutIO" />
             <OriginSection id="originOfIO" />
             <MajorEventsSection id="majorEvents" />
-            <Footer
-                style={{ backgroundColor: `var(--color-primary-light)` }}
-                id="footer"
-            ></Footer>
+            <Footer id="footer"></Footer>
         </Fragment>
     );
 };
