@@ -15,6 +15,10 @@
     background-color: var(--color-primary-dark);
 }
 
+.container:not(:first-of-type) {
+    border-top: solid 1px white;
+}
+
 .infoContainer {
     display: flex;
     flex-direction: column;

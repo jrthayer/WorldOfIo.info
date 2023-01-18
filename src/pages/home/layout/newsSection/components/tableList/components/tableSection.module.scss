@@ -4,8 +4,12 @@
     background-color: var(--color-primary);
 }
 
+.section:nth-of-type(2n) {
+    background-color: var(--color-primary-dark);
+}
+
 .section:not(:first-of-type) {
-    margin-top: 5px;
+    border-top: solid 1px white;
 }
 
 .header {
