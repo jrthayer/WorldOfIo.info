@@ -11,7 +11,7 @@
     transition: 750ms;
     z-index: calc(var(--maxZ) - 3);
 
-    background-color: rgba(var(--raw-primary), 0.2);
+    background-color: hsla(var(--raw-primary-dark), 0.5);
     backdrop-filter: blur(15px);
 
     font-size: 2rem;
@@ -30,7 +30,7 @@
 
     width: 2rem;
     border: none;
-    background-color: rgb(var(--raw-primary), 0.5);
+    background-color: hsla(var(--raw-primary-dark), 0.5);
     backdrop-filter: blur(15px);
     color: var(--color-secondary);
 }
