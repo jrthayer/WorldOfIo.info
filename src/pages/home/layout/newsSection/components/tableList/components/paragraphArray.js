@@ -2,11 +2,7 @@ import styles from "./paragraphArray.module.scss";
 
 import { Fragment } from "react";
 
-import useCheckNull from "hooks/useCheckNull";
-
 const ParagraphArray = (props) => {
-    const data = useCheckNull(props.data);
-
     if (Array.isArray(data)) {
         return (
             <Fragment>
@@ -22,10 +18,14 @@ const ParagraphArray = (props) => {
     } else {
         return (
             <Fragment>
-                <p className={styles.paragraph}>{data}</p>
+                <p className={styles.paragraph}>{props.data}</p>
             </Fragment>
         );
     }
 };
+
+ParagraphArray.defaultProps={
+    data = ''
+}
 
 export default ParagraphArray;

@@ -15,7 +15,10 @@ const HeroSection = (props) => {
                 </IoverseHeader>
                 <img src={logo} alt="" />
                 <div className={styles.heroLinks}>
-                    <IconBtn link="https://www.youtube.com/watch?v=yfvopjShUBo&list=PLjMDIlamRhomM4ljfnstQaQ8CivQH76at">
+                    <IconBtn
+                        link="https://www.youtube.com/watch?v=yfvopjShUBo&list=PLjMDIlamRhomM4ljfnstQaQ8CivQH76at"
+                        primary="var(--color-primary-dark)"
+                    >
                         IO Direct
                     </IconBtn>
                 </div>

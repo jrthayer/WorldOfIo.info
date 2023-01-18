@@ -2,20 +2,15 @@ import { useMemo } from "react";
 
 import styles from "./btn.module.scss";
 
-import useCheckNull from "hooks/useCheckNull";
-
 const Btn = (props) => {
-    const primary = useCheckNull(props.primary);
-    const secondary = useCheckNull(props.secondary);
-
     const inlineStyle = useMemo(() => {
         let styleObject = {};
 
-        styleObject["--color-primary"] = primary;
-        styleObject["--color-secondary"] = secondary;
+        styleObject["--color-primary"] = props.primary;
+        styleObject["--color-secondary"] = props.secondary;
 
         return styleObject;
-    }, [primary, secondary]);
+    }, [props.primary, props.secondary]);
 
     return (
         <a
@@ -28,6 +23,11 @@ const Btn = (props) => {
             {props.children}
         </a>
     );
+};
+
+Btn.defaultProps = {
+    primary: "",
+    secondary: "",
 };
 
 export default Btn;

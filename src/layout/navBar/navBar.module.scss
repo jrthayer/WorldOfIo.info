@@ -8,7 +8,6 @@
 
     color: white;
     z-index: calc(var(--maxZ) - 3);
-    transition: background-color 1s;
 }
 
 .activeLink {
@@ -98,8 +97,8 @@
     }
 
     .activeLink {
-        background-color: var(--color-primary);
-        color: var(--color-white-always);
+        background-color: hsla(var(--raw-primary), 0.5);
+        color: var(--color-secondary);
         border: none !important;
     }
 
@@ -108,6 +107,7 @@
     }
 
     .navBar.active {
+        background-color: hsla(var(--raw-primary-dark), 0.5);
         z-index: var(--maxZ);
         .linkContainer {
             display: flex;
