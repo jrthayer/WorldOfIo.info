@@ -4,6 +4,7 @@ import { useEffect } from "react";
 //hooks
 import useHashLinkOnStart from "hooks/useHashLinkOnStart";
 import useSetBodyBackground from "hooks/useSetBodyBackground";
+import useSetPrimaryColor from "hooks/useSetPrimaryColor";
 
 //====== Layout Components
 //local
@@ -48,6 +49,7 @@ import backgroundImage from "images/ioverse-background.png";
 const Home = () => {
     useHashLinkOnStart();
     useSetBodyBackground(backgroundImage);
+    useSetPrimaryColor(190, 43, 63);
 
     useEffect(() => {
         document.title = "World Of IO";
