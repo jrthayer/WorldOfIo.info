@@ -2,7 +2,6 @@ import { useEffect } from "react";
 
 function useSetBodyBackground(image) {
     useEffect(() => {
-        document.title = "World Of IO";
         document.body.style.backgroundImage = `url(${image})`;
         document.body.style.backgroundAttachment = `fixed`;
         document.body.style.backgroundSize = "cover";
