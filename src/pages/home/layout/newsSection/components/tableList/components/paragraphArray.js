@@ -24,8 +24,8 @@ const ParagraphArray = (props) => {
     }
 };
 
-ParagraphArray.defaultProps={
-    data = ''
-}
+ParagraphArray.defaultProps = {
+    data: "",
+};
 
 export default ParagraphArray;
