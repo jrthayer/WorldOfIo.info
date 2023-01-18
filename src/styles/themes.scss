@@ -1,5 +1,5 @@
 .glass-primary {
-    background-color: rgba(var(--raw-primary), 0.2);
+    background-color: hsla(var(--raw-primary), 0.2);
     backdrop-filter: blur(15px);
 }
 
@@ -9,7 +9,7 @@
 }
 
 .header-ioverse {
-    background: linear-gradient(#7ac0c8, white);
+    background: linear-gradient(var(--color-primary), white);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-color: white;
@@ -22,7 +22,7 @@
 }
 
 .header-ioverse-gradient {
-    background: linear-gradient(#7ac0c8, white);
+    background: linear-gradient(var(--color-primary), white);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-color: white;

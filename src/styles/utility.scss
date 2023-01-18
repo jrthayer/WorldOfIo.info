@@ -1,27 +1,13 @@
 .color-white {
-    color: var(--color-white-always);
+    color: white;
 }
 
 .color-black {
-    color: var(--color-black-always);
+    color: black;
 }
 
 .color-primary-dark {
     color: var(--color-primary-dark);
-}
-
-.color-text {
-    color: var(--color-text);
-}
-
-.shadow-box {
-    -moz-box-shadow: inset 0 0 10px var(--color-primary-dark, black);
-    -webkit-box-shadow: inset 0 0 10px var(--color-primary-dark, black);
-    box-shadow: inset 0 0 10px var(--color-primary-dark, black);
-}
-
-.shadow-text {
-    text-shadow: 2px 2px 2px var(--color-primary-dark, black);
 }
 
 .shadow-text-outline {

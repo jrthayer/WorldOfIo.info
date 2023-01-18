@@ -10,9 +10,11 @@
     /* Palette */
     --raw-primary: 190, 43%, 63%;
     --raw-primary-dark: 190, 43%, 43%;
+    --raw-primary-light: 190, 43%, 83%;
 
     --color-primary: hsl(var(--raw-primary));
     --color-primary-dark: hsl(var(--raw-primary-dark));
+    --color-primary-light: hsl(var(--raw-primary-light));
 
     --raw-secondary: 255, 255, 255;
     --color-secondary: rgb(var(--raw-secondary));
