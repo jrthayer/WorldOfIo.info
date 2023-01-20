@@ -2,6 +2,7 @@ import styles from "./heroSection.module.scss";
 
 import Section from "components/containers/section";
 import IconBtn from "components/buttons/iconBtn";
+import DynamicLogo from "components/dynamicLogo";
 
 import logo from "images/IO-Logo.png";
 
@@ -14,8 +15,10 @@ const HeroSection = (props) => {
     return (
         <Section id={props.id} features="fullscreen" type="transparent">
             <div className={`${styles.contentContainer} ${styles.hero}`}>
-                <h1 className="fs-700 color-white header-ioverse">Phase 2</h1>
-                <img src={logo} alt="" />
+                <h1 className="fs-700 color-white header-ioverse-gradient">
+                    Phase 2
+                </h1>
+                <DynamicLogo src={logo} />
                 <div className={styles.heroLinks}>
                     <IconBtn
                         link={phase2Intro.link}

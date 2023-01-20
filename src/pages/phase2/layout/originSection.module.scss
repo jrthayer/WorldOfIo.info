@@ -1,8 +1,10 @@
 .section {
-    p {
-        padding: 1rem 0;
+    padding: 1rem;
+    color: white;
+    border-radius: 1rem;
 
-        color: var(--color-primary-dark);
+    p {
+        padding: 1rem;
     }
 
     h3 {

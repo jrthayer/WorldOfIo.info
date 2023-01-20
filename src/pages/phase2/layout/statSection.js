@@ -6,13 +6,13 @@ import StatCard from "components/statCard";
 const StatSection = (props) => {
     return (
         <Section id={props.id} className={styles.section}>
-            <h2 className="fs-700">Phase 2 Stats</h2>
-            <p className="color-text">
+            <h2 className="fs-700 header-ioverse-gradient">Phase 2 Stats</h2>
+            <p className="color-white text-center">
                 World of IO phase 2 lasted a little over a year and a half,
                 below are some interesting stats of the events that occurred
                 during this time frame:
             </p>
-            <div className={styles.statGroup}>
+            <div className={`${styles.statGroup} color-primary-dark`}>
                 <StatCard stat="Hours Of Content" value={660}>
                     Spanning across 245 videos with an average length of{" "}
                     <span>2 hours 40 mins</span>

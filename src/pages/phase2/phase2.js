@@ -45,7 +45,7 @@ import useSetPrimaryColor from "hooks/useSetPrimaryColor";
 const Phase2 = () => {
     useHashLinkOnStart();
     useSetBodyBackground(backgroundImage);
-    useSetPrimaryColor(178, 36, 60);
+    useSetPrimaryColor(190, 48, 60);
 
     useEffect(() => {
         document.title = "Phase 2";

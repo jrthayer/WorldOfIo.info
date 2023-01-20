@@ -42,10 +42,12 @@ const StatCard = (props) => {
             // triggerOnce={true}
             threshold={0.7}
         >
-            <div className={`${styles.header} fs-700`}>{value + symbol}</div>
+            <div className={`${styles.header} fs-700 color-white`}>
+                {value + symbol}
+            </div>
             <div className={styles.text}>
-                <h3 className={styles["text-header"]}>{props.stat}</h3>
-                <p className="color-primary-dark">{props.children}</p>
+                <h3 className={`${styles["text-header"]} `}>{props.stat}</h3>
+                <p>{props.children}</p>
             </div>
         </InView>
     );
