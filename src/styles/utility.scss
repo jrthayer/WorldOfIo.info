@@ -10,6 +10,26 @@
     color: var(--color-primary-dark);
 }
 
+.color-primary {
+    color: var(--color-primary);
+}
+
+.color-primary-light {
+    color: var(--color-primary-light);
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.bg-primary-light {
+    background-color: var(--color-primary-light);
+}
+
+.bg-primary-dark {
+    background-color: var(--color-primary-dark);
+}
+
 .shadow-text-outline {
     letter-spacing: 0.1rem;
     text-shadow: 1.5px 1.5px 0 var(--color-primary-dark, black),
