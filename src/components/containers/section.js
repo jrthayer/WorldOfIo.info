@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./section.module.scss";
 
-const Section = ({ type, style, id, children, features }) => {
+const Section = ({ type, style, id, children, features, containerClass }) => {
     let typeClass;
 
     if (type === "primary") {
@@ -24,7 +24,9 @@ const Section = ({ type, style, id, children, features }) => {
             style={style}
             id={id}
         >
-            <div className={styles.sectionContent}>{children}</div>
+            <div className={`${styles.sectionContent} ${containerClass}`}>
+                {children}
+            </div>
         </section>
     );
 };
@@ -32,6 +34,7 @@ const Section = ({ type, style, id, children, features }) => {
 Section.defaultProps = {
     type: "transparent",
     features: "",
+    containerClass: "",
 };
 
 export default Section;
