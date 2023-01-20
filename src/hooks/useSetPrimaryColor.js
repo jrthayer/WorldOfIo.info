@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-function useSetPrimaryColor(hue, saturation, lightness, ratio = 0.3) {
+function useSetPrimaryColor(hue, saturation, lightness, ratio = 0.4) {
     useEffect(() => {
         let lightShift = lightness * ratio;
 
@@ -10,14 +10,24 @@ function useSetPrimaryColor(hue, saturation, lightness, ratio = 0.3) {
         // prettier-ignore
         let primaryDark = ` hsl(${hue},${saturation}%,${lightness - lightShift}%)`;
 
-        document.body.style.setProperty("--color-primary", primary);
-        document.body.style.setProperty("--color-primary-dark", primaryDark);
-        document.body.style.setProperty("--color-primary-light", primaryLight);
+        document.documentElement.style.setProperty("--color-primary", primary);
+        document.documentElement.style.setProperty(
+            "--color-primary-dark",
+            primaryDark
+        );
+        document.documentElement.style.setProperty(
+            "--color-primary-light",
+            primaryLight
+        );
 
         return () => {
-            document.body.style.removeProperty("--color-primary");
-            document.body.style.removeProperty("--color-primary-dark");
-            document.body.style.removeProperty("--color-primary-light");
+            document.documentElement.style.removeProperty("--color-primary");
+            document.documentElement.style.removeProperty(
+                "--color-primary-dark"
+            );
+            document.documentElement.style.removeProperty(
+                "--color-primary-light"
+            );
         };
     }, []);
 }
