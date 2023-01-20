@@ -51,7 +51,7 @@ const NavigationDrawerBar = (props) => {
                         <IconBtn
                             link={singleEntry.link}
                             // prettier-ignore
-                            iconClasses={"fas fa-dot-circle fa-2x"}
+                            type='circle'
                             samePage
                             // Not a great id, temporary measure!!!
                             key={singleEntry.text}

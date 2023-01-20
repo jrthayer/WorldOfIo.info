@@ -51,7 +51,7 @@ const SocialDrawerBar = (props) => {
                         <IconBtn
                             link={singleEntry.link}
                             // prettier-ignore
-                            iconClasses={singleEntry.iconClasses}
+                            type={singleEntry.text}
                             // Not a great id, temporary measure!!!
                             key={singleEntry.text}
                             primary={singleEntry.primaryColor}
