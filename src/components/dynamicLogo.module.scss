@@ -1,0 +1,13 @@
+.image {
+    height: auto;
+    width: min(var(--width-max, 100vw), var(--width, 100%));
+}
+
+/* The width is greater than the height */
+@media screen and (min-width: 100vh) {
+    .image {
+        height: min(var(--height-max, 100vh), var(--height, 100%));
+
+        width: auto;
+    }
+}
