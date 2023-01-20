@@ -3,6 +3,7 @@ import styles from "./heroSection.module.scss";
 import Section from "components/containers/section";
 import IconBtn from "components/buttons/iconBtn";
 import IoverseHeader from "./components/ioverseHeader";
+import DynamicLogo from "../../../../components/dynamicLogo";
 
 import logo from "images/ioverse-logo.png";
 
@@ -13,7 +14,11 @@ const HeroSection = (props) => {
                 <IoverseHeader>
                     <h1>Into The</h1>
                 </IoverseHeader>
-                <img src={logo} alt="" />
+                <DynamicLogo
+                    src={logo}
+                    heightMax={"50vh"}
+                    widthMax={"80vw"}
+                ></DynamicLogo>
                 <div className={styles.heroLinks}>
                     <IconBtn
                         link="https://www.youtube.com/watch?v=yfvopjShUBo&list=PLjMDIlamRhomM4ljfnstQaQ8CivQH76at"

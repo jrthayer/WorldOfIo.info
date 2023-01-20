@@ -26,9 +26,6 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        height: auto;
-
-        width: min(90vw, 770px);
     }
 }
 
@@ -61,24 +58,5 @@
 @media all and (min-width: 600px) {
     .heroLinks {
         flex-direction: row;
-    }
-}
-
-@media screen and (min-width: 100vh) {
-    /* The width is greater than the height */
-    .logo-container {
-        img {
-            position: relative;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            height: min(60vh, 450px);
-
-            width: auto;
-        }
-    }
-
-    .heroLinks {
-        // transform: translate(-50%, -50vh);
     }
 }
