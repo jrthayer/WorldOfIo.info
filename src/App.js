@@ -12,6 +12,8 @@ import { ViewportProvider } from "components/providers/viewportProvider";
 
 import ScrollToTop from "layout/scrollToTop";
 
+import styles from "./bg.module.scss";
+
 function App() {
     useEffect(() => {
         window.onbeforeunload = function () {
@@ -25,6 +27,13 @@ function App() {
             <ViewportProvider>
                 <ScrollProvider>
                     <main>
+                        {/* this is done to allow a 100vh bg on mobile devices */}
+                        {/* reference this article: https://css-tricks.com/the-fixed-background-attachment-hack/ */}
+                        <div
+                            id="backgroundImage"
+                            className={styles.backgroundContainer}
+                        ></div>
+
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/phase2" element={<Phase2 />} />

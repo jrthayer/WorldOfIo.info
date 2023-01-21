@@ -1,0 +1,10 @@
+.backgroundContainer {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+
+    z-index: -100;
+}

@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 
 //hooks
 import useHashLinkOnStart from "hooks/useHashLinkOnStart";
-import useSetBodyBackground from "hooks/useSetBodyBackground";
+import useSetBackground from "hooks/useSetBackground";
 
 //====== Layout Components
 // local
@@ -44,7 +44,7 @@ import useSetPrimaryColor from "hooks/useSetPrimaryColor";
 
 const Phase2 = () => {
     useHashLinkOnStart();
-    useSetBodyBackground(backgroundImage);
+    useSetBackground(backgroundImage);
     useSetPrimaryColor(190, 48, 60);
 
     useEffect(() => {

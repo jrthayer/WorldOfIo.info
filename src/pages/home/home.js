@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 //hooks
 import useHashLinkOnStart from "hooks/useHashLinkOnStart";
-import useSetBodyBackground from "hooks/useSetBodyBackground";
+import useSetBackground from "hooks/useSetBackground";
 import useSetPrimaryColor from "hooks/useSetPrimaryColor";
 
 //====== Layout Components
@@ -48,7 +48,7 @@ import backgroundImage from "images/ioverse-background.webp";
 
 const Home = () => {
     useHashLinkOnStart();
-    useSetBodyBackground(backgroundImage);
+    useSetBackground(backgroundImage);
     useSetPrimaryColor(190, 43, 63);
 
     useEffect(() => {
