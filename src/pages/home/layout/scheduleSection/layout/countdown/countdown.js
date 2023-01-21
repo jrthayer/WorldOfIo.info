@@ -39,7 +39,7 @@ const Countdown = (props) => {
         let fileName = event.name.replace(/ /g, "_");
         fileName = fileName.replace(/'/, "");
         fileName = fileName.toLowerCase();
-        setImgSrc(`/image/${fileName}.png`);
+        setImgSrc(`/image/${fileName}.webp`);
         setNextEvent(false);
     }, [event]);
 
@@ -63,7 +63,7 @@ const Countdown = (props) => {
                     onError={({ currentTarget }) => {
                         currentTarget.onerror = null; // prevents looping
                         console.error("Not a valid countdown image");
-                        currentTarget.src = "/image/default.png";
+                        currentTarget.src = "/image/default.webp";
                         setHideTitle(false);
                     }}
                 ></img>

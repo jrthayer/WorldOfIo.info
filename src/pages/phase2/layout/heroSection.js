@@ -4,7 +4,7 @@ import Section from "components/containers/section";
 import IconBtn from "components/buttons/iconBtn";
 import DynamicLogo from "components/dynamicLogo";
 
-import logo from "images/IO-Logo.png";
+import logo from "images/IO-Logo.webp";
 
 import links from "data/links";
 

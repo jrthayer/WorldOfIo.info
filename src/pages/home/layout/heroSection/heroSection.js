@@ -5,7 +5,7 @@ import IconBtn from "components/buttons/iconBtn";
 import IoverseHeader from "./components/ioverseHeader";
 import DynamicLogo from "../../../../components/dynamicLogo";
 
-import logo from "images/ioverse-logo.png";
+import logo from "images/ioverse-logo.webp";
 
 const HeroSection = (props) => {
     return (

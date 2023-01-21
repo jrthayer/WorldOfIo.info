@@ -39,7 +39,7 @@ let navigationData = [
 ];
 
 import socialData from "data/social.js";
-import backgroundImage from "images/galaxy_2.jpg";
+import backgroundImage from "images/galaxy_2.webp";
 import useSetPrimaryColor from "hooks/useSetPrimaryColor";
 
 const Phase2 = () => {

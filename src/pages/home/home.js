@@ -44,7 +44,7 @@ let navigationData = [
 import socialData from "data/social.js";
 
 //images
-import backgroundImage from "images/ioverse-background.png";
+import backgroundImage from "images/ioverse-background.webp";
 
 const Home = () => {
     useHashLinkOnStart();
@@ -57,7 +57,7 @@ const Home = () => {
 
     return (
         <Fragment>
-            <HeroNavBar backgroundImage={backgroundImage} />
+            <HeroNavBar />
 
             <SocialDrawerBar
                 mediaQuery="(min-width: 1200px) and (min-height: 700px)"

@@ -8,10 +8,10 @@ import ImageLink from "components/imageBar/imageLink";
 import IconBtn from "components/buttons/iconBtn";
 
 // Images
-import firstCrossover from "images/first_crossover.png";
-import chamberImage from "images/chamber_of_the_eight.png";
-import kaasma from "images/kaasma_khara.png";
-import shadowInvasion from "images/shadow_invasion.png";
+import firstCrossover from "images/first_crossover.webp";
+import chamberImage from "images/chamber_of_the_eight.webp";
+import kaasma from "images/kaasma_khara.webp";
+import shadowInvasion from "images/shadow_invasion.webp";
 
 const MajorEventsSection = () => {
     return (
