@@ -1,11 +1,15 @@
 import React from "react";
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./iconPanel.module.scss";
 
-const IconPanel = (props) => {
-    let data = useMemo(() => {
-        return props.data;
+import setFontAwesomeClass from "utils/setFontAwesomeClass";
+
+const IconPanel = ({ data, children, type }) => {
+    const [iconClasses, setIconClasses] = useState("");
+
+    useEffect(() => {
+        setIconClasses(setFontAwesomeClass(type));
     }, []);
 
     return (
@@ -18,7 +22,7 @@ const IconPanel = (props) => {
             <div className={styles.container}>
                 <div className={styles.icon}>
                     <i
-                        className={`${data.iconClasses} header-ioverse`}
+                        className={`${iconClasses} fa-2x header-ioverse`}
                         style={{ color: data.primaryColor }}
                     ></i>
                 </div>
@@ -28,7 +32,7 @@ const IconPanel = (props) => {
                     >
                         {data.text}
                     </h3>
-                    {props.children}
+                    {children}
                 </div>
             </div>
         </a>

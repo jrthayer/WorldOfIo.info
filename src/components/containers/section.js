@@ -14,9 +14,10 @@ const Section = ({ type, style, id, children, features, containerClass }) => {
     }
 
     let featureClasses = "";
-    if (features.includes("fullscreen")) {
-        featureClasses += styles.fullscreen;
-    }
+    // prettier-ignore
+    if (features.includes("fullscreen"))featureClasses += " " + styles.fullscreen;
+    // prettier-ignore
+    if (features.includes("center-vertically"))featureClasses += " "+styles["center-vertically"];
 
     return (
         <section

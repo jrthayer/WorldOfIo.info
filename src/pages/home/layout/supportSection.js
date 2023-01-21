@@ -14,6 +14,7 @@ const SupportSection = (props) => {
             <div className={styles.supportGroup}>
                 <IconPanel
                     data={socialData.find((obj) => obj.text === "Patreon")}
+                    type="patreon"
                 >
                     <p>
                         Not only does brett get the largest cut from patreon but
@@ -31,6 +32,7 @@ const SupportSection = (props) => {
                 </IconPanel>
                 <IconPanel
                     data={socialData.find((obj) => obj.text === "Merch")}
+                    type="merch"
                 >
                     <p>Purchase merch of the wholesome Racc himself.</p>
                     <br />
@@ -41,6 +43,7 @@ const SupportSection = (props) => {
                 </IconPanel>
                 <IconPanel
                     data={socialData.find((obj) => obj.text === "Twitch")}
+                    type="twitch"
                 >
                     <p>
                         Watch the sessions live on twitch! Subscribe, donate,
@@ -51,6 +54,7 @@ const SupportSection = (props) => {
                 </IconPanel>
                 <IconPanel
                     data={socialData.find((obj) => obj.text === "YouTube")}
+                    type="youtube"
                 >
                     <p>
                         Watching the previous campaigns on the youtube channel
@@ -64,6 +68,7 @@ const SupportSection = (props) => {
                 </IconPanel>
                 <IconPanel
                     data={socialData.find((obj) => obj.text === "Discord")}
+                    type="discord"
                 >
                     <p>Join and interact with the amazing discord!</p>
                     <br />

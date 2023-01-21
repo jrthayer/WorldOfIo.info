@@ -12,11 +12,15 @@
 
 .sectionContent {
     margin: 0 auto;
-    padding: 0 35px;
 }
 
 .fullscreen {
     min-height: 100vh;
+}
+
+.center-vertically {
+    display: flex;
+    align-items: center;
 }
 
 .transparent {

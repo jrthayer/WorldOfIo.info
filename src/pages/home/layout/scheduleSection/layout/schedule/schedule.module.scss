@@ -3,6 +3,10 @@
 
     margin-top: 2rem;
     padding-top: 2rem;
+
+    h4 {
+        filter: drop-shadow(2px 2px black);
+    }
 }
 
 .innerContainer {
@@ -12,24 +16,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.header {
-    padding: 0;
-}
-
-.week {
-    background-color: var(--color-primary);
-    color: var(--color-secondary);
-
-    width: fit-content;
-
-    margin: 0 auto;
-    margin-top: -0.2rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 0.5rem;
-
-    height: 30px;
 }
 
 @media screen and (min-width: 1200px) {

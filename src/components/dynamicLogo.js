@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import { Suspense } from "react";
 
 import styles from "./dynamicLogo.module.scss";
 
@@ -13,10 +12,10 @@ function DynamicLogo(props) {
         // Needed to avoid images starting at default prop values for 1 load
         if (!loaded) {
             setStyle({
-                ["--width"]: "auto",
-                ["--height"]: "auto",
-                ["--width-max"]: "auto",
-                ["--height-max"]: "auto",
+                ["--width"]: "0",
+                ["--height"]: "0",
+                ["--width-max"]: "0",
+                ["--height-max"]: "0",
             });
         } else {
             setStyle({
