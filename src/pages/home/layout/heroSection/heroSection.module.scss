@@ -27,6 +27,17 @@
         top: 50%;
         transform: translate(-50%, -50%);
     }
+
+    h1 {
+        font-size: clamp(1.3rem, 6vw, 3.5rem);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 4;
+        white-space: nowrap;
+        letter-spacing: 0.5rem;
+        transform: translate(-50%, -38vw);
+    }
 }
 
 .heroLinks {
@@ -58,5 +69,59 @@
 @media all and (min-width: 600px) {
     .heroLinks {
         flex-direction: row;
+    }
+
+    .logo-container {
+        h1 {
+            letter-spacing: 1rem;
+            filter: drop-shadow(4px 4px black);
+        }
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .logo-container {
+        h1 {
+            letter-spacing: 1.5rem;
+            filter: drop-shadow(5px 5px black);
+        }
+    }
+}
+
+/* The width is greater than the height */
+@media screen and (min-width: 100vh) {
+    .logo-container {
+        h1 {
+            font-size: clamp(1rem, 6vh, 3.5rem);
+            letter-spacing: 0.5rem;
+            filter: drop-shadow(1px 1px black);
+            transform: translate(-50%, -38vh);
+        }
+    }
+
+    @media screen and (min-height: 400px) {
+        .logo-container {
+            h1 {
+                filter: drop-shadow(2px 2px black);
+            }
+        }
+    }
+
+    @media screen and (min-height: 600px) {
+        .logo-container {
+            h1 {
+                letter-spacing: 1rem;
+                filter: drop-shadow(4px 4px black);
+            }
+        }
+    }
+
+    @media screen and (min-height: 900px) {
+        .logo-container {
+            h1 {
+                letter-spacing: 1.5rem;
+                filter: drop-shadow(5px 5px black);
+            }
+        }
     }
 }

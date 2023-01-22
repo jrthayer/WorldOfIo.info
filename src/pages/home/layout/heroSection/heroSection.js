@@ -2,7 +2,6 @@ import styles from "./heroSection.module.scss";
 
 import Section from "components/containers/section";
 import IconBtn from "components/buttons/iconBtn";
-import IoverseHeader from "./components/ioverseHeader";
 import DynamicLogo from "../../../../components/dynamicLogo";
 
 import logo from "images/ioverse-logo.webp";
@@ -11,9 +10,7 @@ const HeroSection = (props) => {
     return (
         <Section type="transparent" features="fullscreen" id={props.id}>
             <div className={styles["logo-container"]}>
-                <IoverseHeader>
-                    <h1>Into The</h1>
-                </IoverseHeader>
+                <h1 className={`header-ioverse`}>Into The</h1>
                 <DynamicLogo
                     src={logo}
                     heightMax={"50vh"}
