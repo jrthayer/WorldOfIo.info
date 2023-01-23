@@ -32,6 +32,6 @@ export default [
         hours: 10,
         minutes: 0,
         timezone: "est",
-        name: "Moonbreaker Finale (#sponsored stream)",
+        name: "Twitch Stream (Potentially #Sponsored)",
     },
 ];
