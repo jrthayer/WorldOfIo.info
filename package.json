@@ -6,6 +6,7 @@
         "react-error-overlay": "6.0.9"
     },
     "dependencies": {
+        "@vercel/analytics": "^0.1.8",
         "csstype": "^3.0.10",
         "react": "^16.6.1",
         "react-dom": "^16.6.1",
