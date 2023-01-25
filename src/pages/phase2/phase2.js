@@ -49,8 +49,6 @@ const Phase2 = () => {
 
     useEffect(() => {
         document.title = "Phase 2";
-        let heroButton = document.body.querySelector('a[href="#hero"]');
-        heroButton.click();
     }, []);
 
     return (
