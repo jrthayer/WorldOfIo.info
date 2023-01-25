@@ -6,10 +6,10 @@ import useSetBackground from "hooks/useSetBackground";
 
 //====== Layout Components
 // local
-import HeroSection from "./layout/heroSection";
-import StatSection from "./layout/statSection";
-import OriginSection from "./layout/originSection";
-import MajorEventsSection from "./layout/majorEventsSection";
+import HeroSection from "./layout/heroSection/heroSection";
+import StatSection from "./layout/statSection/statSection";
+import OriginSection from "./layout/originSection/originSection";
+import MajorEventsSection from "./layout/majorEventsSection/majorEventsSection";
 
 // shared
 import HeroNavBar from "layout/navBar/heroNavBar";
@@ -75,6 +75,7 @@ const Phase2 = () => {
             <StatSection id="aboutIO" />
             <OriginSection id="originOfIO" />
             <MajorEventsSection id="majorEvents" />
+
             <Footer id="footer"></Footer>
         </Fragment>
     );
