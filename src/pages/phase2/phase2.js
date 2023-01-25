@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 
 //hooks
-import useHashLinkOnStart from "hooks/useHashLinkOnStart";
+import useNavButtonOnStart from "hooks/useNavButtonOnStart";
 import useSetBackground from "hooks/useSetBackground";
 
 //====== Layout Components
@@ -43,12 +43,14 @@ import backgroundImage from "images/galaxy_2.webp";
 import useSetPrimaryColor from "hooks/useSetPrimaryColor";
 
 const Phase2 = () => {
-    useHashLinkOnStart();
+    useNavButtonOnStart("#hero");
     useSetBackground(backgroundImage);
     useSetPrimaryColor(190, 48, 60);
 
     useEffect(() => {
         document.title = "Phase 2";
+        let heroButton = document.body.querySelector('a[href="#hero"]');
+        heroButton.click();
     }, []);
 
     return (

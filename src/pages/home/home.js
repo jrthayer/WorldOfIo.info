@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { useEffect } from "react";
 
 //hooks
-import useHashLinkOnStart from "hooks/useHashLinkOnStart";
+import useNavButtonOnStart from "hooks/useNavButtonOnStart";
 import useSetBackground from "hooks/useSetBackground";
 import useSetPrimaryColor from "hooks/useSetPrimaryColor";
 
@@ -25,7 +25,7 @@ import ScrollingScreen from "components/scrollingScreen";
 let navigationData = [
     {
         text: "Top Of Page",
-        link: "#heroSection",
+        link: "#hero",
     },
     {
         text: "Schedule",
@@ -47,7 +47,7 @@ import socialData from "data/social.js";
 import backgroundImage from "images/ioverse-background.webp";
 
 const Home = () => {
-    useHashLinkOnStart();
+    useNavButtonOnStart("#hero");
     useSetBackground(backgroundImage);
     useSetPrimaryColor(190, 43, 63);
 
@@ -77,7 +77,7 @@ const Home = () => {
 
             <ScrollingScreen></ScrollingScreen>
 
-            <HeroSection id="heroSection"></HeroSection>
+            <HeroSection id="hero"></HeroSection>
             <ScheduleSection />
             <NewsSection id="news" />
             <SupportSection id="howToSupport" />
