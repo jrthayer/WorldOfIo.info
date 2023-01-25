@@ -38,25 +38,13 @@ const NavBar = (props) => {
             >
                 <ul className={styles.linkContainer}>
                     <li className={styles.link}>
-                        <NavLink
-                            to="/"
-                            className={isActive}
-                            onClick={() => {
-                                window.scrollTo(0, 0);
-                            }}
-                        >
+                        <NavLink to="/" className={isActive}>
                             Home
                         </NavLink>
                     </li>
 
                     <li className={styles.link}>
-                        <NavLink
-                            to="/phase2"
-                            className={isActive}
-                            onClick={() => {
-                                window.scrollTo(0, 0);
-                            }}
-                        >
+                        <NavLink to="/phase2" className={isActive}>
                             Phase 2 Summary
                         </NavLink>
                     </li>

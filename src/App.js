@@ -23,7 +23,6 @@ function App() {
 
     return (
         <Router>
-            <ScrollToTop />
             <ViewportProvider>
                 <ScrollProvider>
                     <main>
@@ -33,12 +32,17 @@ function App() {
                             id="backgroundImage"
                             className={styles.backgroundContainer}
                         ></div>
-
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/phase2" element={<Phase2 />} />
-                            <Route path="*" element={<div>404!</div>} />
-                        </Routes>
+                        <ScrollToTop>
+                            <Routes>
+                                <Route path="/" exact element={<Home />} />
+                                <Route
+                                    path="/phase2"
+                                    exact
+                                    element={<Phase2 />}
+                                />
+                                <Route path="*" element={<div>404!</div>} />
+                            </Routes>
+                        </ScrollToTop>
                     </main>
                 </ScrollProvider>
             </ViewportProvider>
