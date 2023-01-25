@@ -1,7 +1,9 @@
 .container {
-    min-width: 250px;
-    height: 250px;
+    max-width: 250px;
+    height: auto;
+    width: calc(100% - 4px);
     position: relative;
+    display: inline-block;
     overflow: hidden;
     margin: 2px;
     border: solid 2px var(--color-primary);
@@ -19,6 +21,8 @@
     width: 100%;
 
     position: absolute;
+    top: 0;
+    left: 0;
     z-index: 2;
 
     transition: background-color 0.5s;
@@ -41,11 +45,13 @@
 
     i {
         font-size: 3rem;
+        display: none;
     }
 }
 
 .show {
     i {
+        display: block;
         color: hsla(var(--raw-primary-light), 0.6);
     }
 
