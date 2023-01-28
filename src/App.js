@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "pages/home/home";
 import Phase2 from "pages/phase2/phase2";
+import Rss from "pages/rss/rss";
 
 import "./styles/main.scss";
 
@@ -40,6 +41,7 @@ function App() {
                                     exact
                                     element={<Phase2 />}
                                 />
+                                <Route path="/rss" exact element={<Rss />} />
                                 <Route path="*" element={<div>404!</div>} />
                             </Routes>
                         </ScrollToTop>
