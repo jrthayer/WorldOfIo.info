@@ -11,6 +11,8 @@ import Drawer from "layout/drawerbars/drawer/drawer";
 
 import HeroAnimation from "layout/components/heroAnimation";
 
+import socialData from "data/social.js";
+
 const SocialDrawerBar = (props) => {
     let themeClass;
     if (props.type === "default") {
@@ -47,7 +49,7 @@ const SocialDrawerBar = (props) => {
                     style={sidebarStyle}
                     id={"socialIconBar"}
                 >
-                    {props.data.map((singleEntry) => (
+                    {socialData.map((singleEntry) => (
                         <IconBtn
                             link={singleEntry.link}
                             // prettier-ignore
@@ -70,7 +72,7 @@ const SocialDrawerBar = (props) => {
             >
                 <h2>Social Links</h2>
                 <div className={drawerClasses}>
-                    {props.data.map((singleEntry) => (
+                    {socialData.map((singleEntry) => (
                         <IconBtn
                             link={singleEntry.link}
                             // prettier-ignore
