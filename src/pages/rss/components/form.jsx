@@ -4,7 +4,7 @@ function Form(props) {
     const [inputValue, setInputValue] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
-    function handleSubmit(event) {
+    const handleSubmit = (event) => {
         event.preventDefault();
 
         // check for valid input
@@ -16,7 +16,7 @@ function Form(props) {
         }
 
         props.setParentKey(inputValue);
-    }
+    };
 
     //Allows parent component set error message
     useEffect(() => {
@@ -24,7 +24,7 @@ function Form(props) {
     }, [props.parentError]);
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} style={{ color: "white" }}>
             <label>
                 RSS Key:
                 <input
@@ -33,8 +33,17 @@ function Form(props) {
                     onChange={(event) => setInputValue(event.target.value)}
                 />
             </label>
-
             <button type="submit">Submit</button>
+
+            <label>
+                Save locally
+                <input
+                    type="checkbox"
+                    checked={props.saveState}
+                    onChange={props.updateSaveState}
+                />
+            </label>
+
             {errorMessage !== "" ? <div>{errorMessage}</div> : null}
         </form>
     );
