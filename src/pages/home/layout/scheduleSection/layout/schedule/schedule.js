@@ -10,7 +10,7 @@ const Schedule = (props) => {
     return (
         <div className={styles.container}>
             <h2 className={`fs-650 header-ioverse`}>Schedule</h2>
-            <h4 className={`header-ioverse-gradient`}>Week of Jan 23rd</h4>
+            <h4 className={`header-ioverse-gradient`}>Week of Jan 30th</h4>
             <div className={styles.innerContainer}>
                 {data.map((day, index) => {
                     // if (day.events.length != 0) {
