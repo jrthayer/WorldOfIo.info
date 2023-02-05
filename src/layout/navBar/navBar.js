@@ -48,6 +48,12 @@ const NavBar = (props) => {
                             Phase 2 Summary
                         </NavLink>
                     </li>
+
+                    <li className={styles.link}>
+                        <NavLink to="/rss" className={isActive}>
+                            MP3s
+                        </NavLink>
+                    </li>
                 </ul>
 
                 <a

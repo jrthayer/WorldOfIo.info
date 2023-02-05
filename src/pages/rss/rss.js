@@ -2,13 +2,15 @@ import React from "react";
 import { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 
-//components
+//====== Layout Components
+// shared
 import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
 import NavBar from "layout/navBar/navBar";
 import Section from "components/containers/section";
-
-import Feed from "./components/feed";
-import Form from "./components/form";
+import Screen from "components/screen";
+// local
+import Feed from "./layout/feed/feed";
+import Form from "./layout/form/form";
 
 //hooks
 import useSetBackground from "hooks/useSetBackground";
@@ -32,7 +34,7 @@ function Rss() {
 
     //Set tab title
     useEffect(() => {
-        document.title = "RSS Feed";
+        document.title = "MP3s";
     }, []);
 
     //Load key if stored in localStorage
@@ -98,7 +100,9 @@ function Rss() {
                 orientation="left"
                 type="transparent"
             ></SocialDrawerBar>
+            <Screen />
             <Section features="fullscreen">
+                <h1 className="header-ioverse-gradient fs-700">Ioverse MP3s</h1>
                 {validKey ? (
                     <>
                         <button onClick={handleKeyCleared}>Remove RSS</button>
