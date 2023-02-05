@@ -6,7 +6,9 @@ import StatCard from "components/statCard";
 const StatSection = (props) => {
     return (
         <Section id={props.id} className={styles.section}>
-            <h2 className="fs-700 header-ioverse-gradient">Phase 2 Stats</h2>
+            <h2 className="fs-700 header-ioverse-gradient padding-bottom">
+                Phase 2 Stats
+            </h2>
             <p className="color-white text-center">
                 World of IO phase 2 lasted a little over a year and a half,
                 below are some interesting stats of the events that occurred

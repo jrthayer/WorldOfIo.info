@@ -8,7 +8,9 @@ const OriginSection = (props) => {
             id={props.id}
             containerClass={`${styles.section} bg-primary-dark`}
         >
-            <h2 className="fs-700 header-ioverse-gradient">The Origin Of IO</h2>
+            <h2 className="fs-700 header-ioverse-gradient padding-bottom">
+                The Origin Of IO
+            </h2>
             <h3 className="fs-200">
                 info below was copied from{" "}
                 <a href="https://worldofio.fandom.com/wiki/Io">this</a> wiki
