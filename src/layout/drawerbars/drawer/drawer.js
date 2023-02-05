@@ -51,7 +51,7 @@ const Drawer = (props) => {
                     <i className={`${styles.buttonIcon} ${buttonClasses}`}></i>
                 </button>
             </nav>
-            {drawerOpen ? <Screen></Screen> : ""}
+            {drawerOpen ? <Screen drawer></Screen> : ""}
         </Fragment>
     );
 };
