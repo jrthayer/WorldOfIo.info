@@ -16,7 +16,7 @@
 }
 
 .screen {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
     height: 100%;
     width: 100%;
 
@@ -30,7 +30,7 @@
 }
 
 .screen-hide {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0);
     z-index: 0;
 }
 
@@ -52,7 +52,7 @@
 .show {
     i {
         display: block;
-        color: hsla(var(--raw-primary-light), 0.6);
+        color: hsla(var(--raw-primary), 1);
     }
 
     a:hover {
@@ -61,7 +61,7 @@
     }
 
     i:hover {
-        color: hsla(var(--raw-primary), 1);
+        color: hsla(var(--raw-primary-dark), 0.9);
         border: none;
         background: none;
     }

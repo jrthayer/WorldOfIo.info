@@ -16,6 +16,7 @@ import HeroNavBar from "layout/navBar/heroNavBar";
 import Footer from "layout/footer";
 import NavigationBar from "layout/drawerbars/navigationDrawerBar";
 import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
+import ScrollingScreen from "components/scrollingScreen";
 
 //====== Data
 let navigationData = [
@@ -53,6 +54,7 @@ const Phase2 = () => {
     return (
         <Fragment>
             <HeroNavBar />
+            <ScrollingScreen />
             <SocialDrawerBar
                 mediaQuery="(min-width: 1200px) and (min-height: 700px)"
                 width="225px"

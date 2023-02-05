@@ -6,7 +6,7 @@ const OriginSection = (props) => {
     return (
         <Section
             id={props.id}
-            containerClass={`${styles.section} glass-primary`}
+            containerClass={`${styles.section} bg-primary-dark`}
         >
             <h2 className="fs-700 header-ioverse-gradient">The Origin Of IO</h2>
             <h3 className="fs-200">
