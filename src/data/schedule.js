@@ -1,11 +1,11 @@
 export default [
-    {
-        day: "tuesday",
-        hours: 20,
-        minutes: 0,
-        timezone: "est",
-        name: "Curious Curios",
-    },
+    // {
+    //     day: "tuesday",
+    //     hours: 20,
+    //     minutes: 0,
+    //     timezone: "est",
+    //     name: "Curious Curios",
+    // },
     {
         day: "wed",
         hours: 20,
@@ -13,18 +13,18 @@ export default [
         timezone: "est",
         name: "Into The Shadow's Breach",
     },
-    // {
-    //     day: "thurs",
-    //     hours: 16,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Deadbeats",
-    // },
-    // {
-    //     day: "thurs",
-    //     hours: 20,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Pipe Dreamers",
-    // },
+    {
+        day: "thurs",
+        hours: 16,
+        minutes: 0,
+        timezone: "est",
+        name: "Deadbeats",
+    },
+    {
+        day: "thurs",
+        hours: 20,
+        minutes: 0,
+        timezone: "est",
+        name: "Pipe Dreamers",
+    },
 ];
