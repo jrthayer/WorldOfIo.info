@@ -56,10 +56,18 @@ function Rss() {
 
         axios(`https://cors-proxy-gules.vercel.app/api/patreon?url=${key}`)
             .then((response) => {
+                console.log(response.data);
                 // prettier-ignore
                 if (!response.data.hasOwnProperty("title") || response.data.title !== "IOverse RSS Feed") {
                     // prettier-ignore
-                    setErrorMessage("Invalid RSS link! Please make sure your subscription is active!");
+                    setErrorMessage("Invalid RSS link!");
+                    setValidKey(false);
+                    return;
+                }
+
+                if (response.data.items.length === 0) {
+                    // prettier-ignore
+                    setErrorMessage("Your membership is no longer active. Please restart your patreon membership to get access to the MP3s");
                     setValidKey(false);
                     return;
                 }

@@ -34,7 +34,6 @@ function Form(props) {
             >
                 <form onSubmit={handleSubmit}>
                     <div className={styles.inputContainer}>
-                        <label className={styles.localLabel}>RSS Link</label>
                         <input
                             type="text"
                             value={inputValue}
@@ -42,6 +41,7 @@ function Form(props) {
                                 setInputValue(event.target.value)
                             }
                             className={styles.keyInput}
+                            placeholder="RSS Link"
                         />
                     </div>
 
