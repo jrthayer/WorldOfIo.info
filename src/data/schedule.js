@@ -18,7 +18,7 @@ export default [
         hours: 16,
         minutes: 0,
         timezone: "est",
-        name: "Deadbeats",
+        name: "Deadbeats (Fanart Session)",
     },
     {
         day: "thurs",
@@ -26,5 +26,12 @@ export default [
         minutes: 0,
         timezone: "est",
         name: "Pipe Dreamers",
+    },
+    {
+        day: "sat",
+        hours: 14,
+        minutes: 0,
+        timezone: "est",
+        name: "Terraria Zenith Seed w/ TomFawkes and SciFri!",
     },
 ];
