@@ -21,13 +21,12 @@ import backgroundImage from "images/ioverse-background.webp";
 
 function Rss() {
     //Key States
-    const [validKey, setValidKey] = useState(false);
     const [key, setKey] = useState("");
     //Form States
     const [errorMessage, setErrorMessage] = useState("");
-    const [saveState, setSaveState] = useState(true);
+    const [saveState, setSaveState] = useState(false);
     //Feed States
-    const [data, setData] = useState("");
+    const [data, setData] = useState(null);
 
     useSetBackground(backgroundImage);
     useSetPrimaryColor(190, 48, 60);
@@ -39,10 +38,10 @@ function Rss() {
 
     //Load key if stored in localStorage
     useEffect(() => {
-        let data = localStorage.getItem("rss");
+        let localKey = localStorage.getItem("rss");
 
-        if (data !== null) {
-            setKey(data);
+        if (localKey !== null) {
+            setKey(localKey);
         }
     }, []);
 
@@ -50,35 +49,30 @@ function Rss() {
     useEffect(() => {
         //check for empty key
         if (key === "") {
-            setValidKey(false);
             return;
         }
 
         axios(`https://cors-proxy-gules.vercel.app/api/patreon?url=${key}`)
             .then((response) => {
-                console.log(response.data);
                 // prettier-ignore
                 if (!response.data.hasOwnProperty("title") || response.data.title !== "IOverse RSS Feed") {
                     // prettier-ignore
                     setErrorMessage("Invalid RSS link!");
-                    setValidKey(false);
                     return;
                 }
 
                 if (response.data.items.length === 0) {
                     // prettier-ignore
                     setErrorMessage("Your membership is no longer active. Please restart your patreon membership to get access to the MP3s");
-                    setValidKey(false);
                     return;
                 }
-
-                setValidKey(true);
-                setData(response.data);
 
                 //save rss locally if checked
                 if (saveState) {
                     localStorage.setItem("rss", key);
                 }
+
+                setData(response.data);
             })
             .catch((error) => console.error(error));
     }, [key]);
@@ -87,7 +81,7 @@ function Rss() {
     const handleKeyCleared = () => {
         localStorage.removeItem("rss");
         setKey("");
-        keyState(false);
+        setData(null);
     };
 
     const handleSaveStateChange = () => {
@@ -111,7 +105,7 @@ function Rss() {
             <Screen />
             <Section features="fullscreen">
                 <h1 className="header-ioverse-gradient fs-700">Ioverse MP3s</h1>
-                {validKey ? (
+                {data ? (
                     <>
                         <button onClick={handleKeyCleared}>Remove RSS</button>
                         <Feed data={data}></Feed>
