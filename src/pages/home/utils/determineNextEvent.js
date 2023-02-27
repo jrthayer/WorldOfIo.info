@@ -1,3 +1,10 @@
+/**
+ * It takes a schedule object, and returns the next event in the schedule, or false if there are no
+ * events.
+ * @param schedule - an array of objects, each object representing a day of the week.
+ * @returns An object with the minutesTill and the event object.
+ * @returns false if there are no events
+ */
 export default function determineNextEvent(schedule) {
     const date = new Date();
 
@@ -12,6 +19,7 @@ export default function determineNextEvent(schedule) {
     let dayMinutes = curMins;
     let nextEvent;
     let foundNext = false;
+    let daysChecked = 0;
 
     // find the next event
     while (foundNext === false) {
@@ -37,6 +45,16 @@ export default function determineNextEvent(schedule) {
 
         // set curMins to -1 since the first show of the next day is guaranteed to be next show
         dayMinutes = -1;
+        daysChecked++;
+
+        if (daysChecked === 6) {
+            break;
+        }
+    }
+
+    // No events were found
+    if (daysChecked === 6) {
+        return false;
     }
 
     // POTENTIAL TO BE SECONDARY FUNCTION
