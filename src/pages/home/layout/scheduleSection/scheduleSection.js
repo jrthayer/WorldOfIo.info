@@ -15,7 +15,7 @@ const ScheduleSection = () => {
         <Section id="schedule" type="transparent">
             <div className={styles.container}>
                 <Schedule data={scheduleData} header={dayOfWeek} />
-                <Countdown data={scheduleData} />
+                <Countdown data={scheduleData} startDate={dayOfWeek} />
             </div>
         </Section>
     );

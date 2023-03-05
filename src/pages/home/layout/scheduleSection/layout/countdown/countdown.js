@@ -29,9 +29,17 @@ const Countdown = (props) => {
     }, []);
 
     useEffect(() => {
-        if (nextEvent === true) {
+        setNextEvent(true);
+    }, [props.data, props.startDate]);
+
+    useEffect(() => {
+        if (
+            nextEvent === true &&
+            props.data != null &&
+            props.startDate != null
+        ) {
             // determine next show
-            setEvent(determineNextEvent(props.data));
+            setEvent(determineNextEvent(props.data, props.startDate));
         }
     }, [nextEvent]);
 
@@ -40,6 +48,7 @@ const Countdown = (props) => {
         //Return if there are no events this week
         if (event === false) {
             setNoEvents(true);
+            setNextEvent(false);
             return;
         }
 
@@ -48,6 +57,7 @@ const Countdown = (props) => {
         fileName = fileName.toLowerCase();
         setImgSrc(`/image/${fileName}.webp`);
         setNextEvent(false);
+        setNoEvents(false);
     }, [event]);
 
     useEffect(() => {

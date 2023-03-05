@@ -1,12 +1,120 @@
 /**
- * It takes a schedule object, and returns the next event in the schedule, or false if there are no
- * events.
- * @param schedule - an array of objects, each object representing a day of the week.
- * @returns An object with the minutesTill and the event object.
- * @returns false if there are no events
+ * It takes a string, converts the first letter to uppercase, and then compares it to a list of months.
+ * If it finds a match, it returns the number of that month. If it doesn't find a match, it returns an
+ * error.
+ * @param monthString - The month in string format.
+ * @returns the number of the month.
  */
-export default function determineNextEvent(schedule) {
+function convertMonthToNumber(monthString) {
+    let month = monthString[0].toUpperCase() + monthString.slice(1);
+    switch (month) {
+        case "January":
+            return 1;
+        case "Jan":
+            return 1;
+        case "February":
+            return 2;
+        case "Feb":
+            return 2;
+        case "March":
+            return 3;
+        case "Mar":
+            return 3;
+        case "April":
+            return 4;
+        case "Apr":
+            return 4;
+        case "May":
+            return 5;
+        case "May":
+            return 5;
+        case "June":
+            return 6;
+        case "July":
+            return 7;
+        case "August":
+            return 8;
+        case "Aug":
+            return 8;
+        case "September":
+            return 9;
+        case "Sept":
+            return 9;
+        case "October":
+            return 10;
+        case "Oct":
+            return 10;
+        case "November":
+            return 11;
+        case "Nov":
+            return 11;
+        case "December":
+            return 12;
+        case "Dec":
+            return 12;
+        default:
+            console.error(`No month was found`);
+    }
+}
+
+/**
+ * It takes a string in the format "Week of Month Day" and returns a Date object.
+ * @param stringDate - "Week of January 1"
+ * @returns A date object.
+ */
+function convertStringToDate(stringDate) {
+    if (stringDate.includes("Week of")) {
+        let date = stringDate.split("Week of ")[1];
+        date = date.split(" ");
+
+        let month = convertMonthToNumber(date[0]);
+        let day = date[1].replace(/[a-zA-Z]/g, "");
+        let curDate = new Date();
+        const curYear = curDate.getFullYear();
+        // js date expects month to be (0-11) not (1-12)
+        return new Date(curYear, month - 1, day);
+    } else {
+        console.error("Invalid start date given");
+        return false;
+    }
+}
+
+/**
+ * It takes a date object as an argument, adds 7 days to it, and returns the new date object.
+ * @param startDate - The date that the user has selected.
+ * @returns The endDate is being returned.
+ */
+function determineEndDate(startDate) {
+    let endDate = startDate;
+    endDate.setDate(startDate.getDate() + 7);
+    return endDate;
+}
+
+/**
+ * It takes a schedule and a start date, and returns the next event in the schedule, or false if:
+ *  + there are no more events
+ *  + the current date is past the end date of the schedule
+ *  + the startDate given was in the wrong format
+ * @param schedule - an array of objects, each object representing a day of the week.
+ * @param startDateString - "2019-01-01"
+ * @returns An object with the minutesTill and the event object.
+ */
+export default function determineNextEvent(schedule, startDateString) {
     const date = new Date();
+    const startDate = convertStringToDate(startDateString);
+
+    // startDateString was invalid
+    if (startDate === false) {
+        console.error("invalid startDate was given");
+        return false;
+    }
+
+    const endDate = determineEndDate(startDate);
+
+    if (date > endDate) {
+        console.error("endDate has already passed!");
+        return false;
+    }
 
     const curMins = date.getMinutes() + date.getHours() * 60;
     let curDay = date.getDay();
@@ -40,7 +148,7 @@ export default function determineNextEvent(schedule) {
         // increment to next day in week, do not increment if found
         if (foundNext === false) {
             foundDay++;
-            if (foundDay > 6) foundDay = 0;
+            if (foundDay > 6) break;
         }
 
         // set curMins to -1 since the first show of the next day is guaranteed to be next show
@@ -52,8 +160,8 @@ export default function determineNextEvent(schedule) {
         }
     }
 
-    // No events were found
-    if (daysChecked === 6) {
+    // No events were found or end of week reached
+    if (daysChecked === 6 || foundDay > 6) {
         return false;
     }
 
