@@ -85,19 +85,19 @@ function convertStringToDate(stringDate) {
  * @returns The endDate is being returned.
  */
 function determineEndDate(startDate) {
-    let endDate = startDate;
+    // Needed to make a copy of the startDate object
+    let endDate = new Date(startDate.getTime());
     endDate.setDate(startDate.getDate() + 7);
     return endDate;
 }
 
 /**
- * It takes a schedule and a start date, and returns the next event in the schedule, or false if:
- *  + there are no more events
- *  + the current date is past the end date of the schedule
- *  + the startDate given was in the wrong format
- * @param schedule - an array of objects, each object representing a day of the week.
- * @param startDateString - "2019-01-01"
- * @returns An object with the minutesTill and the event object.
+ * It takes a schedule object and a start date string and returns the next event in the schedule.
+ * @param schedule - an array of objects, each object represents a day of the week.
+ * @param startDateString - "2019-01-07"
+ * @returns An object with the following properties:
+ * minutesTill: number
+ * name: string
  */
 export default function determineNextEvent(schedule, startDateString) {
     const date = new Date();
@@ -131,10 +131,15 @@ export default function determineNextEvent(schedule, startDateString) {
     let daysChecked = 0;
 
     // set found day to monday if current date is before the week starts
-    // this DOES NOT FIX THE OVERALL PROBLEM! NEED TO REDO most of this function with dates in mind!
+    // then determine the number of days between now and the start of the schedule week
+    let daysBetween = 0;
+
     if (date < startDate) {
         foundDay = 0;
         dayMinutes = -1;
+
+        daysBetween = startDate.getTime() - date.getTime();
+        daysBetween = Math.floor(daysBetween / (1000 * 3600 * 24));
     }
 
     // find the next event
@@ -176,29 +181,21 @@ export default function determineNextEvent(schedule, startDateString) {
 
     // POTENTIAL TO BE SECONDARY FUNCTION
     // calculate minutes till the event
-    let minutesTill = 0;
+    let minutesTill = daysBetween * 1440;
 
     // same day as event
     if (foundDay === curDay) {
-        minutesTill = nextEvent.minutes - curMins;
+        minutesTill += nextEvent.minutes - curMins;
     } else {
-        let daysTill = 0;
         // remainder of minutes in the day
         minutesTill += 1440 - curMins;
 
-        // determining days between now and event
-        if (curDay > foundDay) {
-            daysTill = 6 - curDay + foundDay;
-        } else {
-            daysTill = foundDay - curDay - 1;
-        }
-
         // add and convert days between into minutes
-        minutesTill += daysTill * 1440;
+        minutesTill += (foundDay - curDay - 1) * 1440;
 
         // add minutes on day of show
         minutesTill += nextEvent.minutes;
     }
 
-    return { minutesTill: minutesTill, ...nextEvent };
+    return { minutesTill: minutesTill, name: nextEvent.name };
 }
