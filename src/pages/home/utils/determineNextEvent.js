@@ -111,6 +111,7 @@ export default function determineNextEvent(schedule, startDateString) {
 
     const endDate = determineEndDate(startDate);
 
+    // check to see if this is an old schedule
     if (date > endDate) {
         console.error("endDate has already passed!");
         return false;
@@ -128,6 +129,13 @@ export default function determineNextEvent(schedule, startDateString) {
     let nextEvent;
     let foundNext = false;
     let daysChecked = 0;
+
+    // set found day to monday if current date is before the week starts
+    // this DOES NOT FIX THE OVERALL PROBLEM! NEED TO REDO most of this function with dates in mind!
+    if (date < startDate) {
+        foundDay = 0;
+        dayMinutes = -1;
+    }
 
     // find the next event
     while (foundNext === false) {
@@ -162,6 +170,7 @@ export default function determineNextEvent(schedule, startDateString) {
 
     // No events were found or end of week reached
     if (daysChecked === 6 || foundDay > 6) {
+        console.error("event not found or end of week");
         return false;
     }
 

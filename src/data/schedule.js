@@ -1,13 +1,27 @@
-export const dayOfWeek = "Week of Feb 27th";
+export const dayOfWeek = "Week of Mar 6th";
 
 export const schedule = [
-    // {
-    //     day: "tuesday",
-    //     hours: 20,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Curious Curios",
-    // },
+    {
+        day: "mon",
+        hours: 20,
+        minutes: 0,
+        timezone: "est",
+        name: "Into The Shadow's Breach",
+    },
+    {
+        day: "tuesday",
+        hours: 12,
+        minutes: 30,
+        timezone: "est",
+        name: " IMPORTANT ANNOUNCEMENT STREAM",
+    },
+    {
+        day: "tuesday",
+        hours: 20,
+        minutes: 0,
+        timezone: "est",
+        name: "Curious Curios",
+    },
     // {
     //     day: "wed",
     //     hours: 20,
@@ -15,20 +29,20 @@ export const schedule = [
     //     timezone: "est",
     //     name: "Into The Shadow's Breach",
     // },
-    // {
-    //     day: "thurs",
-    //     hours: 16,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Deadbeats (Fanart Session)",
-    // },
-    // {
-    //     day: "thurs",
-    //     hours: 20,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Pipe Dreamers",
-    // },
+    {
+        day: "thurs",
+        hours: 16,
+        minutes: 0,
+        timezone: "est",
+        name: "Deadbeats",
+    },
+    {
+        day: "thurs",
+        hours: 20,
+        minutes: 0,
+        timezone: "est",
+        name: "Pipe Dreamers",
+    },
     // {
     //     day: "sat",
     //     hours: 14,
