@@ -38,7 +38,6 @@ let navigationData = [
     },
 ];
 
-import socialData from "data/social.js";
 import backgroundImage from "images/galaxy_2.webp";
 import useSetPrimaryColor from "hooks/useSetPrimaryColor";
 
@@ -56,7 +55,6 @@ const Phase2 = () => {
             <HeroNavBar />
             <SocialDrawerBar
                 mediaQuery="(min-width: 1200px) and (min-height: 700px)"
-                data={socialData}
                 width="225px"
                 orientation="left"
                 type="transparent"

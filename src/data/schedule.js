@@ -43,11 +43,11 @@ export const schedule = [
         timezone: "est",
         name: "Pipe Dreamers",
     },
-    // {
-    //     day: "sat",
-    //     hours: 14,
-    //     minutes: 0,
-    //     timezone: "est",
-    //     name: "Terraria Zenith Seed w/ TomFawkes and SciFri!",
-    // },
+    {
+        day: "sat",
+        hours: 18,
+        minutes: 0,
+        timezone: "est",
+        name: "Why Slay Dragons when you could be FISHING beta test",
+    },
 ];

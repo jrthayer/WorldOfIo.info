@@ -41,8 +41,6 @@ let navigationData = [
     },
 ];
 
-import socialData from "data/social.js";
-
 //images
 import backgroundImage from "images/ioverse-background.webp";
 
@@ -61,8 +59,7 @@ const Home = () => {
 
             <SocialDrawerBar
                 mediaQuery="(min-width: 1200px) and (min-height: 700px)"
-                data={socialData}
-                width="225px"
+                width="280px"
                 orientation="left"
                 type="transparent"
             ></SocialDrawerBar>

@@ -11,6 +11,32 @@ import Drawer from "layout/drawerbars/drawer/drawer";
 
 import HeroAnimation from "layout/components/heroAnimation";
 
+import socialData from "data/social.js";
+
+/**
+ * This function returns a fragment that contains a map of the socialData array, which returns an
+ * IconBtn component for each entry in the array.
+ * @returns An array of IconBtn components.
+ */
+function SocialButtons() {
+    return (
+        <>
+            {socialData.map((singleEntry) => (
+                <IconBtn
+                    link={singleEntry.link}
+                    // prettier-ignore
+                    type={singleEntry.type !== undefined ? singleEntry.type : singleEntry.text}
+                    // Not a great id, temporary measure!!!
+                    key={singleEntry.text}
+                    primary={singleEntry.primaryColor}
+                >
+                    {singleEntry.text}
+                </IconBtn>
+            ))}
+        </>
+    );
+}
+
 const SocialDrawerBar = (props) => {
     let themeClass;
     if (props.type === "default") {
@@ -47,18 +73,7 @@ const SocialDrawerBar = (props) => {
                     style={sidebarStyle}
                     id={"socialIconBar"}
                 >
-                    {props.data.map((singleEntry) => (
-                        <IconBtn
-                            link={singleEntry.link}
-                            // prettier-ignore
-                            type={singleEntry.text}
-                            // Not a great id, temporary measure!!!
-                            key={singleEntry.text}
-                            primary={singleEntry.primaryColor}
-                        >
-                            {singleEntry.text}
-                        </IconBtn>
-                    ))}
+                    <SocialButtons />
                 </div>
             </HeroAnimation>
         );
@@ -70,18 +85,7 @@ const SocialDrawerBar = (props) => {
             >
                 <h2>Social Links</h2>
                 <div className={drawerClasses}>
-                    {props.data.map((singleEntry) => (
-                        <IconBtn
-                            link={singleEntry.link}
-                            // prettier-ignore
-                            type={singleEntry.text}
-                            // Not a great id, temporary measure!!!
-                            key={singleEntry.text}
-                            // primary={singleEntry.primaryColor}
-                        >
-                            {singleEntry.text}
-                        </IconBtn>
-                    ))}
+                    <SocialButtons />
                 </div>
             </Drawer>
         );
