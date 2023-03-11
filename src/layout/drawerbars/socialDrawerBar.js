@@ -49,13 +49,15 @@ const SocialDrawerBar = (props) => {
         console.error("invalid social drawer class type!");
     }
 
-    const switchState = useMediaQuery(props.mediaQuery);
+    const switchState = useMediaQuery(
+        "(min-width: 1200px) and (min-height: 700px)"
+    );
 
     const sidebarStyle = useMemo(() => {
         let styleObject = {};
 
-        styleObject["--width"] = props.width;
-        styleObject["--margin"] = props.margin;
+        styleObject["--width"] = "285px";
+        styleObject["--margin"] = "0px";
 
         return styleObject;
     }, [props.width, props.margin]);

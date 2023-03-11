@@ -55,8 +55,6 @@ const Phase2 = () => {
         <Fragment>
             <HeroNavBar />
             <SocialDrawerBar
-                mediaQuery="(min-width: 1200px) and (min-height: 700px)"
-                width="225px"
                 orientation="left"
                 type="transparent"
             ></SocialDrawerBar>
