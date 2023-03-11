@@ -13,6 +13,21 @@ const SupportSection = (props) => {
             </h2>
             <div className={styles.supportGroup}>
                 <IconPanel
+                    data={socialData.find((obj) => obj.type === "Kickstarter")}
+                    type="Kickstarter"
+                >
+                    <p>
+                        April 11th is the start of the Kickstarter Campaign for
+                        Brett's first ever TTRPG Book - Why Slay Dragons when
+                        you could be FISHING!{" "}
+                    </p>
+                    <br />
+                    <p>
+                        Be sure to follow so you can get immediate access, and
+                        be able to support with discounted Early Bird pledges!
+                    </p>
+                </IconPanel>
+                <IconPanel
                     data={socialData.find((obj) => obj.text === "Patreon")}
                     type="patreon"
                 >
