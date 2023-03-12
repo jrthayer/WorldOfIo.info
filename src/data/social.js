@@ -38,4 +38,9 @@ export default [
         text: "Wiki",
         link: "https://worldofio.fandom.com/wiki/World_of_Io_Wiki",
     },
+    {
+        type: "Kickstarter",
+        text: "WSD- Fishing",
+        link: "https://www.kickstarter.com/projects/iopublishing/why-slay-dragons-when-you-could-be-fishing?ref=7h83j3",
+    },
 ];

@@ -13,6 +13,30 @@ import HeroAnimation from "layout/components/heroAnimation";
 
 import socialData from "data/social.js";
 
+/**
+ * This function returns a fragment that contains a map of the socialData array, which returns an
+ * IconBtn component for each entry in the array.
+ * @returns An array of IconBtn components.
+ */
+function SocialButtons() {
+    return (
+        <>
+            {socialData.map((singleEntry) => (
+                <IconBtn
+                    link={singleEntry.link}
+                    // prettier-ignore
+                    type={singleEntry.type !== undefined ? singleEntry.type : singleEntry.text}
+                    // Not a great id, temporary measure!!!
+                    key={singleEntry.text}
+                    primary={singleEntry.primaryColor}
+                >
+                    {singleEntry.text}
+                </IconBtn>
+            ))}
+        </>
+    );
+}
+
 const SocialDrawerBar = (props) => {
     let themeClass;
     if (props.type === "default") {
@@ -25,13 +49,15 @@ const SocialDrawerBar = (props) => {
         console.error("invalid social drawer class type!");
     }
 
-    const switchState = useMediaQuery(props.mediaQuery);
+    const switchState = useMediaQuery(
+        "(min-width: 1200px) and (min-height: 700px)"
+    );
 
     const sidebarStyle = useMemo(() => {
         let styleObject = {};
 
-        styleObject["--width"] = props.width;
-        styleObject["--margin"] = props.margin;
+        styleObject["--width"] = "285px";
+        styleObject["--margin"] = "0px";
 
         return styleObject;
     }, [props.width, props.margin]);
@@ -49,18 +75,7 @@ const SocialDrawerBar = (props) => {
                     style={sidebarStyle}
                     id={"socialIconBar"}
                 >
-                    {socialData.map((singleEntry) => (
-                        <IconBtn
-                            link={singleEntry.link}
-                            // prettier-ignore
-                            type={singleEntry.text}
-                            // Not a great id, temporary measure!!!
-                            key={singleEntry.text}
-                            primary={singleEntry.primaryColor}
-                        >
-                            {singleEntry.text}
-                        </IconBtn>
-                    ))}
+                    <SocialButtons />
                 </div>
             </HeroAnimation>
         );
@@ -72,18 +87,7 @@ const SocialDrawerBar = (props) => {
             >
                 <h2>Social Links</h2>
                 <div className={drawerClasses}>
-                    {socialData.map((singleEntry) => (
-                        <IconBtn
-                            link={singleEntry.link}
-                            // prettier-ignore
-                            type={singleEntry.text}
-                            // Not a great id, temporary measure!!!
-                            key={singleEntry.text}
-                            // primary={singleEntry.primaryColor}
-                        >
-                            {singleEntry.text}
-                        </IconBtn>
-                    ))}
+                    <SocialButtons />
                 </div>
             </Drawer>
         );

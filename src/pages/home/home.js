@@ -58,8 +58,6 @@ const Home = () => {
             <HeroNavBar />
 
             <SocialDrawerBar
-                mediaQuery="(min-width: 1200px) and (min-height: 700px)"
-                width="225px"
                 orientation="left"
                 type="transparent"
             ></SocialDrawerBar>

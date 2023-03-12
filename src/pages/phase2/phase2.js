@@ -54,10 +54,7 @@ const Phase2 = () => {
     return (
         <Fragment>
             <HeroNavBar />
-            <ScrollingScreen />
             <SocialDrawerBar
-                mediaQuery="(min-width: 1200px) and (min-height: 700px)"
-                width="225px"
                 orientation="left"
                 type="transparent"
             ></SocialDrawerBar>
@@ -69,6 +66,8 @@ const Phase2 = () => {
                 orientation="right"
                 type="transparent"
             ></NavigationBar>
+
+            <ScrollingScreen></ScrollingScreen>
 
             {/* Page Sections */}
             <HeroSection id="hero" />

@@ -1,4 +1,4 @@
-import scheduleRaw from "data/schedule.js";
+import { schedule as scheduleRaw } from "data/schedule.js";
 
 function checkEdges(day, minutes) {
     // if minutes is less than zero set day to -1
@@ -124,7 +124,7 @@ function convertedSchedule(scheduleArray) {
         { day: "Sun", events: [] },
     ];
 
-    scheduleArray.map((event) => {
+    scheduleArray.forEach((event) => {
         // convert time to utc
         const utcEvent = convertToUTC(
             event.day,

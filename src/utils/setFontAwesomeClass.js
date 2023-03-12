@@ -21,8 +21,10 @@ export default function setFontAwesomeClass(type) {
         iconClasses = "fas fa-book-open fa-2x";
     } else if (type === "circle") {
         iconClasses = "fas fa-dot-circle fa-2x";
+    } else if (type === "kickstarter") {
+        iconClasses = "fab fa-kickstarter fa-2x";
     } else {
-        console.error("invalid icon type was given");
+        console.error(`invalid icon type was given: ${type}`);
     }
 
     return iconClasses;

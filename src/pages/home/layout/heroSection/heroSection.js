@@ -18,7 +18,7 @@ const HeroSection = (props) => {
                 ></DynamicLogo>
                 <div className={styles.heroLinks}>
                     <IconBtn
-                        link="https://www.youtube.com/watch?v=yfvopjShUBo&list=PLjMDIlamRhomM4ljfnstQaQ8CivQH76at"
+                        link="https://www.youtube.com/watch?v=edpzm9XYmT0"
                         primary="var(--color-primary-dark)"
                     >
                         IO Direct

@@ -1,4 +1,20 @@
-export default [
+export const dayOfWeek = "Week of Mar 6th";
+
+export const schedule = [
+    {
+        day: "mon",
+        hours: 20,
+        minutes: 0,
+        timezone: "est",
+        name: "Into The Shadow's Breach",
+    },
+    {
+        day: "tuesday",
+        hours: 12,
+        minutes: 30,
+        timezone: "est",
+        name: " IMPORTANT ANNOUNCEMENT STREAM",
+    },
     {
         day: "tuesday",
         hours: 20,
@@ -6,13 +22,13 @@ export default [
         timezone: "est",
         name: "Curious Curios",
     },
-    {
-        day: "wed",
-        hours: 20,
-        minutes: 0,
-        timezone: "est",
-        name: "Into The Shadow's Breach",
-    },
+    // {
+    //     day: "wed",
+    //     hours: 20,
+    //     minutes: 0,
+    //     timezone: "est",
+    //     name: "Into The Shadow's Breach",
+    // },
     {
         day: "thurs",
         hours: 16,
@@ -28,10 +44,10 @@ export default [
         name: "Pipe Dreamers",
     },
     {
-        day: "fri",
-        hours: 10,
+        day: "sat",
+        hours: 18,
         minutes: 0,
         timezone: "est",
-        name: "Twitch Stream (Potentially #Sponsored)",
+        name: "Why Slay Dragons when you could be FISHING beta test",
     },
 ];

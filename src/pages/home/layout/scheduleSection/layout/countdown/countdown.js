@@ -12,6 +12,7 @@ const Countdown = (props) => {
         minutesTill: 0,
         name: "Loading Content",
     });
+    const [noEvents, setNoEvents] = useState(false);
     const [imgSrc, setImgSrc] = useState();
     const [hideTitle, setHideTitle] = useState(true);
 
@@ -28,19 +29,35 @@ const Countdown = (props) => {
     }, []);
 
     useEffect(() => {
-        if (nextEvent === true) {
+        setNextEvent(true);
+    }, [props.data, props.startDate]);
+
+    useEffect(() => {
+        if (
+            nextEvent === true &&
+            props.data != null &&
+            props.startDate != null
+        ) {
             // determine next show
-            setEvent(determineNextEvent(props.data));
+            setEvent(determineNextEvent(props.data, props.startDate));
         }
     }, [nextEvent]);
 
     /* Setting the image source based on the event name. */
     useEffect(() => {
+        //Return if there are no events this week
+        if (event === false) {
+            setNoEvents(true);
+            setNextEvent(false);
+            return;
+        }
+
         let fileName = event.name.replace(/ /g, "_");
         fileName = fileName.replace(/'/, "");
         fileName = fileName.toLowerCase();
         setImgSrc(`/image/${fileName}.webp`);
         setNextEvent(false);
+        setNoEvents(false);
     }, [event]);
 
     useEffect(() => {
@@ -49,27 +66,33 @@ const Countdown = (props) => {
 
     return (
         <div className={styles.container}>
-            <h2 className={`fs-650 header-ioverse`}>Next Show</h2>
-            <div className={styles.imgContainer}>
-                {hideTitle ? null : (
-                    <div className={`${styles.headerContainer}`}>
-                        <h3 className={`${styles.header}`}>{event.name}</h3>
+            {/* Check for no events this week */}
+            {noEvents ? null : (
+                <>
+                    <h2 className={`fs-650 header-ioverse`}>Next Show</h2>
+                    <div className={styles.imgContainer}>
+                        {hideTitle ? null : (
+                            <div className={`${styles.headerContainer}`}>
+                                <h3 className={`${styles.header}`}>
+                                    {event.name}
+                                </h3>
+                            </div>
+                        )}
+
+                        <img
+                            src={imgSrc}
+                            className={styles.image}
+                            onError={({ currentTarget }) => {
+                                currentTarget.onerror = null; // prevents looping
+                                console.error("Not a valid countdown image");
+                                currentTarget.src = "/image/default.webp";
+                                setHideTitle(false);
+                            }}
+                        ></img>
                     </div>
-                )}
-
-                <img
-                    src={imgSrc}
-                    className={styles.image}
-                    onError={({ currentTarget }) => {
-                        currentTarget.onerror = null; // prevents looping
-                        console.error("Not a valid countdown image");
-                        currentTarget.src = "/image/default.webp";
-                        setHideTitle(false);
-                    }}
-                ></img>
-            </div>
-
-            <CountdownDisplay data={event} nextEvent={setNextEvent} />
+                    <CountdownDisplay data={event} nextEvent={setNextEvent} />
+                </>
+            )}
         </div>
     );
 };
