@@ -1,5 +1,3 @@
-import { schedule as scheduleRaw } from "data/schedule.js";
-
 function checkEdges(day, minutes) {
     // if minutes is less than zero set day to -1
     if (minutes < 0) {
@@ -113,7 +111,7 @@ function convertToLocal(day, utcMinutes) {
     return { day, minutes };
 }
 
-function convertedSchedule(scheduleArray) {
+export function convertedSchedule(scheduleArray) {
     let convertedSchedule = [
         { day: "Mon", events: [] },
         { day: "Tues", events: [] },
@@ -161,5 +159,3 @@ function convertedSchedule(scheduleArray) {
     // return utc schedule
     return convertedSchedule;
 }
-
-export default convertedSchedule(scheduleRaw);
