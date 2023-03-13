@@ -64,8 +64,8 @@ const Home = () => {
 
     return (
         <Fragment>
+            {/* Navigation */}
             <HeroNavBar />
-
             <DrawerBar
                 title="Social Links"
                 data={socialData}
@@ -80,8 +80,10 @@ const Home = () => {
                 margin="50px"
             ></DrawerBar>
 
+            {/* Background */}
             <ScrollingScreen></ScrollingScreen>
 
+            {/* Page Sections */}
             <HeroSection id="hero"></HeroSection>
             <ScheduleSection />
             <NewsSection id="news" />

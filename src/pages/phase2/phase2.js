@@ -65,6 +65,7 @@ const Phase2 = () => {
 
     return (
         <Fragment>
+            {/* Navigation */}
             <HeroNavBar />
             <DrawerBar
                 title="Social Links"
@@ -80,6 +81,7 @@ const Phase2 = () => {
                 margin="50px"
             ></DrawerBar>
 
+            {/* Background */}
             <ScrollingScreen></ScrollingScreen>
 
             {/* Page Sections */}

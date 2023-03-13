@@ -1,9 +1,10 @@
-import styles from "./scheduleSection.module.scss";
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-// --- COMPONENTS ---
+//====== CSS Styles
+import styles from "./scheduleSection.module.scss";
+
+//====== Components
 // local
 import Schedule from "./layout/schedule/schedule.js";
 
@@ -11,7 +12,8 @@ import Schedule from "./layout/schedule/schedule.js";
 import Section from "components/containers/section";
 import Countdown from "./layout/countdown/countdown";
 
-import { convertedSchedule } from "pages/home/scripts/convertSchedule.js";
+//====== Utility
+import { convertedSchedule } from "pages/home/utils/convertSchedule.js";
 
 const ScheduleSection = () => {
     const [schedule, setSchedule] = useState(null);

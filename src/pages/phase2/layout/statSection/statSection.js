@@ -1,8 +1,11 @@
+//====== CSS Styles
 import styles from "./statSection.module.scss";
 
+//====== Components
 import Section from "components/containers/section";
 import StatCard from "components/statCard";
 
+//====== Main Component
 const StatSection = (props) => {
     return (
         <Section id={props.id} className={styles.section}>

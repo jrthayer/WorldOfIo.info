@@ -1,9 +1,13 @@
+//====== CSS Styles
 import styles from "./heroSection.module.scss";
 
+//====== Components
 import Section from "components/containers/section";
 import IconBtn from "components/buttons/iconBtn";
 import DynamicLogo from "../../../../components/dynamicLogo";
 
+//====== Data
+// images
 import logo from "images/ioverse-logo.webp";
 
 const HeroSection = (props) => {

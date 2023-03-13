@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-//------------ Components
+
+//====== Components
 // local
 import TableList from "./components/tableList/tableList";
 
