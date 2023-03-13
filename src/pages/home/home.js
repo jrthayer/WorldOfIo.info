@@ -16,34 +16,43 @@ import SupportSection from "./layout/supportSection";
 // shared
 import HeroNavBar from "layout/navBar/heroNavBar";
 import Footer from "layout/footer";
-import NavigationBar from "layout/drawerbars/navigationDrawerBar";
-import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
+import DrawerBar from "layout/drawerbars/drawerBar";
 import ScrollingScreen from "components/scrollingScreen";
 
 //====== Data
 // arrays
+import socialData from "data/social.js";
 let navigationData = [
     {
         text: "Top Of Page",
         link: "#hero",
+        type: "circle",
+        samePage: true,
     },
     {
         text: "Schedule",
         link: "#schedule",
+        type: "circle",
+        samePage: true,
     },
     {
         text: "News",
         link: "#news",
+        type: "circle",
+        samePage: true,
     },
     {
         text: "Support",
         link: "#howToSupport",
+        type: "circle",
+        samePage: true,
     },
 ];
 
 //images
 import backgroundImage from "images/ioverse-background.webp";
 
+//====== Main Component
 const Home = () => {
     useNavButtonOnStart("#hero");
     useSetBackground(backgroundImage);
@@ -57,18 +66,19 @@ const Home = () => {
         <Fragment>
             <HeroNavBar />
 
-            <SocialDrawerBar
-                orientation="left"
+            <DrawerBar
+                title="Social Links"
+                data={socialData}
                 type="transparent"
-            ></SocialDrawerBar>
-            <NavigationBar
-                mediaQuery="(min-width: 1200px) and (min-height: 700px)"
+            ></DrawerBar>
+            <DrawerBar
+                title="Page Sections"
                 data={navigationData}
-                width="320px"
-                margin="50px"
                 orientation="right"
                 type="transparent"
-            ></NavigationBar>
+                width="320px"
+                margin="50px"
+            ></DrawerBar>
 
             <ScrollingScreen></ScrollingScreen>
 

@@ -1,34 +1,37 @@
 import { useMemo } from "react";
 
-import styles from "./drawerThemes.module.scss";
+//====== Hooks
+import useMediaQuery from "hooks/useMediaQuery";
+
+//====== CSS styles
+import styles from "./styles/drawerThemes.module.scss";
 import drawerStyles from "./styles/drawer.module.scss";
 import iconBarStyles from "./styles/iconBar.module.scss";
 
-import useMediaQuery from "hooks/useMediaQuery";
-
+//====== Components
 import IconBtn from "components/buttons/iconBtn";
 import Drawer from "layout/drawerbars/drawer/drawer";
-
 import HeroAnimation from "layout/components/heroAnimation";
 
-import socialData from "data/social.js";
-
 /**
- * This function returns a fragment that contains a map of the socialData array, which returns an
- * IconBtn component for each entry in the array.
+ * It takes an array of objects as a prop, and returns a button for each object in the array.
+ *
+ * The button is a custom component, which is defined in a separate file.
+ *
  * @returns An array of IconBtn components.
  */
-function SocialButtons() {
+function LinkButtons({ data }) {
     return (
         <>
-            {socialData.map((singleEntry) => (
+            {data.map((singleEntry) => (
                 <IconBtn
                     link={singleEntry.link}
                     // prettier-ignore
-                    type={singleEntry.type !== undefined ? singleEntry.type : singleEntry.text}
+                    type={singleEntry.type ?? singleEntry.text}
                     // Not a great id, temporary measure!!!
                     key={singleEntry.text}
                     primary={singleEntry.primaryColor}
+                    samePage={singleEntry.samePage ?? false}
                 >
                     {singleEntry.text}
                 </IconBtn>
@@ -37,30 +40,38 @@ function SocialButtons() {
     );
 }
 
-const SocialDrawerBar = (props) => {
-    let themeClass;
-    if (props.type === "default") {
-        themeClass = styles.default;
-    } else if (props.type === "transparent") {
+//====== Setters
+// Determines theme styling, specifically color/bg styles
+function setTheme(type) {
+    let themeClass = styles.default;
+
+    if (type === "transparent") {
         themeClass = styles.transparent;
-    } else if (props.type === "defaultTransparent") {
+    } else if (type === "defaultTransparent") {
         themeClass = styles.defaultTransparent;
     } else {
-        console.error("invalid social drawer class type!");
     }
 
-    const switchState = useMediaQuery(
-        "(min-width: 1200px) and (min-height: 700px)"
-    );
+    return themeClass;
+}
 
-    const sidebarStyle = useMemo(() => {
-        let styleObject = {};
+// Sets inline styles object for the sidebar
+function setSidebarParams(width, margin) {
+    let styleObject = {};
 
-        styleObject["--width"] = "285px";
-        styleObject["--margin"] = "0px";
+    styleObject["--width"] = width ?? "285px";
+    styleObject["--margin"] = margin ?? "0px";
 
-        return styleObject;
-    }, [props.width, props.margin]);
+    return styleObject;
+}
+
+//====== Main Component
+const DrawerBar = (props) => {
+    let themeClass = useMemo(() => setTheme(props.type), [props.type]);
+    // prettier-ignore
+    let sidebarStyle = useMemo(()=> setSidebarParams(props.width, props.margin), [props.width, props.margin])
+    //prettier-ignore
+    const switchState = useMediaQuery(props.mediaQuery ?? "(min-width: 1200px) and (min-height: 700px)");
 
     // prettier-ignore
     const sidebarClasses = `${iconBarStyles.iconBar} ${iconBarStyles[`${props.orientation}`]} ${themeClass}`;
@@ -75,7 +86,7 @@ const SocialDrawerBar = (props) => {
                     style={sidebarStyle}
                     id={"socialIconBar"}
                 >
-                    <SocialButtons />
+                    <LinkButtons data={props.data} />
                 </div>
             </HeroAnimation>
         );
@@ -85,20 +96,19 @@ const SocialDrawerBar = (props) => {
                 orientation={props.orientation}
                 className={drawerStyles.drawer}
             >
-                <h2>Social Links</h2>
+                <h2>{props.title}</h2>
                 <div className={drawerClasses}>
-                    <SocialButtons />
+                    <LinkButtons data={props.data} />
                 </div>
             </Drawer>
         );
     }
 };
 
-SocialDrawerBar.defaultProps = {
+DrawerBar.defaultProps = {
     type: "default",
-    width: "",
-    margin: "",
+    title: "Links",
     orientation: "left",
 };
 
-export default SocialDrawerBar;
+export default DrawerBar;
