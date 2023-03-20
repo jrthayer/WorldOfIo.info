@@ -55,7 +55,7 @@ import useSetPrimaryColor from "hooks/useSetPrimaryColor";
 
 //====== Main Component
 const Phase2 = () => {
-    useNavButtonOnStart("#hero");
+    useNavButtonOnStart();
     useSetBackground(backgroundImage);
     useSetPrimaryColor(190, 48, 60);
 

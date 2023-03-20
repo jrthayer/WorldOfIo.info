@@ -54,7 +54,7 @@ import backgroundImage from "images/ioverse-background.webp";
 
 //====== Main Component
 const Home = () => {
-    useNavButtonOnStart("#hero");
+    useNavButtonOnStart();
     useSetBackground(backgroundImage);
     useSetPrimaryColor(190, 43, 63);
 
