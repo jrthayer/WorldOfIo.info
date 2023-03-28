@@ -13,7 +13,7 @@ const NewsSection = (props) => {
 
     useEffect(() => {
         axios(
-            "https://raw.githubusercontent.com/jrthayer/www.WorldOfIo.info-data/main/news.json"
+            "https://raw.githubusercontent.com/jrthayer/WorldOfIo.info-data/main/news.json"
         )
             .then((response) => {
                 setPosts(response.data.posts);

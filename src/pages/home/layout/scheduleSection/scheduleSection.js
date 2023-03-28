@@ -21,7 +21,7 @@ const ScheduleSection = () => {
 
     useEffect(() => {
         axios(
-            "https://raw.githubusercontent.com/jrthayer/www.WorldOfIo.info-data/main/schedule.json"
+            "https://raw.githubusercontent.com/jrthayer/WorldOfIo.info-data/main/schedule.json"
         )
             .then((response) => {
                 let rawSchedule = convertedSchedule(response.data.schedule);
