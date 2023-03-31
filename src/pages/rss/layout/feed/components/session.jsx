@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styles from "./session.module.scss";
 
 function Session({ index, data, updateAudio, updateSession }) {
     function handleClick() {
-        let url = data.enclosures[0].url;
+        let url = data.link;
         updateAudio(url);
         updateSession(index);
+        console.log(data);
     }
 
     return (
@@ -23,4 +24,4 @@ function Session({ index, data, updateAudio, updateSession }) {
     );
 }
 
-export default Session;
+export default React.memo(Session);

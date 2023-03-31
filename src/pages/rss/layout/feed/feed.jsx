@@ -1,11 +1,13 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, useRef } from "react";
 
 import Session from "./components/session";
 import AudioPlayer from "./components/audioPlayer";
 
 function Feed(props) {
-    const [data, setData] = useState(props.data.items);
+    const [data, setData] = useState(props.data);
     const [audioSrc, setAudioSrc] = useState("");
+    const [curSessionPlaying, setCurSessionPlaying] = useState(0);
+    const prevPlayedIndex = useRef(curSessionPlaying);
 
     function updateAudioSrc(src) {
         setAudioSrc(src);
@@ -13,17 +15,41 @@ function Feed(props) {
 
     function updateSession(index) {
         setData((prevData) => {
-            const updatedData = prevData.map((item, i) => {
-                if (index === i) {
-                    return { ...item, watched: true, isCurSession: true };
-                } else {
-                    return { ...item, isCurSession: false };
-                }
-            });
+            // set currently playing session
+            const sessionBeingUpdated = {
+                ...prevData[index],
+                watched: true,
+                isCurSession: true,
+            };
+
+            let updatedData = [
+                ...prevData.slice(0, index),
+                sessionBeingUpdated,
+                ...prevData.slice(index + 1),
+            ];
+
+            // edit previously playing session
+            const prevSessionPlaying = {
+                ...prevData[prevPlayedIndex.current],
+                isCurSession: false,
+            };
+
+            updatedData = [
+                ...updatedData.slice(0, prevPlayedIndex.current),
+                prevSessionPlaying,
+                ...updatedData.slice(prevPlayedIndex.current + 1),
+            ];
 
             return updatedData;
         });
+
+        setCurSessionPlaying(index);
     }
+
+    // Needed to edit the previous played session when a new session is clicked
+    useEffect(() => {
+        prevPlayedIndex.current = curSessionPlaying;
+    }, [curSessionPlaying]);
 
     return (
         <>
