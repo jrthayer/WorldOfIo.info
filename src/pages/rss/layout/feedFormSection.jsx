@@ -10,21 +10,7 @@ import Section from "components/containers/section";
 import Feed from "./feed/feed";
 import Form from "./form/form";
 
-function stripRssData(rssObject) {
-    return {
-        title: rssObject.title,
-        data: new Date(rssObject.created * 1000),
-        link: rssObject.enclosures[0].url,
-        length: rssObject.enclosures[0].length,
-        isCurSession: false,
-        watched: false,
-    };
-}
-
-function createDataArray(rssData) {
-    console.log(rssData);
-    return rssData.map((session) => stripRssData(session));
-}
+import {convertArray} from "pages/rss/utils/parseRSS";
 
 function FeedFormSection() {
     //Key States
@@ -71,7 +57,7 @@ function FeedFormSection() {
                     localStorage.setItem("rss", key);
                 }
 
-                setData(createDataArray(response.data.items));
+                setData(convertArray(response.data.items));
             })
             .catch((error) => console.error(error));
     }, [key]);

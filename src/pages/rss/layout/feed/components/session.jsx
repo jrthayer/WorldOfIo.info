@@ -15,8 +15,8 @@ function Session({ index, data, updateAudio, updateSession }) {
             style={{ color: "white" }}
             onClick={handleClick}
             className={`
-            ${data.watched ? styles.watched : ""} 
-            ${data.isCurSession ? styles.current : ""}
+            ${data.watchedState ? styles.watched : ""} 
+            ${data.currentShowState ? styles.current : ""}
             `}
         >
             {data.title}

@@ -18,8 +18,8 @@ function Feed(props) {
             // set currently playing session
             const sessionBeingUpdated = {
                 ...prevData[index],
-                watched: true,
-                isCurSession: true,
+                watchedState: true,
+                currentShowState: true,
             };
 
             let updatedData = [
@@ -31,7 +31,7 @@ function Feed(props) {
             // edit previously playing session
             const prevSessionPlaying = {
                 ...prevData[prevPlayedIndex.current],
-                isCurSession: false,
+                currentShowState: false,
             };
 
             updatedData = [
