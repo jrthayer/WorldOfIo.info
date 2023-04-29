@@ -10,7 +10,7 @@ import Section from "components/containers/section";
 import Feed from "./feed/feed";
 import Form from "./form/form";
 
-import {convertArray} from "pages/rss/utils/parseRSS";
+import { convertArray } from "pages/rss/utils/parseRSS";
 
 function FeedFormSection() {
     //Key States
@@ -20,6 +20,7 @@ function FeedFormSection() {
     const [saveState, setSaveState] = useState(false);
     //Feed States
     const [data, setData] = useState(null);
+    const [showsArray, setShowsArray] = useState(null);
 
     //Load key if stored in localStorage
     useEffect(() => {
@@ -57,7 +58,11 @@ function FeedFormSection() {
                     localStorage.setItem("rss", key);
                 }
 
-                setData(convertArray(response.data.items));
+                const convertedArrays = convertArray(response.data.items);
+
+                setData(convertedArrays[0]);
+                setShowsArray(convertedArrays[1]);
+                console.log(convertedArrays);
             })
             .catch((error) => console.error(error));
     }, [key]);
@@ -80,10 +85,10 @@ function FeedFormSection() {
     return (
         <Section features="fullscreen">
             <h1 className="header-ioverse-gradient fs-700">Ioverse MP3s</h1>
-            {data ? (
+            {data && showsArray ? (
                 <>
                     <button onClick={handleKeyCleared}>Remove RSS</button>
-                    <Feed data={data}></Feed>
+                    <Feed data={data} shows={showsArray}></Feed>
                 </>
             ) : (
                 <Form

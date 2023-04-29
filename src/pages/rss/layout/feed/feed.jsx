@@ -2,8 +2,10 @@ import React, { useEffect, useState, useMemo, useRef } from "react";
 
 import Session from "./components/session";
 import AudioPlayer from "./components/audioPlayer";
+import Show from "./components/show";
 
 function Feed(props) {
+    const shows = props.shows;
     const [data, setData] = useState(props.data);
     const [audioSrc, setAudioSrc] = useState("");
     const [curSessionPlaying, setCurSessionPlaying] = useState(0);
@@ -53,37 +55,69 @@ function Feed(props) {
 
     return (
         <>
-            <div>
-                {data.map((episode, i) =>
-                    React.useMemo(
-                        () => (
-                            <Session
-                                key={episode.title}
-                                index={i}
-                                data={episode}
-                                updateAudio={updateAudioSrc}
-                                updateSession={updateSession}
-                            />
-                        ),
-                        [episode]
-                    )
-                )}
-                <br></br>
-                {data.map((episode, i) =>
-                    useMemo(
-                        () => (
-                            <Session
-                                key={episode.title}
-                                index={i}
-                                data={episode}
-                                updateAudio={updateAudioSrc}
-                                updateSession={updateSession}
-                            />
-                        ),
-                        [episode]
-                    )
-                )}
-            </div>
+            {shows && data
+                ? shows.map((show, index) => {
+                      return (
+                          <>
+                              <Show data={show}></Show>
+                              <div
+                                  style={{
+                                      backgroundColor: "rgba(0,0,0,.5)",
+                                      marginTop: "20px",
+                                  }}
+                              >
+                                  {show.playlists.map(
+                                      (playlist, i, playlistArray) => {
+                                          return (
+                                              <div
+                                                  style={{
+                                                      backgroundColor:
+                                                          "rgba(0,0,0,.8)",
+                                                      marginTop: "20px",
+                                                  }}
+                                              >
+                                                  {playlistArray[
+                                                      playlistArray.length -
+                                                          1 -
+                                                          i
+                                                  ].sessions.map((dataIndex) =>
+                                                      useMemo(
+                                                          () => (
+                                                              <Session
+                                                                  key={
+                                                                      data[
+                                                                          dataIndex
+                                                                      ].title
+                                                                  }
+                                                                  index={
+                                                                      dataIndex
+                                                                  }
+                                                                  data={
+                                                                      data[
+                                                                          dataIndex
+                                                                      ]
+                                                                  }
+                                                                  updateAudio={
+                                                                      updateAudioSrc
+                                                                  }
+                                                                  updateSession={
+                                                                      updateSession
+                                                                  }
+                                                              />
+                                                          ),
+                                                          [data[dataIndex]]
+                                                      )
+                                                  )}
+                                              </div>
+                                          );
+                                      }
+                                  )}
+                              </div>
+                          </>
+                      );
+                  })
+                : null}
+
             {audioSrc ? <AudioPlayer src={audioSrc} /> : null}
         </>
     );
