@@ -1,5 +1,20 @@
 export default [
     {
+        title: "Misc Sessions",
+        numberOfEpisodes: 0,
+        duration: 0,
+        concluded: true,
+        playlistRegex: [""],
+        playlists: [
+            {
+                numberOfEpisodes: 0,
+                duration: 0,
+                concluded: true,
+                sessions: [],
+            },
+        ],
+    },
+    {
         title: "IOverse OSTs",
         numberOfEpisodes: 0,
         duration: 0,

@@ -1,15 +1,12 @@
-const epochDay = 24 * 60 * 60 * 1000;
 import { default as shows } from "data/shows";
 
-//convertRSS
-//takes rss array and converts it to a new master array for the page
-//goes through each show and:
-//+strips relevant info
-//+check and add to shows playlists
-
-//parse show
-//  add to playlist
-
+/**
+ * The function converts an array of episodes/sessions objects, fixes duplicate session names, strips data, adds to
+ * shows, and returns the converted array of episodes/sessions and an array of the shows.
+ * @param rawArray - an array of objects representing sessions, with each object containing various
+ * properties such as title, description, date, and audio file information.
+ * @returns An array containing two elements: the converted episodes array and the array of shows.
+ */
 export function convertArray(rawArray) {
     rawArray.reverse();
     let duplicateKey = 0;
@@ -43,7 +40,18 @@ export function convertArray(rawArray) {
     return [convertedArray, shows];
 }
 
+/**
+ * The function takes in raw data and returns a stripped down version with specific properties.
+ * @param rawData - an object containing information about a TV show episode, including its title,
+ * creation date, length, and URL.
+ * @returns The function `stripData` is returning an object with properties `title`, `airDate`,
+ * `duration`, `link`, `watchedState`, and `currentShowState`. The values of these properties are
+ * extracted from the `rawData` object passed as a parameter to the function. The `airDate` property is
+ * calculated by subtracting one day (in milliseconds) from the `created`
+ */
 function stripData(rawData) {
+    const epochDay = 24 * 60 * 60 * 1000;
+
     const showData = {
         title: rawData.title,
         airDate: new Date(rawData.created - epochDay),
@@ -56,20 +64,78 @@ function stripData(rawData) {
     return showData;
 }
 
-function addToShows(shows, sessionData, sessionIndex) {
+/**
+ * The function adds a session to a show or multiple shows based on a matching title.
+ * @param showAdded - a boolean indicating whether the session has already been added to a show
+ * @param shows - an array of objects representing all defined shows
+ * @param sessionData - an object containing information about a specific episode or session, including
+ * its index and title
+ * @param matchTitle - The title to match against the sessionData title to determine if a show should
+ * be added.
+ * @param showsToAddTo - An optional parameter that can be either an object representing a single show
+ * or an array of objects representing multiple shows. These are the shows that the session data will
+ * be added to.
+ * @returns true if the session was added to a show, false otherwise.
+ */
+function addSession(showAdded, shows, sessionData, matchTitle, showsToAddTo) {
+    const index = sessionData.index;
     const title = sessionData.title;
-    let showFound = false;
 
-    //check for podcasts
-    if (showFound !== true) {
-        if (title.includes("Podcast")) {
-            let podcasts = shows.find(
-                (playlist) => playlist.title === "Podcasts"
-            );
-            showFound = updateShow(podcasts, sessionIndex, sessionData);
+    function findShowAndAdd(shows, sessionData, showToAddTo) {
+        //prettier-ignore
+        const show = shows.find((singleShow) => singleShow.title === showToAddTo.title);
+        if (showToAddTo.season) {
+            return updateShow(show, index, sessionData, showToAddTo.season);
+        } else {
+            return updateShow(show, index, sessionData);
         }
     }
 
+    if (!showAdded) {
+        if (title.includes(matchTitle)) {
+            if (Array.isArray(showsToAddTo)) {
+                showsToAddTo.forEach((show) => {
+                    showAdded = findShowAndAdd(shows, sessionData, show);
+                });
+            } else {
+                showAdded = findShowAndAdd(shows, sessionData, showsToAddTo);
+            }
+        }
+    }
+
+    return showAdded;
+}
+
+/**
+ * The function adds a session to a specific show.
+ * @param shows - an array of objects representing different shows/playlists
+ * @param sessionData - An object containing information about a session, including its title and
+ * index.
+ * @param sessionIndex - The index of the session being added to the shows.
+ */
+function addToShows(shows, sessionData, sessionIndex) {
+    const title = sessionData.title;
+    let showFound = false;
+    let showsToAddTo = [];
+    let matchString = "";
+    sessionData.index = sessionIndex;
+
+    //check for podcasts
+    //=============================================
+    matchString = "Podcast";
+    showsToAddTo = { title: "Podcasts" };
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+
+    //check for OST
+    //=============================================
+    matchString = "IOverse OST";
+    showsToAddTo = { title: "IOverse OSTs" };
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+
+    //Add To Phase 2 or Phase 3 master playlist
+    //=============================================
     if (showFound !== true) {
         if (sessionIndex < 262) {
             let show = shows.find((playlist) => playlist.title === "Phase 2");
@@ -81,151 +147,91 @@ function addToShows(shows, sessionData, sessionIndex) {
     }
 
     //check for deadbeats x pipe dreamers crossover
-    if (showFound !== true) {
-        if (title.toLowerCase().includes("deadbeats x pipe dreamers")) {
-            let show = shows.find((playlist) => playlist.title === "Deadbeats");
-            showFound = updateShow(show, sessionIndex, sessionData, "Season 2");
-
-            show = shows.find((playlist) => playlist.title === "Pipe Dreamers");
-            showFound = updateShow(show, sessionIndex, sessionData, "Season 2");
-        }
-    }
-
-    //check for OST
-    if (showFound !== true) {
-        if (title.includes("IOverse OST")) {
-            let podcasts = shows.find(
-                (playlist) => playlist.title === "IOverse OSTs"
-            );
-            showFound = updateShow(podcasts, sessionIndex, sessionData);
-        }
-    }
+    //=============================================
+    matchString = "deadbeats x pipe dreamers";
+    showsToAddTo = [
+        { title: "Deadbeats", season: "Season 2" },
+        { title: "Pipe Dreamers", season: "Season 2" },
+    ];
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
 
     //check for curious curious typos
-    if (showFound !== true) {
-        if (title.includes("Curious Curious")) {
-            let show = shows.find((show) => show.title === "Curious Curios");
-            if (title.includes("S2") || title.includes("Season 2")) {
-                showFound = updateShow(
-                    show,
-                    sessionIndex,
-                    sessionData,
-                    "Season 2"
-                );
-            } else if (title.includes("Season 3")) {
-                showFound = updateShow(
-                    show,
-                    sessionIndex,
-                    sessionData,
-                    "Season 3"
-                );
-            }
-        }
-    }
+    //=============================================
+    matchString = "Curious Curious";
+    showsToAddTo = { title: "Curious Curios" };
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+
+    //check for March on Faewunder typos
+    //=============================================
+    matchString = "March of Faewunder";
+    showsToAddTo = { title: "March on Faewunder" };
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
 
     //check for oswin
-    if (showFound !== true) {
-        if (title.includes("Oswin")) {
-            let show = shows.find((show) => show.title === "Goblins of IO");
-            showFound = updateShow(show, sessionIndex, sessionData, "");
-        }
-    }
+    //=============================================
+    matchString = "Oswin";
+    showsToAddTo = { title: "Goblins of IO" };
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
 
     //check for weyzi
-    if (showFound !== true) {
-        if (title.includes("Weyzi")) {
-            let show = shows.find((show) => show.title === "Miss Demeanor");
-            showFound = updateShow(show, sessionIndex, sessionData, "S3");
-        }
-    }
+    //=============================================
+    matchString = "Weyzi";
+    showsToAddTo = { title: "Miss Demeanor", season: "S3" };
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
 
     //check for chamber
-    if (showFound !== true) {
-        if (title.includes("Chamber of the Eight")) {
-            let show = shows.find((show) => show.title === "Miss Demeanor");
-            showFound = updateShow(show, sessionIndex, sessionData, "S3");
-
-            show = shows.find((show) => show.title === "Goblins of IO");
-            showFound = updateShow(show, sessionIndex, sessionData, "");
-
-            show = shows.find((show) => show.title === "Phase 2 Major Events");
-            showFound = updateShow(
-                show,
-                sessionIndex,
-                sessionData,
-                "Chamber of the Eight"
-            );
-        }
-    }
+    //=============================================
+    matchString = "Chamber of the Eight";
+    showsToAddTo = [
+        { title: "Miss Demeanor", season: "S3" },
+        { title: "Goblins of IO" },
+        { title: "Phase 2 Major Events", season: "Chamber of the Eight" },
+    ];
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
 
     //check for Kaasma Khara Fight
-    if (showFound !== true) {
-        if (title.includes("Kaasma Khara Final Battle")) {
-            let show = shows.find((show) => show.title === "Miss Demeanor");
-            showFound = updateShow(show, sessionIndex, sessionData, "S2");
-
-            show = shows.find((show) => show.title === "Goblins of IO");
-            showFound = updateShow(show, sessionIndex, sessionData, "");
-
-            show = shows.find((show) => show.title === "Arcane Academy");
-            showFound = updateShow(
-                show,
-                sessionIndex,
-                sessionData,
-                "Astral Academy"
-            );
-
-            show = shows.find((show) => show.title === "Phase 2 Major Events");
-            showFound = updateShow(
-                show,
-                sessionIndex,
-                sessionData,
-                "Kaasma Khara Final Battle"
-            );
-        }
-    }
+    //=============================================
+    matchString = "Kaasma Khara Final Battle";
+    showsToAddTo = [
+        { title: "Miss Demeanor", season: "S2" },
+        { title: "Goblins of IO" },
+        { title: "Arcane Academy", season: "Astral Academy" },
+        { title: "Phase 2 Major Events", season: "Kaasma Khara Final Battle" },
+    ];
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
 
     //check for shadow invasion
-    if (showFound !== true) {
-        if (title.includes("The Shadow Invasion")) {
-            let show = shows.find(
-                (show) => show.title === "Phase 2 Major Events"
-            );
-            showFound = updateShow(
-                show,
-                sessionIndex,
-                sessionData,
-                "The Shadow Invasion"
-            );
-
-            show = shows.find((show) => show.title === "Bronn");
-            showFound = updateShow(show, sessionIndex, sessionData, "");
-
-            show = shows.find((show) => show.title === "Goblins of IO");
-            showFound = updateShow(show, sessionIndex, sessionData, "");
-
-            show = shows.find((show) => show.title === "Miss Demeanor");
-            showFound = updateShow(show, sessionIndex, sessionData, "S3");
-        }
-    }
+    //=============================================
+    matchString = "The Shadow Invasion";
+    showsToAddTo = [
+        { title: "Miss Demeanor", season: "S3" },
+        { title: "Goblins of IO" },
+        { title: "Bronn" },
+        { title: "Phase 2 Major Events", season: "The Shadow Invasion" },
+    ];
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
 
     //Check for arcane academy x goblins crossover
-    if (showFound !== true) {
-        if (title.includes("Arcane Academy x Goblins")) {
-            let show = shows.find((show) => show.title === "Arcane Academy");
-            showFound = updateShow(
-                show,
-                sessionIndex,
-                sessionData,
-                "Astral Academy"
-            );
+    //=============================================
+    matchString = "Arcane Academy x Goblins";
+    showsToAddTo = [
+        { title: "Arcane Academy", season: "Astral Academy" },
+        { title: "Goblins of IO" },
+    ];
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
 
-            show = shows.find((show) => show.title === "Goblins of IO");
-            showFound = updateShow(show, sessionIndex, sessionData, "");
-        }
-    }
-
+    //=============================================
     //check for shows
+    //=============================================
     if (showFound !== true) {
         shows.forEach((show) => {
             if (title.toLowerCase().includes(show.title.toLowerCase())) {
@@ -235,14 +241,11 @@ function addToShows(shows, sessionData, sessionIndex) {
     }
 
     //check arcane academy
-    if (showFound !== true) {
-        if (title.includes("Astral Academy")) {
-            let astralAcademy = shows.find(
-                (show) => show.title === "Arcane Academy"
-            );
-            showFound = updateShow(astralAcademy, sessionIndex, sessionData);
-        }
-    }
+    //=============================================
+    matchString = "Astral Academy";
+    showsToAddTo = [{ title: "Arcane Academy", season: "Astral Academy" }];
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
 
     //check all king
     if (showFound !== true) {
@@ -250,32 +253,49 @@ function addToShows(shows, sessionData, sessionIndex) {
         allKingSeasons.some((seasonTitle) => {
             if (title.includes(seasonTitle)) {
                 let allKing = shows.find((show) => show.title === "All King");
-                return updateShow(allKing, sessionIndex, sessionData);
-            } else {
-                return false;
+                showFound = updateShow(allKing, sessionIndex, sessionData);
             }
         });
     }
 
     //check hunters
-    if (showFound !== true) {
-        if (title.includes("Spire of Euclid")) {
-            let astralAcademy = shows.find(
-                (show) => show.title === "Hunters of IO"
-            );
-            showFound = updateShow(astralAcademy, sessionIndex, sessionData);
-        }
-    }
+    //=============================================
+    matchString = "Spire of Euclid";
+    showsToAddTo = [{ title: "Hunters of IO", season: "Spire of Euclid" }];
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
 
     //check asmodia
+    //=============================================
+    matchString = "Shadow of Asmodia";
+    showsToAddTo = [{ title: "Eye of Asmodia", season: "Shadow of Asmodia" }];
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+
+    //everything else
+    //=============================================
     if (showFound !== true) {
-        if (title.includes("Shadow of Asmodia")) {
-            let asmodia = shows.find((show) => show.title === "Eye of Asmodia");
-            showFound = updateShow(asmodia, sessionIndex, sessionData);
-        }
+        let show = shows.find((show) => show.title === "Misc Sessions");
+        showFound = updateShow(show, sessionIndex, sessionData);
     }
 }
 
+/**
+ * The function updates a show's playlist with session data if the session title matches the playlist
+ * regex.
+ * @param show - an object representing a show, which contains information about the show's playlists
+ * and sessions.
+ * @param sessionIndex - The index of the session being updated in the show's list of sessions.
+ * @param sessionData - an object containing information about a session, such as its title,
+ * description, and speakers.
+ * @param [title] - The title of the session data being passed in. If a title is not explicitly
+ * provided as an argument, the function will default to using the title property of the sessionData
+ * object.
+ * @returns a boolean value - `true` if the `playlistIndex` is not equal to -1, indicating that the
+ * `title` matches the `show.playlistRegex` and the session data has been added to the show and
+ * playlist, and `false` if the `playlistIndex` is equal to -1, indicating that the `title` does not
+ * match the `show.playlistRegex`
+ */
 function updateShow(
     show,
     sessionIndex,
@@ -285,9 +305,9 @@ function updateShow(
     const playlistIndex = determinePlaylistIndex(show.playlistRegex, title);
 
     if (playlistIndex !== -1) {
-        addSession(show, sessionData);
+        addSessionDataToShow(show, sessionData);
         const playlist = show.playlists[playlistIndex];
-        addSession(playlist, sessionData);
+        addSessionDataToShow(playlist, sessionData);
         playlist.sessions.push(sessionIndex);
         return true;
     } else {
@@ -295,7 +315,14 @@ function updateShow(
     }
 }
 
-function addSession(show, data) {
+/**
+ * The function adds session data to a show object.
+ * @param show - an object representing a show, with properties such as numberOfEpisodes, duration,
+ * startDate, and endDate.
+ * @param data - The `data` parameter is an object that contains information about a show episode/session,
+ * including its duration and air date.
+ */
+function addSessionDataToShow(show, data) {
     show.numberOfEpisodes++;
     show.duration += data.duration;
 
@@ -305,6 +332,15 @@ function addSession(show, data) {
     show.endDate = data.airDate;
 }
 
+/**
+ * The function determines the index of a given title in a nested array of titles using a
+ * case-insensitive search.
+ * @param array - The array parameter is an array of regular expressions or arrays of regular
+ * expressions.
+ * @param title - The title of a playlist/season that we want to find the index of in the given array.
+ * @returns the index of the first occurrence of the title in the array, or -1 if the title is not
+ * found.
+ */
 function determinePlaylistIndex(array, title) {
     let foundIndex = -1;
 
