@@ -1,8 +1,12 @@
+//====== CSS Styles
 import styles from "./supportSection.module.scss";
 
+//====== Components
+// Shared
 import Section from "components/containers/section";
 import IconPanel from "components/iconPanel";
 
+//====== Data
 import socialData from "data/social";
 
 const SupportSection = (props) => {

@@ -1,23 +1,25 @@
-import react from "react";
-
+//====== CSS Styles
 import styles from "./majorEventsSection.module.scss";
 
+//====== Components
 import Section from "components/containers/section";
 import ImageLink from "components/imageLink";
 import IconBtn from "components/buttons/iconBtn";
 
-// Images
+//====== Data
+// Events
 import firstCrossover from "images/first_crossover.webp";
 import chamberImage from "images/chamber_of_the_eight.webp";
 import kaasma from "images/kaasma_khara.webp";
 import shadowInvasion from "images/shadow_invasion.webp";
 
-// Images
+// Gods
 import hollow from "images/hollow.webp";
 import layton from "images/layton.webp";
 import haio from "images/haio.webp";
 import sachi from "images/sachi.webp";
 
+//====== Main Component
 const MajorEventsSection = (props) => {
     return (
         <Section id={props.id} containerClass={`color-white`}>

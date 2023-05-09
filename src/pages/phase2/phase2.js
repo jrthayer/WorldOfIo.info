@@ -14,36 +14,48 @@ import MajorEventsSection from "./layout/majorEventsSection/majorEventsSection";
 // shared
 import HeroNavBar from "layout/navBar/heroNavBar";
 import Footer from "layout/footer";
-import NavigationBar from "layout/drawerbars/navigationDrawerBar";
-import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
+import DrawerBar from "layout/drawerbars/drawerBar";
 import ScrollingScreen from "components/scrollingScreen";
 
 //====== Data
+// Arrays
+import socialData from "data/social.js";
+
 let navigationData = [
     {
         text: "Top Of Page",
         link: "#hero",
+        type: "circle",
+        samePage: true,
     },
     {
         text: "Stats",
         link: "#aboutIO",
+        type: "circle",
+        samePage: true,
     },
 
     {
         text: "Origin Of IO",
         link: "#originOfIO",
+        type: "circle",
+        samePage: true,
     },
     {
         text: "Major Events",
         link: "#majorEvents",
+        type: "circle",
+        samePage: true,
     },
 ];
 
+// Images
 import backgroundImage from "images/galaxy_2.webp";
 import useSetPrimaryColor from "hooks/useSetPrimaryColor";
 
+//====== Main Component
 const Phase2 = () => {
-    useNavButtonOnStart("#hero");
+    useNavButtonOnStart();
     useSetBackground(backgroundImage);
     useSetPrimaryColor(190, 48, 60);
 
@@ -53,20 +65,23 @@ const Phase2 = () => {
 
     return (
         <Fragment>
+            {/* Navigation */}
             <HeroNavBar />
-            <SocialDrawerBar
-                orientation="left"
+            <DrawerBar
+                title="Social Links"
+                data={socialData}
                 type="transparent"
-            ></SocialDrawerBar>
-            <NavigationBar
-                mediaQuery="(min-width: 1200px) and (min-height: 700px)"
+            ></DrawerBar>
+            <DrawerBar
+                title="Page Sections"
                 data={navigationData}
-                width="320px"
-                margin="50px"
                 orientation="right"
                 type="transparent"
-            ></NavigationBar>
+                width="320px"
+                margin="50px"
+            ></DrawerBar>
 
+            {/* Background */}
             <ScrollingScreen></ScrollingScreen>
 
             {/* Page Sections */}

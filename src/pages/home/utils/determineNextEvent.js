@@ -124,64 +124,61 @@ export default function determineNextEvent(schedule, startDateString) {
     curDay = curDay - 1;
     if (curDay < 0) curDay = 6;
 
-    let foundDay = curDay;
     let dayMinutes = curMins;
+
+    //Next event variables
+    let foundDay = curDay;
     let nextEvent;
     let foundNext = false;
-    let daysChecked = 0;
 
     // set found day to monday if current date is before the week starts
-    // then determine the number of days between now and the start of the schedule week
-    let daysBetween = 0;
-
     if (date < startDate) {
+        //Set curDay to monday
+        curDay = 0;
         foundDay = 0;
-        dayMinutes = -1;
 
-        daysBetween = startDate.getTime() - date.getTime();
-        daysBetween = Math.floor(daysBetween / (1000 * 3600 * 24));
+        // set dayMinutes to -1 since the first show of the next day is guaranteed to be next show
+        dayMinutes = -1;
     }
 
     // find the next event
-    while (foundNext === false) {
-        // current day being checked
-        let events = schedule[foundDay].events;
+    for (let testedDay = curDay; testedDay < 7; testedDay++) {
+        //events of day being checked
+        let events = schedule[testedDay].events;
 
         // events for current day being checked
         for (let x = 0; x < events.length; x++) {
             let event = events[x];
+
             // event found
             if (event.minutes > dayMinutes) {
                 foundNext = true;
                 nextEvent = event;
+                foundDay = testedDay;
                 break;
             }
         }
+        if (foundNext) break;
 
-        // increment to next day in week, do not increment if found
-        if (foundNext === false) {
-            foundDay++;
-            if (foundDay > 6) break;
-        }
-
-        // set curMins to -1 since the first show of the next day is guaranteed to be next show
+        // set dayMinutes to -1 since the first show of the next day is guaranteed to be next show
         dayMinutes = -1;
-        daysChecked++;
-
-        if (daysChecked === 6) {
-            break;
-        }
     }
 
-    // No events were found or end of week reached
-    if (daysChecked === 6 || foundDay > 6) {
-        console.error("event not found or end of week");
+    //No events remaining in week
+    if (foundNext !== true) {
+        console.error("There are no more events this week!");
         return false;
     }
 
-    // POTENTIAL TO BE SECONDARY FUNCTION
     // calculate minutes till the event
-    let minutesTill = daysBetween * 1440;
+    let minutesTill = 0;
+
+    // add minutes for days between now and schedule start date
+    if (date < startDate) {
+        let daysBetween = startDate.getTime() - date.getTime();
+        daysBetween = Math.ceil(daysBetween / (1000 * 3600 * 24));
+        minutesTill += daysBetween * 1440;
+    }
 
     // same day as event
     if (foundDay === curDay) {

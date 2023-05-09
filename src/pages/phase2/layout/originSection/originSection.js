@@ -1,7 +1,10 @@
+//====== CSS Styles
 import styles from "./originSection.module.scss";
 
+//====== Components
 import Section from "components/containers/section";
 
+//====== Main Component
 const OriginSection = (props) => {
     return (
         <Section

@@ -1,5 +1,3 @@
-import { schedule as scheduleRaw } from "data/schedule.js";
-
 function checkEdges(day, minutes) {
     // if minutes is less than zero set day to -1
     if (minutes < 0) {
@@ -74,17 +72,17 @@ function convertToUTC(dayString, hour, minutes, timezone) {
     switch (timezone) {
         case "pst":
             // not daylight
-            timezoneOffset = 480;
+            // timezoneOffset = 480;
 
             // daylight savings
-            // timezoneOffset = 420;
+            timezoneOffset = 420;
             break;
         case "est":
             // not daylight
-            timezoneOffset = 300;
+            // timezoneOffset = 300;
 
             // daylight savings
-            // timezoneOffset = 240;
+            timezoneOffset = 240;
             break;
         default:
             console.error(`ERROR: ${timezone} is not a supported timezone!`);
@@ -113,7 +111,7 @@ function convertToLocal(day, utcMinutes) {
     return { day, minutes };
 }
 
-function convertedSchedule(scheduleArray) {
+export function convertedSchedule(scheduleArray) {
     let convertedSchedule = [
         { day: "Mon", events: [] },
         { day: "Tues", events: [] },
@@ -161,5 +159,3 @@ function convertedSchedule(scheduleArray) {
     // return utc schedule
     return convertedSchedule;
 }
-
-export default convertedSchedule(scheduleRaw);

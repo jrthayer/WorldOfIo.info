@@ -1,9 +1,12 @@
+//====== CSS Styles
 import styles from "./heroSection.module.scss";
 
+//====== Components
 import Section from "components/containers/section";
 import IconBtn from "components/buttons/iconBtn";
 import DynamicLogo from "components/dynamicLogo";
 
+//====== Data
 import logo from "images/IO-Logo.webp";
 
 import links from "data/links";
@@ -11,6 +14,7 @@ import links from "data/links";
 let phase2Intro = links.find((link) => link.text === "Intro Video");
 let phase2Playlist = links.find((link) => link.text === "Playlist");
 
+//====== Main Component
 const HeroSection = (props) => {
     return (
         <Section id={props.id} features="fullscreen" type="transparent">

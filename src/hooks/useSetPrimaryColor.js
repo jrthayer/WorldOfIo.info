@@ -11,23 +11,17 @@ function useSetPrimaryColor(hue, saturation, lightness, ratio = 0.4) {
         let primaryDark = ` hsl(${hue},${saturation}%,${lightness - lightShift}%)`;
 
         document.documentElement.style.setProperty("--color-primary", primary);
-        document.documentElement.style.setProperty(
-            "--color-primary-dark",
-            primaryDark
-        );
-        document.documentElement.style.setProperty(
-            "--color-primary-light",
-            primaryLight
-        );
+        // prettier-ignore
+        document.documentElement.style.setProperty("--color-primary-dark", primaryDark);
+        // prettier-ignore
+        document.documentElement.style.setProperty("--color-primary-light", primaryLight);
 
         return () => {
             document.documentElement.style.removeProperty("--color-primary");
-            document.documentElement.style.removeProperty(
-                "--color-primary-dark"
-            );
-            document.documentElement.style.removeProperty(
-                "--color-primary-light"
-            );
+            // prettier-ignore
+            document.documentElement.style.removeProperty("--color-primary-dark");
+            // prettier-ignore
+            document.documentElement.style.removeProperty("--color-primary-light");
         };
     }, []);
 }
