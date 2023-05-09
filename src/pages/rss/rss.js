@@ -1,17 +1,21 @@
 import React from "react";
 import { useEffect, Fragment } from "react";
 
+//hooks
+import useSetBackground from "hooks/useSetBackground";
+import useSetPrimaryColor from "hooks/useSetPrimaryColor";
+
 //====== Layout Components
 // shared
-import SocialDrawerBar from "layout/drawerbars/socialDrawerBar";
+import DrawerBar from "layout/drawerbars/drawerBar";
 import NavBar from "layout/navBar/navBar";
 import Screen from "components/screen";
 // local
 import FeedFormSection from "./layout/feedFormSection";
 
-//hooks
-import useSetBackground from "hooks/useSetBackground";
-import useSetPrimaryColor from "hooks/useSetPrimaryColor";
+//====== Data
+// arrays
+import socialData from "data/social.js";
 
 //images
 import backgroundImage from "images/ioverse-background.webp";
@@ -29,12 +33,11 @@ function Rss() {
         <Fragment>
             <NavBar />
 
-            <SocialDrawerBar
-                mediaQuery="(min-width: 1200px) and (min-height: 700px)"
-                width="225px"
-                orientation="left"
+            <DrawerBar
+                title="Social Links"
+                data={socialData}
                 type="transparent"
-            ></SocialDrawerBar>
+            ></DrawerBar>
             <Screen />
             <FeedFormSection />
         </Fragment>
