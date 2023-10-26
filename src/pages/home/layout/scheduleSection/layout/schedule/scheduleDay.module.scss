@@ -9,10 +9,12 @@
 
     background-color: var(--color-primary);
     color: var(--color-secondary);
+    text-shadow: var(--color-primary-dark) 1px 1px;
 }
 
 .container:nth-of-type(2n + 1) {
     background-color: var(--color-primary-dark);
+    text-shadow: var(--color-primary-darkest) 1px 1px;
 }
 
 .container:not(:first-of-type) {

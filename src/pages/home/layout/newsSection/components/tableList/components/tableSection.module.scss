@@ -3,10 +3,12 @@
     color: var(--color-secondary);
     background-color: var(--color-primary);
     white-space: pre-wrap;
+    text-shadow: var(--color-primary-dark) 1px 1px;
 }
 
 .section:nth-of-type(2n) {
     background-color: var(--color-primary-dark);
+    text-shadow: var(--color-primary-darkest) 1px 1px;
 }
 
 .section:not(:first-of-type) {
