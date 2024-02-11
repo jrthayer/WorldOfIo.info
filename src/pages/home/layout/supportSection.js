@@ -17,6 +17,22 @@ const SupportSection = (props) => {
             </h2>
             <div className={styles.supportGroup}>
                 <IconPanel
+                    data={socialData.find(
+                        (obj) => obj.text === "Fiendish Forge"
+                    )}
+                    type="book"
+                >
+                    <p>
+                        The second book from IO publishing has begun a call to
+                        action!
+                    </p>
+                    <br />
+                    <p>
+                        A monster-hunting supplement to bring carving and
+                        crafting into your TTRPG World.
+                    </p>
+                </IconPanel>
+                <IconPanel
                     data={socialData.find((obj) => obj.type === "Kickstarter")}
                     type="Kickstarter"
                 >
@@ -49,17 +65,7 @@ const SupportSection = (props) => {
                         <li>Sneak Peaks</li>
                     </ul>
                 </IconPanel>
-                <IconPanel
-                    data={socialData.find((obj) => obj.text === "Merch")}
-                    type="merch"
-                >
-                    <p>Purchase merch of the wholesome Racc himself.</p>
-                    <br />
-                    <p>
-                        Currently the main focus of the merchandise is a dnd
-                        class series that so far includes fighter and wizard.
-                    </p>
-                </IconPanel>
+
                 <IconPanel
                     data={socialData.find((obj) => obj.text === "Twitch")}
                     type="twitch"

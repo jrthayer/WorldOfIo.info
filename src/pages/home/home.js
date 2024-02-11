@@ -70,13 +70,14 @@ const Home = () => {
                 title="Social Links"
                 data={socialData}
                 type="transparent"
+                width="300px"
             ></DrawerBar>
             <DrawerBar
                 title="Page Sections"
                 data={navigationData}
                 orientation="right"
                 type="transparent"
-                width="320px"
+                width="300px"
                 margin="50px"
             ></DrawerBar>
 

@@ -18,6 +18,8 @@ export default function setFontAwesomeClass(type) {
     } else if (type === "merch") {
         iconClasses = "fas fa-shopping-cart fa-2x";
     } else if (type === "wiki") {
+        iconClasses = "fab fa-wikipedia-w fa-2x";
+    } else if (type === "book") {
         iconClasses = "fas fa-book-open fa-2x";
     } else if (type === "circle") {
         iconClasses = "fas fa-dot-circle fa-2x";
@@ -26,6 +28,5 @@ export default function setFontAwesomeClass(type) {
     } else {
         console.error(`invalid icon type was given: ${type}`);
     }
-
     return iconClasses;
 }

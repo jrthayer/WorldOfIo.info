@@ -71,6 +71,7 @@ const Phase2 = () => {
                 title="Social Links"
                 data={socialData}
                 type="transparent"
+                width="300px"
             ></DrawerBar>
             <DrawerBar
                 title="Page Sections"

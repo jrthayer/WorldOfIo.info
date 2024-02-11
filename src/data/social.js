@@ -30,8 +30,9 @@ export default [
         primaryColor: "#ff5700",
     },
     {
-        text: "Merch",
-        link: "https://brettultimus.com/",
+        text: "Fiendish Forge",
+        type: "book",
+        link: "https://www.backerkit.com/call_to_action/bbf0a92b-9c8f-47fd-98a2-4362b206278f/landing",
         primaryColor: "#000",
     },
     {
