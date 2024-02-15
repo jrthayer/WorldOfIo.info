@@ -10,7 +10,7 @@ import iconBarStyles from "./styles/iconBar.module.scss";
 
 //====== Components
 import IconBtn from "components/buttons/iconBtn";
-import Drawer from "layout/drawerbars/drawer/drawer";
+import Drawer from "components/drawerbars/drawer/drawer";
 import HeroAnimation from "layout/components/heroAnimation";
 
 /**
