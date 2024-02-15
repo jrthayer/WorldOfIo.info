@@ -15,13 +15,13 @@ import SupportSection from "./layout/supportSection";
 
 // shared
 import HeroNavBar from "layout/navBar/heroNavBar";
+import SocialDrawerbar from "layout/socialDrawerbar";
 import Footer from "layout/footer";
-import DrawerBar from "layout/drawerbars/drawerBar";
+import DrawerBar from "components/drawerbars/drawerBar";
 import ScrollingScreen from "components/scrollingScreen";
 
 //====== Data
 // arrays
-import socialData from "data/social.js";
 let navigationData = [
     {
         text: "Top Of Page",
@@ -66,17 +66,13 @@ const Home = () => {
         <Fragment>
             {/* Navigation */}
             <HeroNavBar />
-            <DrawerBar
-                title="Social Links"
-                data={socialData}
-                type="transparent"
-            ></DrawerBar>
+            <SocialDrawerbar />
             <DrawerBar
                 title="Page Sections"
                 data={navigationData}
                 orientation="right"
                 type="transparent"
-                width="320px"
+                width="300px"
                 margin="50px"
             ></DrawerBar>
 

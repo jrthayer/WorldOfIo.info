@@ -13,14 +13,13 @@ import MajorEventsSection from "./layout/majorEventsSection/majorEventsSection";
 
 // shared
 import HeroNavBar from "layout/navBar/heroNavBar";
+import SocialDrawerbar from "layout/socialDrawerbar";
 import Footer from "layout/footer";
-import DrawerBar from "layout/drawerbars/drawerBar";
+import DrawerBar from "components/drawerbars/drawerBar";
 import ScrollingScreen from "components/scrollingScreen";
 
 //====== Data
 // Arrays
-import socialData from "data/social.js";
-
 let navigationData = [
     {
         text: "Top Of Page",
@@ -67,11 +66,7 @@ const Phase2 = () => {
         <Fragment>
             {/* Navigation */}
             <HeroNavBar />
-            <DrawerBar
-                title="Social Links"
-                data={socialData}
-                type="transparent"
-            ></DrawerBar>
+            <SocialDrawerbar />
             <DrawerBar
                 title="Page Sections"
                 data={navigationData}
