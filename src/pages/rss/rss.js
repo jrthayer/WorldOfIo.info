@@ -7,7 +7,7 @@ import useSetPrimaryColor from "hooks/useSetPrimaryColor";
 
 //====== Layout Components
 // shared
-import DrawerBar from "layout/drawerbars/drawerBar";
+import SocialDrawerbar from "layout/socialDrawerbar";
 import NavBar from "layout/navBar/navBar";
 import Screen from "components/screen";
 // local
@@ -32,12 +32,7 @@ function Rss() {
     return (
         <Fragment>
             <NavBar />
-
-            <DrawerBar
-                title="Social Links"
-                data={socialData}
-                type="transparent"
-            ></DrawerBar>
+            <SocialDrawerbar />
             <Screen />
             <FeedFormSection />
         </Fragment>
