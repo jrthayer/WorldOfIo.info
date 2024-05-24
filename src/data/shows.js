@@ -15,21 +15,6 @@ export default [
         ],
     },
     {
-        title: "IOverse OSTs",
-        numberOfEpisodes: 0,
-        duration: 0,
-        concluded: true,
-        playlistRegex: [""],
-        playlists: [
-            {
-                numberOfEpisodes: 0,
-                duration: 0,
-                concluded: true,
-                sessions: [],
-            },
-        ],
-    },
-    {
         title: "Podcasts",
         numberOfEpisodes: 0,
         duration: 0,
@@ -226,7 +211,7 @@ export default [
         numberOfEpisodes: 0,
         duration: 0,
         concluded: true,
-        playlistRegex: ["Spire of Euclid", "Hunters of IO"],
+        playlistRegex: ["Spire of Euclid", ""],
         playlists: [
             {
                 title: "Spire of Euclid",
@@ -471,10 +456,34 @@ export default [
         title: "Into The Shadow's Breach",
         numberOfEpisodes: 0,
         duration: 0,
-        concluded: true,
+        concluded: false,
+        playlistRegex: [["Season 2", "S2"], ""],
+        playlists: [
+            {
+                // Season 2
+                numberOfEpisodes: 0,
+                duration: 0,
+                concluded: true,
+                sessions: [],
+            },
+            {
+                // Season 1
+                numberOfEpisodes: 0,
+                duration: 0,
+                concluded: true,
+                sessions: [],
+            },
+        ],
+    },
+    {
+        title: "Dawn of Ganymede",
+        numberOfEpisodes: 0,
+        duration: 0,
+        concluded: false,
         playlistRegex: [""],
         playlists: [
             {
+                // Season 1
                 numberOfEpisodes: 0,
                 duration: 0,
                 concluded: true,

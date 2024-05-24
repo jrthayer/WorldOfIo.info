@@ -14,9 +14,6 @@ import Screen from "components/screen";
 import FeedFormSection from "./layout/feedFormSection";
 
 //====== Data
-// arrays
-import socialData from "data/social.js";
-
 //images
 import backgroundImage from "images/ioverse-background.webp";
 

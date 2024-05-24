@@ -83,7 +83,7 @@ function addSession(showAdded, shows, sessionData, matchTitle, showsToAddTo) {
 
     function findShowAndAdd(shows, sessionData, showToAddTo) {
         //prettier-ignore
-        const show = shows.find((singleShow) => singleShow.title === showToAddTo.title);
+        const show = shows.find((singleShow) => singleShow.title.toLowerCase() === showToAddTo.title.toLowerCase());
         if (showToAddTo.season) {
             return updateShow(show, index, sessionData, showToAddTo.season);
         } else {
@@ -92,7 +92,7 @@ function addSession(showAdded, shows, sessionData, matchTitle, showsToAddTo) {
     }
 
     if (!showAdded) {
-        if (title.includes(matchTitle)) {
+        if (title.toLowerCase().includes(matchTitle.toLowerCase())) {
             if (Array.isArray(showsToAddTo)) {
                 showsToAddTo.forEach((show) => {
                     showAdded = findShowAndAdd(shows, sessionData, show);
@@ -126,105 +126,24 @@ function addToShows(shows, sessionData, sessionIndex) {
     showsToAddTo = { title: "Podcasts" };
     //prettier-ignore
     showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+    if (showFound) return;
 
-    //check for OST
     //=============================================
-    matchString = "IOverse OST";
-    showsToAddTo = { title: "IOverse OSTs" };
-    //prettier-ignore
-    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
-
-    //Add To Phase 2 or Phase 3 master playlist
+    //check for crossovers
     //=============================================
-    if (showFound !== true) {
-        if (sessionIndex < 262) {
-            let show = shows.find((playlist) => playlist.title === "Phase 2");
-            updateShow(show, sessionIndex, sessionData);
-        } else {
-            let show = shows.find((playlist) => playlist.title === "Phase 3");
-            updateShow(show, sessionIndex, sessionData);
-        }
-    }
-
-    //check for deadbeats x pipe dreamers crossover
-    //=============================================
-    matchString = "deadbeats x pipe dreamers";
-    showsToAddTo = [
-        { title: "Deadbeats", season: "Season 2" },
-        { title: "Pipe Dreamers", season: "Season 2" },
-    ];
-    //prettier-ignore
-    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
-
-    //check for curious curious typos
-    //=============================================
-    matchString = "Curious Curious";
-    showsToAddTo = { title: "Curious Curios" };
-    //prettier-ignore
-    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
-
-    //check for March on Faewunder typos
-    //=============================================
-    matchString = "March of Faewunder";
-    showsToAddTo = { title: "March on Faewunder" };
-    //prettier-ignore
-    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
-
-    //check for oswin
-    //=============================================
-    matchString = "Oswin";
-    showsToAddTo = { title: "Goblins of IO" };
-    //prettier-ignore
-    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
-
-    //check for weyzi
-    //=============================================
-    matchString = "Weyzi";
-    showsToAddTo = { title: "Miss Demeanor", season: "S3" };
-    //prettier-ignore
-    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
-
-    //check for chamber
-    //=============================================
-    matchString = "Chamber of the Eight";
-    showsToAddTo = [
-        { title: "Miss Demeanor", season: "S3" },
-        { title: "Goblins of IO" },
-        { title: "Phase 2 Major Events", season: "Chamber of the Eight" },
-    ];
-    //prettier-ignore
-    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
-
-    //check for Kaasma Khara Fight
-    //=============================================
-    matchString = "Kaasma Khara Final Battle";
-    showsToAddTo = [
-        { title: "Miss Demeanor", season: "S2" },
-        { title: "Goblins of IO" },
-        { title: "Arcane Academy", season: "Astral Academy" },
-        { title: "Phase 2 Major Events", season: "Kaasma Khara Final Battle" },
-    ];
-    //prettier-ignore
-    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
-
-    //check for shadow invasion
-    //=============================================
-    matchString = "The Shadow Invasion";
-    showsToAddTo = [
-        { title: "Miss Demeanor", season: "S3" },
-        { title: "Goblins of IO" },
-        { title: "Bronn" },
-        { title: "Phase 2 Major Events", season: "The Shadow Invasion" },
-    ];
-    //prettier-ignore
-    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
-
-    //Check for arcane academy x goblins crossover
-    //=============================================
+    // note: needs to be before the general show check so it doesn't duplicate
     matchString = "Arcane Academy x Goblins";
     showsToAddTo = [
         { title: "Arcane Academy", season: "Astral Academy" },
         { title: "Goblins of IO" },
+    ];
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+
+    matchString = "Deadbeats x Pipe Dreamers";
+    showsToAddTo = [
+        { title: "Deadbeats", season: "Season 2" },
+        { title: "Pipe Dreamers", season: "Season 2" },
     ];
     //prettier-ignore
     showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
@@ -240,7 +159,8 @@ function addToShows(shows, sessionData, sessionIndex) {
         });
     }
 
-    //check arcane academy
+    //=============================================
+    //check for new name seasons
     //=============================================
     matchString = "Astral Academy";
     showsToAddTo = [{ title: "Arcane Academy", season: "Astral Academy" }];
@@ -272,11 +192,90 @@ function addToShows(shows, sessionData, sessionIndex) {
     //prettier-ignore
     showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
 
+    //=============================================
+    //check for special events
+    //=============================================
+    matchString = "Oswin";
+    showsToAddTo = { title: "Goblins of IO" };
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+
+    matchString = "Weyzi";
+    showsToAddTo = { title: "Miss Demeanor", season: "S3" };
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+
+    matchString = "Chamber of the Eight";
+    showsToAddTo = [
+        { title: "Miss Demeanor", season: "S3" },
+        { title: "Goblins of IO" },
+        { title: "Phase 2 Major Events", season: "Chamber of the Eight" },
+    ];
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+
+    matchString = "Kaasma Khara Final Battle";
+    showsToAddTo = [
+        { title: "Miss Demeanor", season: "S2" },
+        { title: "Goblins of IO" },
+        { title: "Arcane Academy", season: "Astral Academy" },
+        { title: "Phase 2 Major Events", season: "Kaasma Khara Final Battle" },
+    ];
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+
+    matchString = "The Shadow Invasion";
+    showsToAddTo = [
+        { title: "Miss Demeanor", season: "S3" },
+        { title: "Goblins of IO" },
+        { title: "Bronn" },
+        { title: "Phase 2 Major Events", season: "The Shadow Invasion" },
+    ];
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+
+    //=============================================
+    //check for typos
+    //=============================================
+    matchString = "Into the Shadows Breach";
+    showsToAddTo = { title: "Into the Shadow's Breach" };
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+
+    matchString = "Dawn of Ganyemde";
+    showsToAddTo = { title: "Dawn of Ganymede" };
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+
+    matchString = "Curious Curious";
+    showsToAddTo = { title: "Curious Curios" };
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+
+    matchString = "March of Faewunder";
+    showsToAddTo = { title: "March on Faewunder" };
+    //prettier-ignore
+    showFound = addSession(showFound, shows, sessionData, matchString, showsToAddTo);
+
+    //=============================================
     //everything else
     //=============================================
     if (showFound !== true) {
         let show = shows.find((show) => show.title === "Misc Sessions");
-        showFound = updateShow(show, sessionIndex, sessionData);
+        updateShow(show, sessionIndex, sessionData);
+        return;
+    }
+
+    //Add To Phase 2 or Phase 3 master playlist
+    //=============================================
+    if (showFound === true) {
+        if (sessionIndex < 262) {
+            let show = shows.find((playlist) => playlist.title === "Phase 2");
+            updateShow(show, sessionIndex, sessionData);
+        } else {
+            let show = shows.find((playlist) => playlist.title === "Phase 3");
+            updateShow(show, sessionIndex, sessionData);
+        }
     }
 }
 

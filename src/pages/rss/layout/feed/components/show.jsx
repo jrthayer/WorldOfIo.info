@@ -49,7 +49,7 @@ function Show(props) {
                     <h4>{`(${determineSubtitle(playlist, index)})`}</h4>
                     <h4>{`Number Of Episodes: ${playlist.numberOfEpisodes}`}</h4>
                     {/* prettier-ignore */}
-                    <h4>{`Total Length: ${Math.ceil(playlist.duration / (1000 * 60 * 60 * 24))} hrs`}</h4>
+                    <h4>{`Total Length: ${Math.floor(playlist.duration/(86345154))} hrs`}</h4>
                     {/* prettier-ignore */}
                     <h4>{`${stripDate(playlist.startDate)} - ${playlist.concluded ? stripDate(playlist.endDate) : "Ongoing"}`}</h4>
                 </div>
