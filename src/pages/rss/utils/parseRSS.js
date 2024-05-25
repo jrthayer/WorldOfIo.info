@@ -1,5 +1,86 @@
-import { default as shows } from "data/shows";
+import { default as showsImportedData } from "data/showsList";
+import { default as showsPlaylistData } from "data/playlists";
 
+console.log(generateShowsMap(showsImportedData, showsPlaylistData));
+
+function generateShowsMap(showsData, playlistData) {
+    let showsMap = new Map();
+
+    showsData.forEach((singleShowData) => {
+        // if concluded isn't defined add and set to true
+        singleShowData.concluded = singleShowData.concluded || true;
+
+        // Add playlist to show if it exists
+        if (playlistData.get(singleShowData.title) !== undefined) {
+            singleShowData.playlist = playlistData.get(singleShowData.title);
+        }
+
+        if (Object.hasOwn(singleShowData, "seasonMatchStrings")) {
+            let seasons = [];
+            singleShowData.seasonMatchStrings.forEach(
+                (season, index, dataArray) => {
+                    let seasonData = {};
+                    if (
+                        typeof season === "string" &&
+                        season.length > 5 &&
+                        !season.toLowerCase().includes("season")
+                    ) {
+                        seasonData.title = season;
+                        if (playlistData.get(season) !== undefined) {
+                            seasonData.playlist = playlistData.get(season);
+                        }
+                    } else {
+                        seasonData.seasonStringMatch = season;
+                    }
+
+                    if (index === dataArray.length - 1) {
+                        seasonData.concluded = singleShowData.concluded;
+                    } else {
+                        seasonData.concluded = true;
+                    }
+
+                    seasons.push(generateSingleShowObject(seasonData));
+                }
+            );
+
+            singleShowData.seasons = seasons;
+        }
+
+        let showObject = generateSingleShowObject(singleShowData);
+        showsMap.set(showObject.title, showObject);
+    });
+
+    return showsMap;
+}
+
+function generateSingleShowObject(showData) {
+    let showObject = {
+        duration: 0,
+        numberOfEpisodes: 0,
+        startDate: new Date(),
+        endDate: new Date(),
+        episodeIndexes: [],
+        ...showData,
+    };
+
+    return showObject;
+}
+
+// const showData = {
+//     title: rawData.title,
+//     airDate: new Date(rawData.created - epochDay),
+//     duration: Number(rawData.enclosures[0].length),
+//     link: rawData.enclosures[0].url,
+//     watchedState: false,
+//     currentShowState: false,
+// };
+
+// =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+// =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+// =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+//OLD RSS CODE
+import { default as shows } from "data/shows";
 /**
  * The function converts an array of episodes/sessions objects, fixes duplicate session names, strips data, adds to
  * shows, and returns the converted array of episodes/sessions and an array of the shows.

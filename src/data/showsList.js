@@ -61,5 +61,6 @@ export default [
     },
     {
         title: "Dawn of Ganymede",
+        concluded: false,
     },
 ];
