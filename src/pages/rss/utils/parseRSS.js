@@ -3,7 +3,102 @@ import { default as showsPlaylistData } from "data/playlists";
 
 console.log(generateShowsMap(showsImportedData, showsPlaylistData));
 
-function generateShowsMap(showsData, playlistData) {
+export function parseRss(rssData, showsContainer) {
+    //Strip data from default rss feed and create a clean dataObject
+    rssData = convertRssData(rssData);
+
+    // Go through each show to see if their title is contained in the session title
+    // if it is add it to the show and the corresponding season
+    // else check if any of the seasons has a title that is contained in the session transitionDelay:
+    //==============
+    //NOTE: This is needed because some show seasons have their own unique name but are just a continuation of the show
+    rssData.forEach((session, index) => {
+        session.index = index;
+        showsContainer.forEach((show) => {
+            let sessionTitle = session.title.toLowerCase();
+            if (sessionTitle.includes(show.title.toLowerCase())) {
+                // add to show
+                addSessionData(show, session);
+                // add to season
+                if (Object.hasOwn(show, "seasons")) {
+                    let seasons = show.seasons;
+                    // Starts from the end of the seasons because season 1 usually has an empty string as
+                    // its matching string and would therefore match every session.
+                    // ========
+                    // js label
+                    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label
+                    seasonLoop: for (let x = seasons.length - 1; x >= 0; x--) {
+                        if (Object.hasOwn(seasons[x], "seasonStringMatch")) {
+                            let season = seasons[x];
+                            let matchingStrings = season.seasonStringMatch;
+                            for (let y = 0; y < matchingStrings.length; y++) {
+                                if (
+                                    sessionTitle.includes(
+                                        matchingStrings[y].toLowerCase()
+                                    )
+                                ) {
+                                    addSessionData(season, session);
+                                    break seasonLoop;
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                if (Object.hasOwn(show, "seasons")) {
+                    let seasons = show.seasons;
+                    seasons.forEach((season) => {
+                        if (Object.hasOwn(season, "title")) {
+                            let seasonTitle = season.title.toLowerCase();
+                            if (sessionTitle.includes(seasonTitle)) {
+                                addSessionData(season, session);
+                                addSessionData(show, session);
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    });
+    console.log(showsContainer);
+    console.log(rssData);
+}
+
+function addSessionData(show, data) {
+    show.numberOfEpisodes++;
+    show.duration += data.duration;
+
+    if (typeof show.startDate === "undefined") {
+        show.startDate = data.airDate;
+    }
+    show.endDate = data.airDate;
+    show.episodeIndexes.push(data.index);
+}
+
+export function convertRssData(rssData) {
+    let duplicateKey = 0;
+    let convertedData = rssData.map((singleSession) => {
+        if (singleSession.title.includes("Curios Season 3 Session 1")) {
+            if (duplicateKey === 1) {
+                singleSession.title = "Curious Curios Season 3 Session 2 MP3";
+            }
+            duplicateKey++;
+        }
+
+        //strip data
+        const singleSessionData = stripData(singleSession);
+
+        //return converted show object
+        return singleSessionData;
+    });
+
+    return convertedData;
+}
+
+// =============================================================
+// Create Data Structure to hold shows
+// =============================================================
+export function generateShowsMap(showsData, playlistData) {
     let showsMap = new Map();
 
     showsData.forEach((singleShowData) => {
@@ -18,19 +113,26 @@ function generateShowsMap(showsData, playlistData) {
         if (Object.hasOwn(singleShowData, "seasonMatchStrings")) {
             let seasons = [];
             singleShowData.seasonMatchStrings.forEach(
-                (season, index, dataArray) => {
+                (seasonString, index, dataArray) => {
                     let seasonData = {};
-                    if (
-                        typeof season === "string" &&
-                        season.length > 5 &&
-                        !season.toLowerCase().includes("season")
-                    ) {
-                        seasonData.title = season;
-                        if (playlistData.get(season) !== undefined) {
-                            seasonData.playlist = playlistData.get(season);
+
+                    // Determine if the season matchingString is a string or an array of strings
+                    if (typeof seasonString === "string") {
+                        // Special case where match string is actually a season title instead of a string subset
+                        if (
+                            seasonString.length > 5 &&
+                            !seasonString.toLowerCase().includes("season")
+                        ) {
+                            seasonData.title = seasonString;
+                            if (playlistData.get(seasonString) !== undefined) {
+                                seasonData.playlist =
+                                    playlistData.get(seasonString);
+                            }
+                        } else {
+                            seasonData.seasonStringMatch = [seasonString];
                         }
                     } else {
-                        seasonData.seasonStringMatch = season;
+                        seasonData.seasonStringMatch = seasonString;
                     }
 
                     if (index === dataArray.length - 1) {
@@ -57,7 +159,6 @@ function generateSingleShowObject(showData) {
     let showObject = {
         duration: 0,
         numberOfEpisodes: 0,
-        startDate: new Date(),
         endDate: new Date(),
         episodeIndexes: [],
         ...showData,
@@ -131,6 +232,7 @@ export function convertArray(rawArray) {
  * calculated by subtracting one day (in milliseconds) from the `created`
  */
 function stripData(rawData) {
+    //Generally the mp3 is uploaded the day AFTER it originally aired
     const epochDay = 24 * 60 * 60 * 1000;
 
     const showData = {
@@ -138,8 +240,6 @@ function stripData(rawData) {
         airDate: new Date(rawData.created - epochDay),
         duration: Number(rawData.enclosures[0].length),
         link: rawData.enclosures[0].url,
-        watchedState: false,
-        currentShowState: false,
     };
 
     return showData;

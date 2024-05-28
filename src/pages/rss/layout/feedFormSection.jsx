@@ -10,6 +10,14 @@ import Section from "components/containers/section";
 import Feed from "./feed/feed";
 import Form from "./form/form";
 
+// RSS Testing
+import { default as showsImportedData } from "data/showsList";
+import { default as showsPlaylistData } from "data/playlists";
+
+import { parseRss, generateShowsMap } from "pages/rss/utils/parseRSS";
+
+// end testing
+
 import { convertArray } from "pages/rss/utils/parseRSS";
 
 function FeedFormSection() {
@@ -59,6 +67,15 @@ function FeedFormSection() {
                 }
 
                 const convertedArrays = convertArray(response.data.items);
+
+                // rss testing
+                let showMap = generateShowsMap(
+                    showsImportedData,
+                    showsPlaylistData
+                );
+                parseRss(response.data.items, showMap);
+
+                // end testing
 
                 setData(convertedArrays[0]);
                 setShowsArray(convertedArrays[1]);
