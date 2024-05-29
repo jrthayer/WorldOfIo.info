@@ -3,7 +3,7 @@ import { default as showsPlaylistData } from "data/playlists";
 
 console.log(generateShowsMap(showsImportedData, showsPlaylistData));
 
-export function parseRss(rssData, showsContainer) {
+export function parseRss(rssData, showsContainer, specialCases) {
     //Strip data from default rss feed and create a clean dataObject
     rssData = convertRssData(rssData);
 
@@ -15,6 +15,12 @@ export function parseRss(rssData, showsContainer) {
     rssData.forEach((sessionData, index) => {
         let sessionAdded = false;
         sessionData.index = index;
+
+        sessionAdded = addSpecialCaseShows(
+            specialCases,
+            showsContainer,
+            sessionData
+        );
 
         if (sessionAdded === false) {
             sessionAdded = addCoreShows(showsContainer, sessionData);
@@ -30,6 +36,31 @@ export function parseRss(rssData, showsContainer) {
     });
     console.log(showsContainer);
     console.log(rssData);
+}
+
+function addSpecialCaseShows(specialCases, showsContainer, sessionData) {
+    for (let x = 0; x < specialCases.length; x++) {
+        let specialCase = specialCases[x];
+        let sessionTitle = sessionData.title.toLowerCase();
+
+        if (sessionTitle.includes(specialCase.title.toLowerCase())) {
+            for (let y = 0; y < specialCase.showsToAddTo.length; y++) {
+                let showAddedTo = specialCase.showsToAddTo[y];
+                let show = showsContainer.get(showAddedTo.title);
+                addSessionData(show, sessionData);
+
+                if (Object.hasOwn(showAddedTo, "seasonNumber")) {
+                    console.log(show.seasons[showAddedTo.seasonNumber]);
+                    addSessionData(
+                        show.seasons[showAddedTo.seasonNumber - 1],
+                        sessionData
+                    );
+                }
+            }
+            return true;
+        }
+    }
+    return false;
 }
 
 function addCoreShows(showsContainer, sessionData) {
@@ -143,7 +174,10 @@ function generateShowObject(showData) {
         for (let x = 0; x < showData.seasonMatchStrings.length; x++) {
             let seasonMatchData = showData.seasonMatchStrings[x];
             // Special case where there is a show inside a show instead of just a subset playlist(season of a show)
-            if (typeof seasonMatchData === "object") {
+            if (
+                typeof seasonMatchData === "object" &&
+                !Array.isArray(seasonMatchData)
+            ) {
                 seasons.push(seasonMatchData);
             } else {
                 let seasonData = {};

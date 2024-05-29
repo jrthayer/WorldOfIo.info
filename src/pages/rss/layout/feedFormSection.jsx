@@ -13,6 +13,7 @@ import Form from "./form/form";
 // RSS Testing
 import { default as showsImportedData } from "data/showsList";
 import { default as showsPlaylistData } from "data/playlists";
+import { default as exceptionsList } from "data/exceptionsList";
 
 import { parseRss, generateShowsMap } from "pages/rss/utils/parseRSS";
 
@@ -73,7 +74,7 @@ function FeedFormSection() {
                     showsImportedData,
                     showsPlaylistData
                 );
-                parseRss(response.data.items, showMap);
+                parseRss(response.data.items, showMap, exceptionsList);
 
                 // end testing
 
