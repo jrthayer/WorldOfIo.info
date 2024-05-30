@@ -4,6 +4,9 @@ import Session from "./components/session";
 import AudioPlayer from "./components/audioPlayer";
 import Show from "./components/show";
 
+// rss testing
+import IconBtn from "components/buttons/iconBtn";
+
 function Feed(props) {
     const shows = props.shows;
     const [data, setData] = useState(props.data);
@@ -53,70 +56,36 @@ function Feed(props) {
         prevPlayedIndex.current = curSessionPlaying;
     }, [curSessionPlaying]);
 
+    function createShowObjects(showsData, data) {
+        let showObjects = [];
+        for (let [key, value] of shows) {
+            showObjects.push(
+                <div style={{ backgroundColor: "black", color: "white" }}>
+                    <h1>{value.title}</h1>
+                    <h3>Number of Episodes: {value.numberOfSessions}</h3>
+                    <h3>
+                        Total Length: {Math.ceil(value.duration / 86345154)} hrs
+                    </h3>
+                    {value.playlist ? (
+                        <IconBtn link={value.playlist}>Playlist</IconBtn>
+                    ) : null}
+
+                    <ol>{createSessionTitles(value.sessionIndexes, data)}</ol>
+                </div>
+            );
+        }
+        return showObjects;
+    }
+
+    function createSessionTitles(sessionIndexes, data) {
+        return sessionIndexes.map((sessionIndex) => {
+            return <li>{data[sessionIndex].title}</li>;
+        });
+    }
+
     return (
         <>
-            {shows && data
-                ? shows.map((show, index) => {
-                      return (
-                          <>
-                              <Show data={show}></Show>
-                              <div
-                                  style={{
-                                      backgroundColor: "rgba(0,0,0,.5)",
-                                      marginTop: "20px",
-                                  }}
-                              >
-                                  {show.playlists.map(
-                                      (playlist, i, playlistArray) => {
-                                          return (
-                                              <div
-                                                  style={{
-                                                      backgroundColor:
-                                                          "rgba(0,0,0,.8)",
-                                                      marginTop: "20px",
-                                                  }}
-                                              >
-                                                  {playlistArray[
-                                                      playlistArray.length -
-                                                          1 -
-                                                          i
-                                                  ].sessions.map((dataIndex) =>
-                                                      useMemo(
-                                                          () => (
-                                                              <Session
-                                                                  key={
-                                                                      data[
-                                                                          dataIndex
-                                                                      ].title
-                                                                  }
-                                                                  index={
-                                                                      dataIndex
-                                                                  }
-                                                                  data={
-                                                                      data[
-                                                                          dataIndex
-                                                                      ]
-                                                                  }
-                                                                  updateAudio={
-                                                                      updateAudioSrc
-                                                                  }
-                                                                  updateSession={
-                                                                      updateSession
-                                                                  }
-                                                              />
-                                                          ),
-                                                          [data[dataIndex]]
-                                                      )
-                                                  )}
-                                              </div>
-                                          );
-                                      }
-                                  )}
-                              </div>
-                          </>
-                      );
-                  })
-                : null}
+            {shows && data ? <>{createShowObjects(shows, data)}</> : null}
 
             {audioSrc ? <AudioPlayer src={audioSrc} /> : null}
         </>
@@ -124,3 +93,61 @@ function Feed(props) {
 }
 
 export default Feed;
+
+// shows.map((show, index) => {
+//       return (
+//           <>
+//               <Show data={show}></Show>
+//               <div
+//                   style={{
+//                       backgroundColor: "rgba(0,0,0,1)",
+//                   }}
+//               >
+//                   {show.playlists.map(
+//                       (playlist, i, playlistArray) => {
+//                           return (
+//                               <div
+//                                   style={{
+//                                       marginTop: "20px",
+//                                   }}
+//                               >
+//                                   {playlistArray[
+//                                       playlistArray.length -
+//                                           1 -
+//                                           i
+//                                   ].sessions.map((dataIndex) =>
+//                                       useMemo(
+//                                           () => (
+//                                               <Session
+//                                                   key={
+//                                                       data[
+//                                                           dataIndex
+//                                                       ].title
+//                                                   }
+//                                                   index={
+//                                                       dataIndex
+//                                                   }
+//                                                   data={
+//                                                       data[
+//                                                           dataIndex
+//                                                       ]
+//                                                   }
+//                                                   updateAudio={
+//                                                       updateAudioSrc
+//                                                   }
+//                                                   updateSession={
+//                                                       updateSession
+//                                                   }
+//                                               />
+//                                           ),
+//                                           [data[dataIndex]]
+//                                       )
+//                                   )}
+//                               </div>
+//                           );
+//                       }
+//                   )}
+//               </div>
+//           </>
+//       );
+//   })

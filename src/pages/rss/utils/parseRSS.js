@@ -1,3 +1,8 @@
+// Potential improvements/current design issues
+// ===========================================
+// 1. Shows title is used as a unique identifier for the show container and the associated playlist.
+//      - currently the title is saved with the casing intact which adds complexity to accessing/manipulating the shows
+
 import { default as showsImportedData } from "data/showsList";
 import { default as showsPlaylistData } from "data/playlists";
 
@@ -5,7 +10,7 @@ console.log(generateShowsMap(showsImportedData, showsPlaylistData));
 
 export function parseRss(rssData, showsContainer, specialCases) {
     //Strip data from default rss feed and create a clean dataObject
-    rssData = convertRssData(rssData);
+    rssData = convertRssData(rssData.reverse());
 
     // Go through each show to see if their title is contained in the session title
     // if it is add it to the show and the corresponding season
@@ -31,11 +36,15 @@ export function parseRss(rssData, showsContainer, specialCases) {
                 } else {
                     addSessionData(showsContainer.get("Phase 3"), sessionData);
                 }
+            } else {
+                addSessionData(showsContainer.get("misc"), sessionData);
             }
         }
     });
     console.log(showsContainer);
     console.log(rssData);
+
+    return [rssData, showsContainer];
 }
 
 function addSpecialCaseShows(specialCases, showsContainer, sessionData) {
@@ -47,14 +56,34 @@ function addSpecialCaseShows(specialCases, showsContainer, sessionData) {
             for (let y = 0; y < specialCase.showsToAddTo.length; y++) {
                 let showAddedTo = specialCase.showsToAddTo[y];
                 let show = showsContainer.get(showAddedTo.title);
+
+                if (Object.hasOwn(showAddedTo, "indexPosition")) {
+                    sessionData.indexPosition = showAddedTo.indexPosition;
+                }
+
                 addSessionData(show, sessionData);
 
-                if (Object.hasOwn(showAddedTo, "seasonNumber")) {
-                    console.log(show.seasons[showAddedTo.seasonNumber]);
+                // add to parent show if it has one
+                if (Object.hasOwn(show, "parentShow")) {
+                    if (Object.hasOwn(showAddedTo, "parentIndexPosition")) {
+                        sessionData.indexPosition =
+                            showAddedTo.parentIndexPosition;
+                    }
+
                     addSessionData(
-                        show.seasons[showAddedTo.seasonNumber - 1],
+                        showsContainer.get(show.parentShow),
                         sessionData
                     );
+                }
+
+                // Exception added for the case were a special event occurs and needs to be added to a specific season
+                if (Object.hasOwn(showAddedTo, "seasonIndex")) {
+                    addSessionData(
+                        show.seasons[showAddedTo.seasonIndex],
+                        sessionData
+                    );
+                } else {
+                    addToSeasons(show, sessionData);
                 }
             }
             return true;
@@ -66,6 +95,7 @@ function addSpecialCaseShows(specialCases, showsContainer, sessionData) {
 function addCoreShows(showsContainer, sessionData) {
     for (let [key, value] of showsContainer) {
         let show = value;
+
         let sessionTitle = sessionData.title.toLowerCase();
         if (sessionTitle.includes(show.title.toLowerCase())) {
             // add to show
@@ -80,48 +110,57 @@ function addCoreShows(showsContainer, sessionData) {
             }
 
             // add to seasons if it has seasons
-            if (Object.hasOwn(show, "seasons")) {
-                let seasons = show.seasons;
-                // Starts from the end of the seasons because season 1 usually has an empty string as
-                // its matching string and would therefore match every session.
-                // ========
-                // Note for generally unused js feature
-                // js label
-                // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label
-                // ===============
-                seasonLoop: for (let x = seasons.length - 1; x >= 0; x--) {
-                    if (Object.hasOwn(seasons[x], "seasonStringMatch")) {
-                        let season = seasons[x];
-                        let matchingStrings = season.seasonStringMatch;
-                        for (let y = 0; y < matchingStrings.length; y++) {
-                            if (
-                                sessionTitle.includes(
-                                    matchingStrings[y].toLowerCase()
-                                )
-                            ) {
-                                addSessionData(season, sessionData);
+            addToSeasons(show, sessionData);
 
-                                break seasonLoop;
-                            }
-                        }
-                    }
-                }
-            }
             return true;
         }
     }
     return false;
 }
 
+function addToSeasons(show, sessionData) {
+    let sessionTitle = sessionData.title.toLowerCase();
+
+    if (Object.hasOwn(show, "seasons")) {
+        let seasons = show.seasons;
+        // Starts from the end of the seasons because season 1 usually has an empty string as
+        // its matching string and would therefore match every session.
+        // ========
+        // Note for generally unused js feature
+        // js label
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label
+        // ===============
+        seasonLoop: for (let x = seasons.length - 1; x >= 0; x--) {
+            if (Object.hasOwn(seasons[x], "seasonStringMatch")) {
+                let season = seasons[x];
+                let matchingStrings = season.seasonStringMatch;
+                for (let y = 0; y < matchingStrings.length; y++) {
+                    if (
+                        sessionTitle.includes(matchingStrings[y].toLowerCase())
+                    ) {
+                        addSessionData(season, sessionData);
+
+                        break seasonLoop;
+                    }
+                }
+            }
+        }
+    }
+}
+
 function addSessionData(show, data) {
-    show.numberOfEpisodes++;
+    show.numberOfSessions++;
     show.duration += data.duration;
 
     if (typeof show.startDate === "undefined") {
         show.startDate = data.airDate;
     }
     show.endDate = data.airDate;
-    show.episodeIndexes.push(data.index);
+    if (Object.hasOwn(data, "indexPosition")) {
+        show.sessionIndexes.splice(data.indexPosition, 0, data.index);
+    } else {
+        show.sessionIndexes.push(data.index);
+    }
 }
 
 export function convertRssData(rssData) {
@@ -210,9 +249,9 @@ function generateShowObject(showData) {
 function generatePlaylistObject(showData) {
     let showObject = {
         duration: 0,
-        numberOfEpisodes: 0,
+        numberOfSessions: 0,
         endDate: new Date(),
-        episodeIndexes: [],
+        sessionIndexes: [],
         ...showData,
     };
 

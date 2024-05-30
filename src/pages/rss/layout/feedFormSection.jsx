@@ -67,14 +67,19 @@ function FeedFormSection() {
                     localStorage.setItem("rss", key);
                 }
 
-                const convertedArrays = convertArray(response.data.items);
+                // const convertedArrays = convertArray(response.data.items);
 
                 // rss testing
                 let showMap = generateShowsMap(
                     showsImportedData,
                     showsPlaylistData
                 );
-                parseRss(response.data.items, showMap, exceptionsList);
+
+                const convertedArrays = parseRss(
+                    response.data.items,
+                    showMap,
+                    exceptionsList
+                );
 
                 // end testing
 
@@ -106,6 +111,7 @@ function FeedFormSection() {
             {data && showsArray ? (
                 <>
                     <button onClick={handleKeyCleared}>Remove RSS</button>
+
                     <Feed data={data} shows={showsArray}></Feed>
                 </>
             ) : (

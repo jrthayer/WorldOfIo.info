@@ -44,7 +44,15 @@ function Show(props) {
         <div>
             <div>
                 <img></img>
-                <div>
+
+                <div
+                    style={{
+                        backgroundColor: "rgba(0,0,0,1)",
+                        color: "rgb(255,255,255)",
+                        marginTop: "20px",
+                        paddingBottom: "40px",
+                    }}
+                >
                     <h2>{playlist.title ?? data.title}</h2>
                     <h4>{`(${determineSubtitle(playlist, index)})`}</h4>
                     <h4>{`Number Of Episodes: ${playlist.numberOfEpisodes}`}</h4>

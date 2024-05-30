@@ -58,9 +58,13 @@ export default [
     {
         title: "Tower of Archimedes",
     },
-    { title: "Hunters of IO", seasonMatchStrings: ["", "Spire of Euclid"] },
+    {
+        title: "Hunters of IO",
+        seasonMatchStrings: ["", { childShow: "Spire of Euclid" }],
+    },
     {
         title: "Spire of Euclid",
+        parentShow: "Hunters of IO",
     },
     { title: "Bronn" },
     { title: "Altered Ballad" },
