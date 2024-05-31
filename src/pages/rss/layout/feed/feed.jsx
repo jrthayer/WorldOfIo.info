@@ -60,18 +60,19 @@ function Feed(props) {
         let showObjects = [];
         for (let [key, value] of shows) {
             showObjects.push(
-                <div style={{ backgroundColor: "black", color: "white" }}>
-                    <h1>{value.title}</h1>
-                    <h3>Number of Episodes: {value.numberOfSessions}</h3>
-                    <h3>
-                        Total Length: {Math.ceil(value.duration / 86345154)} hrs
-                    </h3>
-                    {value.playlist ? (
-                        <IconBtn link={value.playlist}>Playlist</IconBtn>
-                    ) : null}
+                <Show data={value}></Show>
+                // <div style={{ backgroundColor: "black", color: "white" }}>
+                //     <h1>{value.title}</h1>
+                //     <h3>Number of Episodes: {value.numberOfSessions}</h3>
+                //     <h3>
+                //         Total Length: {Math.ceil(value.duration / 86345154)} hrs
+                //     </h3>
+                //     {value.playlist ? (
+                //         <IconBtn link={value.playlist}>Playlist</IconBtn>
+                //     ) : null}
 
-                    <ol>{createSessionTitles(value.sessionIndexes, data)}</ol>
-                </div>
+                //     <ol>{createSessionTitles(value.sessionIndexes, data)}</ol>
+                // </div>
             );
         }
         return showObjects;

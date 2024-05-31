@@ -205,8 +205,9 @@ export function generateShowsMap(showsData, playlistData) {
 
 function generateShowObject(showData) {
     // if concluded isn't defined add and set to true
-    showData.concluded = showData.concluded || true;
-
+    if (!Object.hasOwn(showData, "concluded")) {
+        showData.concluded = true;
+    }
     //  Generate season playlistObjects
     if (Object.hasOwn(showData, "seasonMatchStrings")) {
         let seasons = [];

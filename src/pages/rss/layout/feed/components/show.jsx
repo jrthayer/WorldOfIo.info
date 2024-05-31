@@ -10,35 +10,35 @@ function stripDate(date) {
 
 function Show(props) {
     const [data, setData] = useState(props.data);
-    const [playlist, setPlaylist] = useState(props.data);
-    const [index, setIndex] = useState(-1);
+    // const [playlist, setPlaylist] = useState(props.data);
+    // const [index, setIndex] = useState(-1);
 
-    function updatePlaylist(index) {
-        if (index != -1) {
-            setPlaylist(data.playlists[index]);
-        } else {
-            setPlaylist(data);
-        }
-        setIndex(index);
-    }
+    // function updatePlaylist(index) {
+    //     if (index != -1) {
+    //         setPlaylist(data.playlists[index]);
+    //     } else {
+    //         setPlaylist(data);
+    //     }
+    //     setIndex(index);
+    // }
 
-    function generatePlaylists(data) {
-        let playlist = [];
-        // prettier-ignore
-        playlist.push(<button onClick={() => {updatePlaylist(-1);}}/>);
-        // prettier-ignore
-        return playlist.concat(data.playlists.map((list, index) => <button onClick={() => {updatePlaylist(index);}}/>));
-    }
+    // function generatePlaylists(data) {
+    //     let playlist = [];
+    //     // prettier-ignore
+    //     playlist.push(<button onClick={() => {updatePlaylist(-1);}}/>);
+    //     // prettier-ignore
+    //     return playlist.concat(data.playlists.map((list, index) => <button onClick={() => {updatePlaylist(index);}}/>));
+    // }
 
-    function determineSubtitle(data, index) {
-        if (data.subTitle) return data.subTitle;
+    // function determineSubtitle(data, index) {
+    //     if (data.subTitle) return data.subTitle;
 
-        if (index != -1) {
-            return data.subTitle ?? `Season ${index + 1}`;
-        } else {
-            return "";
-        }
-    }
+    //     if (index != -1) {
+    //         return data.subTitle ?? `Season ${index + 1}`;
+    //     } else {
+    //         return "";
+    //     }
+    // }
 
     return (
         <div>
@@ -53,15 +53,15 @@ function Show(props) {
                         paddingBottom: "40px",
                     }}
                 >
-                    <h2>{playlist.title ?? data.title}</h2>
-                    <h4>{`(${determineSubtitle(playlist, index)})`}</h4>
-                    <h4>{`Number Of Episodes: ${playlist.numberOfEpisodes}`}</h4>
+                    <h2>{data.title}</h2>
+                    {/* <h4>{`(${determineSubtitle(playlist, index)})`}</h4> */}
+                    <h4>{`Number Of Episodes: ${data.numberOfSessions}`}</h4>
                     {/* prettier-ignore */}
-                    <h4>{`Total Length: ${Math.floor(playlist.duration/(86345154))} hrs`}</h4>
+                    <h4>{`Total Length: ${Math.floor(data.duration/(86345154))} hrs`}</h4>
                     {/* prettier-ignore */}
-                    <h4>{`${stripDate(playlist.startDate)} - ${playlist.concluded ? stripDate(playlist.endDate) : "Ongoing"}`}</h4>
+                    <h4>{`${stripDate(data.startDate)} - ${data.concluded ? stripDate(data.endDate) : "Ongoing"}`}</h4>
                 </div>
-                {data.playlists.length > 1 ? generatePlaylists(data) : null}
+                {/* {data.playlists.length > 1 ? generatePlaylists(data) : null} */}
             </div>
         </div>
     );
