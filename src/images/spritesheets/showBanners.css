@@ -1,0 +1,203 @@
+.banner {
+    background-image: url(showBanners.webp);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.banner-all_king {
+    width: 500px;
+    height: 281px;
+    background-position: 0 0;
+}
+
+.banner-arcane_academy {
+    width: 500px;
+    height: 281px;
+    background-position: -500px 0;
+}
+
+.banner-astral_academy {
+    width: 500px;
+    height: 281px;
+    background-position: -1000px 0;
+}
+
+.banner-bronn {
+    width: 500px;
+    height: 281px;
+    background-position: -1500px 0;
+}
+
+.banner-curious_curios {
+    width: 500px;
+    height: 281px;
+    background-position: 0 -281px;
+}
+
+.banner-curious_curios_s2 {
+    width: 500px;
+    height: 281px;
+    background-position: -500px -281px;
+}
+
+.banner-curious_curios_s3 {
+    width: 500px;
+    height: 281px;
+    background-position: -1000px -281px;
+}
+
+.banner-dawn_of_ganymede {
+    width: 500px;
+    height: 281px;
+    background-position: -1500px -281px;
+}
+
+.banner-deadbeats {
+    width: 500px;
+    height: 281px;
+    background-position: 0 -562px;
+}
+
+.banner-deadbeats_s2 {
+    width: 500px;
+    height: 281px;
+    background-position: -500px -562px;
+}
+
+.banner-deadbeats_s3 {
+    width: 500px;
+    height: 281px;
+    background-position: -1000px -562px;
+}
+
+.banner-deadbeats_s4 {
+    width: 500px;
+    height: 281px;
+    background-position: -1500px -562px;
+}
+
+.banner-eye_of_asmodia {
+    width: 500px;
+    height: 281px;
+    background-position: 0 -843px;
+}
+
+.banner-goblins_of_io {
+    width: 500px;
+    height: 281px;
+    background-position: -500px -843px;
+}
+
+.banner-hunters_of_io {
+    width: 500px;
+    height: 281px;
+    background-position: -1000px -843px;
+}
+
+.banner-into_the_shadows_breach {
+    width: 500px;
+    height: 281px;
+    background-position: -1500px -843px;
+}
+
+.banner-into_the_shadows_breach_s2 {
+    width: 500px;
+    height: 281px;
+    background-position: 0 -1124px;
+}
+
+.banner-into_the_shadows_breach_s3 {
+    width: 500px;
+    height: 281px;
+    background-position: -500px -1124px;
+}
+
+.banner-mainframe_of_atlas {
+    width: 500px;
+    height: 281px;
+    background-position: -1000px -1124px;
+}
+
+.banner-march_on_faewunder {
+    width: 500px;
+    height: 281px;
+    background-position: -1500px -1124px;
+}
+
+.banner-miss_demeanor {
+    width: 500px;
+    height: 281px;
+    background-position: 0 -1405px;
+}
+
+.banner-phase_2 {
+    width: 500px;
+    height: 281px;
+    background-position: -500px -1405px;
+}
+
+.banner-phase_3 {
+    width: 500px;
+    height: 281px;
+    background-position: -1000px -1405px;
+}
+
+.banner-pipe_dreamers {
+    width: 500px;
+    height: 281px;
+    background-position: -1500px -1405px;
+}
+
+.banner-pipe_dreamers_s2 {
+    width: 500px;
+    height: 281px;
+    background-position: 0 -1686px;
+}
+
+.banner-pipe_dreamers_s3 {
+    width: 500px;
+    height: 281px;
+    background-position: -500px -1686px;
+}
+
+.banner-radiance {
+    width: 500px;
+    height: 281px;
+    background-position: -1000px -1686px;
+}
+
+.banner-shadow_of_asmodia {
+    width: 500px;
+    height: 281px;
+    background-position: -1500px -1686px;
+}
+
+.banner-spire_of_euclid {
+    width: 500px;
+    height: 281px;
+    background-position: -2000px 0;
+}
+
+.banner-the_altered_ballad {
+    width: 500px;
+    height: 281px;
+    background-position: -2000px -281px;
+}
+
+.banner-the_nova_hellscape {
+    width: 500px;
+    height: 281px;
+    background-position: -2000px -562px;
+}
+
+.banner-tower_of_archimedes {
+    width: 500px;
+    height: 281px;
+    background-position: -2000px -843px;
+}
+
+.banner-under_io {
+    width: 500px;
+    height: 281px;
+    background-position: -2000px -1124px;
+}

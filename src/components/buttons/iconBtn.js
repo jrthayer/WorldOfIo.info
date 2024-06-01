@@ -23,11 +23,13 @@ const IconBtn = (props) => {
             samePage={props.samePage}
             primary={props.primary}
             secondary={props.secondary}
+            padding={props.padding}
         >
             <i
+                style={{ "--padding": props.iconPadding }}
                 className={`${iconClasses} ${styles.icon} ${
                     props.children ? styles.padding : ""
-                }`}
+                } ${props.iconBefore ? "" : styles.iconAfter}`}
             >
                 {props.children}
             </i>
@@ -36,9 +38,9 @@ const IconBtn = (props) => {
 };
 
 IconBtn.defaultProps = {
-    iconClasses: "fab fa-youtube fa-2x",
     type: "youtube",
     size: "2",
+    iconBefore: true,
 };
 
 export default IconBtn;

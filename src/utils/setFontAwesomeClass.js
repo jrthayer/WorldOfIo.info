@@ -25,6 +25,8 @@ export default function setFontAwesomeClass(type) {
         iconClasses = "fas fa-dot-circle fa-2x";
     } else if (type === "kickstarter") {
         iconClasses = "fab fa-kickstarter fa-2x";
+    } else if (type === "mp3") {
+        iconClasses = "fas fa-music fa-2x";
     } else {
         console.error(`invalid icon type was given: ${type}`);
     }

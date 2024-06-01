@@ -8,9 +8,10 @@ const Btn = (props) => {
 
         styleObject["--color-primary"] = props.primary;
         styleObject["--color-secondary"] = props.secondary;
+        styleObject["padding"] = props.padding;
 
         return styleObject;
-    }, [props.primary, props.secondary]);
+    }, [props.primary, props.secondary, props.padding]);
 
     return (
         <a
@@ -28,6 +29,7 @@ const Btn = (props) => {
 Btn.defaultProps = {
     primary: "",
     secondary: "",
+    padding: "",
 };
 
 export default Btn;
