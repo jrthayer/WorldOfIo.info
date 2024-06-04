@@ -66,18 +66,25 @@ function Show({ data }) {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
+                    padding: "10px",
                     paddingTop: "20px",
                     flex: "1",
                 }}
             >
-                <h2>{showData.title}</h2>
-                {showData.subTitle ? <h3>{showData.subTitle}</h3> : null}
+                <h2 style={{ fontSize: "2rem" }}>{showData.title}</h2>
+                <h3 style={{ paddingBottom: "10px" }}>
+                    {showData.subTitle ? showData.subTitle : "\u200b"}
+                </h3>
+
+                <h4>{`${stripDate(showData.startDate)} - ${
+                    showData.concluded ? stripDate(showData.endDate) : "Ongoing"
+                }`}</h4>
                 {/* <h4>{`(${determineSubtitle(playlist, index)})`}</h4> */}
                 <h4>{`Number Of Episodes: ${showData.numberOfSessions}`}</h4>
                 {/* prettier-ignore */}
-                <h4>{`Total Length: ${Math.floor(showData.duration/(86345154))} hrs`}</h4>
+                <h4 style={{ paddingBottom: "20px" }}>{`Total Length: ${Math.floor(showData.duration/(86345154))} hrs`}</h4>
                 {/* prettier-ignore */}
-                <h4>{`${stripDate(showData.startDate)} - ${showData.concluded ? stripDate(showData.endDate) : "Ongoing"}`}</h4>
+
                 <IconBtn
                     link={showData.playlist}
                     primary="white"

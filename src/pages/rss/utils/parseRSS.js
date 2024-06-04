@@ -64,7 +64,6 @@ export function parseRss(rssData, showsContainer, specialCases) {
                     spriteTitle = seriesData.title + ` s${seasonNumber}`;
                 }
 
-                console.log(spriteTitle);
                 season.imageCss = generateSpriteReference(spriteTitle);
                 season.playlist = seriesData.playlist;
             });
@@ -74,8 +73,11 @@ export function parseRss(rssData, showsContainer, specialCases) {
     // copy child data to parent
     for (const [key, value] of showsContainer) {
         let seriesData = value;
+        let numberOfSeasons = 1;
 
         if (Object.hasOwn(seriesData, "seasons")) {
+            numberOfSeasons = seriesData.seasons.length;
+
             seriesData.seasons.forEach((season, index, seasons) => {
                 if (Object.hasOwn(season, "childShow")) {
                     let seasonNumber = index + 1;
@@ -86,11 +88,11 @@ export function parseRss(rssData, showsContainer, specialCases) {
                 }
             });
         }
+
+        seriesData.subTitle = `${numberOfSeasons} Season${
+            numberOfSeasons > 1 ? "s" : ""
+        }`;
     }
-
-    // generate season titles
-    // generate season images links
-
     console.log(showsContainer);
     console.log(rssData);
 
@@ -98,7 +100,6 @@ export function parseRss(rssData, showsContainer, specialCases) {
 }
 
 function generateSpriteReference(title) {
-    console.log(title);
     title = title.toLowerCase();
     title = title.replace(new RegExp("'", "g"), "");
     let underscoreTitle = title

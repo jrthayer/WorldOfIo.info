@@ -14,10 +14,15 @@ function Series(props) {
         }
     }, [currentShowIndex]);
 
-    function changeShow() {
+    function changeShow(increment, numberOfSeasons) {
         setCurrentShowIndex((prevIndex) => {
-            prevIndex++;
-            if (prevIndex >= data.seasons.length) {
+            prevIndex += increment;
+            console.log(prevIndex);
+            if (prevIndex <= -2) {
+                return numberOfSeasons - 1;
+            }
+
+            if (prevIndex >= numberOfSeasons) {
                 return -1;
             } else {
                 return prevIndex;
@@ -26,10 +31,32 @@ function Series(props) {
     }
 
     return (
-        <div>
+        <div style={{ position: "relative" }}>
+            {data.seasons ? (
+                <button
+                    onClick={() => changeShow(-1, data.seasons.length)}
+                    style={{
+                        position: "absolute",
+                        height: "100%",
+                        left: "-23px",
+                    }}
+                >
+                    -
+                </button>
+            ) : null}
             <Show data={showData}></Show>
             {data.seasons ? (
-                <button onClick={changeShow}>Season Changer</button>
+                <button
+                    onClick={() => changeShow(1, data.seasons.length)}
+                    style={{
+                        position: "absolute",
+                        height: "100%",
+                        right: "-23px",
+                        top: "0",
+                    }}
+                >
+                    +
+                </button>
             ) : null}
         </div>
     );
