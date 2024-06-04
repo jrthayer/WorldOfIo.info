@@ -66,6 +66,7 @@ export function parseRss(rssData, showsContainer, specialCases) {
 
                 console.log(spriteTitle);
                 season.imageCss = generateSpriteReference(spriteTitle);
+                season.playlist = seriesData.playlist;
             });
         }
     }

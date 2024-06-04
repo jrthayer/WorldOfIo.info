@@ -89,7 +89,7 @@ export default new Map([
     ],
     [
         "Deadbeats",
-        "https://www.youtube.com/playlist?list=PLjMDIlamRhonelfEQpwdtyrcCflzYzGbv",
+        "https://www.youtube.com/playlist?list=PLjMDIlamRhokw_f_ptzWkhOawBA80c5VP",
     ],
     [
         "Curious Curios",
