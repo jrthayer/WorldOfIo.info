@@ -1,94 +1,77 @@
 import React, { useEffect, useState, useMemo, useRef } from "react";
 
-import Session from "./components/session";
+// import Session from "./components/session";
 import AudioPlayer from "./components/audioPlayer";
-import Show from "./components/show";
-
-// rss testing
-import IconBtn from "components/buttons/iconBtn";
+import Series from "./components/series";
 
 function Feed(props) {
-    const shows = props.shows;
-    const [data, setData] = useState(props.data);
-    const [audioSrc, setAudioSrc] = useState("");
-    const [curSessionPlaying, setCurSessionPlaying] = useState(0);
-    const prevPlayedIndex = useRef(curSessionPlaying);
+    const [shows, setShows] = useState(props.shows);
+    // const [data, setData] = useState(props.data);
+    // const [audioSrc, setAudioSrc] = useState("");
+    // const [curSessionPlaying, setCurSessionPlaying] = useState(0);
+    // const prevPlayedIndex = useRef(curSessionPlaying);
 
-    function updateAudioSrc(src) {
-        setAudioSrc(src);
-    }
+    // function updateAudioSrc(src) {
+    //     setAudioSrc(src);
+    // }
 
-    function updateSession(index) {
-        setData((prevData) => {
-            // set currently playing session
-            const sessionBeingUpdated = {
-                ...prevData[index],
-                watchedState: true,
-                currentShowState: true,
-            };
+    // function updateSession(index) {
+    //     setData((prevData) => {
+    //         // set currently playing session
+    //         const sessionBeingUpdated = {
+    //             ...prevData[index],
+    //             watchedState: true,
+    //             currentShowState: true,
+    //         };
 
-            let updatedData = [
-                ...prevData.slice(0, index),
-                sessionBeingUpdated,
-                ...prevData.slice(index + 1),
-            ];
+    //         let updatedData = [
+    //             ...prevData.slice(0, index),
+    //             sessionBeingUpdated,
+    //             ...prevData.slice(index + 1),
+    //         ];
 
-            // edit previously playing session
-            const prevSessionPlaying = {
-                ...prevData[prevPlayedIndex.current],
-                currentShowState: false,
-            };
+    //         // edit previously playing session
+    //         const prevSessionPlaying = {
+    //             ...prevData[prevPlayedIndex.current],
+    //             currentShowState: false,
+    //         };
 
-            updatedData = [
-                ...updatedData.slice(0, prevPlayedIndex.current),
-                prevSessionPlaying,
-                ...updatedData.slice(prevPlayedIndex.current + 1),
-            ];
+    //         updatedData = [
+    //             ...updatedData.slice(0, prevPlayedIndex.current),
+    //             prevSessionPlaying,
+    //             ...updatedData.slice(prevPlayedIndex.current + 1),
+    //         ];
 
-            return updatedData;
-        });
+    //         return updatedData;
+    //     });
 
-        setCurSessionPlaying(index);
-    }
+    //     setCurSessionPlaying(index);
+    // }
 
-    // Needed to edit the previous played session when a new session is clicked
-    useEffect(() => {
-        prevPlayedIndex.current = curSessionPlaying;
-    }, [curSessionPlaying]);
+    // // Needed to edit the previous played session when a new session is clicked
+    // useEffect(() => {
+    //     prevPlayedIndex.current = curSessionPlaying;
+    // }, [curSessionPlaying]);
 
-    function createShowObjects(showsData, data) {
+    function createShowObjects(showsData) {
         let showObjects = [];
-        for (let [key, value] of shows) {
-            showObjects.push(
-                <Show data={value}></Show>
-                // <div style={{ backgroundColor: "black", color: "white" }}>
-                //     <h1>{value.title}</h1>
-                //     <h3>Number of Episodes: {value.numberOfSessions}</h3>
-                //     <h3>
-                //         Total Length: {Math.ceil(value.duration / 86345154)} hrs
-                //     </h3>
-                //     {value.playlist ? (
-                //         <IconBtn link={value.playlist}>Playlist</IconBtn>
-                //     ) : null}
-
-                //     <ol>{createSessionTitles(value.sessionIndexes, data)}</ol>
-                // </div>
-            );
+        for (let [key, value] of showsData) {
+            showObjects.push(<Series data={value}></Series>);
         }
         return showObjects;
     }
 
-    function createSessionTitles(sessionIndexes, data) {
-        return sessionIndexes.map((sessionIndex) => {
-            return <li>{data[sessionIndex].title}</li>;
-        });
-    }
+    // function createSessionTitles(sessionIndexes, data) {
+    //     return sessionIndexes.map((sessionIndex) => {
+    //         return <li>{data[sessionIndex].title}</li>;
+    //     });
+    // }
 
     return (
         <>
-            {shows && data ? <>{createShowObjects(shows, data)}</> : null}
+            {shows ? <>{createShowObjects(shows)}</> : null}
 
-            {audioSrc ? <AudioPlayer src={audioSrc} /> : null}
+            {/* {audioSrc ? <AudioPlayer src={audioSrc} /> : null} */}
         </>
     );
 }

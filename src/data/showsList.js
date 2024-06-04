@@ -91,7 +91,7 @@ export default [
     {
         title: "Into The Shadow's Breach",
         concluded: false,
-        playlistRegex: ["", ["Season 2", "S2"], "Season 3"],
+        seasonMatchStrings: ["", ["Season 2", "S2"], "Season 3"],
     },
     {
         title: "Dawn of Ganymede",

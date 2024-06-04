@@ -10,17 +10,12 @@ function stripDate(date) {
     return date;
 }
 
-function generateSpriteReference(title) {
-    title = title.toLowerCase();
-    title = title.replace(new RegExp("'", "g"), "");
-    let underscoreTitle = title
-        .split(" ")
-        .reduce((sum, word) => sum + "_" + word);
-    return "banner-" + underscoreTitle;
-}
+function Show({ data }) {
+    const [showData, setShowData] = useState(data);
 
-function Show(props) {
-    const [data, setData] = useState(props.data);
+    useEffect(() => {
+        setShowData(data);
+    }, [data]);
     // const [playlist, setPlaylist] = useState(props.data);
     // const [index, setIndex] = useState(-1);
 
@@ -52,67 +47,60 @@ function Show(props) {
     // }
 
     return (
-        <div>
-            <div>
-                <img></img>
+        <div
+            style={{
+                backgroundColor: "rgba(0,0,0,1)",
+                color: "rgb(255,255,255)",
+                marginTop: "20px",
 
+                display: "flex",
+            }}
+        >
+            <div style={{ flex: "1" }}>
                 <div
-                    style={{
-                        backgroundColor: "rgba(0,0,0,1)",
-                        color: "rgb(255,255,255)",
-                        marginTop: "20px",
-
-                        display: "flex",
-                    }}
-                >
-                    <div style={{ flex: "1" }}>
-                        <div
-                            className={`${
-                                styles[generateSpriteReference(data.title)]
-                            } ${styles.banner}`}
-                        />
-                    </div>
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            paddingTop: "20px",
-                            flex: "1",
-                        }}
-                    >
-                        <h2>{data.title}</h2>
-                        {/* <h4>{`(${determineSubtitle(playlist, index)})`}</h4> */}
-                        <h4>{`Number Of Episodes: ${data.numberOfSessions}`}</h4>
-                        {/* prettier-ignore */}
-                        <h4>{`Total Length: ${Math.floor(data.duration/(86345154))} hrs`}</h4>
-                        {/* prettier-ignore */}
-                        <h4>{`${stripDate(data.startDate)} - ${data.concluded ? stripDate(data.endDate) : "Ongoing"}`}</h4>
-                        <IconBtn
-                            link={data.playlist}
-                            primary="white"
-                            secondary="black"
-                            padding=".5rem 1rem"
-                            iconBefore={false}
-                            iconPadding="0 0 0 .5rem"
-                        >
-                            YouTube Playlist
-                        </IconBtn>
-                        <IconBtn
-                            link={data.playlist}
-                            primary="white"
-                            secondary="black"
-                            padding=".5rem 1rem"
-                            iconBefore={false}
-                            iconPadding="0 0 0 .5rem"
-                            type="mp3"
-                        >
-                            MP3 Playlist
-                        </IconBtn>
-                    </div>
-                </div>
-                {/* {data.playlists.length > 1 ? generatePlaylists(data) : null} */}
+                    className={`${styles[showData.imageCss]} ${styles.banner}`}
+                />
             </div>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    paddingTop: "20px",
+                    flex: "1",
+                }}
+            >
+                <h2>{showData.title}</h2>
+                {showData.subTitle ? <h3>{showData.subTitle}</h3> : null}
+                {/* <h4>{`(${determineSubtitle(playlist, index)})`}</h4> */}
+                <h4>{`Number Of Episodes: ${showData.numberOfSessions}`}</h4>
+                {/* prettier-ignore */}
+                <h4>{`Total Length: ${Math.floor(showData.duration/(86345154))} hrs`}</h4>
+                {/* prettier-ignore */}
+                <h4>{`${stripDate(showData.startDate)} - ${showData.concluded ? stripDate(showData.endDate) : "Ongoing"}`}</h4>
+                <IconBtn
+                    link={showData.playlist}
+                    primary="white"
+                    secondary="black"
+                    padding=".5rem 1rem"
+                    iconBefore={false}
+                    iconPadding="0 0 0 .5rem"
+                >
+                    YouTube Playlist
+                </IconBtn>
+                <IconBtn
+                    link={showData.playlist}
+                    primary="white"
+                    secondary="black"
+                    padding=".5rem 1rem"
+                    iconBefore={false}
+                    iconPadding="0 0 0 .5rem"
+                    type="mp3"
+                >
+                    MP3 Playlist
+                </IconBtn>
+            </div>
+            {/* {data.playlists.length > 1 ? generatePlaylists(data) : null} */}
         </div>
     );
 }
@@ -125,8 +113,6 @@ Show.defaultProps = {
         numberOfEpisodes: 0,
         duration: 0,
         concluded: true,
-        playlistRegex: [],
-        playlists: [],
     },
 };
 

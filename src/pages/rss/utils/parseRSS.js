@@ -41,10 +41,69 @@ export function parseRss(rssData, showsContainer, specialCases) {
             }
         }
     });
+
+    // generate imageCss attribute for all series and their seasons
+    for (const [key, value] of showsContainer) {
+        let seriesData = value;
+        seriesData.imageCss = generateSpriteReference(seriesData.title);
+
+        if (Object.hasOwn(seriesData, "seasons")) {
+            seriesData.seasons.forEach((season, index) => {
+                let seasonNumber = index + 1;
+                season.title = seriesData.title;
+                season.subTitle = `Season ${seasonNumber}`;
+
+                let spriteTitle;
+                if (
+                    seasonNumber === 1 ||
+                    seriesData.title === "Arcane Academy" ||
+                    seriesData.title === "Miss Demeanor"
+                ) {
+                    spriteTitle = seriesData.title;
+                } else {
+                    spriteTitle = seriesData.title + ` s${seasonNumber}`;
+                }
+
+                console.log(spriteTitle);
+                season.imageCss = generateSpriteReference(spriteTitle);
+            });
+        }
+    }
+
+    // copy child data to parent
+    for (const [key, value] of showsContainer) {
+        let seriesData = value;
+
+        if (Object.hasOwn(seriesData, "seasons")) {
+            seriesData.seasons.forEach((season, index, seasons) => {
+                if (Object.hasOwn(season, "childShow")) {
+                    let seasonNumber = index + 1;
+                    seasons[index] = {
+                        ...showsContainer.get(season.childShow),
+                        subTitle: `${seriesData.title} Season ${seasonNumber}`,
+                    };
+                }
+            });
+        }
+    }
+
+    // generate season titles
+    // generate season images links
+
     console.log(showsContainer);
     console.log(rssData);
 
     return [rssData, showsContainer];
+}
+
+function generateSpriteReference(title) {
+    console.log(title);
+    title = title.toLowerCase();
+    title = title.replace(new RegExp("'", "g"), "");
+    let underscoreTitle = title
+        .split(" ")
+        .reduce((sum, word) => sum + "_" + word);
+    return "banner-" + underscoreTitle;
 }
 
 function addSpecialCaseShows(specialCases, showsContainer, sessionData) {

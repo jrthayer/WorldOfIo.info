@@ -112,7 +112,7 @@ function FeedFormSection() {
                 <>
                     <button onClick={handleKeyCleared}>Remove RSS</button>
 
-                    <Feed data={data} shows={showsArray}></Feed>
+                    <Feed shows={showsArray}></Feed>
                 </>
             ) : (
                 <Form
