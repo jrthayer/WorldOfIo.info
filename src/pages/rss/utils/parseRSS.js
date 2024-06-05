@@ -28,13 +28,26 @@ export function parseRss(rssData, showsContainer, specialCases) {
         );
 
         if (sessionAdded === false) {
-            sessionAdded = addCoreShows(showsContainer, sessionData);
+            let addedToCore = addCoreShows(showsContainer, sessionData);
 
-            if (sessionAdded) {
+            if (addedToCore[0]) {
+                let phaseObject;
                 if (index < 262) {
-                    addSessionData(showsContainer.get("Phase 2"), sessionData);
+                    phaseObject = showsContainer.get("Phase 2");
                 } else {
-                    addSessionData(showsContainer.get("Phase 3"), sessionData);
+                    phaseObject = showsContainer.get("Phase 3");
+                }
+
+                addSessionData(phaseObject, sessionData);
+
+                let newSeries = phaseObject.seasons.some((season) => {
+                    return season.childShow === addedToCore[1];
+                });
+
+                if (!newSeries) {
+                    phaseObject.seasons.push({
+                        childShow: addedToCore[1],
+                    });
                 }
             } else {
                 addSessionData(showsContainer.get("misc"), sessionData);
@@ -75,6 +88,11 @@ export function parseRss(rssData, showsContainer, specialCases) {
         let seriesData = value;
         let numberOfSeasons = 1;
 
+        let subTitleText = "Season";
+        if (seriesData.title === "Phase 2" || seriesData.title === "Phase 3") {
+            subTitleText = "Series";
+        }
+
         if (Object.hasOwn(seriesData, "seasons")) {
             numberOfSeasons = seriesData.seasons.length;
 
@@ -83,14 +101,14 @@ export function parseRss(rssData, showsContainer, specialCases) {
                     let seasonNumber = index + 1;
                     seasons[index] = {
                         ...showsContainer.get(season.childShow),
-                        subTitle: `${seriesData.title} Season ${seasonNumber}`,
+                        subTitle: `${seriesData.title} ${subTitleText} ${seasonNumber}`,
                     };
                 }
             });
         }
 
-        seriesData.subTitle = `${numberOfSeasons} Season${
-            numberOfSeasons > 1 ? "s" : ""
+        seriesData.subTitle = `${numberOfSeasons} ${subTitleText}${
+            numberOfSeasons > 1 && subTitleText === "Season" ? "s" : ""
         }`;
     }
     console.log(showsContainer);
@@ -173,10 +191,10 @@ function addCoreShows(showsContainer, sessionData) {
             // add to seasons if it has seasons
             addToSeasons(show, sessionData);
 
-            return true;
+            return [true, show.title];
         }
     }
-    return false;
+    return [false, ""];
 }
 
 function addToSeasons(show, sessionData) {

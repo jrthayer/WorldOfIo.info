@@ -1,7 +1,7 @@
 export default [
     { title: "misc" },
-    { title: "Phase 2" },
-    { title: "Phase 3", concluded: false },
+    { title: "Phase 2", seasons: [] },
+    { title: "Phase 3", concluded: false, seasons: [] },
     {
         title: "Phase 2 Major Events",
         seasonMatchStrings: [
