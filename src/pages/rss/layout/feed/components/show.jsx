@@ -80,9 +80,9 @@ function Show({ data }) {
                     showData.concluded ? stripDate(showData.endDate) : "Ongoing"
                 }`}</h4>
                 {/* <h4>{`(${determineSubtitle(playlist, index)})`}</h4> */}
-                <h4>{`Number Of Episodes: ${showData.numberOfSessions}`}</h4>
+                <h4>{`Number Of Sessions: ${showData.numberOfSessions}`}</h4>
                 {/* prettier-ignore */}
-                <h4 style={{ paddingBottom: "20px" }}>{`Total Length: ${Math.floor(showData.duration/(86345154))} hrs`}</h4>
+                <h5>{``}</h5>
                 {/* prettier-ignore */}
 
                 <IconBtn
