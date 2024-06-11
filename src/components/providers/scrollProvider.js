@@ -1,36 +1,40 @@
-import React from "react";
+import React, { useState, useEffect, createContext, useContext } from "react";
 
 const scrollContext = React.createContext({});
 import { useLocation } from "react-router-dom";
 
 const ScrollProvider = ({ children }) => {
     // This is the exact same logic that we previously had in our hook
-    const [xOffset, setXOffset] = React.useState(
-        document.documentElement.scrollLeft
-    );
-    const [yOffset, setYOffset] = React.useState(
-        document.documentElement.scrollTop
-    );
+    const [xOffset, setXOffset] = useState(document.documentElement.scrollLeft);
+    const [yOffset, setYOffset] = useState(document.documentElement.scrollTop);
 
-    const [scrollHeight, setScrollHeight] = React.useState(
-        document.scrollHeight
-    );
-    const [scrollWidth, setScrollWidth] = React.useState(document.scrollWidth);
+    const [scrollHeight, setScrollHeight] = useState(document.scrollHeight);
+    const [scrollWidth, setScrollWidth] = useState(document.scrollWidth);
 
-    const handleDimension = () => {
+    const debounce = (func, delay) => {
+        let timerId;
+        return function (...args) {
+            if (timerId) {
+                clearTimeout(timerId);
+            }
+            timerId = setTimeout(() => {
+                func.apply(this, args);
+            }, delay);
+        };
+    };
+
+    const handleDimension = debounce(() => {
         setScrollHeight(document.documentElement.scrollHeight);
         setScrollWidth(document.documentElement.scrollWidth);
-    };
+    }, 100);
 
     const handleOffset = () => {
         setXOffset(document.documentElement.scrollLeft);
         setYOffset(document.documentElement.scrollTop);
     };
 
-    let resizeObserver = new ResizeObserver(handleDimension);
-    let location = useLocation();
-
-    React.useEffect(() => {
+    useEffect(() => {
+        let resizeObserver = new ResizeObserver(handleDimension);
         resizeObserver.observe(document.documentElement);
         window.addEventListener("scroll", handleOffset);
 
@@ -39,7 +43,9 @@ const ScrollProvider = ({ children }) => {
         };
     }, []);
 
-    React.useEffect(() => {
+    let location = useLocation();
+
+    useEffect(() => {
         handleDimension();
     }, [location]);
 
@@ -61,7 +67,7 @@ const useScroll = () => {
     /* We can use the "useContext" Hook to acccess a context from within
      another Hook, remember, Hooks are composable! */
     const { xOffset, yOffset, scrollHeight, scrollWidth } =
-        React.useContext(scrollContext);
+        useContext(scrollContext);
     return { xOffset, yOffset, scrollHeight, scrollWidth };
 };
 
