@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import styles from "images/spritesheets/showBanners.module.scss";
+import bannerStyles from "images/spritesheets/showBanners.module.scss";
 import IconBtn from "components/buttons/iconBtn";
+
+import styles from "./show.module.scss";
 
 function stripDate(date) {
     //Date strings stripped from the rss feed were object type by default
@@ -10,7 +12,7 @@ function stripDate(date) {
     return date;
 }
 
-function Show({ data }) {
+function Show({ data, bannerSize }) {
     const [showData, setShowData] = useState(data);
 
     useEffect(() => {
@@ -47,18 +49,17 @@ function Show({ data }) {
     // }
 
     return (
-        <div
-            style={{
-                backgroundColor: "rgba(0,0,0,1)",
-                color: "rgb(255,255,255)",
-                marginTop: "20px",
-
-                display: "flex",
-            }}
-        >
+        <div className={`${styles.container}`}>
             <div style={{ flex: "1" }}>
                 <div
-                    className={`${styles[showData.imageCss]} ${styles.banner}`}
+                    style={
+                        bannerSize
+                            ? { "--sizePercentage": `${bannerSize}` }
+                            : null
+                    }
+                    className={`${bannerStyles[showData.imageCss]} ${
+                        bannerStyles.banner
+                    } ${styles.image}`}
                 />
             </div>
             <div
@@ -71,8 +72,13 @@ function Show({ data }) {
                     flex: "1",
                 }}
             >
-                <h2 style={{ fontSize: "2rem" }}>{showData.title}</h2>
-                <h3 style={{ paddingBottom: "10px" }}>
+                <h2
+                    style={{ fontSize: "2rem", letterSpacing: ".2rem" }}
+                    className={"header-ioverse-gradient"}
+                >
+                    {showData.title}
+                </h2>
+                <h3 style={{ paddingBottom: "20px", letterSpacing: ".15rem" }}>
                     {showData.subTitle ? showData.subTitle : "\u200b"}
                 </h3>
 
@@ -80,7 +86,9 @@ function Show({ data }) {
                     showData.concluded ? stripDate(showData.endDate) : "Ongoing"
                 }`}</h4>
                 {/* <h4>{`(${determineSubtitle(playlist, index)})`}</h4> */}
-                <h4>{`Number Of Sessions: ${showData.numberOfSessions}`}</h4>
+                <h4
+                    style={{ paddingBottom: "20px" }}
+                >{`Number Of Sessions: ${showData.numberOfSessions}`}</h4>
                 {/* prettier-ignore */}
                 <h5>{``}</h5>
                 {/* prettier-ignore */}

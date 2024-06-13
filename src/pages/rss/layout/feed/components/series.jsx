@@ -1,10 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Show from "./show";
+
+import styles from "./series.module.scss";
+
+import useMediaQuery from "hooks/useMediaQuery";
 
 function Series(props) {
     const [data, setData] = useState(props.data);
     const [showData, setShowData] = useState(props.data);
     const [currentShowIndex, setCurrentShowIndex] = useState(-1);
+    const [showBannerPercentage, setShowBannerPercentage] = useState();
+
+    const switchState = useMediaQuery(
+        props.mediaQuery ?? "all and (max-width: 500px)"
+    );
+
+    useEffect(() => {
+        setShowBannerPercentage(() => {
+            if (switchState) {
+                return window.innerWidth / 500;
+            } else {
+                return 1;
+            }
+        });
+    }, []);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setShowBannerPercentage(() => {
+                if (switchState) {
+                    return window.innerWidth / 500;
+                } else {
+                    return 1;
+                }
+            });
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [switchState]);
 
     useEffect(() => {
         if (currentShowIndex === -1) {
@@ -31,32 +68,36 @@ function Series(props) {
     }
 
     return (
-        <div style={{ position: "relative" }}>
+        <div style={{ position: "relative" }} className={`${styles.container}`}>
             {data.seasons ? (
-                <button
-                    onClick={() => changeShow(-1, data.seasons.length)}
-                    style={{
-                        position: "absolute",
-                        height: "100%",
-                        left: "-23px",
+                <div
+                    onClick={(event) => {
+                        event.stopPropagation();
+                        changeShow(1, data.seasons.length);
                     }}
+                    className={`${styles.arrowRootContainer} ${styles.arrowRight}`}
                 >
-                    -
-                </button>
+                    <div className={styles.arrowCenterContainer}>
+                        <img src="image/arrow.png" alt="" />
+                    </div>
+                </div>
             ) : null}
-            <Show data={showData}></Show>
+            <div className={styles.showContainer}>
+                <Show data={showData} bannerSize={showBannerPercentage}></Show>
+            </div>
+
             {data.seasons ? (
-                <button
-                    onClick={() => changeShow(1, data.seasons.length)}
-                    style={{
-                        position: "absolute",
-                        height: "100%",
-                        right: "-23px",
-                        top: "0",
+                <div
+                    onClick={(event) => {
+                        event.stopPropagation();
+                        changeShow(-1, data.seasons.length);
                     }}
+                    className={`${styles.arrowRootContainer} ${styles.arrowLeft}`}
                 >
-                    +
-                </button>
+                    <div className={styles.arrowCenterContainer}>
+                        <img src="image/arrow.png" alt="" />
+                    </div>
+                </div>
             ) : null}
         </div>
     );

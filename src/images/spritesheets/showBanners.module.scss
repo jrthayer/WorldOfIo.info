@@ -1,204 +1,244 @@
 .banner {
     background-image: url(showBanners.webp);
+    background-size: calc(2500px * var(--sizePercentage));
     background-repeat: no-repeat;
     display: block;
     border: 0;
+    --sizePercentage: 1;
+    --spriteWidth: calc(500px * var(--sizePercentage));
+    --spriteHeight: calc(281px * var(--sizePercentage));
+    width: var(--spriteWidth);
+    height: var(--spriteHeight);
 }
 
 .banner-all_king {
-    width: 500px;
-    height: 281px;
-    background-position: 0 0;
+    --xPosition: 0;
+    --yPosition: 0;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-arcane_academy {
-    width: 500px;
-    height: 281px;
-    background-position: -500px 0;
+    --xPosition: 1;
+    --yPosition: 0;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-astral_academy {
-    width: 500px;
-    height: 281px;
-    background-position: -1000px 0;
+    --xPosition: 2;
+    --yPosition: 0;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-bronn {
-    width: 500px;
-    height: 281px;
-    background-position: -1500px 0;
+    --xPosition: 3;
+    --yPosition: 0;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-curious_curios {
-    width: 500px;
-    height: 281px;
-    background-position: 0 -281px;
+    --xPosition: 0;
+    --yPosition: 1;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-curious_curios_s2 {
-    width: 500px;
-    height: 281px;
-    background-position: -500px -281px;
+    --xPosition: 1;
+    --yPosition: 1;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-curious_curios_s3 {
-    width: 500px;
-    height: 281px;
-    background-position: -1000px -281px;
+    --xPosition: 2;
+    --yPosition: 1;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-dawn_of_ganymede {
-    width: 500px;
-    height: 281px;
-    background-position: -1500px -281px;
+    --xPosition: 3;
+    --yPosition: 1;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-deadbeats {
-    width: 500px;
-    height: 281px;
-    background-position: 0 -562px;
+    --xPosition: 0;
+    --yPosition: 2;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-deadbeats_s2 {
-    width: 500px;
-    height: 281px;
-    background-position: -500px -562px;
+    --xPosition: 1;
+    --yPosition: 2;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-deadbeats_s3 {
-    width: 500px;
-    height: 281px;
-    background-position: -1000px -562px;
+    --xPosition: 2;
+    --yPosition: 2;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-deadbeats_s4 {
-    width: 500px;
-    height: 281px;
-    background-position: -1500px -562px;
+    --xPosition: 3;
+    --yPosition: 2;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-eye_of_asmodia {
-    width: 500px;
-    height: 281px;
-    background-position: 0 -843px;
+    --xPosition: 0;
+    --yPosition: 3;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-goblins_of_io {
-    width: 500px;
-    height: 281px;
-    background-position: -500px -843px;
+    --xPosition: 1;
+    --yPosition: 3;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-hunters_of_io {
-    width: 500px;
-    height: 281px;
-    background-position: -1000px -843px;
+    --xPosition: 2;
+    --yPosition: 3;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-into_the_shadows_breach {
-    width: 500px;
-    height: 281px;
-    background-position: -1500px -843px;
+    --xPosition: 3;
+    --yPosition: 3;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-into_the_shadows_breach_s2 {
-    width: 500px;
-    height: 281px;
-    background-position: 0 -1124px;
+    --xPosition: 0;
+    --yPosition: 4;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-into_the_shadows_breach_s3 {
-    width: 500px;
-    height: 281px;
-    background-position: -500px -1124px;
+    --xPosition: 1;
+    --yPosition: 4;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-mainframe_of_atlas {
-    width: 500px;
-    height: 281px;
-    background-position: -1000px -1124px;
+    --xPosition: 2;
+    --yPosition: 4;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-march_on_faewunder {
-    width: 500px;
-    height: 281px;
-    background-position: -1500px -1124px;
+    --xPosition: 3;
+    --yPosition: 4;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-miss_demeanor {
-    width: 500px;
-    height: 281px;
-    background-position: 0 -1405px;
+    --xPosition: 0;
+    --yPosition: 5;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-phase_2 {
-    width: 500px;
-    height: 281px;
-    background-position: -500px -1405px;
+    --xPosition: 1;
+    --yPosition: 5;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-phase_3 {
-    width: 500px;
-    height: 281px;
-    background-position: -1000px -1405px;
+    --xPosition: 2;
+    --yPosition: 5;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-pipe_dreamers {
-    width: 500px;
-    height: 281px;
-    background-position: -1500px -1405px;
+    --xPosition: 3;
+    --yPosition: 5;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-pipe_dreamers_s2 {
-    width: 500px;
-    height: 281px;
-    background-position: 0 -1686px;
+    --xPosition: 0;
+    --yPosition: 6;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-pipe_dreamers_s3 {
-    width: 500px;
-    height: 281px;
-    background-position: -500px -1686px;
+    --xPosition: 1;
+    --yPosition: 6;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-radiance {
-    width: 500px;
-    height: 281px;
-    background-position: -1000px -1686px;
+    --xPosition: 2;
+    --yPosition: 6;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-shadow_of_asmodia {
-    width: 500px;
-    height: 281px;
-    background-position: -1500px -1686px;
+    --xPosition: 3;
+    --yPosition: 6;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-spire_of_euclid {
-    width: 500px;
-    height: 281px;
-    background-position: -2000px 0;
+    --xPosition: 4;
+    --yPosition: 0;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-altered_ballad {
-    width: 500px;
-    height: 281px;
-    background-position: -2000px -281px;
+    --xPosition: 4;
+    --yPosition: 1;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-nova_hellscape {
-    width: 500px;
-    height: 281px;
-    background-position: -2000px -562px;
+    --xPosition: 4;
+    --yPosition: 2;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-tower_of_archimedes {
-    width: 500px;
-    height: 281px;
-    background-position: -2000px -843px;
+    --xPosition: 4;
+    --yPosition: 3;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }
 
 .banner-under_io {
-    width: 500px;
-    height: 281px;
     background-position: -2000px -1124px;
+    --xPosition: 4;
+    --yPosition: 4;
+    background-position: calc(var(--xPosition) * -1 * var(--spriteWidth))
+        calc(var(--yPosition) * -1 * var(--spriteHeight));
 }

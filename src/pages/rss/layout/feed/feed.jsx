@@ -56,7 +56,11 @@ function Feed(props) {
     function createShowObjects(showsData) {
         let showObjects = [];
         for (let [key, value] of showsData) {
-            showObjects.push(<Series data={value}></Series>);
+            if (!Object.hasOwn(value, "parentShow")) {
+                showObjects.push(
+                    <Series data={value} key={value.title}></Series>
+                );
+            }
         }
         return showObjects;
     }

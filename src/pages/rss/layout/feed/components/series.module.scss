@@ -1,0 +1,89 @@
+.container {
+    width: fit-content;
+    margin: 0 auto;
+
+    * {
+        outline: none;
+        -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
+    }
+}
+
+.showContainer {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+    div:first-of-type {
+        --sizePercentage: calc(100vw / 2);
+    }
+}
+
+.arrowRootContainer {
+    position: absolute;
+    width: fit-content;
+    height: 100%;
+    top: 0;
+    cursor: pointer;
+}
+
+.arrowCenterContainer {
+    height: 100%;
+    transform: translate(0%, 50%);
+}
+
+.arrowLeft {
+    left: 0;
+    transform: translate(-100%, 0px);
+    padding-right: 20px;
+
+    img {
+        transform: rotate(180deg) translate(0, 50%);
+    }
+}
+
+.arrowRight {
+    right: 0;
+    transform: translate(100%, 0px);
+    padding-left: 20px;
+
+    img {
+        transform: translate(0, -50%);
+    }
+}
+
+@media all and (min-width: 600px) {
+    .showContainer {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .container {
+        width: calc(100% - 75px * 2);
+    }
+
+    .arrowRootContainer {
+        img {
+            height: 70%;
+        }
+    }
+}
+
+.arrow {
+    position: relative;
+    width: 60px; /* width of the arrow */
+    height: 40px; /* height of the arrow */
+}
+
+.arrow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 30px 0 30px 60px; /* Adjust as needed */
+    border-color: transparent transparent transparent white; /* Adjust color as needed */
+}
