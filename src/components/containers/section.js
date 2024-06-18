@@ -18,6 +18,8 @@ const Section = ({ type, style, id, children, features, containerClass }) => {
     if (features.includes("fullscreen"))featureClasses += " " + styles.fullscreen;
     // prettier-ignore
     if (features.includes("center-vertically"))featureClasses += " "+styles["center-vertically"];
+    // prettier-ignore
+    if (features.includes("no-margin"))featureClasses += " " +styles["no-margin"];
 
     return (
         <section

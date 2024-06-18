@@ -106,7 +106,7 @@ function FeedFormSection() {
     };
 
     return (
-        <Section features="fullscreen">
+        <Section features="fullscreen no-margin">
             <h1 className="header-ioverse-gradient fs-700">Ioverse MP3s</h1>
             {data && showsArray ? (
                 <>

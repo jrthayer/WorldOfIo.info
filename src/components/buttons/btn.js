@@ -9,6 +9,7 @@ const Btn = (props) => {
         styleObject["--color-primary"] = props.primary;
         styleObject["--color-secondary"] = props.secondary;
         styleObject["padding"] = props.padding;
+        styleObject["margin"] = props.margin;
 
         return styleObject;
     }, [props.primary, props.secondary, props.padding]);

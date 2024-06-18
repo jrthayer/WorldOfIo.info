@@ -1,9 +1,40 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import Show from "./show";
 
 import styles from "./series.module.scss";
 
 import useMediaQuery from "hooks/useMediaQuery";
+
+// This works but not sure if it really makes the file easier to read
+function Arrow({ clickFunction, numberOfSeasons, direction, image }) {
+    function capitalizeFirstLetter(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    direction = capitalizeFirstLetter(direction);
+    const increment = direction === "Right" ? 1 : -1;
+
+    const handleClick = (event) => {
+        event.stopPropagation();
+        clickFunction(increment, numberOfSeasons);
+    };
+
+    let cssStyles = `${styles[`cssArrow${direction}`]}`;
+    // prettier-ignore
+    if (image) {
+        cssStyles = `${styles.arrowRootContainer} ${styles[`arrow${direction}`]}`;
+    }
+
+    return (
+        <div onClick={handleClick} className={cssStyles}>
+            {image ? (
+                <div className={styles.arrowCenterContainer}>
+                    <img src="image/arrow.png" alt="" />
+                </div>
+            ) : null}
+        </div>
+    );
+}
 
 function Series(props) {
     const [data, setData] = useState(props.data);
@@ -12,36 +43,28 @@ function Series(props) {
     const [showBannerPercentage, setShowBannerPercentage] = useState();
 
     const switchState = useMediaQuery(
-        props.mediaQuery ?? "all and (max-width: 500px)"
+        props.mediaQuery ?? "all and (max-width: 700px)"
     );
-
-    useEffect(() => {
-        setShowBannerPercentage(() => {
-            if (switchState) {
-                return window.innerWidth / 500;
-            } else {
-                return 1;
-            }
-        });
-    }, []);
 
     useEffect(() => {
         const handleResize = () => {
             setShowBannerPercentage(() => {
-                if (switchState) {
-                    return window.innerWidth / 500;
-                } else {
-                    return 1;
+                let currentPercentage = window.innerWidth / 500;
+                if (currentPercentage > 1) {
+                    currentPercentage = 1;
                 }
+                return currentPercentage;
             });
         };
+
+        handleResize();
 
         window.addEventListener("resize", handleResize);
 
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, [switchState]);
+    }, []);
 
     useEffect(() => {
         if (currentShowIndex === -1) {
@@ -54,7 +77,6 @@ function Series(props) {
     function changeShow(increment, numberOfSeasons) {
         setCurrentShowIndex((prevIndex) => {
             prevIndex += increment;
-            console.log(prevIndex);
             if (prevIndex <= -2) {
                 return numberOfSeasons - 1;
             }
@@ -69,35 +91,43 @@ function Series(props) {
 
     return (
         <div style={{ position: "relative" }} className={`${styles.container}`}>
-            {data.seasons ? (
-                <div
-                    onClick={(event) => {
-                        event.stopPropagation();
-                        changeShow(1, data.seasons.length);
-                    }}
-                    className={`${styles.arrowRootContainer} ${styles.arrowRight}`}
-                >
-                    <div className={styles.arrowCenterContainer}>
-                        <img src="image/arrow.png" alt="" />
-                    </div>
-                </div>
+            {data.seasons && !switchState ? (
+                <Arrow
+                    clickFunction={changeShow}
+                    direction={"right"}
+                    numberOfSeasons={data.seasons.length}
+                    image
+                ></Arrow>
             ) : null}
             <div className={styles.showContainer}>
-                <Show data={showData} bannerSize={showBannerPercentage}></Show>
+                <Show
+                    data={showData}
+                    bannerSize={showBannerPercentage}
+                    seasons={switchState}
+                ></Show>
+                {data.seasons && switchState ? (
+                    <div className={styles.cssArrowContainer}>
+                        <Arrow
+                            clickFunction={changeShow}
+                            direction={"left"}
+                            numberOfSeasons={data.seasons.length}
+                        ></Arrow>
+                        <Arrow
+                            clickFunction={changeShow}
+                            direction={"right"}
+                            numberOfSeasons={data.seasons.length}
+                        ></Arrow>
+                    </div>
+                ) : null}
             </div>
 
-            {data.seasons ? (
-                <div
-                    onClick={(event) => {
-                        event.stopPropagation();
-                        changeShow(-1, data.seasons.length);
-                    }}
-                    className={`${styles.arrowRootContainer} ${styles.arrowLeft}`}
-                >
-                    <div className={styles.arrowCenterContainer}>
-                        <img src="image/arrow.png" alt="" />
-                    </div>
-                </div>
+            {data.seasons && !switchState ? (
+                <Arrow
+                    clickFunction={changeShow}
+                    direction={"left"}
+                    numberOfSeasons={data.seasons.length}
+                    image
+                ></Arrow>
             ) : null}
         </div>
     );

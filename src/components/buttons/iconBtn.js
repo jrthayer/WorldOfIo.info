@@ -24,6 +24,7 @@ const IconBtn = (props) => {
             primary={props.primary}
             secondary={props.secondary}
             padding={props.padding}
+            margin={props.margin}
         >
             <i
                 style={{ "--padding": props.iconPadding }}
