@@ -27,8 +27,7 @@ export default [
         seasonMatchStrings: [
             "",
             "S2",
-            ["S3", "Season 3", "Campaign Finale"],
-            ["Nigel", "Altered"],
+            ["S3", "Season 3", "Campaign Finale", "Nigel", "Altered"],
         ],
     },
     {
@@ -95,6 +94,5 @@ export default [
     },
     {
         title: "Dawn of Ganymede",
-        concluded: false,
     },
 ];

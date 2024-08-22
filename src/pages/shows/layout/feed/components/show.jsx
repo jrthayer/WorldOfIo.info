@@ -13,41 +13,6 @@ function stripDate(date) {
 }
 
 function Show({ data, bannerSize }) {
-    const [showData, setShowData] = useState(data);
-
-    useEffect(() => {
-        setShowData(data);
-    }, [data]);
-    // const [playlist, setPlaylist] = useState(props.data);
-    // const [index, setIndex] = useState(-1);
-
-    // function updatePlaylist(index) {
-    //     if (index != -1) {
-    //         setPlaylist(data.playlists[index]);
-    //     } else {
-    //         setPlaylist(data);
-    //     }
-    //     setIndex(index);
-    // }
-
-    // function generatePlaylists(data) {
-    //     let playlist = [];
-    //     // prettier-ignore
-    //     playlist.push(<button onClick={() => {updatePlaylist(-1);}}/>);
-    //     // prettier-ignore
-    //     return playlist.concat(data.playlists.map((list, index) => <button onClick={() => {updatePlaylist(index);}}/>));
-    // }
-
-    // function determineSubtitle(data, index) {
-    //     if (data.subTitle) return data.subTitle;
-
-    //     if (index != -1) {
-    //         return data.subTitle ?? `Season ${index + 1}`;
-    //     } else {
-    //         return "";
-    //     }
-    // }
-
     return (
         <div className={`${styles.container}`}>
             <div style={{ flex: "1" }}>
@@ -57,7 +22,7 @@ function Show({ data, bannerSize }) {
                             ? { "--sizePercentage": `${bannerSize}` }
                             : null
                     }
-                    className={`${bannerStyles[showData.imageCss]} ${
+                    className={`${bannerStyles[data.imageCss]} ${
                         bannerStyles.banner
                     } ${styles.image}`}
                 />
@@ -68,7 +33,7 @@ function Show({ data, bannerSize }) {
                         style={{ fontSize: "2rem", letterSpacing: ".2rem" }}
                         className={"header-ioverse-gradient"}
                     >
-                        {showData.title}
+                        {data.title}
                     </h2>
                     <h3
                         style={{
@@ -76,42 +41,29 @@ function Show({ data, bannerSize }) {
                             letterSpacing: ".15rem",
                         }}
                     >
-                        {showData.subTitle ? showData.subTitle : "\u200b"}
+                        {data.subTitle ? data.subTitle : "\u200b"}
                     </h3>
                 </div>
 
                 <div>
-                    {/* <div
-                        onClick={(event) => {
-                            event.stopPropagation();
-                            changeShow(1, data.seasons.length);
-                        }}
-                        className={`${styles.arrowRootContainer} ${styles.arrowLeft}`}
-                    >
-                        <div className={styles.arrowCenterContainer}>
-                            <img src="image/arrow.png" alt="" />
-                        </div>
-                    </div> */}
                     <div
                         style={{
                             textAlign: "-webkit-center",
                         }}
                     >
-                        <h4>{`${stripDate(showData.startDate)} - ${
-                            showData.concluded
-                                ? stripDate(showData.endDate)
-                                : "Ongoing"
+                        <h4>{`${stripDate(data.startDate)} - ${
+                            data.concluded ? stripDate(data.endDate) : "Ongoing"
                         }`}</h4>
-                        {/* <h4>{`(${determineSubtitle(playlist, index)})`}</h4> */}
+
                         <h4
                             style={{ paddingBottom: "20px" }}
-                        >{`Number Of Sessions: ${showData.numberOfSessions}`}</h4>
+                        >{`Number Of Sessions: ${data.numberOfSessions}`}</h4>
                         {/* prettier-ignore */}
                         <h5>{``}</h5>
                         {/* prettier-ignore */}
 
                         <IconBtn
-                            link={showData.playlist}
+                            link={data.playlist}
                             primary="white"
                             secondary="black"
                             padding=".5rem 1rem"
@@ -121,7 +73,7 @@ function Show({ data, bannerSize }) {
                             YouTube Playlist
                         </IconBtn>
                         <IconBtn
-                            link={showData.playlist}
+                            link={data.playlist}
                             primary="white"
                             secondary="black"
                             padding=".5rem 1rem"
@@ -133,20 +85,8 @@ function Show({ data, bannerSize }) {
                             MP3 Playlist
                         </IconBtn>
                     </div>
-                    {/* <div
-                        onClick={(event) => {
-                            event.stopPropagation();
-                            changeShow(1, data.seasons.length);
-                        }}
-                        className={`${styles.arrowRootContainer} ${styles.arrowRight}`}
-                    >
-                        <div className={styles.arrowCenterContainer}>
-                            <img src="image/arrow.png" alt="" />
-                        </div>
-                    </div> */}
                 </div>
             </div>
-            {/* {data.playlists.length > 1 ? generatePlaylists(data) : null} */}
         </div>
     );
 }

@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 
 import Home from "pages/home/home";
 import Phase2 from "pages/phase2/phase2";
-import Rss from "pages/rss/rss";
+import Shows from "pages/shows/shows";
 
 import "./styles/main.scss";
 
@@ -43,7 +43,11 @@ function App() {
                                     exact
                                     element={<Phase2 />}
                                 />
-                                <Route path="/rss" exact element={<Rss />} />
+                                <Route
+                                    path="/shows"
+                                    exact
+                                    element={<Shows />}
+                                />
                                 <Route path="*" element={<div>404!</div>} />
                             </Routes>
                         </ScrollToTop>

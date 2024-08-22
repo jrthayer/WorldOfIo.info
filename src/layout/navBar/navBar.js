@@ -50,8 +50,8 @@ const NavBar = (props) => {
                     </li>
 
                     <li className={styles.link}>
-                        <NavLink to="/rss" className={isActive}>
-                            MP3s
+                        <NavLink to="/shows" className={isActive}>
+                            Shows
                         </NavLink>
                     </li>
                 </ul>

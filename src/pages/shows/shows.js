@@ -17,13 +17,13 @@ import FeedFormSection from "./layout/feedFormSection";
 //images
 import backgroundImage from "images/ioverse-background.webp";
 
-function Rss() {
+function Shows() {
     useSetBackground(backgroundImage);
     useSetPrimaryColor(190, 48, 60);
 
     //Set tab title
     useEffect(() => {
-        document.title = "MP3s";
+        document.title = "Shows";
     }, []);
 
     return (
@@ -36,4 +36,4 @@ function Rss() {
     );
 }
 
-export default Rss;
+export default Shows;

@@ -14,12 +14,10 @@ import Form from "./form/form";
 import { default as showsImportedData } from "data/showsList";
 import { default as showsPlaylistData } from "data/playlists";
 import { default as exceptionsList } from "data/exceptionsList";
+import { parseRss, generateShowsMap } from "pages/shows/utils/parseRSS";
 
-import { parseRss, generateShowsMap } from "pages/rss/utils/parseRSS";
-
+console.log("showsImportedData:", showsImportedData);
 // end testing
-
-import { convertArray } from "pages/rss/utils/parseRSS";
 
 function FeedFormSection() {
     //Key States
@@ -67,13 +65,13 @@ function FeedFormSection() {
                     localStorage.setItem("rss", key);
                 }
 
-                // const convertedArrays = convertArray(response.data.items);
-
                 // rss testing
                 let showMap = generateShowsMap(
                     showsImportedData,
                     showsPlaylistData
                 );
+
+                console.log(showMap);
 
                 const convertedArrays = parseRss(
                     response.data.items,
@@ -107,7 +105,7 @@ function FeedFormSection() {
 
     return (
         <Section features="fullscreen no-margin">
-            <h1 className="header-ioverse-gradient fs-700">Ioverse MP3s</h1>
+            <h1 className="header-ioverse-gradient fs-700">Ioverse Shows</h1>
             {data && showsArray ? (
                 <>
                     <button onClick={handleKeyCleared}>Remove RSS</button>

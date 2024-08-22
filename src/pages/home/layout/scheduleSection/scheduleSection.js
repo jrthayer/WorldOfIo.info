@@ -19,10 +19,10 @@ const ScheduleSection = () => {
     const [schedule, setSchedule] = useState(null);
     const [header, setHeader] = useState(null);
 
+    const scheduleUrl = process.env.REACT_APP_SCHEDULE_DATA_URL;
+
     useEffect(() => {
-        axios(
-            "https://raw.githubusercontent.com/jrthayer/WorldOfIo.info-data/main/schedule.json"
-        )
+        axios(scheduleUrl)
             .then((response) => {
                 let rawSchedule = convertedSchedule(response.data.schedule);
                 setSchedule(rawSchedule);

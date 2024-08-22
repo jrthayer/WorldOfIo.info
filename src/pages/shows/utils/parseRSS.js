@@ -3,11 +3,6 @@
 // 1. Shows title is used as a unique identifier for the show container and the associated playlist.
 //      - currently the title is saved with the casing intact which adds complexity to accessing/manipulating the shows
 
-import { default as showsImportedData } from "data/showsList";
-import { default as showsPlaylistData } from "data/playlists";
-
-console.log(generateShowsMap(showsImportedData, showsPlaylistData));
-
 export function parseRss(rssData, showsContainer, specialCases) {
     //Strip data from default rss feed and create a clean dataObject
     rssData = convertRssData(rssData.reverse());
@@ -267,7 +262,8 @@ export function convertRssData(rssData) {
 export function generateShowsMap(showsData, playlistData) {
     let showsMap = new Map();
 
-    showsData.forEach((singleShowData) => {
+    showsData.forEach((data) => {
+        let singleShowData = { ...data };
         // Add playlist to show if it exists
         if (playlistData.get(singleShowData.title) !== undefined) {
             singleShowData.playlist = playlistData.get(singleShowData.title);
