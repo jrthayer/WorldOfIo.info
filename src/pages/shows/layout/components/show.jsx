@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import bannerStyles from "images/spritesheets/showBanners.module.scss";
 import IconBtn from "components/buttons/iconBtn";
 
@@ -71,18 +71,6 @@ function Show({ data, bannerSize }) {
                             iconPadding="0 0 0 .5rem"
                         >
                             YouTube Playlist
-                        </IconBtn>
-                        <IconBtn
-                            link={data.playlist}
-                            primary="white"
-                            secondary="black"
-                            padding=".5rem 1rem"
-                            iconBefore={false}
-                            iconPadding="0 0 0 .5rem"
-                            type="mp3"
-                            margin=".5rem"
-                        >
-                            MP3 Playlist
                         </IconBtn>
                     </div>
                 </div>

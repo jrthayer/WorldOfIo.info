@@ -11,7 +11,7 @@ import SocialDrawerbar from "layout/socialDrawerbar";
 import NavBar from "layout/navBar/navBar";
 import Screen from "components/screen";
 // local
-import FeedFormSection from "./layout/feedFormSection";
+import ShowsSection from "./layout/showsSection";
 
 //====== Data
 //images
@@ -31,7 +31,7 @@ function Shows() {
             <NavBar />
             <SocialDrawerbar />
             <Screen />
-            <FeedFormSection />
+            <ShowsSection />
         </Fragment>
     );
 }
