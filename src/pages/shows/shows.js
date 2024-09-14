@@ -10,6 +10,8 @@ import useSetPrimaryColor from "hooks/useSetPrimaryColor";
 import SocialDrawerbar from "layout/socialDrawerbar";
 import NavBar from "layout/navBar/navBar";
 import Screen from "components/screen";
+import Footer from "layout/footer";
+
 // local
 import ShowsSection from "./layout/showsSection";
 
@@ -32,6 +34,7 @@ function Shows() {
             <SocialDrawerbar />
             <Screen />
             <ShowsSection />
+            <Footer id="footer"></Footer>
         </Fragment>
     );
 }
